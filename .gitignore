@@ -1,0 +1,8 @@
+# angular
+dist/
+
+# macos
+.DS_Store
+
+# nodejs
+node_modules/
