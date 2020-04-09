@@ -1,16 +1,28 @@
+env:
+  WORKING_DIRECTORY: angular
+
 jobs:
   build:
-    name: build_job
+    name: build_angular
     runs-on: ubuntu-18.04
     steps:
-      - name: build_script
-        run: echo 'build script'
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: npm_install
+        run: npm clean-install
+      - name: npm_build
+        run: npm run build
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
   test:
-    name: test_job
+    name: test_angular
+    needs: build
     runs-on: ubuntu-18.04
     steps:
-      - name: test_script
-        run: echo 'test script'
+      - name: npm_test
+        run: npm run test
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
   analyze:
     name: analyze_job
     needs: [build, test]
@@ -18,6 +30,7 @@ jobs:
     steps:
       - name: analyze_script
         run: echo 'analyze script'
+
   pack:
     name: pack_job
     needs: [analyze]
