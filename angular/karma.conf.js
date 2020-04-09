@@ -23,6 +23,7 @@ module.exports = function (config) {
     junitReporter: {
       outputDir: 'test_result/rvtr-app-campsite',
       outputFile: 'junit-result.xml',
+      xmlVersion: '1',
     },
     reporters: ['junit', 'progress'],
     port: 9876,
