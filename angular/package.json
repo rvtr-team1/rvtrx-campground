@@ -2,12 +2,11 @@
   "name": "rvtr-app-campsite",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "e2e": "ng e2e",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "ng serve",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

@@ -1,6 +1,6 @@
-process.env.CHROMIUM_BIN = process.env.CHROMIUM_BIN || require('puppeteer').executablePath();
-
 module.exports = function (config) {
+  process.env.CHROMIUM_BIN = process.env.CHROMIUM_BIN || require('puppeteer').executablePath();
+
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -17,7 +17,7 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './test_coverage/rvtr-app-campsite'),
-      reports: ['cobertura', 'lcovonly'],
+      reports: ['cobertura', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
     },
     junitReporter: {

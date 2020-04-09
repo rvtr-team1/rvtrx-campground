@@ -1,5 +1,7 @@
 # angular
 dist/
+test_coverage/
+test_result/
 
 # macos
 .DS_Store

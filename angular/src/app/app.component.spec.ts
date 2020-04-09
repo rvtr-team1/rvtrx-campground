@@ -1,3 +1,4 @@
+import { IncludeModule } from './include/include.module';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
@@ -7,12 +8,8 @@ import { TestBed, async } from '@angular/core/testing';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [IncludeModule, RouterTestingModule],
+      declarations: [AppComponent],
     }).compileComponents();
   }));
 
@@ -32,6 +29,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('rvtr-app-campsite app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain(
+      'rvtr-app-campsite app is running!'
+    );
   });
 });
