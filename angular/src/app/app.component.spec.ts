@@ -19,18 +19,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'rvtr-app-campsite'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('rvtr-app-campsite');
-  });
-
-  it('should render title', () => {
+  it('should render footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain(
-      'rvtr-app-campsite app is running!'
-    );
+    expect(compiled.querySelector('uic-footer').textContent).toContain('footer');
+  });
+
+  it('should render header', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('uic-header').textContent).toContain('header');
   });
 });
