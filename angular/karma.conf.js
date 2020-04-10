@@ -16,13 +16,14 @@ module.exports = function (config) {
       clearContext: false,
     },
     coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './test_coverage/rvtr-app-campsite'),
-      reports: ['cobertura', 'lcovonly', 'text-summary'],
+      dir: require('path').join(__dirname, 'test_coverage'),
+      reports: ['lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
     },
     junitReporter: {
-      outputDir: 'test_result/rvtr-app-campsite',
-      outputFile: 'junit-result.xml',
+      outputDir: 'test_result',
+      outputFile: 'junit.xml',
+      useBrowserName: false,
       xmlVersion: '1',
     },
     reporters: ['junit', 'progress'],
