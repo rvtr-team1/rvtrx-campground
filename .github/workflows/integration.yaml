@@ -49,7 +49,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         name: sonar_scan
-        uses: sonarsource/sonarcloud-github-action@v1.1
+        uses: sonarsource/sonarcloud-github-action@master
         with:
           projectBaseDir: ${{ env.WORKING_DIRECTORY }}
 
