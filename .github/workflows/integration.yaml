@@ -45,6 +45,12 @@ jobs:
     steps:
       - name: actions_checkout
         uses: actions/checkout@v2.1.0
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_test
+        run: npm run test
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
