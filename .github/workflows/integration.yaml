@@ -41,12 +41,12 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           name: test_coverage
-          path: test_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
       - name: junit_upload
         uses: actions/upload-artifact@v1.0.0
         with:
           name: test_result
-          path: test_result
+          path: ${{ env.WORKING_DIRECTORY }}/test_result
 
   analyze:
     name: analyze_angular
