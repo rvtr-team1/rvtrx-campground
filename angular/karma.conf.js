@@ -10,8 +10,6 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
-      require('karma-junit-reporter'),
-      require('karma-sonarqube-unit-reporter'),
     ],
     client: {
       clearContext: false,
@@ -21,17 +19,7 @@ module.exports = function (config) {
       reports: ['lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
     },
-    junitReporter: {
-      outputDir: 'test_result',
-      outputFile: 'junit.xml',
-      useBrowserName: false,
-    },
-    sonarQubeUnitReporter: {
-      sonarQubeVersion: 'LATEST',
-      outputFile: 'test_result/sonar.xml',
-      useBrowserName: false,
-    },
-    reporters: ['junit', 'progress', 'sonarqubeUnit'],
+    reporters: ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
