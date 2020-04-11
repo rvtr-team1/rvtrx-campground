@@ -60,11 +60,6 @@ jobs:
     steps:
       - name: actions_checkout
         uses: actions/checkout@v2.1.0
-      - name: npm_cache
-        uses: actions/cache@v1.1.2
-        with:
-          path: ~/.npm
-          key: angular-${{ hashFiles('**/package-lock.json') }}
       - name: git_fetch
         run: git fetch --unshallow
       - name: lcov_download
@@ -72,6 +67,11 @@ jobs:
         with:
           name: test_coverage
           path: ${{ env.WORKING_DIRECTORY }}/test_coverage
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: angular-${{ hashFiles('**/package-lock.json') }}
       - name: npm_install
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
