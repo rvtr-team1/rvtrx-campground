@@ -11,6 +11,7 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
       require('karma-junit-reporter'),
+      require('karma-sonarqube-unit-reporter'),
     ],
     client: {
       clearContext: false,
@@ -24,9 +25,13 @@ module.exports = function (config) {
       outputDir: 'test_result',
       outputFile: 'junit.xml',
       useBrowserName: false,
-      xmlVersion: '1',
     },
-    reporters: ['junit', 'progress'],
+    sonarQubeUnitReporter: {
+      sonarQubeVersion: 'LATEST',
+      outputFile: 'test_result/sonar.xml',
+      useBrowserName: false,
+    },
+    reporters: ['junit', 'progress', 'sonarqubeUnit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
