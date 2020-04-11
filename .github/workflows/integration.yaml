@@ -61,12 +61,12 @@ jobs:
         uses: actions/download-artifact@v1.0.0
         with:
           name: test_coverage
-          path: ${{ env.WORKING_DIRECTORY }}
+          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
       - name: junit_download
         uses: actions/download-artifact@v1.0.0
         with:
           name: test_result
-          path: ${{ env.WORKING_DIRECTORY }}
+          path: ${{ env.WORKING_DIRECTORY }}/test_result
       - name: npm_install
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
