@@ -8,9 +8,14 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display home page', () => {
+  it('should display page footer', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toContain('home');
+    expect(page.getPageFooter()).toContain('footer');
+  });
+
+  it('should display page header', () => {
+    page.navigateTo();
+    expect(page.getPageHeader()).toContain('header');
   });
 
   afterEach(async () => {
