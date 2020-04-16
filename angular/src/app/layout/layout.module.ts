@@ -1,15 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutRoutingModule } from './layout-routing.module';
-import { HomeComponent } from './home/home.component';
+import { NgModule } from '@angular/core';
 
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule
-  ],
-  exports: [HomeComponent]
+  declarations: [HeaderComponent, FooterComponent],
+  imports: [CommonModule],
+  exports: [HeaderComponent, FooterComponent],
 })
-export class LayoutModule { }
+export class LayoutModule {}
