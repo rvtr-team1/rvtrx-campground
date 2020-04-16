@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+### added
+
+- setup the project directory structure
+
 ## [0.0.0] :: 2020-04-14
 
 ### added
