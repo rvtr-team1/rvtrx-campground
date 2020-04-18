@@ -51,8 +51,8 @@ jobs:
       - name: lcov_upload
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: test_coverage
-          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
+          name: code_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/code_coverage
 
   analyze:
     name: analyze_angular
@@ -66,7 +66,7 @@ jobs:
       - name: lcov_download
         uses: actions/download-artifact@v1.0.0
         with:
-          name: test_coverage
+          name: code_coverage
           path: ${{ env.WORKING_DIRECTORY }}/code_coverage
       - name: npm_cache
         uses: actions/cache@v1.1.2
