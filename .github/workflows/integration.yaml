@@ -88,7 +88,7 @@ jobs:
       - name: pack_script
         run: echo 'pack script'
 
-name: integration
+name: gh_pipeline
 
 on:
   pull_request:
