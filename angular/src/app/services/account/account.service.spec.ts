@@ -1,16 +1,16 @@
-import { TestBed, tick, fakeAsync } from '@angular/core/testing';
-
-import { AccountService } from './account.service';
+import { HttpClient } from '@angular/common/http';
 import {
   HttpClientTestingModule,
   HttpTestingController,
   TestRequest,
 } from '@angular/common/http/testing';
-import { HttpClient } from '@angular/common/http';
-import { ConfigService } from '../config/config.service';
-import { Config } from 'src/app/data/config.model';
-import { Account } from '../../data/account.model';
+import { TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { asyncScheduler, scheduled } from 'rxjs';
+
+import { AccountService } from './account.service';
+import { ConfigService } from '../config/config.service';
+import { Account } from '../../data/account.model';
+import { Config } from '../../data/config.model';
 
 describe('AccountService', () => {
   const accountMock: Account[] = [
