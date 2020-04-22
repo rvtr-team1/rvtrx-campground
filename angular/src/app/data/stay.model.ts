@@ -1,5 +1,5 @@
 /**
- * Represents the _Sojourn_ model
+ * Represents the _Stay_ model
  *
  * ```yaml
  * id: string
@@ -9,7 +9,7 @@
  * dateModified: Date
  * ```
  */
-export interface Sojourn {
+export interface Stay {
   id: string;
   checkIn: Date;
   checkOut: Date;
