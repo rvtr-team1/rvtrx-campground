@@ -7,7 +7,7 @@ import {
 import { TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { asyncScheduler, scheduled } from 'rxjs';
 
-import { BookingService } from './Booking.service';
+import { BookingService } from './booking.service';
 import { ConfigService } from '../config/config.service';
 import { Booking } from '../../data/booking.model';
 import { Config } from '../../data/config.model';
