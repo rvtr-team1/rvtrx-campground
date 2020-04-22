@@ -8,7 +8,7 @@ import { Profile } from './profile.model';
  * ```yaml
  * id: string;
  * address: Address;
- * name?: string;
+ * name: string;
  * payments: Payment[];
  * profiles: Profile[];
  * ```
