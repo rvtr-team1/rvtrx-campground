@@ -9,14 +9,14 @@ import { Rental } from './rental.model';
  * id: string;
  * location: Location;
  * name: string;
- * reviews: Review[];
  * rentals: Rental[];
+ * reviews: Review[];
  * ```
  */
 export interface Lodging {
   id: string;
   location: Location;
   name: string;
-  reviews: Review[];
   rentals: Rental[];
+  reviews: Review[];
 }
