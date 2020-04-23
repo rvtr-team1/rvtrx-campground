@@ -11,8 +11,8 @@ import { Stay } from './stay.model';
  * lodgingId: string;
  * guests: Profile[];
  * rentals: Rental[];
- * sojourn: Sojourn;
- * status: Status;
+ * stay: Stay;
+ * status: string;
  * ```
  */
 export interface Booking {

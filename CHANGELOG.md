@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning][semver].
 - setup the project directory structure
 - design and launch the account model
 - design and launch the booking model
+- design and launch the lodging model
 
 ### fixed
 
