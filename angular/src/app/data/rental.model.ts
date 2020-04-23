@@ -1,4 +1,4 @@
-import { Unit } from './unit.model';
+import { RentalUnit } from './rental-unit.model';
 
 /**
  * Represents the _Rental_ model
@@ -6,11 +6,11 @@ import { Unit } from './unit.model';
  * ```yaml
  * id: string;
  * name: string;
- * type: Unit;
+ * rentalUnit: RentalUnit;
  * ```
  */
 export interface Rental {
   id: string;
   name: string;
-  unit: Unit;
+  rentalUnit: RentalUnit;
 }

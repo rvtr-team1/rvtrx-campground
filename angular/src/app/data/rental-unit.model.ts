@@ -2,7 +2,7 @@ import { Bathroom } from './bathroom.model';
 import { Bedroom } from './bedroom.model';
 
 /**
- * Represents the _Unit_ model
+ * Represents the _RentalUnit_ model
  *
  * ```yaml
  * id: string;
@@ -13,7 +13,7 @@ import { Bedroom } from './bedroom.model';
  * type: string;
  * ```
  */
-export interface Unit {
+export interface RentalUnit {
   id: string;
   bathrooms: Bathroom[];
   bedrooms: Bedroom[];
