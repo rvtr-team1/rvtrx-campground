@@ -3,5 +3,12 @@
     "account": "",
     "booking": "",
     "lodging": ""
+  },
+  "navigation": {
+    "header": [
+      { "text": "account", "url": "account" },
+      { "text": "booking", "url": "booking" },
+      { "text": "lodging", "url": "lodging" }
+    ]
   }
 }

@@ -1,8 +1,11 @@
+import { Link } from './link.model';
+
 /**
  * Represents the _Config_ model
  *
  * ```yaml
  * api: object;
+ * navigation: object;
  * ```
  */
 export interface Config {
@@ -10,5 +13,8 @@ export interface Config {
     account: string;
     booking: string;
     lodging: string;
+  };
+  navigation: {
+    header: Link[];
   };
 }

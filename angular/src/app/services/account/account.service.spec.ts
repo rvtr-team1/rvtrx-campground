@@ -30,6 +30,7 @@ describe('AccountService', () => {
           booking: null,
           lodging: null,
         },
+        navigation: null,
       };
 
       return scheduled([config], asyncScheduler);
