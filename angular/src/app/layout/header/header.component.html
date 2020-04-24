@@ -5,7 +5,7 @@
       <div class="navbar-brand">
         <a class="navbar-item has-text-primary" href="/">
           <span class="icon">
-            <i class="fas fa-rocket"></i>
+            <i aria-hidden="true" class="fas fa-rocket"></i>
           </span>
           <span>RVTR Campsite</span>
         </a>
@@ -19,7 +19,7 @@
 
       <div class="navbar-menu" id="header-menu">
         <div class="navbar-start">
-          <a *ngFor="let link of headerMenu$ | async" class="navbar-item has-text-primary" routerLink="{{ link.url }}">
+          <a *ngFor="let link of navbarLinks$ | async" class="navbar-item has-text-primary" routerLink="{{ link.url }}">
             {{ link.text }}
           </a>
         </div>

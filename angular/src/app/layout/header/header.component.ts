@@ -10,11 +10,11 @@ import { ConfigService } from '../../services/config/config.service';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  headerMenu$: Observable<Link[]>;
+  navbarLinks$: Observable<Link[]>;
 
   constructor(private readonly config: ConfigService) {}
 
   ngOnInit(): void {
-    this.headerMenu$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.menu.header));
+    this.navbarLinks$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.menu.header));
   }
 }
