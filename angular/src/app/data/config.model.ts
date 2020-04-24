@@ -15,6 +15,7 @@ export interface Config {
     lodging: string;
   };
   navigation: {
+    footer: Link[];
     header: Link[];
   };
 }
