@@ -5,6 +5,7 @@ import { Link } from './link.model';
  *
  * ```yaml
  * api: object;
+ * menu: object;
  * ```
  */
 export interface Config {

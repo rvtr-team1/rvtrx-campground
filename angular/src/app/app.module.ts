@@ -7,7 +7,6 @@ import { LayoutModule } from './layout/layout.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [AppRoutingModule, BrowserModule, LayoutModule],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('uic-header').textContent).toContain('header');
+    expect(compiled.querySelector('uic-header').textContent).toContain('RVTR Campsite');
   });
 });
