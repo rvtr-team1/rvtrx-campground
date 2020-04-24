@@ -15,7 +15,7 @@ describe('workspace-project App', () => {
 
   it('should display page header', () => {
     page.navigateTo();
-    expect(page.getPageHeader()).toContain('header');
+    expect(page.getPageHeader()).toContain('RVTR Campsite');
   });
 
   afterEach(async () => {
