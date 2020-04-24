@@ -4,7 +4,7 @@
     "booking": "",
     "lodging": ""
   },
-  "menu": {
+  "navigation": {
     "header": [
       { "text": "account", "url": "account" },
       { "text": "booking", "url": "booking" },

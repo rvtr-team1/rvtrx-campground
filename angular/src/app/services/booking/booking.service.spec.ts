@@ -32,7 +32,7 @@ describe('BookingService', () => {
           booking: 'test',
           lodging: null,
         },
-        menu: null
+        navigation: null,
       };
 
       return scheduled([config], asyncScheduler);

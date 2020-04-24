@@ -15,7 +15,7 @@ describe('ConfigService', () => {
       booking: null,
       lodging: null,
     },
-    menu: null,
+    navigation: null,
   };
 
   let httpClient: HttpClient;

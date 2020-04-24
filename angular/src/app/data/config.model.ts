@@ -5,7 +5,7 @@ import { Link } from './link.model';
  *
  * ```yaml
  * api: object;
- * menu: object;
+ * navigation: object;
  * ```
  */
 export interface Config {
@@ -14,7 +14,7 @@ export interface Config {
     booking: string;
     lodging: string;
   };
-  menu: {
+  navigation: {
     header: Link[];
   };
 }

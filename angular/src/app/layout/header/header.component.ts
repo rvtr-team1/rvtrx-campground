@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
   constructor(private readonly config: ConfigService) {}
 
   ngOnInit(): void {
-    this.navbarLinks$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.menu.header));
+    this.navbarLinks$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.header));
   }
 }
