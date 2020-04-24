@@ -1,3 +1,5 @@
+import { Link } from './link.model';
+
 /**
  * Represents the _Config_ model
  *
@@ -10,5 +12,8 @@ export interface Config {
     account: string;
     booking: string;
     lodging: string;
+  };
+  menu: {
+    header: Link[];
   };
 }

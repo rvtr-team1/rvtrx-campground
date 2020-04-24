@@ -3,5 +3,8 @@
     "account": "",
     "booking": "",
     "lodging": ""
+  },
+  "menu": {
+    "header": []
   }
 }
