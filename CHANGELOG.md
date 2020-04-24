@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning][semver].
 - design and launch the account model
 - design and launch the booking model
 - design and launch the lodging model
+- design and launch the page header
 
 ### fixed
 
