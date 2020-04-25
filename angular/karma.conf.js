@@ -28,7 +28,7 @@ module.exports = function (config) {
       testFilePattern: '.spec.ts',
       useBrowserName: false,
     },
-    reporters: ['junit', 'progress', 'sonarqubeUnit'],
+    reporters: ['progress', 'sonarqubeUnit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
