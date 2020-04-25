@@ -10,7 +10,7 @@ describe('project rvtr-app-campsite', () => {
 
   it('should display page footer', () => {
     page.navigateTo();
-    expect(page.getPageFooter()).toContain('footer');
+    expect(page.getPageFooter()).toContain('RVTR Campsite');
   });
 
   it('should display page header', () => {
