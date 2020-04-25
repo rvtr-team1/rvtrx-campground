@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Config } from '../../data/config.model';
 import { Link } from '../../data/link.model';
 import { ConfigService } from '../../services/config/config.service';
-import { map } from 'rxjs/operators';
-import { Config } from 'src/app/data/config.model';
 
 @Component({
   selector: 'uic-footer',

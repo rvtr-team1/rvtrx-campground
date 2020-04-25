@@ -1,5 +1,5 @@
 module.exports = function (config) {
-  process.env.CHROMIUM_BIN = process.env.CHROMIUM_BIN || require('puppeteer').executablePath();
+  process.env.CHROMIUM_BIN = require('puppeteer').executablePath();
 
   config.set({
     basePath: '',
@@ -10,6 +10,7 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('karma-jasmine'),
       require('karma-jasmine-html-reporter'),
+      require('karma-sonarqube-unit-reporter'),
     ],
     client: {
       clearContext: false,
@@ -19,7 +20,15 @@ module.exports = function (config) {
       reports: ['lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
     },
-    reporters: ['progress'],
+    sonarQubeUnitReporter: {
+      sonarQubeVersion: 'LATEST',
+      outputFile: 'test_coverage/report.xml',
+      overrideTestDescription: true,
+      testPaths: ['./src/app'],
+      testFilePattern: '.spec.ts',
+      useBrowserName: false,
+    },
+    reporters: ['junit', 'progress', 'sonarqubeUnit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

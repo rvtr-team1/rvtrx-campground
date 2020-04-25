@@ -1,6 +1,7 @@
 # angular
 code_coverage/
 dist/
+test_coverage/
 
 # macos
 .DS_Store
