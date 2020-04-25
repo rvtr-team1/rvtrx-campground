@@ -1,6 +1,5 @@
 // @ts-check
-
-process.env.CHROMIUM_BIN = process.env.CHROMIUM_BIN || require('puppeteer').executablePath();
+process.env.CHROMIUM_BIN = require('puppeteer').executablePath();
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 /**

@@ -23,7 +23,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('uic-footer').textContent).toContain('footer');
+    expect(compiled.querySelector('uic-footer').textContent).toContain('RVTR Campsite');
   });
 
   it('should render header', () => {
