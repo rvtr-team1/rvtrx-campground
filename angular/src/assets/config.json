@@ -5,6 +5,7 @@
     "lodging": ""
   },
   "navigation": {
+    "footer": [],
     "header": [
       { "text": "account", "url": "account" },
       { "text": "booking", "url": "booking" },
