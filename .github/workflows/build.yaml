@@ -1,5 +1,4 @@
 env:
-  RVTR_REPOSITORY: 'RVTR/rvtr-app-campsite'
   WORKING_DIRECTORY: angular
 
 jobs:
@@ -52,6 +51,11 @@ jobs:
         with:
           name: code_coverage
           path: ${{ env.WORKING_DIRECTORY }}/code_coverage
+      - name: report_upload
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: test_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
 
   analyze:
     name: analyze_angular
@@ -67,6 +71,11 @@ jobs:
         with:
           name: code_coverage
           path: ${{ env.WORKING_DIRECTORY }}/code_coverage
+      - name: report_download
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: test_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
       - name: npm_cache
         uses: actions/cache@v1.1.2
         with:
@@ -94,7 +103,7 @@ jobs:
       - name: pack_script
         run: echo 'pack script'
 
-name: integration
+name: build
 
 on:
   pull_request:
