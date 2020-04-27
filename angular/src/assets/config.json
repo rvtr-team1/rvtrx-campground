@@ -9,7 +9,12 @@
       {
         "icon": "fab fa-github",
         "text": "GitHub",
-        "url": "https://github.com/RVTR/rvtr-app-campsite"
+        "url": "https://github.com/RVTR/rvtr-app-campsite#readme"
+      },
+      {
+        "icon": "fas fa-tools",
+        "text": "SonarCloud",
+        "url": "https://sonarcloud.io/dashboard?id=rvtr_app_campsite"
       }
     ],
     "header": [
