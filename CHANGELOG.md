@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning][semver].
 - design and launch the page header
 - design and launch the page footer
 - design and launch the home page
+- configure the project deploy workflow
 
 ### fixed
 
