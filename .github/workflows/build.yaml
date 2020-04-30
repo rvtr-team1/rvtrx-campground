@@ -22,6 +22,11 @@ jobs:
       - name: npm_build
         run: npm run build
         working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: drop_upload
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: drop
+          path: ${{ env.WORKING_DIRECTORY }}/drop
 
   test:
     name: test_angular
@@ -95,13 +100,30 @@ jobs:
         run: npm run scan
         working-directory: ${{ env.WORKING_DIRECTORY }}
 
-  pack:
-    name: pack_job
-    needs: [analyze]
+  deploy:
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_BASE_MESSAGE: $(date --iso-8601='seconds')\ ::\ ${GITHUB_WORKFLOW}\ ::\ ${GITHUB_RUN_NUMBER}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    name: deploy_angular
+    needs: analyze
     runs-on: ubuntu-18.04
     steps:
-      - name: pack_script
-        run: echo 'pack script'
+      - name: drop_download
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: drop
+      - name: npm_install
+        run: |
+          npm install netlify-cli
+      - if: github.event_name == 'pull_request'
+        name: netlify_deploy_preview
+        run: |
+          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
+      - if: github.event_name != 'pull_request'
+        name: netlify_deploy
+        run: |
+          npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
 
 name: build
 
