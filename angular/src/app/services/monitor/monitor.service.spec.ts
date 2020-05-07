@@ -15,7 +15,7 @@ describe('MonitorService', () => {
   });
 
   it('should handle error', () => {
-    let spy = spyOn(service, 'handleError');
+    const spy = spyOn(service, 'handleError');
 
     service.handleError(new Error());
     service.handleError({ originalError: new Error() });
