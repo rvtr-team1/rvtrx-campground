@@ -13,4 +13,13 @@ describe('MonitorService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should handle error', () => {
+    let spy = spyOn(service, 'handleError');
+
+    service.handleError(new Error());
+    service.handleError({ originalError: new Error() });
+
+    expect(spy).toHaveBeenCalled();
+  });
 });
