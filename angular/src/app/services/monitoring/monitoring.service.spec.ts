@@ -1,10 +1,10 @@
-import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { scheduled, asyncScheduler } from 'rxjs';
 import { MonitoringService } from './monitoring.service';
 import { ConfigService } from '../config/config.service';
-import { scheduled, asyncScheduler } from 'rxjs';
-import { Config } from 'src/app/data/config.model';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Monitoring } from 'src/app/data/monitoring.model';
+import { Config } from '../../data/config.model';
+import { Monitoring } from '../../data/monitoring.model';
 
 describe('MonitorService', () => {
   const configServiceStub = {

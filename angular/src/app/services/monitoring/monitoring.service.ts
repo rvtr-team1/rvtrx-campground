@@ -1,8 +1,8 @@
 import { ErrorHandler, Injectable } from '@angular/core';
-import { ConfigService } from '../config/config.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Monitoring } from 'src/app/data/monitoring.model';
+import { ConfigService } from '../config/config.service';
+import { Monitoring } from '../../data/monitoring.model';
 
 @Injectable({
   providedIn: 'root',
