@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Monitoring } from '../../data/monitoring.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,10 @@ export class MonitoringService implements ErrorHandler {
 
   handleError(error: any): void {
     this.apiUrl$.subscribe((dsn) => {
-      this.monitoring.sentry.init({ dsn });
+      this.monitoring.sentry.init({
+        dsn: dsn,
+        environment: environment.name,
+      });
       this.monitoring.sentry.captureException(error.originalError || error);
     });
   }
