@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { MonitorService } from './monitor.service';
 
 describe('MonitorService', () => {
@@ -8,6 +7,7 @@ describe('MonitorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(MonitorService);
+    service.sentryErrorHandler.init();
   });
 
   it('should be created', () => {
@@ -15,11 +15,9 @@ describe('MonitorService', () => {
   });
 
   it('should handle error', () => {
-    const spy = spyOn(service, 'handleError');
-
-    service.handleError(new Error());
-    service.handleError({ originalError: new Error() });
-
-    expect(spy).toHaveBeenCalled();
+    expect(service.handleError).toThrow();
+    expect(() => {
+      service.handleError(new Error('handleError tested'));
+    }).not.toThrow();
   });
 });
