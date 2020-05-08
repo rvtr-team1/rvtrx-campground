@@ -1,8 +1,9 @@
 {
   "api": {
-    "account": "",
-    "booking": "",
-    "lodging": ""
+    "account": null,
+    "booking": null,
+    "lodging": null,
+    "monitoring": "https://ab72378ae1ae4f2c92b73d329064f716@o388320.ingest.sentry.io/5229034"
   },
   "navigation": {
     "footer": [
@@ -18,9 +19,9 @@
       }
     ],
     "header": [
-      { "text": "account", "url": "account" },
-      { "text": "booking", "url": "booking" },
-      { "text": "lodging", "url": "lodging" }
+      { "text": "account", "url": null },
+      { "text": "booking", "url": null },
+      { "text": "lodging", "url": null }
     ]
   }
 }
