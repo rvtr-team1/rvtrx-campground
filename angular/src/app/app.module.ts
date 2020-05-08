@@ -5,11 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
 import { MonitoringService } from './services/monitoring/monitoring.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   imports: [AppRoutingModule, BrowserModule, LayoutModule],
-  providers: [{ provide: ErrorHandler, useClass: MonitoringService }, Monitoring],
+  providers: [
+    Monitoring,
+    {
+      provide: ErrorHandler,
+      useClass: environment.production ? MonitoringService : ErrorHandler,
+    },
+  ],
 })
 export class AppModule {}
