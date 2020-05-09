@@ -14,6 +14,7 @@ describe('ConfigService', () => {
       account: null,
       booking: null,
       lodging: null,
+      monitoring: null,
     },
     navigation: null,
   };

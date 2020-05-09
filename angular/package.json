@@ -1,16 +1,9 @@
 {
-  "name": "rvtr-app-campsite",
-  "version": "0.0.0",
-  "scripts": {
-    "scan": "sonar-scanner",
-    "build": "ng build",
-    "e2e": "ng e2e",
-    "lint": "ng lint",
-    "start": "ng serve",
-    "test": "ng test --code-coverage",
-    "update": "webdriver-manager update --versions.chrome 80.0.3987.106"
-  },
+  "author": "fred belotte",
+  "license": "MIT",
+  "name": "@rvtr/rvtr-app-campsite",
   "private": true,
+  "version": "0.2.0",
   "dependencies": {
     "@angular/animations": "~9.1.0",
     "@angular/common": "~9.1.0",
@@ -21,16 +14,19 @@
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "@sentry/browser": "^5.15.5",
     "bulma": "^0.8.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^9.1.0",
     "@angular-devkit/build-angular": "~0.901.0",
     "@angular/cli": "~9.1.0",
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
+    "@sentry/webpack-plugin": "^1.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -43,11 +39,21 @@
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "karma-sonarqube-unit-reporter": "0.0.21",
+    "netlify-cli": "^2.50.0",
     "protractor": "~5.4.3",
     "puppeteer": "^2.1.1",
     "sonarqube-scanner": "^2.6.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
+  },
+  "scripts": {
+    "scan": "sonar-scanner",
+    "build": "ng build",
+    "e2e": "ng e2e",
+    "lint": "ng lint",
+    "start": "ng serve",
+    "test": "ng test --code-coverage",
+    "update": "webdriver-manager update --versions.chrome 80.0.3987.106"
   }
 }

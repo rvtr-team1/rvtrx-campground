@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+### added
+
+- configure the project to support application monitoring
+
 ## [0.1.0] :: 2020-04-30
 
 ### added

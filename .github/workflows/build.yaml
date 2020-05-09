@@ -3,6 +3,8 @@ env:
 
 jobs:
   build:
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     name: build_angular
     runs-on: ubuntu-18.04
     steps:
@@ -19,8 +21,13 @@ jobs:
       - name: npm_lint
         run: npm run lint
         working-directory: ${{ env.WORKING_DIRECTORY }}
-      - name: npm_build
-        run: npm run build
+      - if: github.event_name == 'pull_request'
+        name: npm_build_dev
+        run: npm run build -- --configuration=DEV
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: github.event_name != 'pull_request'
+        name: npm_build
+        run: npm run build -- --configuration=PROD
         working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: drop_upload
         uses: actions/upload-artifact@v1.0.0
@@ -109,21 +116,56 @@ jobs:
     needs: analyze
     runs-on: ubuntu-18.04
     steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
       - name: drop_download
         uses: actions/download-artifact@v1.0.0
         with:
           name: drop
+          path: ${{ env.WORKING_DIRECTORY }}/dist
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: angular-${{ hashFiles('**/package-lock.json') }}
       - name: npm_install
-        run: |
-          npm install netlify-cli
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_preview
-        run: |
-          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
+        run: npx netlify deploy --dir dist --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - if: github.event_name != 'pull_request'
         name: netlify_deploy
-        run: |
-          npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
+        run: npx netlify deploy --dir dist --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+  monitor:
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr-app-campsite@${npm_package_version}')
+    name: monitor_angular
+    needs: deploy
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: angular-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: github.event_name == 'pull_request'
+        name: sentry_deploy_dev
+        run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: github.event_name != 'pull_request'
+        name: sentry_deploy
+        run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env PROD
+        working-directory: ${{ env.WORKING_DIRECTORY }}
 
 name: build
 

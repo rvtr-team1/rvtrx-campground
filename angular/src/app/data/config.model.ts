@@ -13,6 +13,7 @@ export interface Config {
     account: string;
     booking: string;
     lodging: string;
+    monitoring: string;
   };
   navigation: {
     footer: Link[];

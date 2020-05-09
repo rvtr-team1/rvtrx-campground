@@ -29,6 +29,7 @@ describe('AccountService', () => {
           account: 'test',
           booking: null,
           lodging: null,
+          monitoring: null,
         },
         navigation: null,
       };
