@@ -116,20 +116,12 @@ jobs:
     needs: analyze
     runs-on: ubuntu-18.04
     steps:
-      - name: actions_checkout
-        uses: actions/checkout@v2.1.0
       - name: drop_download
         uses: actions/download-artifact@v1.0.0
         with:
           name: drop
-      - name: npm_cache
-        uses: actions/cache@v1.1.2
-        with:
-          path: ~/.npm
-          key: angular-${{ hashFiles('**/package-lock.json') }}
       - name: npm_install
-        run: npm clean-install
-        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: npm install netlify-cli
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_preview
         run: npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
