@@ -20,6 +20,7 @@ export class MonitoringService implements ErrorHandler {
       this.monitoring.sentry.init({
         dsn,
         environment: environment.name,
+        release: environment.release,
       });
       this.monitoring.sentry.captureException(error.originalError || error);
     });
