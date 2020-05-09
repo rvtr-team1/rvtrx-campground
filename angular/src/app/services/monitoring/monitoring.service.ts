@@ -18,7 +18,7 @@ export class MonitoringService implements ErrorHandler {
   handleError(error: any): void {
     this.apiUrl$.subscribe((dsn) => {
       this.monitoring.sentry.init({
-        dsn: dsn,
+        dsn,
         environment: environment.name,
       });
       this.monitoring.sentry.captureException(error.originalError || error);
