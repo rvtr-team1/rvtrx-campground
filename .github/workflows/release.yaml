@@ -1,0 +1,173 @@
+env:
+  CACHE_KEY_PREFIX: angular
+  WORKING_DIRECTORY: angular
+
+jobs:
+  build:
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_DRY_RUN: false
+    name: build_angular
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_lint
+        run: npm run lint
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: startsWith(github.ref, 'refs/heads/master')
+        name: npm_build_dev
+        run: npm run build -- --configuration=DEV
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: startsWith(github.ref, 'refs/tags/')
+        name: npm_build
+        run: npm run build -- --configuration=PROD
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: drop_upload
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: drop
+          path: ${{ env.WORKING_DIRECTORY }}/dist/rvtr-app-campsite
+
+  test:
+    name: test_angular
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_update
+        run: npm run update
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_test
+        run: npm run test
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_e2e
+        run: npm run e2e
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: lcov_upload
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: code_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/code_coverage
+      - name: report_upload
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: test_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
+
+  analyze:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    name: analyze_angular
+    needs: [build, test]
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: git_fetch
+        run: git fetch --unshallow
+      - name: lcov_download
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: code_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/code_coverage
+      - name: report_download
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: test_coverage
+          path: ${{ env.WORKING_DIRECTORY }}/test_coverage
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_scan
+        run: npm run scan
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+  deploy:
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_MESSAGE: $(date --iso-8601='seconds')\ ::\ ${GITHUB_REF##*/}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    name: deploy_angular
+    needs: analyze
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: drop_download
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: drop
+          path: ${{ env.WORKING_DIRECTORY }}/dist
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: startsWith(github.ref, 'refs/heads/master')
+        name: netlify_deploy_head
+        run: npx netlify deploy --dir dist --message ${{ env.NETLIFY_MESSAGE }}
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: startsWith(github.ref, 'refs/tags/')
+        name: netlify_deploy
+        run: npx netlify deploy --dir dist --prod --message ${{ env.NETLIFY_MESSAGE }}
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+  monitor:
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr-app-campsite@${npm_package_version}')
+    name: monitor_angular
+    needs: deploy
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: npm_cache
+        uses: actions/cache@v1.1.2
+        with:
+          path: ~/.npm
+          key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: startsWith(github.ref, 'refs/heads/master')
+        name: sentry_deploy_head
+        run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: startsWith(github.ref, 'refs/tags/')
+        name: sentry_deploy
+        run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env PROD
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+name: release
+
+on:
+  push:
+    branches:
+      - master
+    tags:
