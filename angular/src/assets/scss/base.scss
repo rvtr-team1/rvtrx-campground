@@ -1,1 +1,6 @@
 @import './variables';
+
+.uic-is-centered {
+  display: flex;
+  justify-content: center;
+}
