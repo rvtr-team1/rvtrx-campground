@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+### added
+
+- design and launch the account page
+
 ## [0.2.0] :: 2020-05-12
 
 ### added

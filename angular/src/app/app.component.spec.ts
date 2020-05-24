@@ -23,13 +23,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('uic-footer').textContent).toContain('RVTR Campsite');
+    expect(compiled.querySelector('uic-footer').textContent).toContain('RVTR');
   });
 
   it('should render header', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('uic-header').textContent).toContain('RVTR Campsite');
+    expect(compiled.querySelector('uic-header').textContent).toContain('Campsite');
   });
 });
