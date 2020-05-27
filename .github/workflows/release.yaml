@@ -171,3 +171,4 @@ on:
     branches:
       - master
     tags:
+      - '*'
