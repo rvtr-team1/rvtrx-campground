@@ -1,0 +1,5 @@
+[[redirects]]
+from = "https://campsite.netlify.com/*"
+force = true
+status = 301
+to = "https://campsite.rvtr.net/:splat"
