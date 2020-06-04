@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+### added
+
+- design and launch the booking page
+
 ## [0.3.1] :: 2020-05-27
 
 ### added
