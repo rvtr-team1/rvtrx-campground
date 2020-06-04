@@ -18,7 +18,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "aot": true,
-            "assets": ["src/assets", "src/favicon.ico", "src/netlify.toml"],
+            "assets": ["src/app.config.json", "src/favicon.ico", "src/netlify.toml"],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
@@ -28,7 +28,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": ["src/assets/js/main.js"]
           },
           "configurations": {
             "DEV": {
@@ -93,9 +93,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/app.config.json", "src/favicon.ico", "src/netlify.toml"],
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": ["src/assets/js/main.js"]
           }
         },
         "lint": {

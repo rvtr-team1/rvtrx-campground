@@ -44,7 +44,7 @@ describe('ConfigService', () => {
       expect(res).toBe(configMock);
     });
 
-    req = httpTestingController.expectOne('assets/config.json');
+    req = httpTestingController.expectOne('app.config.json');
 
     req.flush(configMock);
   });
