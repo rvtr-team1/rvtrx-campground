@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+## [0.5.0] :: 2020-06-24
+
 ### added
 
 - design and launch the lodging page
@@ -58,6 +60,7 @@ and this project adheres to [Semantic Versioning][semver].
 
 - setup the project single-page scaffolding
 
+[0.5.0]: https://github.com/rvtr/rvtr-app-campsite/tree/0.5.0 '0.5.0'
 [0.4.0]: https://github.com/rvtr/rvtr-app-campsite/tree/0.4.0 '0.4.0'
 [0.3.1]: https://github.com/rvtr/rvtr-app-campsite/tree/0.3.1 '0.3.1'
 [0.3.0]: https://github.com/rvtr/rvtr-app-campsite/tree/0.3.0 '0.3.0'
