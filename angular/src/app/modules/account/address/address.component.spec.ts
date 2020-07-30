@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Address } from 'src/app/data/address.model';
 
 describe('AddressComponent', () => {
-  let address$ = of({
+  const address$ = of({
     id: '',
     city: '',
     country: '',
