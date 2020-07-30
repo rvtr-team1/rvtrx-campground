@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountComponent } from './account.component';
+import { AddressComponent } from '../address/address.component';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -8,7 +9,7 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountComponent],
+      declarations: [AccountComponent, AddressComponent],
       imports: [HttpClientTestingModule],
     }).compileComponents();
   }));

@@ -13,61 +13,7 @@
             </div>
 
             <div class="tile box has-background-dark is-child">
-              <h2 class="title has-text-light is-4">address</h2>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">street</p>
-                      <p class="title has-text-light is-6">{{ (account$ | async).address.street }}</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">apt / unit</p>
-                      <p class="title has-text-light is-6">123</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">city</p>
-                      <p class="title has-text-light is-6">{{ (account$ | async).address.city }}</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">state</p>
-                      <p class="title has-text-light is-6">{{ (account$ | async).address.stateProvince }}</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">Postal Code</p>
-                      <p class="title has-text-light is-6">{{ (account$ | async).address.postalCode }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">country</p>
-                      <p class="title has-text-light is-6">{{ (account$ | async).address.country }}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <uic-address [address$]="address$"></uic-address>
             </div>
 
             <div class="tile box has-background-dark is-child">
