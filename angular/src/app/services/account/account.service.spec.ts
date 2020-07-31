@@ -12,15 +12,13 @@ import { Account } from '../../data/account.model';
 import { Config } from '../../data/config.model';
 
 describe('AccountService', () => {
-  const accountMock: Account[] = [
-    {
-      id: '0',
-      address: null,
-      name: '',
-      payments: null,
-      profiles: null,
-    },
-  ];
+  const accountMock: Account = {
+    id: '0',
+    address: null,
+    name: '',
+    payments: null,
+    profiles: null,
+  };
 
   const configServiceStub = {
     get() {
@@ -75,7 +73,7 @@ describe('AccountService', () => {
     let reqOne: TestRequest;
 
     service.get().subscribe((res) => {
-      expect(res.length).toEqual(accountMock.length);
+      expect(res).toEqual(accountMock);
     });
 
     service.get('0').subscribe((res) => {
@@ -107,13 +105,13 @@ describe('AccountService', () => {
   it('should make httpPut request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.put(accountMock[0]).subscribe((res) => {
-      expect(res).toEqual(accountMock[0]);
+    service.put(accountMock).subscribe((res) => {
+      expect(res).toEqual(accountMock);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(accountMock[0]);
+    req.flush(accountMock);
   }));
 });
