@@ -18,7 +18,12 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "aot": true,
-            "assets": ["src/app.config.json", "src/favicon.ico", "src/netlify.toml"],
+            "assets": [
+              "src/api.account.json",
+              "src/app.config.json",
+              "src/favicon.ico",
+              "src/netlify.toml"
+            ],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
             },
