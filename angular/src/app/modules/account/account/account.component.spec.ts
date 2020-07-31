@@ -1,11 +1,11 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AddressComponent } from '../address/address.component';
 import { PaymentComponent } from '../payment/payment.component';
-import { of, asyncScheduler, scheduled } from 'rxjs';
-import { AccountService } from 'src/app/services/account/account.service';
-import { Account } from 'src/app/data/account.model';
+import { Account } from '../../../data/account.model';
+import { AccountService } from '../../../services/account/account.service';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {

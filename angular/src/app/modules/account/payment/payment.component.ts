@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Payment } from 'src/app/data/payment.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Payment } from '../../../data/payment.model';
 
 @Component({
   selector: 'uic-payment',
