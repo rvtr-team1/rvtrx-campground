@@ -1,17 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
-import { Observable, of } from 'rxjs';
-import { Address } from 'src/app/data/address.model';
 
 describe('AddressComponent', () => {
-  const address$ = of({
+  const address = {
     id: '',
     city: '',
     country: '',
     postalCode: '',
     stateProvince: '',
     street: '',
-  });
+  };
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
 
@@ -24,7 +22,7 @@ describe('AddressComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddressComponent);
     component = fixture.componentInstance;
-    component.address$ = address$;
+    component.address = address;
     fixture.detectChanges();
   });
 

@@ -13,62 +13,13 @@
             </div>
 
             <div class="tile box has-background-dark is-child">
-              <uic-address [address$]="address$"></uic-address>
+              <h2 class="title has-text-light is-4">address</h2>
+              <uic-address [address]="(account$ | async).address"></uic-address>
             </div>
 
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">bank</p>
-                      <p class="title has-text-light is-6">Amex</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">number</p>
-                      <p class="title has-text-light is-6">*****01111</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">expiry</p>
-                      <p class="title has-text-light is-6">12/20</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr>
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">bank</p>
-                      <p class="title has-text-light is-6">Amex</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">number</p>
-                      <p class="title has-text-light is-6">*****01111</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">expiry</p>
-                      <p class="title has-text-light is-6">12/20</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <uic-payment *ngFor="let payment of (account$ | async).payments" [payment]="payment"></uic-payment>
             </div>
           </div>
         </div>

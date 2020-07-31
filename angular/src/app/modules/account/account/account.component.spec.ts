@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountComponent } from './account.component';
 import { AddressComponent } from '../address/address.component';
+import { PaymentComponent } from '../payment/payment.component';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -9,7 +10,7 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountComponent, AddressComponent],
+      declarations: [AccountComponent, AddressComponent, PaymentComponent],
       imports: [HttpClientTestingModule],
     }).compileComponents();
   }));

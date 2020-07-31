@@ -1,11 +1,9 @@
-<h2 class="title has-text-light is-4">address</h2>
-
 <div class="level">
   <div class="level-left">
     <div class="level-item has-text-light">
       <div>
         <p class="heading">street</p>
-        <p class="title has-text-light is-6">{{ (address$ | async).street }}</p>
+        <p class="title has-text-light is-6">{{ address.street }}</p>
       </div>
     </div>
 
@@ -23,21 +21,21 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">city</p>
-        <p class="title has-text-light is-6">{{ (address$ | async).city }}</p>
+        <p class="title has-text-light is-6">{{ address.city }}</p>
       </div>
     </div>
 
     <div class="level-item has-text-light">
       <div>
         <p class="heading">state</p>
-        <p class="title has-text-light is-6">{{ (address$ | async).stateProvince }}</p>
+        <p class="title has-text-light is-6">{{ address.stateProvince }}</p>
       </div>
     </div>
 
     <div class="level-item has-text-light">
       <div>
         <p class="heading">Postal Code</p>
-        <p class="title has-text-light is-6">{{ (address$ | async).postalCode }}</p>
+        <p class="title has-text-light is-6">{{ address.postalCode }}</p>
       </div>
     </div>
   </div>
@@ -48,7 +46,7 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">country</p>
-        <p class="title has-text-light is-6">{{ (address$ | async).country }}</p>
+        <p class="title has-text-light is-6">{{ address.country }}</p>
       </div>
     </div>
   </div>

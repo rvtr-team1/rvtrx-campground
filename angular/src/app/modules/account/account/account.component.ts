@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
-import { Address } from '../../../data/address.model';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'uic-account',
@@ -11,7 +9,6 @@ import { map } from 'rxjs/operators';
 })
 export class AccountComponent implements OnInit {
   account$: Observable<Account>;
-  address$: Observable<Address>;
 
   constructor(private readonly accountService: AccountService) {}
 
@@ -19,18 +16,29 @@ export class AccountComponent implements OnInit {
     this.account$ = of({
       id: '',
       address: {
-        id: '',
-        city: '',
-        country: '',
-        postalCode: '',
-        stateProvince: '',
-        street: '',
+        id: '1',
+        city: 'dallas',
+        country: 'us',
+        postalCode: '75200',
+        stateProvince: 'tx',
+        street: '5 elm st',
       },
       name: '',
-      payments: [],
+      payments: [
+        {
+          cardName: 'amex',
+          cardNumber: '****1234',
+          cardExpirationDate: new Date(2020, 12),
+          id: '1',
+        },
+        {
+          cardName: 'amex',
+          cardNumber: '****9876',
+          cardExpirationDate: new Date(2020, 12),
+          id: '2',
+        },
+      ],
       profiles: [],
     });
-
-    this.address$ = this.account$.pipe(map((acc) => acc.address));
   }
 }
