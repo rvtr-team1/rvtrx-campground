@@ -9,12 +9,12 @@
           <div class="tile is-parent is-vertical">
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">address</h2>
-              <uic-address [address$]="address$"></uic-address>
+              <uic-address [address]="(address$ | async)"></uic-address>
             </div>
 
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
-              <uic-payment *ngFor="let payment of (account$ | async).payments" [payment]="payment"></uic-payment>
+              <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment"></uic-payment>
             </div>
           </div>
         </div>

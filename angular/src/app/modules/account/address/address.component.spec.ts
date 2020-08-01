@@ -3,14 +3,14 @@ import { AddressComponent } from './address.component';
 import { of } from 'rxjs';
 
 describe('AddressComponent', () => {
-  const address$ = of({
+  const address = {
     id: '',
     city: '',
     country: '',
     postalCode: '',
     stateProvince: '',
     street: '',
-  });
+  };
 
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
@@ -24,7 +24,7 @@ describe('AddressComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddressComponent);
     component = fixture.componentInstance;
-    component.address$ = address$;
+    component.address = address;
     fixture.detectChanges();
   });
 

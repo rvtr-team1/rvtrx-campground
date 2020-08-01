@@ -8,20 +8,9 @@ import { map } from 'rxjs/operators';
   templateUrl: './address.component.html',
 })
 export class AddressComponent implements OnInit {
-  @Input() address$: Observable<Address>;
-  city$: Observable<string>;
-  country$: Observable<string>;
-  postalCode$: Observable<string>;
-  stateProvince$: Observable<string>;
-  street$: Observable<string>;
+  @Input() address: Address;
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.city$ = this.address$.pipe(map((address) => address.city));
-    this.country$ = this.address$.pipe(map((address) => address.country));
-    this.postalCode$ = this.address$.pipe(map((address) => address.postalCode));
-    this.stateProvince$ = this.address$.pipe(map((address) => address.stateProvince));
-    this.street$ = this.address$.pipe(map((address) => address.street));
-  }
+  ngOnInit(): void {}
 }
