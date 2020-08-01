@@ -8,13 +8,8 @@
         <div class="tile is-3">
           <div class="tile is-parent is-vertical">
             <div class="tile box has-background-dark is-child">
-              <h2 class="title has-text-light is-4">name</h2>
-              <p class="title has-text-light is-6">{{ (account$ | async).name }}</p>
-            </div>
-
-            <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">address</h2>
-              <uic-address [address]="(account$ | async).address"></uic-address>
+              <uic-address [address$]="address$"></uic-address>
             </div>
 
             <div class="tile box has-background-dark is-child">

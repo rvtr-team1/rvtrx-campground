@@ -13,7 +13,6 @@ describe('AccountComponent', () => {
     get() {
       const account: Account = {
         id: '',
-        name: '',
         address: {
           id: '',
           city: '',

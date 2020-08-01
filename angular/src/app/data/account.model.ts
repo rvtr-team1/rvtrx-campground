@@ -8,7 +8,6 @@ import { Profile } from './profile.model';
  * ```yaml
  * id: string;
  * address: Address;
- * name: string;
  * payments: Payment[];
  * profiles: Profile[];
  * ```
@@ -16,7 +15,6 @@ import { Profile } from './profile.model';
 export interface Account {
   id: string;
   address: Address;
-  name: string;
   payments: Payment[];
   profiles: Profile[];
 }

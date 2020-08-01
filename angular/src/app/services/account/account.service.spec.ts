@@ -15,7 +15,6 @@ describe('AccountService', () => {
   const accountMock: Account = {
     id: '0',
     address: null,
-    name: '',
     payments: null,
     profiles: null,
   };
@@ -70,23 +69,15 @@ describe('AccountService', () => {
 
   it('should make httpGet request', fakeAsync(() => {
     let req: TestRequest;
-    let reqOne: TestRequest;
-
-    service.get().subscribe((res) => {
-      expect(res).toEqual(accountMock);
-    });
 
     service.get('0').subscribe((res) => {
-      expect(res[0]).toEqual(accountMock[0]);
+      expect(res).toEqual(accountMock);
     });
 
     tick();
 
-    req = httpTestingController.expectOne('test');
-    reqOne = httpTestingController.expectOne('test?id=0');
-
+    req = httpTestingController.expectOne('test?id=0');
     req.flush(accountMock);
-    reqOne.flush(accountMock);
   }));
 
   it('should make httpPost request', fakeAsync(() => {
