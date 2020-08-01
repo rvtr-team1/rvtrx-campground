@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
-import { of } from 'rxjs';
 
 describe('AddressComponent', () => {
   const address = {

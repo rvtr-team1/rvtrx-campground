@@ -32,65 +32,7 @@
               <div class="tile is-parent">
                 <div class="tile box is-child">
                   <h2 class="title is-4">bookings</h2>
-
-                  <div class="level">
-                    <div class="level-item">
-                      <figure class="image is-64x64">
-                        <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                      </figure>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">location</p>
-                        <p class="title is-6">Dallas</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-in</p>
-                        <p class="title is-6">2020-12-20</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-out</p>
-                        <p class="title is-6">2020-12-29</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr>
-                  <div class="level">
-                    <div class="level-item">
-                      <figure class="image is-64x64">
-                        <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                      </figure>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">location</p>
-                        <p class="title is-6">Dallas</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-in</p>
-                        <p class="title is-6">2020-12-20</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-out</p>
-                        <p class="title is-6">2020-12-29</p>
-                      </div>
-                    </div>
-                  </div>
+                  <uic-account-booking *ngFor="let booking of (bookings$ | async)" [booking]="booking"></uic-account-booking>
                 </div>
               </div>
 

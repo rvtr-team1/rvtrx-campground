@@ -2,6 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { AccountComponent } from './account.component';
+import { AccountBookingComponent } from '../account-booking/account-booking.component';
 import { AddressComponent } from '../address/address.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -34,7 +35,13 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountComponent, AddressComponent, PaymentComponent, ProfileComponent],
+      declarations: [
+        AccountComponent,
+        AccountBookingComponent,
+        AddressComponent,
+        PaymentComponent,
+        ProfileComponent,
+      ],
       imports: [HttpClientTestingModule],
       providers: [{ provide: AccountService, useValue: accountServiceStub }],
     }).compileComponents();
