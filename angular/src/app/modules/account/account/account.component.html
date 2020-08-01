@@ -29,42 +29,7 @@
             <div class="tile is-parent">
               <div class="tile box is-child">
                 <h2 class="title is-4">profiles</h2>
-
-                <div class="level">
-                  <div class="level-left">
-                    <div class="level-item has-text-centered">
-                      <div class="card">
-                        <div class="card-content">
-                          <figure class="image is-128x128">
-                            <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
-                          </figure>
-
-                          <br>
-                          <div>
-                            <p class="heading">adult</p>
-                            <p class="title is-6">Lorem Ipsum</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div class="card">
-                        <div class="card-content">
-                          <figure class="image is-128x128">
-                            <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
-                          </figure>
-
-                          <br>
-                          <div>
-                            <p class="heading">adult</p>
-                            <p class="title is-6">Lorem Ipsum</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <uic-profile [profiles]="(account$ | async).profiles"></uic-profile>
               </div>
             </div>
 

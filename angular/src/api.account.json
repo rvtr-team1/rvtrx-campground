@@ -23,5 +23,26 @@
       "cardExpirationDate": "2020-12-31"
     }
   ],
-  "profiles": []
+  "profiles": [
+    {
+      "id": "100",
+      "email": "campero@demo.com",
+      "name": {
+        "id": "100",
+        "family": "demo",
+        "given": "campero"
+      },
+      "phone": "800-123-9876"
+    },
+    {
+      "id": "200",
+      "email": "campera@demo.com",
+      "name": {
+        "id": "200",
+        "family": "demo",
+        "given": "campera"
+      },
+      "phone": "800-123-9876"
+    }
+  ]
 }

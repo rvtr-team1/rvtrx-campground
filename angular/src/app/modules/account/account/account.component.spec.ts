@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AddressComponent } from '../address/address.component';
 import { PaymentComponent } from '../payment/payment.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 
@@ -25,7 +26,6 @@ describe('AccountComponent', () => {
         profiles: null,
       };
 
-      // return scheduled([account], asyncScheduler);
       return of(account);
     },
   };
@@ -35,7 +35,7 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountComponent, AddressComponent, PaymentComponent],
+      declarations: [AccountComponent, AddressComponent, PaymentComponent, ProfileComponent],
       imports: [HttpClientTestingModule],
       providers: [{ provide: AccountService, useValue: accountServiceStub }],
     }).compileComponents();
