@@ -13,6 +13,6 @@ export class AccountComponent implements OnInit {
   constructor(private readonly accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.account$ = this.accountService.get();
+    this.account$ = this.accountService.get('100');
   }
 }

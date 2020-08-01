@@ -37,8 +37,8 @@ export class AccountService {
    *
    * @param id string
    */
-  get(id?: string): Observable<Account> {
-    const options = id ? { params: new HttpParams().set('id', id) } : {};
+  get(id: string): Observable<Account> {
+    const options = { params: new HttpParams().set('id', id) };
     return this.apiUrl$.pipe(concatMap((url) => this.http.get<Account>(url, options)));
   }
 
