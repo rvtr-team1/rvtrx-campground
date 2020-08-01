@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
 import { Address } from '../../../data/address.model';
 import { Payment } from '../../../data/payment.model';
+import { Profile } from '../../../data/profile.model';
 import { AccountService } from '../../../services/account/account.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class AccountComponent implements OnInit {
   account$: Observable<Account>;
   address$: Observable<Address>;
   payments$: Observable<Payment[]>;
+  profiles$: Observable<Profile[]>;
 
   constructor(private readonly accountService: AccountService) {}
 
@@ -21,5 +23,6 @@ export class AccountComponent implements OnInit {
     this.account$ = this.accountService.get('100');
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
+    this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }
 }
