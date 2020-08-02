@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+- launch the account component and service
+
 ## [0.5.0] :: 2020-06-24
 
 ### added

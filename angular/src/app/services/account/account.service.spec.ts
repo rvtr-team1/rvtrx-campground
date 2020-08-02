@@ -12,15 +12,12 @@ import { Account } from '../../data/account.model';
 import { Config } from '../../data/config.model';
 
 describe('AccountService', () => {
-  const accountMock: Account[] = [
-    {
-      id: '0',
-      address: null,
-      name: '',
-      payments: null,
-      profiles: null,
-    },
-  ];
+  const accountMock: Account = {
+    id: '0',
+    address: null,
+    payments: null,
+    profiles: null,
+  };
 
   const configServiceStub = {
     get() {
@@ -72,23 +69,15 @@ describe('AccountService', () => {
 
   it('should make httpGet request', fakeAsync(() => {
     let req: TestRequest;
-    let reqOne: TestRequest;
-
-    service.get().subscribe((res) => {
-      expect(res.length).toEqual(accountMock.length);
-    });
 
     service.get('0').subscribe((res) => {
-      expect(res[0]).toEqual(accountMock[0]);
+      expect(res).toEqual(accountMock);
     });
 
     tick();
 
-    req = httpTestingController.expectOne('test');
-    reqOne = httpTestingController.expectOne('test?id=0');
-
+    req = httpTestingController.expectOne('test?id=0');
     req.flush(accountMock);
-    reqOne.flush(accountMock);
   }));
 
   it('should make httpPost request', fakeAsync(() => {
@@ -107,13 +96,13 @@ describe('AccountService', () => {
   it('should make httpPut request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.put(accountMock[0]).subscribe((res) => {
-      expect(res).toEqual(accountMock[0]);
+    service.put(accountMock).subscribe((res) => {
+      expect(res).toEqual(accountMock);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(accountMock[0]);
+    req.flush(accountMock);
   }));
 });

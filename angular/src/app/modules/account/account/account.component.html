@@ -8,121 +8,13 @@
         <div class="tile is-3">
           <div class="tile is-parent is-vertical">
             <div class="tile box has-background-dark is-child">
-              <h2 class="title has-text-light is-4">name</h2>
-              <p class="title has-text-light is-6">lorem ipsum</p>
-            </div>
-
-            <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">address</h2>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">street</p>
-                      <p class="title has-text-light is-6">987 Main Street</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">apt / unit</p>
-                      <p class="title has-text-light is-6">123</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">city</p>
-                      <p class="title has-text-light is-6">Dallas</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">state</p>
-                      <p class="title has-text-light is-6">TX</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">Postal Code</p>
-                      <p class="title has-text-light is-6">75200</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">country</p>
-                      <p class="title has-text-light is-6">United States</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <uic-address [address]="address$ | async"></uic-address>
             </div>
 
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
-
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">bank</p>
-                      <p class="title has-text-light is-6">Amex</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">number</p>
-                      <p class="title has-text-light is-6">*****01111</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">expiry</p>
-                      <p class="title has-text-light is-6">12/20</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <hr>
-              <div class="level">
-                <div class="level-left">
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">bank</p>
-                      <p class="title has-text-light is-6">Amex</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">number</p>
-                      <p class="title has-text-light is-6">*****01111</p>
-                    </div>
-                  </div>
-
-                  <div class="level-item has-text-light">
-                    <div>
-                      <p class="heading">expiry</p>
-                      <p class="title has-text-light is-6">12/20</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment"></uic-payment>
             </div>
           </div>
         </div>
@@ -132,42 +24,7 @@
             <div class="tile is-parent">
               <div class="tile box is-child">
                 <h2 class="title is-4">profiles</h2>
-
-                <div class="level">
-                  <div class="level-left">
-                    <div class="level-item has-text-centered">
-                      <div class="card">
-                        <div class="card-content">
-                          <figure class="image is-128x128">
-                            <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
-                          </figure>
-
-                          <br>
-                          <div>
-                            <p class="heading">adult</p>
-                            <p class="title is-6">Lorem Ipsum</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div class="card">
-                        <div class="card-content">
-                          <figure class="image is-128x128">
-                            <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
-                          </figure>
-
-                          <br>
-                          <div>
-                            <p class="heading">adult</p>
-                            <p class="title is-6">Lorem Ipsum</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <uic-profile [profiles]="profiles$ | async"></uic-profile>
               </div>
             </div>
 
@@ -175,130 +32,14 @@
               <div class="tile is-parent">
                 <div class="tile box is-child">
                   <h2 class="title is-4">bookings</h2>
-
-                  <div class="level">
-                    <div class="level-item">
-                      <figure class="image is-64x64">
-                        <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                      </figure>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">location</p>
-                        <p class="title is-6">Dallas</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-in</p>
-                        <p class="title is-6">2020-12-20</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-out</p>
-                        <p class="title is-6">2020-12-29</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr>
-                  <div class="level">
-                    <div class="level-item">
-                      <figure class="image is-64x64">
-                        <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                      </figure>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">location</p>
-                        <p class="title is-6">Dallas</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-in</p>
-                        <p class="title is-6">2020-12-20</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">check-out</p>
-                        <p class="title is-6">2020-12-29</p>
-                      </div>
-                    </div>
-                  </div>
+                  <uic-account-booking *ngFor="let booking of (bookings$ | async)" [booking]="booking"></uic-account-booking>
                 </div>
               </div>
 
               <div class="tile is-parent">
                 <div class="tile box is-child">
                   <h2 class="title is-4">reviews</h2>
-
-                  <div class="level">
-                    <div class="level-item">
-                      <figure class="image is-64x64">
-                        <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                      </figure>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">lodging</p>
-                        <p class="title is-6">Marriott</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">rating</p>
-                        <p class="title is-6">8.0</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">date</p>
-                        <p class="title is-6">2020-12-29</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <hr>
-                  <div class="level">
-                    <div class="level-item">
-                      <figure class="image is-64x64">
-                        <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                      </figure>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">lodging</p>
-                        <p class="title is-6">Hilton</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">rating</p>
-                        <p class="title is-6">8.5</p>
-                      </div>
-                    </div>
-
-                    <div class="level-item has-text-centered">
-                      <div>
-                        <p class="heading">date</p>
-                        <p class="title is-6">2020-12-29</p>
-                      </div>
-                    </div>
-                  </div>
+                  <uic-account-review *ngFor="let review of (reviews$ | async)" [review]="review"></uic-account-review>
                 </div>
               </div>
             </div>

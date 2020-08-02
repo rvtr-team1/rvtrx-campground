@@ -1,12 +1,25 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
+import { AccountBookingComponent } from './account-booking/account-booking.component';
+import { AddressComponent } from './address/address.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AccountReviewComponent } from './account-review/account-review.component';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
 @NgModule({
-  declarations: [AccountComponent],
+  declarations: [
+    AccountComponent,
+    AccountBookingComponent,
+    AddressComponent,
+    PaymentComponent,
+    ProfileComponent,
+    AccountReviewComponent,
+  ],
   exports: [RouterModule],
-  imports: [RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class AccountRoutingModule {}

@@ -1,0 +1,29 @@
+<div class="level">
+  <div class="level-item">
+    <figure class="image is-64x64">
+      <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">location</p>
+      <p class="title is-6">Dallas</p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">check-in</p>
+      <p class="title is-6">{{ booking.stay.checkIn | date: 'yyyy-MM-dd' }}</p>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">check-out</p>
+      <p class="title is-6">{{ booking.stay.checkOut | date: 'yyyy-MM-dd' }}</p>
+    </div>
+  </div>
+</div>
+<hr>
