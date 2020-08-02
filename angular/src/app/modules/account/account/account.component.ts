@@ -6,6 +6,7 @@ import { Address } from '../../../data/address.model';
 import { Booking } from '../../../data/booking.model';
 import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
+import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class AccountComponent implements OnInit {
   bookings$: Observable<Booking[]>;
   payments$: Observable<Payment[]>;
   profiles$: Observable<Profile[]>;
+  reviews$: Observable<Review[]>;
 
   constructor(private readonly accountService: AccountService) {}
 
@@ -53,6 +55,24 @@ export class AccountComponent implements OnInit {
           dateModified: null,
         },
         status: '',
+      },
+    ]);
+    this.reviews$ = of([
+      {
+        id: '100',
+        accountId: '100',
+        hotelId: '100',
+        comment: '',
+        dateCreated: new Date(2020, 8, 1),
+        rating: 8.0,
+      },
+      {
+        id: '100',
+        accountId: '100',
+        hotelId: '200',
+        comment: '',
+        dateCreated: new Date(2020, 9, 1),
+        rating: 8.5,
       },
     ]);
     this.address$ = this.account$.pipe(map((account) => account.address));

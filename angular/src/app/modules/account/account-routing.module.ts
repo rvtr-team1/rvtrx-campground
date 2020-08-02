@@ -6,6 +6,7 @@ import { AccountBookingComponent } from './account-booking/account-booking.compo
 import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AccountReviewComponent } from './account-review/account-review.component';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -16,6 +17,7 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     AddressComponent,
     PaymentComponent,
     ProfileComponent,
+    AccountReviewComponent,
   ],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes)],

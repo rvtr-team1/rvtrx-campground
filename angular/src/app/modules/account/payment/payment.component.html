@@ -17,7 +17,7 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">expiry</p>
-        <p class="title has-text-light is-6">12/20</p>
+        <p class="title has-text-light is-6">{{ payment.cardExpirationDate | date: 'MM/yy' }}</p>
       </div>
     </div>
   </div>

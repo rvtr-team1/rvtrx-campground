@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AccountBookingComponent } from '../account-booking/account-booking.component';
+import { AccountReviewComponent } from '../account-review/account-review.component';
 import { AddressComponent } from '../address/address.component';
 import { PaymentComponent } from '../payment/payment.component';
 import { ProfileComponent } from '../profile/profile.component';
@@ -38,6 +39,7 @@ describe('AccountComponent', () => {
       declarations: [
         AccountComponent,
         AccountBookingComponent,
+        AccountReviewComponent,
         AddressComponent,
         PaymentComponent,
         ProfileComponent,
