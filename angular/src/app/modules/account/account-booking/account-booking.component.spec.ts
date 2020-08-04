@@ -42,7 +42,7 @@ describe('AccountBookingComponent', () => {
       dateModified: new Date(),
     },
     status: 'string'
-  }
+  };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;
 
@@ -56,17 +56,8 @@ describe('AccountBookingComponent', () => {
     fixture = TestBed.createComponent(AccountBookingComponent);
     component = fixture.componentInstance;
     component.booking = booking;
-    /* { 
-     id: '',
-     checkIn: new Date(), 
-     checkOut: new Date(), 
-     dateCreated: new Date(), 
-     dateModified: new Date() 
-    };
-    */
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
