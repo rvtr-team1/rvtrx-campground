@@ -83,7 +83,7 @@ describe('AccountService', () => {
   it('should make httpPost request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.post(accountMock[0]).subscribe((res) => {
+    service.post(accountMock).subscribe((res) => {
       expect(JSON.parse(res.toString())).toBeTrue();
     });
 

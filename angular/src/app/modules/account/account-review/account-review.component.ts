@@ -6,7 +6,7 @@ import { Review } from '../../../data/review.model';
   templateUrl: './account-review.component.html',
 })
 export class AccountReviewComponent implements OnInit {
-  @Input() review: Review | string = '';
+  @Input() review: Review;
 
   constructor() {}
 

@@ -15,12 +15,12 @@ import { AccountService } from '../../../services/account/account.service';
   templateUrl: './account.component.html',
 })
 export class AccountComponent implements OnInit {
-  account$: Observable<Account> | string = '';
-  address$: Observable<Address> | string = '';
-  bookings$: Observable<Booking[]> | string = '';
-  payments$: Observable<Payment[]> | string = '';
-  profiles$: Observable<Profile[]> | string = '';
-  reviews$: Observable<Review[]> | string = '';
+  account$: Observable<Account>;
+  address$: Observable<Address>;
+  bookings$: Observable<Booking[]>;
+  payments$: Observable<Payment[]>;
+  profiles$: Observable<Profile[]>;
+  reviews$: Observable<Review[]>;
 
   constructor(private readonly accountService: AccountService) {}
 
