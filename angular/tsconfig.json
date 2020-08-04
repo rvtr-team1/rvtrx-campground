@@ -12,7 +12,12 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "target": "es2015",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
+    "strict": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noFallthroughCasesInSwitch": true,
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

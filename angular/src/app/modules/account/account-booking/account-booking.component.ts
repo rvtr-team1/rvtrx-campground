@@ -6,7 +6,7 @@ import { Booking } from '../../../data/booking.model';
   templateUrl: './account-booking.component.html',
 })
 export class AccountBookingComponent implements OnInit {
-  @Input() booking: Booking;
+  @Input() booking: Booking | string = '';
 
   constructor() {}
 

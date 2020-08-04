@@ -10,7 +10,7 @@ import { ConfigService } from '../../services/config/config.service';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent implements OnInit {
-  navbarLinks$: Observable<Link[]>;
+  navbarLinks$: Observable<Link[]> | string = '';
 
   constructor(private readonly config: ConfigService) {}
 
