@@ -1,4 +1,5 @@
 {
+  "strictTemplates": false,
   "extends": "tslint:recommended",
   "rules": {
     "align": {

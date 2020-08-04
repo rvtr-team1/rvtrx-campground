@@ -6,10 +6,11 @@ import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
 import { MonitoringService } from './services/monitoring/monitoring.service';
 import { environment } from '../environments/environment';
+import { BookingHomeComponent } from './modules/booking/booking-home/booking-home.component';
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent],
+  declarations: [AppComponent, BookingHomeComponent],
   imports: [AppRoutingModule, BrowserModule, LayoutModule],
   providers: [
     Monitoring,
