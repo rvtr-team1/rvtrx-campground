@@ -17,6 +17,7 @@ export class LodgingService {
    * @param config ConfigService
    * @param http HttpClient
    */
+    
   constructor(private readonly config: ConfigService, private readonly http: HttpClient) {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.lodging));
   }
