@@ -1,0 +1,13 @@
+{
+	"bookings": [
+		{
+			"id": "",
+			"accountId": "",
+			"lodgingId": "",
+			"guests": [],
+			"rentals": [],
+			"stay": {},
+			"status": ""
+		}
+	]
+}
