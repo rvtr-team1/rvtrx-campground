@@ -1,0 +1,88 @@
+{
+  "lodgings": [
+    {
+      "id": "1",
+      "location": {
+        "id": "1",
+        "address": {
+          "id": "1",
+          "city": "Mammoth",
+          "country": "United States",
+          "postalCode": "93546",
+          "stateProvince": "CA",
+          "street": "2251 Meridian Blvd."
+        },
+        "latitude": "37.639799",
+        "locale": "Mountainous, Cold",
+        "longitude": " -118.972245"
+      },
+      "name": "Mammoth Village",
+      "rentals": [
+        {
+          "id": "1",
+          "name": "Unit A",
+          "rentalUnit": {
+            "id": "1",
+            "bathrooms": [
+              {
+                "id": "1",
+                "fixture": 1
+              },
+              {
+                "id": "2",
+                "fixture": 2
+              }
+            ],
+            "bedrooms": [
+              {
+                "id": "1",
+                "count": 2,
+                "type": "Queen"
+              },
+              {
+                "id": "2",
+                "count": 2,
+                "type": "Queen"
+              }
+            ],
+            "name": "Unit A",
+            "occupancy": 4,
+            "type": ""
+          }
+        },
+        {
+          "id": "2",
+          "name": "Unit B",
+          "rentalUnit": {
+            "id": "2",
+            "bathrooms": [
+              {
+                "id": "1",
+                "fixture": 1
+              },
+              {
+                "id": "2",
+                "fixture": 2
+              }
+            ],
+            "bedrooms": [
+              {
+                "id": "1",
+                "count": 2,
+                "type": "Queen"
+              },
+              {
+                "id": "2",
+                "count": 2,
+                "type": "Queen"
+              }
+            ],
+            "name": "Unit B",
+            "occupancy": 4,
+            "type": ""
+          }
+        }
+      ]
+    }
+  ]
+}
