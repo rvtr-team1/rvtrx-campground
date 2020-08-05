@@ -1,1 +1,17 @@
-<p>rental works!</p>
+<table *ngFor=let rental of rentals>
+    <tr>
+        <th>Room Type</th>
+        <th>Beds</th>
+        <th>Maximum Occupancy</th>
+        <th>Available For</th>
+        <th>Number Rentals Available</th>
+    </tr>
+    <tr>
+        <td>{{rental.roomType}}</td>
+        <td>{{rental.beds}}</td>
+        <td>{{rental.maxOccupancy}}</td>
+        <td>{{rental.availableFor}}</td>
+        <td>{{rental.numberRentalsAvailable}}</td>
+        <button>Show Prices</button>
+    </tr>
+</table>
