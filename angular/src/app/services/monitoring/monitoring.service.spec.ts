@@ -11,10 +11,10 @@ describe('MonitorService', () => {
     get() {
       const config: Config = {
         api: {
-          account: 'null',
-          booking: 'null',
-          lodging: 'null',
-          monitoring: 'https://ec61288c429544a6ad850b94de25004a@o388320.ingest.sentry.io/5229046',
+          account: '',
+          booking: '',
+          lodging: '',
+          monitoring: '',
         },
         navigation: {
           footer: [

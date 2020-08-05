@@ -24,10 +24,10 @@ describe('AccountService', () => {
     },
     payments: [
       {
-      id: 'string',
-      cardExpirationDate: new Date(),
-      cardName: 'string',
-      cardNumber: 'string'
+        id: 'string',
+        cardExpirationDate: new Date(),
+        cardName: 'string',
+        cardNumber: 'string'
       }
     ],
     profiles: [
@@ -49,24 +49,24 @@ describe('AccountService', () => {
       const config: Config = {
         api: {
           account: 'test',
-          booking: 'null',
-          lodging: 'null',
-          monitoring: 'null',
+          booking: '',
+          lodging: '',
+          monitoring: '',
         },
         navigation: {
           footer: [
             {
-            icon: 'string',
-            text: 'string',
-            url:  'string',
-          }
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            }
           ],
           header: [
             {
-            icon: 'string',
-            text: 'string',
-            url:  'string',
-          }
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            }
           ],
         },
       };

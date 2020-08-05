@@ -24,9 +24,7 @@
             <div class="tile is-parent">
               <div class="tile box is-child">
                 <h2 class="title is-4">profiles</h2>
-                <div *ngIf="profiles$ | async as profiles">
-                <uic-profile [profiles]="profiles"></uic-profile>
-              </div>
+                <uic-profile *ngIf="profiles$ | async as profiles" [profiles]="profiles"></uic-profile>
               </div>
             </div>
 

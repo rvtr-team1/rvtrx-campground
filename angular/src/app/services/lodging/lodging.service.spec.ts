@@ -39,10 +39,10 @@ describe('LodgingService', () => {
     get() {
       const config: Config = {
         api: {
-          account: 'null',
-          booking: 'null',
+          account: '',
+          booking: '',
           lodging: 'test',
-          monitoring: 'null',
+          monitoring: '',
         },
         navigation: {
           footer: [
