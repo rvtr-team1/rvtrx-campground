@@ -1,4 +1,6 @@
 <!-- THIS IS ONLY A TEST -->
 <div class="level" *ngFor="let lodging of lodgings">
-  <p>{{ lodging }}</p>
+  <p *ngFor="let rental of lodging.rentals">
+    {{ rental.name }}
+  </p>
 </div>
