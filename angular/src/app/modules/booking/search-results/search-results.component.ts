@@ -1,18 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Booking } from 'src/app/data/booking.model';
-import { BookingService } from 'src/app/services/booking/booking.service';
+import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
   selector: 'uic-search-results',
   templateUrl: './search-results.component.html',
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() bookings: Booking[];
+  @Input() lodgings: Lodging[];
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.bookings);
-  }
+  ngOnInit(): void {}
 }

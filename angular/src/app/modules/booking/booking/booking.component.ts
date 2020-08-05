@@ -1,18 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingService } from 'src/app/services/booking/booking.service';
 import { Observable } from 'rxjs';
-import { Booking } from 'src/app/data/booking.model';
+import { map } from 'rxjs/operators';
+import { Lodging } from 'src/app/data/lodging.model';
+import { LodgingService } from 'src/app/services/lodging/lodging.service';
 
 @Component({
   selector: 'uic-booking',
   templateUrl: './booking.component.html',
 })
 export class BookingComponent implements OnInit {
-  bookings$: Observable<Booking[]>;
+  lodgings$: Observable<Lodging[]>;
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private lodgingService: LodgingService) {}
 
   ngOnInit(): void {
-    this.bookings$ = this.bookingService.get();
+    this.lodgings$ = this.lodgingService.get();
+
+    this.lodgings$.pipe(
+      map((lodgings) => {
+        lodgings.map((lodging) => lodging.rentals);
+      })
+    );
+
+    this.lodgings$.pipe(
+      map((lodgings) => {
+        lodgings.map((lodging) => lodging.reviews);
+      })
+    );
   }
 }
