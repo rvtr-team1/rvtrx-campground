@@ -3,6 +3,7 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">bank</p>
+        <uic-editable [(data)]='payment.cardName' (focusOut)='saveCost($event)'></uic-editable>
         <p class="title has-text-light is-6">{{ payment.cardName }}</p>
       </div>
     </div>
