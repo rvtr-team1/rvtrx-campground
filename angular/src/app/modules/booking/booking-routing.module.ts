@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingComponent } from './booking/booking.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   { component: BookingComponent, path: '' },
@@ -10,8 +10,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [BookingComponent,SearchResultsComponent],
+  declarations: [BookingComponent, SearchResultsComponent],
   exports: [RouterModule],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class BookingRoutingModule {}
