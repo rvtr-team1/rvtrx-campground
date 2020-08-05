@@ -9,7 +9,7 @@
           <div class="tile is-parent is-vertical">
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">address</h2>
-              <uic-address [address]="address$ | async"></uic-address>
+              <uic-address *ngIf="address$ | async as address" [address]="address"></uic-address>
             </div>
 
             <div class="tile box has-background-dark is-child">
@@ -24,7 +24,9 @@
             <div class="tile is-parent">
               <div class="tile box is-child">
                 <h2 class="title is-4">profiles</h2>
-                <uic-profile [profiles]="profiles$ | async"></uic-profile>
+                <div *ngIf="profiles$ | async as profiles">
+                <uic-profile [profiles]="profiles"></uic-profile>
+              </div>
               </div>
             </div>
 

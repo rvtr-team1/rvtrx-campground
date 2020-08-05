@@ -1,6 +1,7 @@
 <div class="level">
   <div class="level-left">
-    <div class="level-item has-text-centered" *ngFor="let profile of profiles">
+    <div *ngIf="profiles">
+      <div class="level-item has-text-centered" *ngFor="let profile of profiles">
       <div class="card">
         <div class="card-content">
           <figure class="image is-128x128">

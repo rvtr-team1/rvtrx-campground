@@ -6,7 +6,7 @@ import { Profile } from '../../../data/profile.model';
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent implements OnInit {
-  @Input() profiles: Profile[] | string = '';
+  @Input() profiles: Profile[];
 
   constructor() {}
 

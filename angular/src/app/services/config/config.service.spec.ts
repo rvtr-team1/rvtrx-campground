@@ -11,12 +11,27 @@ import { HttpClient } from '@angular/common/http';
 describe('ConfigService', () => {
   const configMock: Config = {
     api: {
-      account: null,
-      booking: null,
-      lodging: null,
-      monitoring: null,
+      account: 'test',
+      booking: 'null',
+      lodging: 'null',
+      monitoring: 'null',
     },
-    navigation: null,
+    navigation: {
+      footer: [
+        {
+        icon: 'string',
+        text: 'string',
+        url:  'string',
+      }
+      ],
+      header: [
+        {
+        icon: 'string',
+        text: 'string',
+        url:  'string',
+      }
+      ]
+    },
   };
 
   let httpClient: HttpClient;
