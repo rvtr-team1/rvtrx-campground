@@ -22,6 +22,10 @@ export class LodgingHomeComponent implements OnInit {
       data => this.lodgings = data, error => this.handleError(error));
   }
 
+  private clicked (): void {
+    
+  }
+
   private handleError(error: HttpErrorResponse): void {
       console.log(error.status);
       let message: string;
