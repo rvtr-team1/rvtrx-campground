@@ -16,13 +16,8 @@ export class LodgingHomeComponent implements OnInit {
   constructor(private lodgingService: LodgingService) { }
 
   ngOnInit(): void {
-    
     this.lodgingService.get().subscribe(
       data => this.lodgings = data, error => this.handleError(error));
-  }
-
-  private clicked (): void {
-    
   }
 
   private handleError(error: HttpErrorResponse): void {
