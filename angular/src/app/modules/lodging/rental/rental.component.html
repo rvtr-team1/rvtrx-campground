@@ -1,7 +1,7 @@
 <!-- <button (click)="GetLength()">Get Length</button> -->
 
 <div *ngIf='buttonClicked'>
-   <table class="table is-bordered is-hoverable">
+   <table class="table is-bordered is-hoverable is-fullwidth">
       <thead>
          <th>Room Type</th>
          <th>Occupancy</th>
@@ -16,7 +16,7 @@
             </td>
             <td>{{rental.rentalUnit?.occupancy}}</td>
             <td>Tent and RV</td>
-            <button>Show Prices</button>
+            <td id="btCell"><button>Show Prices</button></td>
          </tr>
       </tbody>
    </table>
