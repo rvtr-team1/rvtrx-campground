@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Booking } from 'src/app/data/booking.model';
 import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
@@ -13,6 +12,7 @@ export class SearchResultsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.lodgings);
   }
 
 }
