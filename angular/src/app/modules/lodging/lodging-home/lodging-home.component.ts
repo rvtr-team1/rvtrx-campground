@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LodgingHomeComponent implements OnInit {
 
   lodgings: Lodging[] | null = null;
+  lodge: Lodging | null = null;
 
   constructor(private lodgingService: LodgingService) { }
 
