@@ -21,11 +21,7 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  constructor(private readonly accountService: AccountService) {
-    this.address$ =  this.account$.pipe(map((account) => account.address   ));
-    this.payments$ = this.account$.pipe(map((account) => account.payments  ));
-    this.profiles$ = this.account$.pipe(map((account) => account.profiles  ));
-  }
+  constructor(private readonly accountService: AccountService) {}
 
   ngOnInit(): void {
     this.account$ = this.accountService.get('100');
@@ -55,7 +51,7 @@ export class AccountComponent implements OnInit {
           id: '100',
           checkIn: new Date(2020, 11, 1),
           checkOut: new Date(2020, 11, 31),
-          dateCreated: new Date(2020, 10, 1), // change to dummy data
+          dateCreated: new Date(2020, 10, 1),  // change to dummy data
           dateModified: new Date(2020, 10, 1), // change to dummy data
         },
         status: '',
@@ -79,6 +75,8 @@ export class AccountComponent implements OnInit {
         rating: 8.5,
       },
     ]);
-
+    this.address$ =  this.account$.pipe(map((account) => account.address   ));
+    this.payments$ = this.account$.pipe(map((account) => account.payments  ));
+    this.profiles$ = this.account$.pipe(map((account) => account.profiles  ));
   }
 }
