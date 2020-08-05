@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AccountRoutingModule } from './account-routing.module';
-import { EditableComponent } from './editable/editable.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
-  imports: [AccountRoutingModule],
-  declarations: [EditableComponent],
+  imports: [AccountRoutingModule, FormsModule, FormsModule, ReactiveFormsModule],
 })
 export class AccountModule {}

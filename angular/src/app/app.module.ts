@@ -6,11 +6,11 @@ import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
 import { MonitoringService } from './services/monitoring/monitoring.service';
 import { environment } from '../environments/environment';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [AppComponent],
-  imports: [AppRoutingModule, BrowserModule, LayoutModule],
+  imports: [AppRoutingModule, BrowserModule, LayoutModule, FormsModule, ReactiveFormsModule],
   providers: [
     Monitoring,
     {

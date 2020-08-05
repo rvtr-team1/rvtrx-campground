@@ -7,7 +7,7 @@ import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
-
+import { EditableComponent } from './editable/editable.component';
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
 @NgModule({
@@ -18,6 +18,7 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     PaymentComponent,
     ProfileComponent,
     AccountReviewComponent,
+    EditableComponent,
   ],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes)],

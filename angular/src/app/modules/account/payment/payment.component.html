@@ -3,7 +3,7 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">bank</p>
-        <uic-editable [(data)]='payment.cardName' (focusOut)='saveCost($event)'></uic-editable>
+        <uic-editable [(data)]='payment.cardName'></uic-editable>
         <p class="title has-text-light is-6">{{ payment.cardName }}</p>
       </div>
     </div>
@@ -11,6 +11,7 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">number</p>
+        <uic-editable [(data)]='payment.cardNumber'></uic-editable>
         <p class="title has-text-light is-6">{{ payment.cardNumber }}</p>
       </div>
     </div>
@@ -18,6 +19,7 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">expiry</p>
+        <uic-editable [(data)]='payment.cardExpirationDate'></uic-editable>
         <p class="title has-text-light is-6">{{ payment.cardExpirationDate | date: 'MM/yy' }}</p>
       </div>
     </div>

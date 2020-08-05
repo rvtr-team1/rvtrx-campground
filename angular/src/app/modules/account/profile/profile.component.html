@@ -10,7 +10,12 @@
           <br>
           <div>
             <p class="heading">adult</p>
-            <p class="title is-6">{{ profile.name.given }} {{ profile.name.family }}</p>
+            <p class="title is-6">
+              <uic-editable [(data)]='profile.name.given' (focusOut)='profile.name.given = $event'></uic-editable>
+              <uic-editable [(data)]='profile.name.family' (focusOut)='profile.name.family = $event'></uic-editable>
+              {{profile.name.given}}
+              {{profile.name.family}}
+            </p>
           </div>
         </div>
       </div>
