@@ -12,9 +12,9 @@ describe('ConfigService', () => {
   const configMock: Config = {
     api: {
       account: 'test',
-      booking: 'null',
-      lodging: 'null',
-      monitoring: 'null',
+      booking: '',
+      lodging: '',
+      monitoring: '',
     },
     navigation: {
       footer: [
