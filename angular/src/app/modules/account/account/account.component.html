@@ -32,7 +32,8 @@
               <div class="tile is-parent">
                 <div class="tile box is-child">
                   <h2 class="title is-4">bookings</h2>
-                  <uic-account-booking *ngFor="let booking of (bookings$ | async)" [booking]="booking"></uic-account-booking>
+                  <uic-account-booking *ngFor="let booking of (bookings$ | async)" [booking]="booking">
+                  </uic-account-booking>
                 </div>
               </div>
 
