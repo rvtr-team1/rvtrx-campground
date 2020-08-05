@@ -8,19 +8,18 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
-//import { profile } from 'console';
 
 @Component({
   selector: 'uic-account',
   templateUrl: './account.component.html',
 })
 export class AccountComponent implements OnInit {
-  account$: Observable<Account> | string = '';
-  address$: Observable<Address> | string = '';
-  bookings$: Observable<Booking[]> | string = '';
-  payments$: Observable<Payment[]> | string = '';
-  profiles$: Observable<Profile[]> | string = '';
-  reviews$: Observable<Review[]> | string = '';
+  account$: Observable<Account>;
+  address$: Observable<Address>;
+  bookings$: Observable<Booking[]>;
+  payments$: Observable<Payment[]>;
+  profiles$: Observable<Profile[]>;
+  reviews$: Observable<Review[]>;
 
   constructor(private readonly accountService: AccountService) {}
 
@@ -37,8 +36,8 @@ export class AccountComponent implements OnInit {
           id: '100',
           checkIn: new Date(2020, 10, 1),
           checkOut: new Date(2020, 10, 30),
-          dateCreated: new Date(2020, 10, 1), //change to dummy data
-          dateModified: new Date(2020, 10, 1), //change to dummy data
+          dateCreated: new Date(2020, 10, 1),
+          dateModified: new Date(2020, 10, 1),
         },
         status: '',
       },
@@ -52,8 +51,8 @@ export class AccountComponent implements OnInit {
           id: '100',
           checkIn: new Date(2020, 11, 1),
           checkOut: new Date(2020, 11, 31),
-          dateCreated: new Date(2020, 10, 1), //change to dummy data
-          dateModified: new Date(2020, 10, 1), //change to dummy data
+          dateCreated: new Date(2020, 10, 1),
+          dateModified: new Date(2020, 10, 1),
         },
         status: '',
       },

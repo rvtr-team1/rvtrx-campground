@@ -6,7 +6,7 @@ import { Address } from '../../../data/address.model';
   templateUrl: './address.component.html',
 })
 export class AddressComponent implements OnInit {
-  @Input() address: Address | string = '';
+  @Input() address: Address;
 
   constructor() {}
 

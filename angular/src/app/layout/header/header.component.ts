@@ -12,7 +12,7 @@ declare const bulmaOnInit: any;
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-  navbarLinks$: Observable<Link[]> | string = '';
+  navbarLinks$: Observable<Link[]>;
 
   constructor(private readonly config: ConfigService) {}
 

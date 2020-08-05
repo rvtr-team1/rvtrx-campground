@@ -6,7 +6,7 @@ import { Payment } from '../../../data/payment.model';
   templateUrl: './payment.component.html',
 })
 export class PaymentComponent implements OnInit {
-  @Input() payment: Payment | string = '';
+  @Input() payment: Payment;
 
   constructor() {}
 

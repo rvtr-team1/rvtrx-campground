@@ -14,9 +14,34 @@ import { Config } from '../../data/config.model';
 describe('AccountService', () => {
   const accountMock: Account = {
     id: '0',
-    address: null,
-    payments: null,
-    profiles: null,
+    address: {
+      id: 'string',
+      city: 'string',
+      country: 'string',
+      postalCode: 'string',
+      stateProvince: 'string',
+      street: 'string',
+    },
+    payments: [
+      {
+        id: 'string',
+        cardExpirationDate: new Date(),
+        cardName: 'string',
+        cardNumber: 'string',
+      },
+    ],
+    profiles: [
+      {
+        id: 'string',
+        email: 'string',
+        name: {
+          id: 'string',
+          family: 'string',
+          given: 'string',
+        },
+        phone: 'string',
+      },
+    ],
   };
 
   const configServiceStub = {
@@ -24,11 +49,26 @@ describe('AccountService', () => {
       const config: Config = {
         api: {
           account: 'test',
-          booking: null,
-          lodging: null,
-          monitoring: null,
+          booking: '',
+          lodging: '',
+          monitoring: '',
         },
-        navigation: null,
+        navigation: {
+          footer: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+          header: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+        },
       };
 
       return scheduled([config], asyncScheduler);
@@ -83,7 +123,7 @@ describe('AccountService', () => {
   it('should make httpPost request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.post(accountMock[0]).subscribe((res) => {
+    service.post(accountMock).subscribe((res) => {
       expect(JSON.parse(res.toString())).toBeTrue();
     });
 

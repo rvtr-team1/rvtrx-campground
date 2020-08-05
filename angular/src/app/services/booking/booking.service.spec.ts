@@ -19,7 +19,13 @@ describe('BookingService', () => {
       lodgingId: '0',
       guests: [],
       rentals: [],
-      stay: null,
+      stay: {
+        id: 'string',
+        checkIn: new Date(),
+        checkOut: new Date(),
+        dateCreated: new Date(),
+        dateModified: new Date(),
+      },
       status: '',
     },
   ];
@@ -28,12 +34,27 @@ describe('BookingService', () => {
     get() {
       const config: Config = {
         api: {
-          account: null,
+          account: 'test',
           booking: 'test',
-          lodging: null,
-          monitoring: null
+          lodging: 'test',
+          monitoring: 'test',
         },
-        navigation: null,
+        navigation: {
+          footer: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+          header: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+        },
       };
 
       return scheduled([config], asyncScheduler);
