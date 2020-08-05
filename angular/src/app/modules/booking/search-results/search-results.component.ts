@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultsComponent implements OnInit {
 
+  query : string = "test query";
   constructor() { }
 
   ngOnInit(): void {
