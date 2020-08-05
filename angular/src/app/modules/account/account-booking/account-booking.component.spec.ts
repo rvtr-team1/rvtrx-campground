@@ -5,35 +5,43 @@ describe('AccountBookingComponent', () => {
     id: 'string',
     accountId: 'string',
     lodgingId: 'string',
-    guests: [{
-      id: 'string',
-      email: 'string',
-      name: {
+    guests: [
+      {
         id: 'string',
-        family: 'string',
-        given: 'string'
+        email: 'string',
+        name: {
+          id: 'string',
+          family: 'string',
+          given: 'string',
+        },
+        phone: 'string',
       },
-      phone: 'string'
-    }],
-    rentals: [{
-      id: 'string',
-      name: 'string',
-      rentalUnit: {
+    ],
+    rentals: [
+      {
         id: 'string',
-        bathrooms: [{
-          id: 'string',
-          fixture: 2,
-        }],
-        bedrooms: [{
-          id: 'string',
-          count: 2,
-          type: 'string',
-        }],
         name: 'string',
-        occupancy: 2,
-        type: 'string'
-      }
-    }],
+        rentalUnit: {
+          id: 'string',
+          bathrooms: [
+            {
+              id: 'string',
+              fixture: 2,
+            },
+          ],
+          bedrooms: [
+            {
+              id: 'string',
+              count: 2,
+              type: 'string',
+            },
+          ],
+          name: 'string',
+          occupancy: 2,
+          type: 'string',
+        },
+      },
+    ],
     stay: {
       id: 'string',
       checkIn: new Date(),
@@ -41,7 +49,7 @@ describe('AccountBookingComponent', () => {
       dateCreated: new Date(),
       dateModified: new Date(),
     },
-    status: 'string'
+    status: 'string',
   };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;
@@ -58,6 +66,7 @@ describe('AccountBookingComponent', () => {
     component.booking = booking;
     fixture.detectChanges();
   });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

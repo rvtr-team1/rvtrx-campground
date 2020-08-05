@@ -19,18 +19,18 @@ describe('ConfigService', () => {
     navigation: {
       footer: [
         {
-        icon: 'string',
-        text: 'string',
-        url:  'string',
-      }
+          icon: 'string',
+          text: 'string',
+          url: 'string',
+        },
       ],
       header: [
         {
-        icon: 'string',
-        text: 'string',
-        url:  'string',
-      }
-      ]
+          icon: 'string',
+          text: 'string',
+          url: 'string',
+        },
+      ],
     },
   };
 

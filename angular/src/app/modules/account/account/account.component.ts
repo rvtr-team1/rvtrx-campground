@@ -75,7 +75,7 @@ export class AccountComponent implements OnInit {
         rating: 8.5,
       },
     ]);
-    this.address$ =  this.account$.pipe(map((account) => account.address));
+    this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }

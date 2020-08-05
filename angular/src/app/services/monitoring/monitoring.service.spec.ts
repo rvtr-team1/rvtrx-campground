@@ -22,14 +22,14 @@ describe('MonitorService', () => {
               icon: 'string',
               text: 'string',
               url: 'string',
-            }
+            },
           ],
           header: [
             {
               icon: 'string',
               text: 'string',
               url: 'string',
-            }
+            },
           ],
         },
       };

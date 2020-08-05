@@ -23,11 +23,11 @@ describe('LodgingService', () => {
           country: 'string',
           postalCode: 'string',
           stateProvince: 'string',
-          street: 'string'
+          street: 'string',
         },
         latitude: 'string',
         locale: 'string',
-        longitude: 'string'
+        longitude: 'string',
       },
       name: 'string',
       rentals: [],
@@ -50,14 +50,14 @@ describe('LodgingService', () => {
               icon: 'string',
               text: 'string',
               url: 'string',
-            }
+            },
           ],
           header: [
             {
               icon: 'string',
               text: 'string',
               url: 'string',
-            }
+            },
           ],
         },
       };

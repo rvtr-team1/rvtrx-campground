@@ -20,15 +20,15 @@ describe('AccountService', () => {
       country: 'string',
       postalCode: 'string',
       stateProvince: 'string',
-      street: 'string'
+      street: 'string',
     },
     payments: [
       {
         id: 'string',
         cardExpirationDate: new Date(),
         cardName: 'string',
-        cardNumber: 'string'
-      }
+        cardNumber: 'string',
+      },
     ],
     profiles: [
       {
@@ -37,10 +37,10 @@ describe('AccountService', () => {
         name: {
           id: 'string',
           family: 'string',
-          given: 'string'
+          given: 'string',
         },
-        phone: 'string'
-      }
+        phone: 'string',
+      },
     ],
   };
 
@@ -59,14 +59,14 @@ describe('AccountService', () => {
               icon: 'string',
               text: 'string',
               url: 'string',
-            }
+            },
           ],
           header: [
             {
               icon: 'string',
               text: 'string',
               url: 'string',
-            }
+            },
           ],
         },
       };

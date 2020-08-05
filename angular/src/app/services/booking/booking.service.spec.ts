@@ -24,7 +24,7 @@ describe('BookingService', () => {
         checkIn: new Date(),
         checkOut: new Date(),
         dateCreated: new Date(),
-        dateModified: new Date()
+        dateModified: new Date(),
       },
       status: '',
     },
@@ -37,22 +37,22 @@ describe('BookingService', () => {
           account: 'test',
           booking: 'test',
           lodging: 'test',
-          monitoring: 'test'
+          monitoring: 'test',
         },
         navigation: {
           footer: [
             {
-            icon: 'string',
-            text: 'string',
-            url:  'string',
-          }
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
           ],
           header: [
             {
-            icon: 'string',
-            text: 'string',
-            url:  'string',
-          }
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
           ],
         },
       };
