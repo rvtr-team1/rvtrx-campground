@@ -23,16 +23,16 @@ export class LodgingHomeComponent implements OnInit {
   }
 
   private handleError(error: HttpErrorResponse): void {
-      console.log(error.status);
-      let message: string;
-      if (error.status === 0) {
-        message = 'Unable to connect to server';
-      } else {
-        message = error.status.toString();
-      }
-    } 
+    console.log(error.status);
+    let message: string;
+    if (error.status === 0) {
+      message = 'Unable to connect to server';
+    } else {
+      message = error.status.toString();
+    }
+  } 
 
-  }
+}
 
 
 

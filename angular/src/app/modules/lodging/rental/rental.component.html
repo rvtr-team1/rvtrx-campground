@@ -1,1 +1,23 @@
-<p>rental works!</p>
+<!-- <button (click)="GetLength()">Get Length</button> -->
+
+<div *ngIf='buttonClicked'>
+   <table class="table is-bordered is-hoverable">
+      <thead>
+         <th>Room Type</th>
+         <th>Occupancy</th>
+         <th>Available For</th>
+         <th></th>
+      </thead>
+      <tbody>
+         <tr *ngFor="let rental of rentals">
+            <td>
+               {{rental.rentalUnit?.name}}<br>
+               {{rental.rentalUnit?.bedrooms[0].count}} {{rental.rentalUnit?.bedrooms[0].type}}
+            </td>
+            <td>{{rental.rentalUnit?.occupancy}}</td>
+            <td>Tent and RV</td>
+            <button>Show Prices</button>
+         </tr>
+      </tbody>
+   </table>
+</div>

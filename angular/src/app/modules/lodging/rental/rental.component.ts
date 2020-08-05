@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { LodgingService } from 'src/app/services/lodging/lodging.service';
+import { Lodging } from 'src/app/data/lodging.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Rental } from 'src/app/data/rental.model';
 
 @Component({
   selector: 'uic-rental',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentalComponent implements OnInit {
 
-  constructor() { }
+  lodgings: Lodging[] | null = null;
+  rentals: Rental[] | null = null;
+  buttonClicked: boolean = false;
+
+  constructor(private lodgingService: LodgingService) { }
 
   ngOnInit(): void {
+    this.loadLodgings();
   }
+
+  private loadLodgings(): void
+  {
+    this.lodgingService.get().toPromise()
+      .then(data => this.lodgings = data)
+      .then(() => this.GetLength())
+      .catch(error => this.handleError(error));
+  }
+  public GetLength(): void {
+    this.rentals = this.lodgings[0].rentals;
+    this.buttonClicked = true;
+  }
+  private handleError(error: HttpErrorResponse): void {
+    console.log(error.status);
+    let message: string;
+    if (error.status === 0) {
+      message = 'Unable to connect to server';
+    } else {
+      message = error.status.toString();
+    }
+  } 
 
 }
