@@ -5,17 +5,17 @@
       "id": "1",
       "address": {
         "id": "1",
-        "city": "testCity",
-        "country": "testCountry",
-        "postalCode": "testCode",
-        "stateProvince": "testState",
-        "street": "testStreet"
+        "city": "Laketown",
+        "country": "USA",
+        "postalCode": "84038",
+        "stateProvince": "Utah",
+        "street": "1220 North Bear Lake Boulevard"
       },
       "latitude": "testLat",
       "locale": "testLocale",
       "longitude": "testLong"
     },
-    "name": "Test",
+    "name": "Bear Lake State Park - Rendezvous Beach",
     "rentals": [
       {
         "id": "1",
@@ -122,6 +122,59 @@
       "longitude": "testLong"
     },
     "name": "Test",
+    "rentals": [
+      {
+        "id": "1",
+        "name": "testRental",
+        "rentalUnit": {
+          "id": "1",
+          "bathrooms": [
+            {
+              "id": "1",
+              "fixture": "1"
+            }
+          ],
+          "bedrooms": [
+            {
+              "id": "1",
+              "count": "1",
+              "type": "testBedType"
+            }
+          ],
+          "name": "testRentalUnit",
+          "occupancy": "1",
+          "type": "testType"
+        }
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "comment",
+        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "rating": "1"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "location": {
+      "id": "1",
+      "address": {
+        "id": "1",
+        "city": "Laketown",
+        "country": "USA",
+        "postalCode": "84038",
+        "stateProvince": "Utah",
+        "street": "1220 North Bear Lake Boulevard"
+      },
+      "latitude": "testLat",
+      "locale": "testLocale",
+      "longitude": "testLong"
+    },
+    "name": "Bear Lake State Park - Rendezvous Beach",
     "rentals": [
       {
         "id": "1",
