@@ -51,7 +51,7 @@ describe('RentalComponent', () => {
   });
 
   it('should get rental', () => {
-    expect(component.lodgings).toBeTruthy();
-    expect(component.lodgings).toEqual(lodgings);
+    expect(component.lodgings[0].rentals).toBeTruthy();
+    expect(component.lodgings[0].rentals).toEqual(lodgings[0].rentals);
   });
 });
