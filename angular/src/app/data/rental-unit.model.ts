@@ -15,8 +15,8 @@ import { Bedroom } from './bedroom.model';
  */
 export interface RentalUnit {
   id: string;
-  //bathrooms: Bathroom[];
-  bedrooms: Bedroom[];
+  //modified the bedroom property
+  bedrooms: Bedroom;
   name: string;
   occupancy: number;
   type: string;
