@@ -5,7 +5,6 @@ import { LodgingRoutingModule } from './lodging-routing.module';
 import { RentalComponent } from './rental/rental.component';
 import { LodgingComponent } from './lodging/lodging.component';
 
-
 @NgModule({
   declarations: [LodgingComponent, RentalComponent],
   imports: [
@@ -13,4 +12,4 @@ import { LodgingComponent } from './lodging/lodging.component';
     LodgingRoutingModule
   ]
 })
-export class LodgingModule { }
+export class LodgingModule {}
