@@ -12,10 +12,9 @@ export class EditableComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
   onFocusOut(e: Event) {
     this.editMode = false;
-    this.data = (<HTMLInputElement>e.target).value;
+    this.data = (e.target as HTMLInputElement).value;
     this.focusOut.emit(this.data);
   }
 }

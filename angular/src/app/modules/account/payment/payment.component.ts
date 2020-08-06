@@ -6,7 +6,6 @@ import { Payment } from '../../../data/payment.model';
 })
 export class PaymentComponent implements OnInit {
   @Input() payment: Payment;
-
   constructor() {}
 
   ngOnInit(): void {}
