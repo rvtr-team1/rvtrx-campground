@@ -1,16 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LodgingHomeComponent } from './lodging-home.component';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
 
 describe('LodgingHomeComponent', () => {
   let component: LodgingHomeComponent;
   let fixture: ComponentFixture<LodgingHomeComponent>;
-  let debugElement: DebugElement;
+  
   const lodgings: Lodging[] =
     [
       {
@@ -34,6 +31,7 @@ describe('LodgingHomeComponent', () => {
         reviews: []
       }
     ]; 
+
   beforeEach(async(() => {
     
     const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
@@ -49,17 +47,28 @@ describe('LodgingHomeComponent', () => {
 
     fixture = TestBed.createComponent(LodgingHomeComponent);
     component = fixture.componentInstance;
-    let debugElement = fixture.debugElement;
     fixture.detectChanges();
   }));
 
+  /**
+   * tests the whole lodging-home component
+   */
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  /**
+   * tests if the lodges are returned correctly
+   */
   it('should get lodgings on initialization', () => {
     expect(component.lodgings).toBeTruthy();
     expect(component.lodgings).toEqual(lodgings);
-  })
-  
+  });
+
+  /**
+   * tests the handle error function in lodging-home component
+   */
+  it('should handle errors', () => {
+    expect(component.handleError).toBeTruthy();
+  });
 });
