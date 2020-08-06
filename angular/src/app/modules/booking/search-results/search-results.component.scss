@@ -21,9 +21,35 @@
     margin-top: 20px;
 }
 
+.card:hover{
+    background-color: #10d1b4;
+    color: white;
+}
+.card:hover .is-4{
+    color: white;
+}
+
+.card:hover .discountedPrice{
+    color: white;
+}
+
+.cover:hover .subtitle {
+    color: white;
+}
+
+.card:hover .orignalPrice{
+    color: rgb(73, 73, 73);
+}
+
+.card:hover button{
+    background-color: white;
+    color: #10d1b4;
+}
+
 .is-4{
     color: #00aa91;
 }
+
 
 .is-2 {
     color:rgb(136, 136, 136);
@@ -31,3 +57,23 @@
 .subtitle{
     color: rgb(116, 116, 116);
 }
+
+.orignalPrice{
+    text-decoration: line-through; 
+    display: inline; 
+    margin-left: 1.5rem; 
+    font-weight: bold; 
+    color: gray;
+}
+.discountedPrice{
+    display: inline;
+    font-weight: bold;
+    color: #00aa91;
+}
+
+
+.content button{
+    float: right;
+    margin-bottom: 4rem;
+}
+

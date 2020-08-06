@@ -20,4 +20,6 @@ export interface RentalUnit {
   name: string;
   occupancy: number;
   type: string;
+  price: number;
+  discountedPrice?: number;
 }
