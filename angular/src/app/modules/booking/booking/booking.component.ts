@@ -11,6 +11,8 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 export class BookingComponent implements OnInit {
   lodgings$: Observable<Lodging[]>;
 
+  isSearched : boolean = false;
+
   constructor(private lodgingService: LodgingService) {}
 
   ngOnInit(): void {
@@ -27,5 +29,6 @@ export class BookingComponent implements OnInit {
         lodgings.map((lodging) => lodging.reviews);
       })
     );
+    this.lodgings$.subscribe(value => console.log(value));  
   }
 }

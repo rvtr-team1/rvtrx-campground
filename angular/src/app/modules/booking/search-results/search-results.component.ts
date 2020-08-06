@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Booking } from 'src/app/data/booking.model';
 import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
@@ -9,7 +8,11 @@ import { Lodging } from 'src/app/data/lodging.model';
 export class SearchResultsComponent implements OnInit {
   @Input() lodgings: Lodging[];
 
-  constructor() {}
+  query : string = "test query";
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.lodgings);
+  }
+
 }
