@@ -8,6 +8,9 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
+import { AddressComponent } from '../address/address.component';
+import { PaymentComponent } from '../payment/payment.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'uic-account',
@@ -78,5 +81,43 @@ export class AccountComponent implements OnInit {
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
+  }
+
+  public updateAccountProfile(profile: Profile[]): void {
+    const addressComponent = new AddressComponent();
+    const paymentComponent = new PaymentComponent();
+    debugger;
+    this.accountService
+      .put({
+        id: `${this.account$.pipe(map((account) => account.id))}`,
+        profiles: profile,
+        address: addressComponent.address,
+        payments: paymentComponent.payment,
+      } as Account)
+      .subscribe();
+  }
+  public updateAccountPayment(payment: Payment[]): void {
+    const addressComponent = new AddressComponent();
+    const profilesComponent = new ProfileComponent();
+    this.accountService
+      .put({
+        id: `${this.account$.pipe(map((account) => account.id))}`,
+        profiles: profilesComponent.profiles,
+        address: addressComponent.address,
+        payments: payment,
+      } as Account)
+      .subscribe();
+  }
+  public updateAccountAddress(address: Address): void {
+    const paymentComponent = new PaymentComponent();
+    const profilesComponent = new ProfileComponent();
+    this.accountService
+      .put({
+        id: `${this.account$.pipe(map((account) => account.id))}`,
+        profiles: profilesComponent.profiles,
+        address,
+        payments: paymentComponent.payment,
+      } as Account)
+      .subscribe();
   }
 }
