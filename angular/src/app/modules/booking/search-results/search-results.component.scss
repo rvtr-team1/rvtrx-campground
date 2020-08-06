@@ -46,6 +46,12 @@
     color: #10d1b4;
 }
 
+.card:hover .checked{
+    color: #006858;
+}
+.card:hover .unchecked{
+    color: white;
+}
 .is-4{
     color: #00aa91;
 }
