@@ -1,6 +1,9 @@
+$shadow-color: rgba(0, 0, 0, 0.3);
+
 .result-image {
-  -webkit-box-shadow: 0px 7px 15px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.3);
+  $result-shadow: 0 7px 15px 0 $shadow-color;
+  -webkit-box-shadow: $result-shadow;
+  box-shadow: $result-shadow;
 }
 
 .title-is-vertical ul {
@@ -15,20 +18,19 @@
 }
 
 .card {
-  -webkit-box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  $card-shadow: 0 5px 10px 0 $shadow-color;
+  -webkit-box-shadow: $card-shadow;
+  box-shadow: $card-shadow;
   max-width: 100%;
   margin-top: 20px;
 }
 
 .card:hover {
+  $card-hover-shadow: 0 25px 50px 0 $shadow-color;
+  -webkit-box-shadow: $card-hover-shadow;
+  box-shadow: $card-hover-shadow;
   background-color: #10d1b4;
   color: white;
-<<<<<<< HEAD
-=======
-  -webkit-box-shadow: 0px 25px 50px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.3);
->>>>>>> af794e7a96aea6cdb95bedf4f9c78cf4a8d3ba7a
 }
 .card:hover .is-4 {
   color: white;
