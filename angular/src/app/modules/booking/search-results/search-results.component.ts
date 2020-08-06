@@ -8,11 +8,10 @@ import { Lodging } from 'src/app/data/lodging.model';
 export class SearchResultsComponent implements OnInit {
   @Input() lodgings: Lodging[];
 
-  query : string = "test query";
-  constructor() { }
+  query: string = 'test query';
+  constructor() {}
 
   ngOnInit(): void {
     console.log(this.lodgings);
   }
-
 }
