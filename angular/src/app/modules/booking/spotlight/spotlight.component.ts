@@ -1,8 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LodgingService } from '../../../services/lodging/lodging.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Booking } from 'src/app/data/booking.model';
 import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
