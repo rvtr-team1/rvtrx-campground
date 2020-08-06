@@ -16,31 +16,28 @@
       "longitude": "testLong"
     },
     "name": "Test",
-    "rentals": 
-    [
+    "rentals": [
       {
         "id": "1",
         "name": "testRental",
-        "rentalUnit": 
-          {
-            "id": "6",
-            "bedrooms": [
-              {
-                "id": "1",
-                "count": "4",
-                "type": "Queen Bed"
-              }
-            ],
-            "name": "Family Room",
-            "occupancy": "5",
-            "type": "testType"
-          }
+        "rentalUnit": {
+          "id": "6",
+          "bedrooms": [
+            {
+              "id": "1",
+              "count": "4",
+              "type": "Queen Bed"
+            }
+          ],
+          "name": "Family Room",
+          "occupancy": "5",
+          "type": "testType"
+        }
       },
       {
         "id": "2",
         "name": "testRental2",
-        "rentalUnit":
-        {
+        "rentalUnit": {
           "id": "2",
           "bedrooms": [
             {
@@ -57,8 +54,7 @@
       {
         "id": "3",
         "name": "testRental3",
-        "rentalUnit":
-        {
+        "rentalUnit": {
           "id": "3",
           "bedrooms": [
             {
@@ -81,6 +77,12 @@
         "comment": "comment",
         "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
         "rating": "1"
+      }
+    ],
+    "bathrooms": [
+      {
+        "id": "1",
+        "fixture": "1"
       }
     ]
   }

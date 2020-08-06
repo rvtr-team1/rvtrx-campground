@@ -19,6 +19,7 @@ describe('LodgingService', () => {
       name: null,
       rentals: [],
       reviews: [],
+      bathrooms: []
     },
   ];
 

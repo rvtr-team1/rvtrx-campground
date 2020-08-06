@@ -17,7 +17,7 @@ export class LodgingService {
    * @param config ConfigService
    * @param http HttpClient
    */
-    
+
   constructor(private readonly config: ConfigService, private readonly http: HttpClient) {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.lodging));
   }
@@ -41,7 +41,7 @@ export class LodgingService {
   get(id?: string): Observable<Lodging[]> {
     const options = id ? { params: new HttpParams().set('id', id) } : {};
     return this.apiUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url, options)));
-    
+
   }
 
   /**
