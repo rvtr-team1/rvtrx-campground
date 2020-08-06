@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LodgingComponent } from './lodging/lodging.component';
 import { LodgingHomeComponent } from './lodging-home/lodging-home.component';
 
-const routes: Routes = [{ component: LodgingComponent, path: '' }, {component: LodgingHomeComponent, path: 'home'}];
+const routes: Routes = [{ component: LodgingHomeComponent, path: '' }, {component: LodgingComponent, path: 'details/:id'}];
 
 @NgModule({
   declarations: [LodgingComponent],
