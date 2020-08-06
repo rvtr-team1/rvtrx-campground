@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookingComponent } from './booking/booking.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
-const routes: Routes = [{ component: BookingComponent, path: '' }];
+const routes: Routes = [
+  { component: BookingComponent, path: '' }];
 
 @NgModule({
   declarations: [BookingComponent, SearchResultsComponent],
