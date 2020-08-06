@@ -31,3 +31,16 @@
 .subtitle{
     color: rgb(116, 116, 116);
 }
+
+.orignalPrice{
+    text-decoration: line-through; 
+    display: inline; 
+    margin-left: 1.5rem; 
+    font-weight: bold; 
+    color: gray;
+}
+.discountedPrice{
+    display: inline;
+    font-weight: bold;
+    color: #00aa91;
+}

@@ -21,6 +21,8 @@
         "id": "1",
         "name": "Headquarters",
         "rentalUnit": {
+          "price": "85",
+          "discountedPrice": "68",
           "id": "1",
           "bathrooms": [
             {
@@ -74,6 +76,7 @@
         "id": "2",
         "name": "Penthouse",
         "rentalUnit": {
+          "price": "485",
           "id": "2",
           "bathrooms": [
             {
