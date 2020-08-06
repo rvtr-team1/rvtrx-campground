@@ -6,7 +6,7 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 const routes: Routes = [{ component: LodgingComponent, path: '' }];
 
 @NgModule({
-  declarations: [LodgingComponent],
+  declarations: [],
   exports: [RouterModule],
   imports: [RouterModule.forChild(routes)],
 })
