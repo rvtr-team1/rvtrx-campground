@@ -18,15 +18,15 @@ export class SpotlightComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.setSpotlight();
+    setTimeout(() => this.setSpotlight(this.lodgings), 2000);
   }
 
-  setSpotlight(): void {
+  setSpotlight(lodgings: Lodging[]): void {
     let temp = 0;
-    for (let i = 0; i < this.lodgings.length; i++) {
-      if (this.lodgings[i].rentals.length > temp) {
-        temp = this.lodgings[i].rentals.length;
-        this.selectedLodging = this.lodgings[i];
+    for (let i = 0; i < lodgings.length; i++) {
+      if (lodgings[i].rentals.length > temp) {
+        temp = lodgings[i].rentals.length;
+        this.selectedLodging = lodgings[i];
       }
     }
   }

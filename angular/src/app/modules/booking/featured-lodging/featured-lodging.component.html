@@ -18,9 +18,9 @@
                 </div>
               </div>
           
-              <div class="content">
+              <div class="content" *ngFor="let review of lodging.reviews">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus nec iaculis mauris.
+                Phasellus nec iaculis mauris. {{review.comment}}
               </div>
             </div>
           </div>
