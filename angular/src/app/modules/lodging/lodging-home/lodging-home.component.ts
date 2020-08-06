@@ -22,7 +22,7 @@ export class LodgingHomeComponent implements OnInit {
   constructor(private lodgingService: LodgingService) { }
 
   /**
-   * gets all the lodges available with the help of 
+   * gets all the lodges available with the help of
    * get() in lodging service component
    */
   ngOnInit(): void {
@@ -31,9 +31,9 @@ export class LodgingHomeComponent implements OnInit {
   }
 
   /**
-   * handles errors occured into execution of 
+   * handles errors occured into execution of
    * any functions if this function is called
-   * 
+   *
    * @param error error message
    */
   handleError(error: HttpErrorResponse): void {
@@ -44,7 +44,7 @@ export class LodgingHomeComponent implements OnInit {
     } else {
       message = error.status.toString();
     }
-  } 
+  }
 
 }
 

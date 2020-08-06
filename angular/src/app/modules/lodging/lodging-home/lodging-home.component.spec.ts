@@ -7,33 +7,33 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 describe('LodgingHomeComponent', () => {
   let component: LodgingHomeComponent;
   let fixture: ComponentFixture<LodgingHomeComponent>;
-  
+
   const lodgings: Lodging[] =
     [
       {
-        id: "1",
+        id: '1',
         location: {
-          id: "1",
+          id: '1',
           address: {
-            id: "1",
-            city: "testCity",
-            country: "testCountry",
-            postalCode: "testCode",
-            stateProvince: "testState",
-            street: "testStreet"
+            id: '1',
+            city: 'testCity',
+            country: 'testCountry',
+            postalCode: 'testCode',
+            stateProvince: 'testState',
+            street: 'testStreet'
           },
-          latitude: "testLat",
-          locale: "testLocale",
-          longitude: "testLong"
+          latitude: 'testLat',
+          locale: 'testLocale',
+          longitude: 'testLong'
         },
-        name: "test",
+        name: 'test',
         rentals: [],
         reviews: []
       }
-    ]; 
+    ];
 
   beforeEach(async(() => {
-    
+
     const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
     lodgingService.get.and.returnValue(of(lodgings));
 
