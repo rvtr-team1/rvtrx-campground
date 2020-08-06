@@ -30,13 +30,13 @@ export class RentalComponent implements OnInit {
    */
   lodgings: Lodging[] | null = null;
   rentals: Rental[] | null = null;
-  familyRoomCount: number = 0;
-  tripleRoomCount: number = 0;
-  doubleRoomCount: number = 0;
+  familyRoomCount = 0;
+  tripleRoomCount = 0;
+  doubleRoomCount = 0;
 
   /**
+   * @param lodgingService
    * Constructor injects lodgingService
-   * @param lodgingService 
    */
   constructor(private lodgingService: LodgingService) { }
 
@@ -47,7 +47,7 @@ export class RentalComponent implements OnInit {
   /**
    * uses a lodgingService to make a http get request to get
    * lodging information. It then sets the rentals variable to
-   * the lodgings Rental property. 
+   * the lodgings Rental property.
    */
   private loadLodgings(): void {
     this.lodgingService
@@ -66,15 +66,18 @@ export class RentalComponent implements OnInit {
     this.CountAvailableRooms();
   }
 
+  /**
+   * Counts the available rooms based on the room type in each rental.
+   */
   private CountAvailableRooms(): void {
     this.rentals.forEach(element => {
-      if (element.rentalUnit.name === "Family Room" && element.availability === true) {
+      if (element.rentalUnit.name === 'Family Room' && element.availability === true) {
         this.familyRoomCount++;
       }
-      else if (element.rentalUnit.name === "Triple Room" && element.availability === true) {
+      else if (element.rentalUnit.name === 'Triple Room' && element.availability === true) {
         this.tripleRoomCount++;
       }
-      else if (element.rentalUnit.name === "Double Room" && element.availability === true) {
+      else if (element.rentalUnit.name === 'Double Room' && element.availability === true) {
         this.doubleRoomCount++;
       }
       else {
@@ -84,8 +87,8 @@ export class RentalComponent implements OnInit {
   }
 
   /**
+   * @param error
    * Method handles error and converts the status code to string.
-   * @param error 
    */
   private handleError(error: HttpErrorResponse): void {
     console.log(error.status);

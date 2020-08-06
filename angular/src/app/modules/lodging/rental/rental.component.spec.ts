@@ -1,34 +1,41 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
-import { Rental } from 'src/app/data/rental.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
+import { Lodging } from 'src/app/data/lodging.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
   let fixture: ComponentFixture<RentalComponent>;
 
-  const rentals: Rental[] = [
-    {
-      id: '1',
-      name: 'testRental',
-      rentalUnit: {
-        id: '6',
-        bedrooms: {
+  const lodgings: Lodging[] =
+    [
+      {
+        id: '1',
+        location: {
           id: '1',
-          count: 3, // Number of beds
-          type: 'Queen Bed',
+          address: {
+            id: '1',
+            city: 'testCity',
+            country: 'testCountry',
+            postalCode: 'testCode',
+            stateProvince: 'testState',
+            street: 'testStreet'
+          },
+          latitude: 'testLat',
+          locale: 'testLocale',
+          longitude: 'testLong'
         },
-        name: 'Family Room',
-        occupancy: 5,
-        type: 'testType',
-      },
-      availability: true,
-    },
-  ];
+        name: 'test',
+        rentals: [],
+        reviews: [],
+        bathrooms: []
+      }
+    ];
+
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
-  lodgingService.get.and.returnValue(of(rentals));
+  lodgingService.get.and.returnValue(of(lodgings));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
