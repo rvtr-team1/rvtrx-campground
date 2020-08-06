@@ -21,7 +21,11 @@
                                     <div class="media">
 
                                         <div class="media-content">
-                                            <p class="title is-4">{{ rental.name }}</p>
+                                            <div class="title is-4">{{ rental.name }}
+                                                <p class="end-of-card" style="color:dimgray">
+                                                    {{ averageRating(lodging) }}/10
+                                                </p>
+                                            </div>
                                             <p class="subtitle is-6">Short Description</p>
                                         </div>
                                     </div>
@@ -34,9 +38,7 @@
                                         Price/Night
                                     </div>
 
-                                    <div class="content">
-                                        {{  }}
-                                    </div>
+
                                 </div>
                             </div>
                             

@@ -16,7 +16,7 @@ export class SearchResultsComponent implements OnInit {
     console.log(this.lodgings);
   }
 
-  averageRatings(lodging: Lodging) {
+  averageRating(lodging: Lodging) {
     let ratings = lodging.reviews.map((review) => review.rating);
     let ratingSum = ratings.reduce((a, b) => a + b, 0);
 
