@@ -1,27 +1,54 @@
+/**
+ * importing the necessary modules, services and models.
+ */
 import { Component, OnInit } from '@angular/core';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Rental } from 'src/app/data/rental.model';
 
+/**
+ * Rental component metadata
+ */
 @Component({
   selector: 'uic-rental',
   templateUrl: './rental.component.html',
   styleUrls: ['./rental.component.scss'],
 })
+
+/**
+ * This class represents the Rental component
+ */
 export class RentalComponent implements OnInit {
+
+  /**
+   * lodgings property
+   * rentals property
+   * setting familyRoomCount to 0
+   * setting tripleRoomCount to 0
+   * setting doubleRoomCount to 0
+   */
   lodgings: Lodging[] | null = null;
   rentals: Rental[] | null = null;
   familyRoomCount: number = 0;
   tripleRoomCount: number = 0;
   doubleRoomCount: number = 0;
 
-  constructor(private lodgingService: LodgingService) {}
+  /**
+   * Constructor injects lodgingService
+   * @param lodgingService 
+   */
+  constructor(private lodgingService: LodgingService) { }
 
   ngOnInit(): void {
     this.loadLodgings();
   }
 
+  /**
+   * uses a lodgingService to make a http get request to get
+   * lodging information. It then sets the rentals variable to
+   * the lodgings Rental property. 
+   */
   private loadLodgings(): void {
     this.lodgingService
       .get()
@@ -30,6 +57,10 @@ export class RentalComponent implements OnInit {
       .then(() => this.SetRentals())
       .catch((error) => this.handleError(error));
   }
+
+  /**
+   * sets the rentals property to the lodging's rentals property
+   */
   public SetRentals(): void {
     this.rentals = this.lodgings[0].rentals;
     this.CountAvailableRooms();
@@ -37,24 +68,25 @@ export class RentalComponent implements OnInit {
 
   private CountAvailableRooms(): void {
     this.rentals.forEach(element => {
-      if(element.rentalUnit.name === "Family Room" && element.availability === true)
-      {
+      if (element.rentalUnit.name === "Family Room" && element.availability === true) {
         this.familyRoomCount++;
       }
-      else if(element.rentalUnit.name === "Triple Room" && element.availability === true)
-      {
+      else if (element.rentalUnit.name === "Triple Room" && element.availability === true) {
         this.tripleRoomCount++;
       }
-      else if(element.rentalUnit.name === "Double Room" && element.availability === true)
-      {
+      else if (element.rentalUnit.name === "Double Room" && element.availability === true) {
         this.doubleRoomCount++;
       }
-      else
-      {
+      else {
         // do nothing
       }
     });
   }
+
+  /**
+   * Method handles error and converts the status code to string.
+   * @param error 
+   */
   private handleError(error: HttpErrorResponse): void {
     console.log(error.status);
     let message: string;
