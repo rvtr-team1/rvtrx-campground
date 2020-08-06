@@ -20,6 +20,11 @@ export class SearchResultsComponent implements OnInit {
     let ratings = lodging.reviews.map((review) => review.rating);
     let ratingSum = ratings.reduce((a, b) => a + b, 0);
 
-    return ratingSum / ratings.length;
+    let stars = new Array<boolean>(10);
+    for (let i = 0; i < ratingSum; i++) {
+      stars[10 - i] = true;
+    }
+
+    return stars;
   }
 }
