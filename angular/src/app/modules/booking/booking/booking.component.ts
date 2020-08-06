@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 import { Rental } from '../../../data/rental.model';
 import { Booking } from '../../../data/booking.model';
@@ -16,11 +16,13 @@ import { map } from 'rxjs/operators';
 export class BookingComponent implements OnInit {
 
   rentals$: Observable<Rental[]>;
-  locations$: Observable<Location[]>;
   bookings$: Observable<Booking[]>;
+  lodgings$: Observable<Lodging[]>;
+  locations$: Observable<Location[]>;
 
   bookings: Booking[];
-  
+  searchResults: Lodging[] = [];
+  isSearched: Boolean = false;
 
   constructor(
     private bookingService: BookingService,
@@ -32,9 +34,71 @@ export class BookingComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value );
+    // this.searchByCity(form.value.location);
+
+    let occupancy = form.value.adults + form.value.children;
+    // this.searchByOccupancy(occupancy);
+    
+    this.searchByCityAndOccupancy(form.value.location, occupancy);
+    this.isSearched = true;
   }
-  lodgings$: Observable<Lodging[]>;
   
+  searchByCity(searchLocation: string) {
+    console.log(searchLocation);
+    this.lodgings$.subscribe(
+      lodgings => lodgings.forEach(
+        lodging => {
+          if(lodging.location.address.city == searchLocation) {
+            this.searchResults.push(lodging);
+            console.log(this.searchResults);
+          };
+
+        }
+      )
+    ) 
+  }
+
+  searchByOccupancy(personCount: number) {
+    console.log(personCount);
+    this.lodgings$.subscribe(
+      lodgings => lodgings.forEach(
+        lodging => {
+          lodging.rentals.forEach(
+            rental => {
+              if(rental.rentalUnit.occupancy >= personCount) {
+                this.searchResults.push(lodging);
+                console.log(this.searchResults);
+              }
+            }
+          )
+        }
+      )
+    )
+  }
+  
+  searchByCityAndOccupancy(city: string, occupancy: number){
+    console.log(city, occupancy);
+    this.lodgings$ = this.lodgingService.get();
+    this.searchResults = []; 
+    this.lodgings$.subscribe(
+      lodgings => lodgings.forEach(
+        lodging => {
+          lodging.rentals.forEach(
+            rental => {
+              if(rental.rentalUnit.occupancy >= occupancy && lodging.location.address.city == city ) {
+                if (!this.searchResults.includes(lodging)) {
+                  this.searchResults.push(lodging);
+                }
+              }
+            }
+          )
+        }
+      )
+    )
+
+    console.log(this.searchResults);
+    this.lodgings$ = of(this.searchResults);
+  }
 
 
   ngOnInit(): void {
@@ -49,6 +113,12 @@ export class BookingComponent implements OnInit {
     this.lodgings$.pipe(
       map((lodgings) => {
         lodgings.map((lodging) => lodging.reviews);
+      })
+    );
+
+    this.lodgings$.pipe(
+      map((lodgings) => {
+        lodgings.map((lodging) => lodging.location);
       })
     );
   }
