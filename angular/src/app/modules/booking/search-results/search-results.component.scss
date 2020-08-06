@@ -33,7 +33,7 @@
     color: white;
 }
 
-.cover:hover .subtitle {
+.cover:hover .card-content .subtitle {
     color: white;
 }
 
@@ -45,6 +45,12 @@
     background-color: white;
     color: #10d1b4;
 }
+
+.card:hover button:hover{
+    background-color: #007a68;
+    color: white;
+}
+
 
 .card:hover .checked{
     color: #006858;
@@ -59,9 +65,6 @@
 
 .is-2 {
   color: rgb(136, 136, 136);
-}
-.subtitle {
-  color: rgb(116, 116, 116);
 }
 
 .end-of-card {
@@ -81,7 +84,7 @@
   color: #00a88f;
 }
 
-.subtitle{
+.card-content .subtitle{
     color: rgb(116, 116, 116);
 }
 
