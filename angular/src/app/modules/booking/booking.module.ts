@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { BookingRoutingModule } from './booking-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    BookingRoutingModule
-  ]
+  imports: [CommonModule, BookingRoutingModule],
 })
-export class BookingModule { }
+export class BookingModule {}
