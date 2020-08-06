@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LodgingComponent } from './lodging/lodging.component';
 
-const routes: Routes = [
-  { component: LodgingComponent, path: '' },
-];
+const routes: Routes = [{ component: LodgingHomeComponent, path: '' }, {component: LodgingComponent, path: 'details/:id'}];
 
 @NgModule({
   declarations: [],
