@@ -3,7 +3,6 @@ import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { Rental } from 'src/app/data/rental.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { HttpClient } from '@angular/common/http';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -17,26 +16,24 @@ describe('RentalComponent', () => {
         id: '6',
         bedrooms: {
           id: '1',
-          count: 3, //Number of beds
-          type: 'Queen Bed'
+          count: 3, // Number of beds
+          type: 'Queen Bed',
         },
         name: 'Family Room',
         occupancy: 5,
         type: 'testType',
       },
-      availability: true
+      availability: true,
     },
   ];
 
-  //Create HTTPClientSpy and place it in the providers to fix NullInjectorError
-  const HTTPClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
-  const rentalComponentSpy = jasmine.createSpyObj('LodgingService', ['get']);
-  rentalComponentSpy.get.and.returnValue(of(rentals));
+  const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
+  lodgingService.get.and.returnValue(of(rentals));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
-      providers: [{ provide: LodgingService, useValue: rentalComponentSpy }],
+      providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RentalComponent);
@@ -50,6 +47,5 @@ describe('RentalComponent', () => {
 
   it('should get rental', () => {
     expect(component.lodgings).toBeTruthy();
-    //expect(component.lodgings).toEqual(rentals);
   });
 });
