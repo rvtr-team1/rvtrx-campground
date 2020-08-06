@@ -64,8 +64,4 @@ export class RentalComponent implements OnInit {
       message = error.status.toString();
     }
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> 4eb3c47ce869c4056bc1388084de2d6e35e97498
 }
