@@ -1,5 +1,8 @@
-<span *ngIf='!editMode' (click)='editMode=true' class='cell swing-in-left-bck'>
-  {{ data }}
-</span>
+<div (click)="editMode=true">
+<ng-content *ngIf='!editMode' select="*"></ng-content>
 <input class="input swing-in-left-bck" [value]='data' *ngIf='editMode' attr.data='data' type='text'
   (focusout)="onFocusOut($event)">
+</div>
+
+
+  <!--template *ngIf='!editMode' (click)='editMode=true' class='cell swing-in-left-bck'-->
