@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./editable.component.scss'],
 })
 export class EditableComponent implements OnInit {
-  
+
   @Input() data: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
   editMode = false;
@@ -14,12 +14,12 @@ export class EditableComponent implements OnInit {
 
   ngOnInit() {}
 
-  
-  
+
+
   onFocusOut(e: Event) {
     this.editMode = false;
-    this.data = (<HTMLInputElement>e.target).value;
+    this.data = (e.target as HTMLInputElement).value;
     this.dataChange.emit(this.data);
-    //console.log(this.data);
+    // console.log(this.data);
   }
-}  
+}

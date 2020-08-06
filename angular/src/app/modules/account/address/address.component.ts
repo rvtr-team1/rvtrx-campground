@@ -10,5 +10,5 @@ export class AddressComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {} 
+  ngOnInit(): void {}
 }
