@@ -1,16 +1,15 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
-import { AccountComponent } from '../account/account.component';
-import { AccountService } from 'src/app/services/account/account.service';
 
 @Component({
   selector: 'uic-profile',
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
   @Input() profiles: Profile[];
-  private readonly accountService: AccountService;
+  @Output() profileEdited = new EventEmitter();
+
+  constructor() {}
 
   ngOnInit(): void {}
 
@@ -21,14 +20,10 @@ export class ProfileComponent implements OnInit {
         switch (propName) {
           case 'profiles': {
             debugger;
-            this.updateProfile(change.currentValue);
+            this.profileEdited.emit();
           }
         }
       }
     }
-  }
-
-  public updateProfile(profile: Profile[]): void {
-    //update.updateAccountProfile(profile);
   }
 }

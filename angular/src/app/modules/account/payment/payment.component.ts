@@ -1,13 +1,13 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Payment } from '../../../data/payment.model';
-import { AccountService } from 'src/app/services/account/account.service';
-import { AccountComponent } from '../account/account.component';
+
 @Component({
   selector: 'uic-payment',
   templateUrl: './payment.component.html',
 })
 export class PaymentComponent implements OnInit {
   @Input() payments: Payment[];
+  @Output() paymentsEdited = new EventEmitter();
 
   constructor() {}
 
@@ -19,16 +19,10 @@ export class PaymentComponent implements OnInit {
         const change = changes[propName];
         switch (propName) {
           case 'payments': {
-            this.updateProfile(change.currentValue);
+            this.paymentsEdited.emit();
           }
         }
       }
     }
-  }
-
-  private readonly accountService: AccountService;
-
-  public updateProfile(payment: Payment[]): void {
-    //update.updateAccountPayment(payment);
   }
 }

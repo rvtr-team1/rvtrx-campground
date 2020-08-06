@@ -86,7 +86,6 @@ export class AccountComponent implements OnInit {
   public updateAccountProfile(profile: Profile[]): void {
     const addressComponent = new AddressComponent();
     const paymentComponent = new PaymentComponent();
-    debugger;
     this.accountService
       .put({
         id: `${this.account$.pipe(map((account) => account.id))}`,

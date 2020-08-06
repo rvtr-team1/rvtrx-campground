@@ -1,7 +1,5 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Address } from '../../../data/address.model';
-import { AccountService } from 'src/app/services/account/account.service';
-import { AccountComponent } from '../account/account.component';
 
 @Component({
   selector: 'uic-address',
@@ -10,7 +8,7 @@ import { AccountComponent } from '../account/account.component';
 export class AddressComponent implements OnInit {
   constructor() {}
   @Input() address: Address;
-  private readonly accountService: AccountService;
+  @Output() addressEdited = new EventEmitter();
 
   ngOnInit(): void {}
 
@@ -20,14 +18,10 @@ export class AddressComponent implements OnInit {
         const change = changes[propName];
         switch (propName) {
           case 'address': {
-            this.updateProfile(change.currentValue);
+            this.addressEdited.emit();
           }
         }
       }
     }
-  }
-
-  public updateProfile(address: Address): void {
-    //update.updateAccountAddress(address);
   }
 }
