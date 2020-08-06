@@ -28,7 +28,7 @@ export class LodgingHomeComponent implements OnInit {
       } else {
         message = error.status.toString();
       }
-    } 
+    }
 
   }
 

@@ -28,13 +28,13 @@ module.exports = function (config) {
       testFilePattern: '.spec.ts',
       useBrowserName: false,
     },
-    reporters: ['progress','kjhtml','sonarqubeUnit'],
+    reporters: ['progress', 'sonarqubeUnit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    browsers: ['ChromiumHeadless'],
+    singleRun: true,
     restartOnFileChange: true,
   });
 };
