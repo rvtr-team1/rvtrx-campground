@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -11,38 +11,22 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./spotlight.component.scss'],
 })
 export class SpotlightComponent implements OnInit {
-  bookings$: Observable<Booking[]>;
-  lodgings$: Observable<Lodging[]>;
+  @Input() lodgings: Lodging[];
+
   selectedLodging: Lodging;
 
-  constructor(private readonly lodgingService: LodgingService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.lodgings$ = this.lodgingService.get();
-
-    this.lodgings$.pipe(
-      map((lodgings) => {
-        lodgings.map((lodging) => lodging.rentals);
-      })
-    );
-
-    this.lodgings$.pipe(
-      map((lodgings) => {
-        lodgings.map((lodging) => lodging.reviews);
-      })
-    );
-
     this.setSpotlight();
   }
 
   setSpotlight(): void {
-    let lodgingsArr = this.lodgings$.subscribe((value) => (lodgingsArr = value));
-
     let temp = 0;
-    for (let i = 0; i < lodgingsArr.length; i++) {
-      if (lodgingsArr[i].rentals.length > temp) {
-        temp = lodgingsArr[i].rentals.length;
-        this.selectedLodging = lodgingsArr[i];
+    for (let i = 0; i < this.lodgings.length; i++) {
+      if (this.lodgings[i].rentals.length > temp) {
+        temp = this.lodgings[i].rentals.length;
+        this.selectedLodging = this.lodgings[i];
       }
     }
   }

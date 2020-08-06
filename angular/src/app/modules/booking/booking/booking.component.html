@@ -41,8 +41,10 @@
                     <input class="input" id="children" name="children" placeholder="Children" type="number" />
                   </div>
                   <div class="control">
+                    <div class= "buttons">
                     <button class="button is-primary" type="button" (click)= "isSearched = true">search</button>
-                    <button class="button is-secondary" type="button" (click)= "isSearched = false">clear search</button>
+                    <button class="button is-primary is-outlined" type="button" (click)= "isSearched = false">clear search</button>
+                  </div>
 
                   </div>
                 </div>
@@ -54,7 +56,7 @@
 
           <uic-featured-lodging [featuredLodgings]="lodgings$ | async"></uic-featured-lodging>
 
-          <uic-spotlight></uic-spotlight>
+          <uic-spotlight [lodgings]="lodgings$ | async"></uic-spotlight>
         </div>
       </div>
     </div>

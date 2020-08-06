@@ -12,27 +12,18 @@ export class FeaturedLodgingComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-
     this.setFeaturedLodgings();
-
-  
   }
 
   setFeaturedLodgings(): void {
-    let lodgings: Lodging[] ;
+    let lodgings: Lodging[] = new Array(6);
 
-    for (let index = 0; index < this.featuredLodgings.length; index++) {
-      if(this.featuredLodgings[index].reviews)
-      {
-          lodgings.push(this.featuredLodgings[index]);
+    for (let index = 0; index < lodgings.length; index++) {
+      if (this.featuredLodgings[index].reviews) {
+        lodgings.push(this.featuredLodgings[index]);
       }
-        
-      }
-
-      this.featuredLodgings = lodgings;
-      
     }
 
-  
+    this.featuredLodgings = lodgings;
+  }
 }
-
