@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
-import { Router } from '@angular/router';
-import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/template';
 import { Rental } from 'src/app/data/rental.model';
+import { LodgingService } from 'src/app/services/lodging/lodging.service';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -15,27 +14,26 @@ describe('RentalComponent', () => {
       name: 'testRental',
       rentalUnit: {
         id: '6',
-        bedrooms: [
-          {
-            id: '1',
-            count: 4,
-            type: 'Queen Bed',
-          },
-        ],
+        bedrooms: {
+          id: '1',
+          count: 3, // Number of beds
+          type: 'Queen Bed',
+        },
         name: 'Family Room',
         occupancy: 5,
         type: 'testType',
       },
+      availability: true,
     },
   ];
 
-  const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['GetLength']);
-  // rentalComponentSpy.get.and.returnValue(of(rentals));
+  const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
+  lodgingService.get.and.returnValue(of(rentals));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
-      providers: [{ provide: RentalComponent, useValue: rentalComponentSpy }],
+      providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RentalComponent);
@@ -48,7 +46,6 @@ describe('RentalComponent', () => {
   });
 
   it('should get rental', () => {
-    expect(component.rentals).toBeTruthy();
-    expect(component.rentals).toEqual(rentals);
+    expect(component.lodgings).toBeTruthy();
   });
 });

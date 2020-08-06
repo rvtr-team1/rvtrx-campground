@@ -7,28 +7,28 @@ import { Rental } from 'src/app/data/rental.model';
 @Component({
   selector: 'uic-rental',
   templateUrl: './rental.component.html',
-  styleUrls: ['./rental.component.scss']
+  styleUrls: ['./rental.component.scss'],
 })
 export class RentalComponent implements OnInit {
-
   lodgings: Lodging[] | null = null;
   rentals: Rental[] | null = null;
   familyRoomCount: number = 0;
   tripleRoomCount: number = 0;
   doubleRoomCount: number = 0;
 
-  constructor(private lodgingService: LodgingService) { }
+  constructor(private lodgingService: LodgingService) {}
 
   ngOnInit(): void {
     this.loadLodgings();
   }
 
-  private loadLodgings(): void
-  {
-    this.lodgingService.get().toPromise()
-      .then(data => this.lodgings = data)
+  private loadLodgings(): void {
+    this.lodgingService
+      .get()
+      .toPromise()
+      .then((data) => (this.lodgings = data))
       .then(() => this.SetRentals())
-      .catch(error => this.handleError(error));
+      .catch((error) => this.handleError(error));
   }
   public SetRentals(): void {
     this.rentals = this.lodgings[0].rentals;
@@ -64,5 +64,8 @@ export class RentalComponent implements OnInit {
       message = error.status.toString();
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4eb3c47ce869c4056bc1388084de2d6e35e97498
 }
