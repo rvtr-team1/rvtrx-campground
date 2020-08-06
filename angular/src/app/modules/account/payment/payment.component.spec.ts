@@ -5,7 +5,7 @@ describe('PaymentComponent', () => {
   const payment = {
     cardName: '',
     cardNumber: '',
-    cardExpirationDate: new Date(),
+    cardExpirationDate: '',
     id: '',
   };
   let component: PaymentComponent;
