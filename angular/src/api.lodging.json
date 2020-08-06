@@ -24,13 +24,12 @@
         "rentalUnit": 
           {
             "id": "6",
-            "bedrooms": [
+            "bedrooms":
               {
                 "id": "1",
                 "count": "4",
                 "type": "Queen Bed"
-              }
-            ],
+              },
             "name": "Family Room",
             "occupancy": "5",
             "type": "testType"
@@ -42,13 +41,12 @@
         "rentalUnit":
         {
           "id": "2",
-          "bedrooms": [
+          "bedrooms":
             {
               "id": "2",
               "count": "4",
               "type": "Twin Bed"
-            }
-          ],
+            },
           "name": "Triple Room",
           "occupancy": "3",
           "type": "testType"
@@ -60,13 +58,12 @@
         "rentalUnit":
         {
           "id": "3",
-          "bedrooms": [
+          "bedrooms":
             {
               "id": "3",
               "count": "2",
               "type": "Twin Bed"
-            }
-          ],
+            },
           "name": "Double Room",
           "occupancy": "2",
           "type": "testType"
