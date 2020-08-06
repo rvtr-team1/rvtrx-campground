@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingComponent } from './booking/booking.component';
+import { SpotlightComponent } from './spotlight/spotlight.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { FeaturedLodgingComponent } from './featured-lodging/featured-lodging.component';
 
 const routes: Routes = [{ component: BookingComponent, path: '' }];
 
 @NgModule({
-  declarations: [BookingComponent],
+  declarations: [
+    BookingComponent,
+    SpotlightComponent,
+    SearchResultsComponent,
+    FeaturedLodgingComponent,
+  ],
   exports: [RouterModule],
-  imports: [RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
 })
 export class BookingRoutingModule {}

@@ -13,10 +13,9 @@
     "sourceMap": true,
     "target": "es2015",
     "lib": ["es2018", "dom"]
-    },
+  },
   "angularCompilerOptions": {
     "strictTemplates": true,
-    "strictInjectionParameters": true,
-    
+    "strictInjectionParameters": true
   }
 }

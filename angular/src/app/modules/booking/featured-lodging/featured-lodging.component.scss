@@ -1,0 +1,22 @@
+.card {
+  -webkit-box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  max-width: 16%;
+  margin-top: 20px;
+  margin-right: 1em;
+}
+
+.is-4 {
+  color: #00aa91;
+}
+
+.is-2 {
+  color: rgb(136, 136, 136);
+}
+.subtitle {
+  color: rgb(116, 116, 116);
+}
+
+.card-container {
+  display: inline-flex;
+}
