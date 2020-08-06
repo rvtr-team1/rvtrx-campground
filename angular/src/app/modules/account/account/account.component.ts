@@ -24,9 +24,9 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  @ViewChild(AddressComponent) address: AddressComponent;
-  @ViewChild(PaymentComponent) payments: PaymentComponent;
-  @ViewChild(ProfileComponent) profiles: ProfileComponent;
+  @ViewChild(AddressComponent, { static: false }) address: AddressComponent;
+  @ViewChild(PaymentComponent, { static: false }) payments: PaymentComponent;
+  @ViewChild(ProfileComponent, { static: false }) profiles: ProfileComponent;
   private id: string = '100';
 
   constructor(private readonly accountService: AccountService) {}
@@ -95,6 +95,7 @@ export class AccountComponent implements OnInit {
       address: this.address.address,
       payments: this.payments.payments,
     } as Account;
+    debugger;
     this.accountService.put(payload).subscribe();
   }
 }

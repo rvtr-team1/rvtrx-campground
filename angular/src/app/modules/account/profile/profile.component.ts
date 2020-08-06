@@ -7,13 +7,13 @@ import { Profile } from '../../../data/profile.model';
 })
 export class ProfileComponent implements OnInit {
   @Input() profiles: Profile[];
-  @Output() profileEdited = new EventEmitter();
+  @Output('ngModelChange') profileEdited = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  ngOnChanges(changes: SimpleChanges) {
+  /* ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {
         const change = changes[propName];
@@ -25,5 +25,5 @@ export class ProfileComponent implements OnInit {
         }
       }
     }
-  }
+  } */
 }
