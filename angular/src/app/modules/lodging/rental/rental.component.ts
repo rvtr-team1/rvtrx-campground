@@ -13,7 +13,6 @@ export class RentalComponent implements OnInit {
 
   lodgings: Lodging[] | null = null;
   rentals: Rental[] | null = null;
-  buttonClicked: boolean = false;
 
   constructor(private lodgingService: LodgingService) { }
 
@@ -30,7 +29,6 @@ export class RentalComponent implements OnInit {
   }
   public SetRentals(): void {
     this.rentals = this.lodgings[0].rentals;
-    //this.buttonClicked = true;
   }
   private handleError(error: HttpErrorResponse): void {
     console.log(error.status);
