@@ -25,12 +25,12 @@ export class RentalComponent implements OnInit {
   {
     this.lodgingService.get().toPromise()
       .then(data => this.lodgings = data)
-      .then(() => this.GetLength())
+      .then(() => this.SetRentals())
       .catch(error => this.handleError(error));
   }
-  public GetLength(): void {
+  public SetRentals(): void {
     this.rentals = this.lodgings[0].rentals;
-    this.buttonClicked = true;
+    //this.buttonClicked = true;
   }
   private handleError(error: HttpErrorResponse): void {
     console.log(error.status);
