@@ -1,0 +1,58 @@
+{
+    "lodgings": [
+        {
+            "id": "1",
+            "location": {
+                "id":"1",
+                "address": {
+                    "id":"1",
+                    "city": "Reston",
+                    "country":"USA",
+                    "postalCode": "20190",
+                    "stateProvince": "VA",
+                    "street": "11730 Plaza America Dr"
+                },
+                "latitude":"",
+                "locale": "",
+                "longitude": ""
+
+            },
+            "name": "Headquarters",
+            "rentals" : [
+                {
+                    "id":"1",
+                    "name":"Headquarters",
+                    "rentalUnit": {
+                        "id":"1",
+                        "bathrooms": [
+                            {
+                                "id":"1",
+                                "fixture": "2"
+                            }
+                        ],
+                        "bedrooms": [
+                            {
+                                "id":"1",
+                                "count":"1",
+                                "type": "master"
+                            }
+                        ],
+                        "name":"Headquarters",
+                        "occupancy": "2",
+                        "type": "office"
+                    }
+                }
+            ],
+            "reviews": [
+                {
+                    "id":"1",
+                    "accountId":"1",
+                    "hotelId":"1",
+                    "comment": "Great place!",
+                    "date created": "",
+                    "rating": "4"
+                }
+            ]
+        }
+    ]
+}

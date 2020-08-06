@@ -1,1 +1,21 @@
-<p>spotlight works!</p>
+<div class="tile is-parent">
+    <div class="tile box has-background-dark is-child">
+      <div class="columns">
+        <div class="column is-4">
+          <figure class="image is-16by9">
+            <img alt="placeholder image" src="https://bulma.io/images/placeholders/1280x960.png">
+          </figure>
+        </div>
+
+        <div class="column">
+          <div class="content has-text-light">
+            <p class="title has-text-light is-4">spotlight</p>
+            <h4>
+                {{selectedLodging.name }}
+            </h4>
+            <p>{{selectedLodging.reviews[0].comment }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
