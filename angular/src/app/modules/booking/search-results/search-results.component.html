@@ -21,7 +21,15 @@
                                     <div class="media">
 
                                         <div class="media-content">
-                                            <p class="title is-4">{{ rental.name }}</p>
+                                            <div class="title is-4">
+                                                <span>{{ rental.name }}</span>
+                                                <span class="end-of-card stars">
+                                                    <span *ngFor="let star of averageRating(lodging)">
+                                                        <p *ngIf="star" class="fa fa-star checked"></p>
+                                                        <p *ngIf="!star" class="fa fa-star"></p>
+                                                    </span>
+                                                </span>
+                                            </div>
                                             <p class="subtitle is-6">Short Description</p>
                                         </div>
                                     </div>
