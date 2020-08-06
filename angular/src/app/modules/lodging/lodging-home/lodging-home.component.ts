@@ -3,7 +3,6 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Account } from '../../../data/account.model';
-import { AccountService } from 'src/app/services/account/account.service';
 
 @Component({
   selector: 'uic-lodging-home',
@@ -14,10 +13,9 @@ export class LodgingHomeComponent implements OnInit {
 
   lodgings: Lodging[] | null = null;
   account: Account | null = null;
-  constructor(private lodgingService: LodgingService, private accountService: AccountService) { }
+  constructor(private lodgingService: LodgingService) { }
 
   ngOnInit(): void {
-    
     this.lodgingService.get().subscribe(
       data => this.lodgings = data, error => this.handleError(error));
   }
@@ -30,7 +28,7 @@ export class LodgingHomeComponent implements OnInit {
       } else {
         message = error.status.toString();
       }
-    } 
+    }
 
   }
 
