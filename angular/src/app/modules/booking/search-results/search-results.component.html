@@ -33,21 +33,24 @@
                                             <p class="subtitle is-6">Short Description</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="content">
                                         {{ rental.rentalUnit.type }} • Occupancy: {{ rental.rentalUnit.occupancy }}
                                         Persons • Bedrooms: {{ rental.rentalUnit.bedrooms.length }} • Bathrooms:
-                                        {{ rental.rentalUnit.bathrooms.length }} 
+                                        {{ rental.rentalUnit.bathrooms.length }}
                                         <button class="button is-primary">Reserve Now!</button>
                                         <br>
-                                        
+
                                     </div>
-                                    <p class="discountedPrice" style="margin-left: 2.5rem;" *ngIf="!rental.rentalUnit.discountedPrice">${{ rental.rentalUnit.price}}</p>
-                                    <p class="orignalPrice"*ngIf="rental.rentalUnit.discountedPrice"> ${{ rental.rentalUnit.price}}</p> 
-                                    <p *ngIf="rental.rentalUnit.discountedPrice"class="discountedPrice">${{ rental.rentalUnit.discountedPrice}}</p><strong>/night</strong>
+                                    <p class="discountedPrice" style="margin-left: 2.5rem;"
+                                        *ngIf="!rental.rentalUnit.discountedPrice">${{ rental.rentalUnit.price}}</p>
+                                    <p class="orignalPrice" *ngIf="rental.rentalUnit.discountedPrice">
+                                        ${{ rental.rentalUnit.price}}</p>
+                                    <p *ngIf="rental.rentalUnit.discountedPrice" class="discountedPrice">
+                                        ${{ rental.rentalUnit.discountedPrice}}</p><strong>/night</strong>
                                 </div>
                             </div>
-                            
+
                         </li>
                     </ul>
                 </div>
