@@ -78,13 +78,45 @@
           "bathrooms": [
             {
               "id": "1",
-              "fixture": "6"
+              "fixture": "1"
+            },
+            {
+              "id": "2",
+              "fixture": "1"
+            },
+            {
+              "id": "3",
+              "fixture": "1"
+            },
+            {
+              "id": "4",
+              "fixture": "1"
             }
           ],
           "bedrooms": [
             {
               "id": "1",
-              "count": "18",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "2",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "3",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "4",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "5",
+              "count": "1",
               "type": "master"
             }
           ],
