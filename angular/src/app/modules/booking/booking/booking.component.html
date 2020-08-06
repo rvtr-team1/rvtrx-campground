@@ -48,7 +48,7 @@
             </div>
           </form>
 
-          <uic-search-results [lodgings]="lodgings$ | async" *ngIf="isSearched"></uic-search-results>
+          <uic-search-results [lodgings]="lodgings$ | async" *ngIf="!isSearched"></uic-search-results>
 
           <div class="tile">
             <div class="tile is-parent">
