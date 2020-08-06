@@ -139,5 +139,78 @@
         "rating": "5"
       }
     ]
+  },
+  {
+    "id": "2",
+    "location": {
+      "id": "2",
+      "address": {
+        "id": "2",
+        "city": "Jersey City",
+        "country": "USA",
+        "postalCode": "07306",
+        "stateProvince": "NJ",
+        "street": "88 Morgan St"
+      },
+      "latitude": "",
+      "locale": "",
+      "longitude": ""
+    },
+    "name": "Wildwood",
+    "rentals": [
+      {
+        "id": "3",
+        "name": "Wildwood",
+        "rentalUnit": {
+          "price": "200",
+          "id": "3",
+          "bathrooms": [
+            {
+              "id": "1",
+              "fixture": "1"
+            },
+            {
+              "id": "2",
+              "fixture": "1"
+            }
+          ],
+          "bedrooms": [
+            {
+              "id": "1",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "2",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "3",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "5",
+              "count": "1",
+              "type": "master"
+            }
+          ],
+          "name": "Wildwood",
+          "occupancy": "4",
+          "type": "Wildwood"
+        }
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "Great place!",
+        "date created": "",
+        "rating": "5"
+      }
+    ]
   }
 ]
