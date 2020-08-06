@@ -17,12 +17,15 @@ export class SearchResultsComponent implements OnInit {
   }
 
   averageRating(lodging: Lodging) {
+    const maxRating: number = 10;
+
     let ratings = lodging.reviews.map((review) => review.rating);
     let ratingSum = ratings.reduce((a, b) => a + b, 0);
 
-    let stars = new Array<boolean>(10);
+    let stars = new Array<boolean>(maxRating);
+
     for (let i = 0; i < ratingSum; i++) {
-      stars[10 - i] = true;
+      stars[maxRating - i] = true;
     }
 
     return stars;

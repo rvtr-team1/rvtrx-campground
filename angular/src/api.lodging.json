@@ -37,7 +37,7 @@
           ],
           "name": "Headquarters",
           "occupancy": "2",
-          "type": "office"
+          "type": "Office"
         }
       }
     ],
@@ -48,7 +48,7 @@
         "hotelId": "1",
         "comment": "Great place!",
         "date created": "",
-        "rating": "4"
+        "rating": "9"
       }
     ]
   },
@@ -101,7 +101,7 @@
         "hotelId": "1",
         "comment": "Great place!",
         "date created": "",
-        "rating": "5"
+        "rating": "8"
       }
     ]
   }
