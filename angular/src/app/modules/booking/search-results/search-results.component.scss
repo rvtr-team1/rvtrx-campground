@@ -21,47 +21,45 @@
   margin-top: 20px;
 }
 
-.card:hover{
-    background-color: #10d1b4;
-    color: white;
+.card:hover {
+  background-color: #10d1b4;
+  color: white;
 }
-.card:hover .is-4{
-    color: white;
+.card:hover .is-4 {
+  color: white;
 }
 
-.card:hover .discountedPrice{
-    color: white;
+.card:hover .discountedPrice {
+  color: white;
 }
 
 .cover:hover .card-content .subtitle {
-    color: white;
+  color: white;
 }
 
-.card:hover .orignalPrice{
-    color: rgb(73, 73, 73);
+.card:hover .orignalPrice {
+  color: rgb(73, 73, 73);
 }
 
-.card:hover button{
-    background-color: white;
-    color: #10d1b4;
+.card:hover button {
+  background-color: white;
+  color: #10d1b4;
 }
 
-.card:hover button:hover{
-    background-color: #007a68;
-    color: white;
+.card:hover button:hover {
+  background-color: #007a68;
+  color: white;
 }
 
-
-.card:hover .checked{
-    color: #006858;
+.card:hover .checked {
+  color: #006858;
 }
-.card:hover .unchecked{
-    color: white;
+.card:hover .unchecked {
+  color: white;
 }
-.is-4{
-    color: #00aa91;
+.is-4 {
+  color: #00aa91;
 }
-
 
 .is-2 {
   color: rgb(136, 136, 136);
@@ -84,25 +82,24 @@
   color: #00a88f;
 }
 
-.card-content .subtitle{
-    color: rgb(116, 116, 116);
+.card-content .subtitle {
+  color: rgb(116, 116, 116);
 }
 
-.orignalPrice{
-    text-decoration: line-through; 
-    display: inline; 
-    margin-left: 1.5rem; 
-    font-weight: bold; 
-    color: gray;
+.orignalPrice {
+  text-decoration: line-through;
+  display: inline;
+  margin-left: 1.5rem;
+  font-weight: bold;
+  color: gray;
 }
-.discountedPrice{
-    display: inline;
-    font-weight: bold;
-    color: #00aa91;
+.discountedPrice {
+  display: inline;
+  font-weight: bold;
+  color: #00aa91;
 }
 
-
-.content button{
-    float: right;
-    margin-bottom: 4rem;
+.content button {
+  float: right;
+  margin-bottom: 4rem;
 }
