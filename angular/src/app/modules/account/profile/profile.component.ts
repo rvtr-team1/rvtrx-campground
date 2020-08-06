@@ -29,7 +29,6 @@ export class ProfileComponent implements OnInit {
   }
 
   public updateProfile(profile: Profile[]): void {
-    const update = new AccountComponent(this.accountService);
-    update.updateAccountProfile(profile);
+    //update.updateAccountProfile(profile);
   }
 }

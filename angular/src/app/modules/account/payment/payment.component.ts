@@ -7,7 +7,7 @@ import { AccountComponent } from '../account/account.component';
   templateUrl: './payment.component.html',
 })
 export class PaymentComponent implements OnInit {
-  @Input() payment: Payment[];
+  @Input() payments: Payment[];
 
   constructor() {}
 
@@ -29,7 +29,6 @@ export class PaymentComponent implements OnInit {
   private readonly accountService: AccountService;
 
   public updateProfile(payment: Payment[]): void {
-    const update = new AccountComponent(this.accountService);
-    update.updateAccountPayment(payment);
+    //update.updateAccountPayment(payment);
   }
 }

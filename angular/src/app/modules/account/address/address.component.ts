@@ -28,7 +28,6 @@ export class AddressComponent implements OnInit {
   }
 
   public updateProfile(address: Address): void {
-    const update = new AccountComponent(this.accountService);
-    update.updateAccountAddress(address);
+    //update.updateAccountAddress(address);
   }
 }

@@ -92,7 +92,7 @@ export class AccountComponent implements OnInit {
         id: `${this.account$.pipe(map((account) => account.id))}`,
         profiles: profile,
         address: addressComponent.address,
-        payments: paymentComponent.payment,
+        payments: paymentComponent.payments,
       } as Account)
       .subscribe();
   }
@@ -116,7 +116,7 @@ export class AccountComponent implements OnInit {
         id: `${this.account$.pipe(map((account) => account.id))}`,
         profiles: profilesComponent.profiles,
         address,
-        payments: paymentComponent.payment,
+        payments: paymentComponent.payments,
       } as Account)
       .subscribe();
   }
