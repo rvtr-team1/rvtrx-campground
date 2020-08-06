@@ -1,6 +1,42 @@
-<!-- THIS IS ONLY A TEST -->
-<div class="level" *ngFor="let lodging of lodgings">
-  <p *ngFor="let rental of lodging.rentals">
-    {{ rental.name }}
-  </p>
-</div>
+<section class="hero is-fullheight-with-navbar">
+    <div class="hero-head">
+        <div class="container">
+            <br>
+            <h3 class="title is-2">search results for "{{query}}"</h3>
+            <h3>number of results found: {{ lodgings.length }}</h3>
+            <hr>
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical">
+                    <ul style="padding-left: 20px;" *ngFor="let lodging of lodgings">
+                        <li *ngFor="let rental of lodging.rentals">
+                            <div class="card" style="max-width: 100%;">
+                                <div class="card-image"
+                                    style="float: left; display: flexbox; width: 200px; padding: 32px 30px 0px 30px;">
+                                    <figure class="image is-4by3">
+                                        <img src="https://bulma.io/images/placeholders/1280x960.png"
+                                            alt="Placeholder image">
+                                    </figure>
+                                </div>
+                                <div class="card-content" style="padding-left: 0px;">
+                                    <div class="media">
+
+                                        <div class="media-content">
+                                            <p class="title is-4">{{ rental.name }}</p>
+                                            <p class="subtitle is-6">Short Description</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        {{ rental.rentalUnit.type }} • Occupancy: {{ rental.rentalUnit.occupancy }} Persons • Bedrooms: {{ rental.rentalUnit.bedrooms.length }} • Bathrooms: {{ rental.rentalUnit.bathrooms.length }} 
+                                        <br>
+                                        Price/Night
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
