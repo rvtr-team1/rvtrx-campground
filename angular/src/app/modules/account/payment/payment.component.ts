@@ -5,7 +5,7 @@ import { Payment } from '../../../data/payment.model';
   templateUrl: './payment.component.html',
 })
 export class PaymentComponent implements OnInit {
-  @Input() payment: Payment;
+  @Input() payments: Payment[];
   constructor() {}
 
   ngOnInit(): void {}

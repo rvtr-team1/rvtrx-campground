@@ -1,5 +1,9 @@
 <div (click)="editMode=true">
 <ng-content *ngIf='!editMode' select="*"></ng-content>
-<input class="input swing-in-left-bck" [value]='data' *ngIf='editMode' attr.data='data' type='text'
-  (focusout)="onFocusOut($event)">
+<form *ngIf='editMode'>
+<input name='validate' #validate='ngModel' ngModel class="input swing-in-left-bck" 
+[value]='data'  attr.data='data' type='text'
+  (focusout)="onFocusOut($event)" pattern="[a-zA-Z ]*" required>
+  {{ validate.valid }}
+</form>
 </div>

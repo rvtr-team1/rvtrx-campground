@@ -2,12 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaymentComponent } from './payment.component';
 
 describe('PaymentComponent', () => {
-  const payment = {
-    cardName: '',
-    cardNumber: '',
-    cardExpirationDate: 'new Date()',
-    id: '',
-  };
+  const payments = [
+    {
+      cardName: '',
+      cardNumber: '',
+      cardExpirationDate: 'new Date()',
+      id: '',
+    },
+  ];
   let component: PaymentComponent;
   let fixture: ComponentFixture<PaymentComponent>;
 
@@ -20,7 +22,7 @@ describe('PaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaymentComponent);
     component = fixture.componentInstance;
-    component.payment = payment;
+    component.payments = payments;
     fixture.detectChanges();
   });
 
