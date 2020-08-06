@@ -30,7 +30,7 @@ describe('RentalComponent', () => {
   ];
 
   const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['GetLength']);
-  //rentalComponentSpy.get.and.returnValue(of(rentals));
+  // rentalComponentSpy.get.and.returnValue(of(rentals));
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

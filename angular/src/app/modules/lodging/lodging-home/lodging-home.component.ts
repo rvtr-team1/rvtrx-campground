@@ -17,7 +17,7 @@ export class LodgingHomeComponent implements OnInit {
   constructor(private lodgingService: LodgingService, private accountService: AccountService) { }
 
   ngOnInit(): void {
-    
+
     this.lodgingService.get().subscribe(
       data => this.lodgings = data, error => this.handleError(error));
   }
@@ -30,7 +30,7 @@ export class LodgingHomeComponent implements OnInit {
     } else {
       message = error.status.toString();
     }
-  } 
+  }
 
 }
 

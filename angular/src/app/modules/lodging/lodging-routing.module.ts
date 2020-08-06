@@ -5,13 +5,13 @@ import { LodgingHomeComponent } from './lodging-home/lodging-home.component';
 import { RentalComponent } from './rental/rental.component';
 
 const routes: Routes = [
-  { component: LodgingComponent, path: '' }, 
+  { component: LodgingComponent, path: '' },
   {component: LodgingHomeComponent, path: 'home'},
-  {component: RentalComponent, path: 'rental'}
+  //{component: RentalComponent, path: 'rental'}
 ];
 
 @NgModule({
-  declarations: [LodgingComponent],
+  declarations: [],
   exports: [RouterModule],
   imports: [RouterModule.forChild(routes)],
 })

@@ -22,12 +22,14 @@ export class RentalComponent implements OnInit {
 
   private loadLodgings(): void
   {
+    debugger;
     this.lodgingService.get().toPromise()
       .then(data => this.lodgings = data)
       .then(() => this.SetRentals())
       .catch(error => this.handleError(error));
   }
   public SetRentals(): void {
+    debugger;
     this.rentals = this.lodgings[0].rentals;
   }
   private handleError(error: HttpErrorResponse): void {
@@ -38,6 +40,6 @@ export class RentalComponent implements OnInit {
     } else {
       message = error.status.toString();
     }
-  } 
+  }
 
 }
