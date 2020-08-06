@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
@@ -24,10 +24,15 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
+  @ViewChild(AddressComponent) address: AddressComponent;
+  @ViewChild(PaymentComponent) payments: PaymentComponent;
+  @ViewChild(ProfileComponent) profiles: ProfileComponent;
+  private id: string = '100';
+
   constructor(private readonly accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.account$ = this.accountService.get('100');
+    this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
         id: '100',
@@ -83,40 +88,13 @@ export class AccountComponent implements OnInit {
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }
 
-  public updateAccountProfile(profile: Profile[]): void {
-    const addressComponent = new AddressComponent();
-    const paymentComponent = new PaymentComponent();
-    this.accountService
-      .put({
-        id: `${this.account$.pipe(map((account) => account.id))}`,
-        profiles: profile,
-        address: addressComponent.address,
-        payments: paymentComponent.payments,
-      } as Account)
-      .subscribe();
-  }
-  public updateAccountPayment(payment: Payment[]): void {
-    const addressComponent = new AddressComponent();
-    const profilesComponent = new ProfileComponent();
-    this.accountService
-      .put({
-        id: `${this.account$.pipe(map((account) => account.id))}`,
-        profiles: profilesComponent.profiles,
-        address: addressComponent.address,
-        payments: payment,
-      } as Account)
-      .subscribe();
-  }
-  public updateAccountAddress(address: Address): void {
-    const paymentComponent = new PaymentComponent();
-    const profilesComponent = new ProfileComponent();
-    this.accountService
-      .put({
-        id: `${this.account$.pipe(map((account) => account.id))}`,
-        profiles: profilesComponent.profiles,
-        address,
-        payments: paymentComponent.payments,
-      } as Account)
-      .subscribe();
+  public update(): void {
+    let payload = {
+      id: this.id,
+      profiles: this.profiles.profiles,
+      address: this.address.address,
+      payments: this.payments.payments,
+    } as Account;
+    this.accountService.put(payload).subscribe();
   }
 }
