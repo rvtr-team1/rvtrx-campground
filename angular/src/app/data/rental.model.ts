@@ -14,5 +14,5 @@ export interface Rental {
   id: string;
   name: string;
   rentalUnit: RentalUnit;
-  availability: string;
+  availability: boolean
 }
