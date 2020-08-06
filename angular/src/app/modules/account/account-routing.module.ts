@@ -8,6 +8,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { EditableComponent } from './editable/editable.component';
+import { FormsModule } from '@angular/forms';
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
 @NgModule({
@@ -21,6 +22,6 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     EditableComponent,
   ],
   exports: [RouterModule],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule],
 })
 export class AccountRoutingModule {}

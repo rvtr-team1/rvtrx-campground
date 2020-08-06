@@ -11,8 +11,13 @@
           <div>
             <p class="heading">adult</p>
             <p class="title is-6">
+<<<<<<< HEAD
               <uic-editable [data]='profile.name.given' (focusOut)='profile.name.given = $event'></uic-editable>
               <uic-editable [data]='profile.name.family' (focusOut)='profile.name.family = $event'></uic-editable>
+=======
+              <uic-editable [(data)]='profile.name.given'></uic-editable>
+              <uic-editable [(data)]='profile.name.family'></uic-editable>
+>>>>>>> model_binding
               {{profile.name.given}}
               {{profile.name.family}}
             </p>
