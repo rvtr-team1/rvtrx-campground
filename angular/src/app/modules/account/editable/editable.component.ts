@@ -17,6 +17,5 @@ export class EditableComponent implements OnInit {
     this.editMode = false;
     this.data = (e.target as HTMLInputElement).value;
     this.dataChange.emit(this.data);
-    // console.log(this.data);
   }
 }
