@@ -29,12 +29,13 @@ describe('RentalComponent', () => {
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: [],
+      bathrooms: 1,
     },
   ];
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
+  const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['SetRentals']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -89,5 +90,16 @@ describe('RentalComponent', () => {
     component.handleError(errorMsg);
     expect(component.errorMessage).toBeTruthy();
     expect(component.errorMessage).toEqual('404');
+  it('should have valid values', () => {
+    expect(component.lodgings![0].location.address).toEqual(lodgings[0].location.address);
+    expect(component.lodgings![0].location.latitude).toEqual(lodgings[0].location.latitude);
+    expect(component.lodgings![0].location.longitude).toEqual(lodgings[0].location.longitude);
+    expect(component.lodgings![0].location.locale).toEqual(lodgings[0].location.locale);
+    expect(component.lodgings![0].name).toEqual(lodgings[0].name);
+  });
+
+  it('should ensure Rental Component public methods are called', () => {
+    rentalComponentSpy.SetRentals();
+    expect(rentalComponentSpy.SetRentals).toHaveBeenCalledTimes(1);
   });
 });
