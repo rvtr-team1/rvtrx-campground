@@ -15,7 +15,7 @@
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
               <uic-newpaymentform></uic-newpaymentform>
-              <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment">
+              <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment" (onSubmit)='addCard($event)'>
               </uic-payment>
               
             
