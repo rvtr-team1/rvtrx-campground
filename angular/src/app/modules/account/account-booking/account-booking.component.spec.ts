@@ -24,7 +24,7 @@ describe('AccountBookingComponent', () => {
         name: 'string',
         rentalUnit: {
           id: 'string',
-          bedrooms: {
+          bedroom: {
             id: 'string',
             count: 2,
             type: 'string',
@@ -44,7 +44,6 @@ describe('AccountBookingComponent', () => {
       dateCreated: new Date(),
       dateModified: new Date(),
     },
-    status: 'string',
   };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;
