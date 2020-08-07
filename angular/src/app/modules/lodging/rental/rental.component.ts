@@ -74,7 +74,7 @@ export class RentalComponent implements OnInit {
   private CountAvailableRooms(): void {
     if (this.rentals) {
       this.rentals.forEach((element) => {
-        if (element.availability === true) {
+        if (element.status === 'available') {
           this.availabilityCount[element.rentalUnit.occupancy - 1]++;
         }
       });

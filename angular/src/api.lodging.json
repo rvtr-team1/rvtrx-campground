@@ -20,56 +20,56 @@
       {
         "id": "1",
         "name": "testRental",
-        "rentalUnit": 
-        {
+        "status": "available",
+        "price": 0,
+        "discountedPrice": null,
+        "rentalUnit": {
           "id": "6",
-          "bedrooms":
-            {
-              "id": "1",
-              "count": "4",
-              "type": "Queen Bed"
-            },
+          "bedroom": {
+            "id": "1",
+            "count": "4",
+            "type": "Queen Bed"
+          },
           "name": "Family Room",
           "occupancy": "5",
           "type": "testType"
-        },
-        "availability": true
+        }
       },
       {
         "id": "2",
         "name": "testRental2",
-        "rentalUnit":
-        {
-        "id": "2",
-        "bedrooms":
-          {
+        "status": " not available",
+        "price": 0,
+        "discountedPrice": null,
+        "rentalUnit": {
+          "id": "2",
+          "bedroom": {
             "id": "2",
             "count": "4",
             "type": "Twin Bed"
           },
-        "name": "Triple Room",
-        "occupancy": "3",
-        "type": "testType"
-        },
-        "availability": false
+          "name": "Triple Room",
+          "occupancy": "3",
+          "type": "testType"
+        }
       },
       {
         "id": "3",
         "name": "testRental3",
-        "rentalUnit":
-        {
-        "id": "3",
-        "bedrooms":
-          {
+        "status": "available",
+        "price": 0,
+        "discountedPrice": null,
+        "rentalUnit": {
+          "id": "3",
+          "bedroom": {
             "id": "3",
             "count": "2",
             "type": "Twin Bed"
           },
-        "name": "Double Room",
-        "occupancy": "2",
-        "type": "testType"
-        },
-        "availability":true
+          "name": "Double Room",
+          "occupancy": "2",
+          "type": "testType"
+        }
       }
     ],
     "reviews": [
