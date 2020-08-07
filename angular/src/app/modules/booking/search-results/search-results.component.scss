@@ -23,6 +23,7 @@ $shadow-color: rgba(0, 0, 0, 0.3);
   box-shadow: $card-shadow;
   max-width: 100%;
   margin-top: 20px;
+  transition: all 0.3s ease-in-out;
 }
 
 .card:hover {
@@ -31,6 +32,7 @@ $shadow-color: rgba(0, 0, 0, 0.3);
   box-shadow: $card-hover-shadow;
   background-color: #10d1b4;
   color: white;
+  transform: scale(1.05);
 }
 .card:hover .is-4 {
   color: white;
