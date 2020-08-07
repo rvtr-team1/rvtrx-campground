@@ -58,81 +58,82 @@
       "id": "2",
       "address": {
         "id": "2",
-        "city": "Mammoth",
-        "country": "United States",
-        "postalCode": "93546",
-        "stateProvince": "CA",
-        "street": "2251 Meridian Blvd."
+        "city": "Jersey City",
+        "country": "USA",
+        "postalCode": "07306",
+        "stateProvince": "NJ",
+        "street": "88 Morgan St"
       },
-      "latitude": "37.639799",
-      "locale": "Mountainous, Cold",
-      "longitude": " -118.972245"
+      "latitude": "",
+      "locale": "",
+      "longitude": ""
     },
-    "name": "Mammoth Village",
+    "name": "Penthouse",
     "rentals": [
       {
         "id": "2",
-        "name": "Unit A",
+        "name": "Penthouse",
         "rentalUnit": {
           "id": "2",
           "bathrooms": [
             {
+              "id": "1",
+              "fixture": "1"
+            },
+            {
+              "id": "2",
+              "fixture": "1"
+            },
+            {
               "id": "3",
               "fixture": "1"
             },
             {
               "id": "4",
-              "fixture": "2"
-            }
-          ],
-          "bedrooms": [
-            {
-              "id": "3",
-              "count": "2",
-              "type": "Queen"
-            },
-            {
-              "id": "4",
-              "count": "2",
-              "type": "Queen"
-            }
-          ],
-          "name": "Unit A",
-          "occupancy": "4",
-          "type": ""
-        }
-      },
-      {
-        "id": "3",
-        "name": "Unit B",
-        "rentalUnit": {
-          "id": "3",
-          "bathrooms": [
-            {
-              "id": "5",
               "fixture": "1"
-            },
-            {
-              "id": "6",
-              "fixture": "2"
             }
           ],
           "bedrooms": [
             {
               "id": "1",
-              "count": "2",
-              "type": "Queen"
+              "count": "1",
+              "type": "master"
             },
             {
               "id": "2",
-              "count": "2",
-              "type": "Queen"
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "3",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "4",
+              "count": "1",
+              "type": "master"
+            },
+            {
+              "id": "5",
+              "count": "1",
+              "type": "master"
             }
           ],
-          "name": "Unit B",
-          "occupancy": "4",
-          "type": ""
+          "name": "Penthouse",
+          "occupancy": "1",
+          "type": "Penthouse"
         }
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "Great place!",
+        "date created": "",
+        "rating": "5"
       }
     ]
   }
