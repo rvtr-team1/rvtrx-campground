@@ -16,77 +16,107 @@
       "longitude": "testLong"
     },
     "name": "Test",
+    "bathrooms": "1",
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
-        "rentalUnit": 
-        {
+        "status": "available",
+        "price": "0.0",
+        "discountPrice": "0.0",
+        "rentalUnit": {
           "id": "6",
-          "bedrooms":
-            {
-              "id": "1",
-              "count": "4",
-              "type": "Queen Bed"
-            },
+          "bedroom": {
+            "id": "1",
+            "count": "4",
+            "type": "Queen Bed"
+          },
           "name": "Family Room",
           "occupancy": "5",
           "type": "testType"
-        },
-        "availability": true
+        }
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "2",
+    "location": {
+      "id": "1",
+      "address": {
+        "id": "1",
+        "city": "testCity",
+        "country": "testCountry",
+        "postalCode": "testCode",
+        "stateProvince": "testState",
+        "street": "testStreet"
       },
+      "latitude": "testLat",
+      "locale": "testLocale",
+      "longitude": "testLong"
+    },
+    "name": "Test2",
+    "bathrooms": "1",
+    "rentals": [
       {
-        "id": "2",
-        "name": "testRental2",
-        "rentalUnit":
-        {
-        "id": "2",
-        "bedrooms":
-          {
-            "id": "2",
+        "id": "1",
+        "name": "testRental",
+        "status": "available",
+        "price": "0.0",
+        "discountPrice": "0.0",
+        "rentalUnit": {
+          "id": "6",
+          "bedroom": {
+            "id": "1",
             "count": "4",
-            "type": "Twin Bed"
+            "type": "Queen Bed"
           },
-        "name": "Triple Room",
-        "occupancy": "3",
-        "type": "testType"
-        },
-        "availability": false
+          "name": "Family Room",
+          "occupancy": "5",
+          "type": "testType"
+        }
+      }
+    ],
+    "reviews": []
+  },
+  {
+    "id": "3",
+    "location": {
+      "id": "1",
+      "address": {
+        "id": "1",
+        "city": "testCity",
+        "country": "testCountry",
+        "postalCode": "testCode",
+        "stateProvince": "testState",
+        "street": "testStreet"
       },
+      "latitude": "testLat",
+      "locale": "testLocale",
+      "longitude": "testLong"
+    },
+    "name": "Test3",
+    "bathrooms": "1",
+    "rentals": [
       {
-        "id": "3",
-        "name": "testRental3",
-        "rentalUnit":
-        {
-        "id": "3",
-        "bedrooms":
-          {
-            "id": "3",
-            "count": "2",
-            "type": "Twin Bed"
+        "id": "1",
+        "name": "testRental",
+        "status": "available",
+        "price": "0.0",
+        "discountPrice": "0.0",
+        "rentalUnit": {
+          "id": "6",
+          "bedroom": {
+            "id": "1",
+            "count": "4",
+            "type": "Queen Bed"
           },
-        "name": "Double Room",
-        "occupancy": "2",
-        "type": "testType"
-        },
-        "availability":true
+          "name": "Family Room",
+          "occupancy": "5",
+          "type": "testType"
+        }
       }
     ],
-    "reviews": [
-      {
-        "id": "1",
-        "accountId": "1",
-        "hotelId": "1",
-        "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
-        "rating": "1"
-      }
-    ],
-    "bathrooms": [
-      {
-        "id": "1",
-        "fixture": "1"
-      }
-    ]
+    "reviews": []
   }
 ]
