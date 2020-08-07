@@ -1,7 +1,6 @@
 import { Location } from './location.model';
 import { Review } from './review.model';
 import { Rental } from './rental.model';
-import {Bathroom} from './bathroom.model';
 
 /**
  * Represents the _Lodging_ model
@@ -13,7 +12,6 @@ import {Bathroom} from './bathroom.model';
  * bathrooms: number;
  * rentals: Rental[];
  * reviews: Review[];
- * bathrooms: Bathroom[];
  * ```
  */
 export interface Lodging {
@@ -23,5 +21,4 @@ export interface Lodging {
   bathrooms: number;
   rentals: Rental[];
   reviews: Review[];
-  bathrooms: Bathroom[];
 }
