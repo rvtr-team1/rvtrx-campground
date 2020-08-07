@@ -41,12 +41,12 @@
                     <br>
 
                   </div>
-                  <p class="discountedPrice" style="margin-left: 2.5rem;" *ngIf="!rental.rentalUnit.discountedPrice">
-                    ${{ rental.rentalUnit.price}}</p>
-                  <p class="orignalPrice" *ngIf="rental.rentalUnit.discountedPrice">
-                    ${{ rental.rentalUnit.price}}</p>
-                  <p *ngIf="rental.rentalUnit.discountedPrice" class="discountedPrice">
-                    ${{ rental.rentalUnit.discountedPrice}}</p><strong>/night</strong>
+                  <p class="discountedPrice" style="margin-left: 2.5rem;" *ngIf="!rental.discountedPrice">
+                    ${{ rental.price}}</p>
+                  <p class="orignalPrice" *ngIf="rental.discountedPrice">
+                    ${{ rental.price}}</p>
+                  <p *ngIf="rental.discountedPrice" class="discountedPrice">
+                    ${{ rental.discountedPrice}}</p><strong>/night</strong>
                 </div>
               </div>
 
