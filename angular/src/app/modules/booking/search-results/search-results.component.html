@@ -38,7 +38,8 @@
                                         {{ rental.rentalUnit.type }} • Occupancy: {{ rental.rentalUnit.occupancy }}
                                         Persons • Bedrooms: {{ rental.rentalUnit.bedrooms.length }} • Bathrooms:
                                         {{ rental.rentalUnit.bathrooms.length }}
-                                        <button class="button is-primary">Reserve Now!</button>
+                                        <button class="button is-primary" (click)="makeReservation()">Reserve
+                                            Now!</button>
                                         <br>
 
                                     </div>
