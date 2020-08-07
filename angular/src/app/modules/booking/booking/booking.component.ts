@@ -18,16 +18,5 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.lodgings$ = this.lodgingService.get();
-
-    function mapDates(reviews: Review[]): Review[] {
-      return reviews.map((review) => {
-        review.dateCreated = new Date(review.dateCreated);
-        return review;
-      });
-    }
-
-    this.lodgings$.pipe(
-      map((lodgings) => lodgings.map((lodging) => (lodging.reviews = mapDates(lodging.reviews))))
-    );
   }
 }

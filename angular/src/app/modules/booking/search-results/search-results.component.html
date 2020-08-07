@@ -25,7 +25,7 @@
                           <span>{{ rental.name }}</span>
                           <span class="end-of-card stars">
                             <span *ngFor="let star of averageRating(lodging)" class="fa fa-star"
-                              [class]="{checked: star}"></span>
+                              [class.checked]="star"></span>
                           </span>
                         </div>
                         <p class="subtitle is-6">Short Description</p>
