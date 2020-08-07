@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LodgingComponent implements OnInit {
   lodging: Lodging | null = null;
   idString: string | null = null;
+  isLoaded: boolean = false;
   errorMessage: string;
 
   constructor(private route: ActivatedRoute, private lodgingService: LodgingService) {}
@@ -29,7 +30,10 @@ export class LodgingComponent implements OnInit {
       this.lodgingService
         .get(this.idString)
         .toPromise()
-        .then((data) => (this.lodging = data[0]))
+        .then((data) => {
+          this.lodging = data[0];
+          this.isLoaded = true;
+        })
         .catch((error) => this.handleError(error));
     }
   }

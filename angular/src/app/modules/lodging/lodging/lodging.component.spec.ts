@@ -20,21 +20,21 @@ describe('LodgingComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-  // /**
-  //  * tests the handle error function in lodging-home component
-  //  */
-  // it('should get handleError', () => {
-  //   expect(component.handleError).toBeTruthy();
-  // });
+  /**
+   * tests the handle error function in lodging-home component
+   */
+  it('should get handleError', () => {
+    expect(component.handleError).toBeTruthy();
+  });
 
-  // /**
-  //  * tests the handle error function to see if a 0 status code is sent it responds with a
-  //  * unable to connect to server message
-  //  */
+  /**
+   * tests the handle error function to see if a 0 status code is sent it responds with a
+   * unable to connect to server message
+   */
   it('should return unable to connect to server message', () => {
     const errorMsg = new HttpErrorResponse({
       error: '0 error',
@@ -47,18 +47,18 @@ describe('LodgingComponent', () => {
     expect(component.errorMessage).toEqual('Unable to connect to server');
   });
 
-  // /**
-  //  * tests the handle error function to see if it stores the correct status code in the errorMessage
-  //  */
-  // it('should return status code in errorMessage', () => {
-  //   const errorMsg = new HttpErrorResponse({
-  //     error: '404 error',
-  //     status: 404,
-  //     statusText: 'Not Found',
-  //   });
+  /**
+   * tests the handle error function to see if it stores the correct status code in the errorMessage
+   */
+  it('should return status code in errorMessage', () => {
+    const errorMsg = new HttpErrorResponse({
+      error: '404 error',
+      status: 404,
+      statusText: 'Not Found',
+    });
 
-  //   component.handleError(errorMsg);
-  //   expect(component.errorMessage).toBeTruthy();
-  //   expect(component.errorMessage).toEqual('404');
-  // });
+    component.handleError(errorMsg);
+    expect(component.errorMessage).toBeTruthy();
+    expect(component.errorMessage).toEqual('404');
+  });
 });
