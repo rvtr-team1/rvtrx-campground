@@ -29,7 +29,7 @@ export class RentalComponent implements OnInit {
    */
   lodgings: Lodging[] | null = null;
   rentals: Rental[] | null = null;
-  availabilityCount: number[] = [0, 1, 0, 0, 1, 0, 0, 0, 0];
+  availabilityCount: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   familyRoomCount = 0;
   tripleRoomCount = 0;
   doubleRoomCount = 0;
@@ -74,14 +74,8 @@ export class RentalComponent implements OnInit {
   private CountAvailableRooms(): void {
     if (this.rentals) {
       this.rentals.forEach((element) => {
-        if (element.rentalUnit.name === 'Family Room' && element.availability === true) {
-          this.familyRoomCount++;
-        } else if (element.rentalUnit.name === 'Triple Room' && element.availability === true) {
-          this.tripleRoomCount++;
-        } else if (element.rentalUnit.name === 'Double Room' && element.availability === true) {
-          this.doubleRoomCount++;
-        } else {
-          // do nothing
+        if (element.availability === true) {
+          this.availabilityCount[element.rentalUnit.occupancy - 1]++;
         }
       });
     }
