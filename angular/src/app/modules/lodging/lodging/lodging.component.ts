@@ -11,6 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class LodgingComponent implements OnInit {
 
   lodging: Lodging | null = null;
+  idString: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,10 +24,13 @@ export class LodgingComponent implements OnInit {
 
   getLodgingById(): void
   {
-    const idString = this.route.snapshot.paramMap.get('id');
-    this.lodgingService.get(idString).toPromise()
-    .then(data => this.lodging = data[0])
-    .catch(error => this.handleError(error));
+    // const idString = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe(params => { this.idString = params.get('id')});
+    if (this.idString){
+      this.lodgingService.get(this.idString).toPromise()
+      .then(data => this.lodging = data[0])
+      .catch(error => this.handleError(error));
+    }
   }
 
   private handleError(error: HttpErrorResponse): void {

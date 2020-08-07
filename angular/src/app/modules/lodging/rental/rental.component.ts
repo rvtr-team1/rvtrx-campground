@@ -20,7 +20,6 @@ import { Rental } from 'src/app/data/rental.model';
  * This class represents the Rental component
  */
 export class RentalComponent implements OnInit {
-
   /**
    * lodgings property
    * rentals property
@@ -38,7 +37,7 @@ export class RentalComponent implements OnInit {
    * @param lodgingService
    * Constructor injects lodgingService
    */
-  constructor(private lodgingService: LodgingService) { }
+  constructor(private lodgingService: LodgingService) {}
 
   ngOnInit(): void {
     this.loadLodgings();
@@ -62,28 +61,29 @@ export class RentalComponent implements OnInit {
    * sets the rentals property to the lodging's rentals property
    */
   public SetRentals(): void {
-    this.rentals = this.lodgings[0].rentals;
-    this.CountAvailableRooms();
+    if (this.lodgings) {
+      this.rentals = this.lodgings[0].rentals;
+      this.CountAvailableRooms();
+    }
   }
 
   /**
    * Counts the available rooms based on the room type in each rental.
    */
   private CountAvailableRooms(): void {
-    this.rentals.forEach(element => {
-      if (element.rentalUnit.name === 'Family Room' && element.availability === true) {
-        this.familyRoomCount++;
-      }
-      else if (element.rentalUnit.name === 'Triple Room' && element.availability === true) {
-        this.tripleRoomCount++;
-      }
-      else if (element.rentalUnit.name === 'Double Room' && element.availability === true) {
-        this.doubleRoomCount++;
-      }
-      else {
-        // do nothing
-      }
-    });
+    if (this.rentals) {
+      this.rentals.forEach((element) => {
+        if (element.rentalUnit.name === 'Family Room' && element.availability === true) {
+          this.familyRoomCount++;
+        } else if (element.rentalUnit.name === 'Triple Room' && element.availability === true) {
+          this.tripleRoomCount++;
+        } else if (element.rentalUnit.name === 'Double Room' && element.availability === true) {
+          this.doubleRoomCount++;
+        } else {
+          // do nothing
+        }
+      });
+    }
   }
 
   /**

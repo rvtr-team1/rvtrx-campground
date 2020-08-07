@@ -10,11 +10,11 @@
       <tbody>
          <tr *ngFor="let rental of rentals">
             <td>
-               {{rental.rentalUnit?.name}}<br>
-               {{rental.rentalUnit?.bedrooms.count}} {{rental.rentalUnit?.bedrooms.type}}
+               {{rental.rentalUnit.name}}<br>
+               {{rental.rentalUnit.bedrooms.count}} {{rental.rentalUnit.bedrooms.type}}
                <i class="fas fa-bed"></i>
             </td>
-            <td>{{rental.rentalUnit?.occupancy}}</td>
+            <td>{{rental.rentalUnit.occupancy}}</td>
             <td>Tent <i class="fas fa-campground"></i> <br> RV <i class="fas fa-caravan"></i></td>
             <td *ngIf="rental.rentalUnit?.name === 'Family Room'">{{familyRoomCount}}</td>
             <td *ngIf="rental.rentalUnit?.name === 'Triple Room'">{{tripleRoomCount}}</td>
