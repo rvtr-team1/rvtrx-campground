@@ -28,12 +28,15 @@ describe('RentalComponent', () => {
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: [],
+      bathrooms: 1,
     },
   ];
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
+
+  // const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['loadLodgings']);
+  const rentalComponent = new RentalComponent(lodgingService);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -53,6 +56,7 @@ describe('RentalComponent', () => {
   it('should get rental', () => {
     expect(component.lodgings![0].rentals).toBeTruthy();
     expect(component.lodgings![0].rentals).toEqual(lodgings[0].rentals);
+    //expect(rentalComponent.).toHaveBeenCalled();
   });
 
   it('should have valid values', () => {
@@ -62,4 +66,13 @@ describe('RentalComponent', () => {
     expect(component.lodgings![0].location.locale).toEqual(lodgings[0].location.locale);
     expect(component.lodgings![0].name).toEqual(lodgings[0].name);
   });
+
+  // TestBed.configureTestingModule({
+  //   declarations: [RentalComponent],
+  //   providers: [{ provide: LodgingService, useValue: rentalComponentSpy }],
+  // }).compileComponents();
+
+  // it('should call CountAvailableRooms', () => {
+  //   expect(rentalComponentSpy).toHaveBeenCalled();
+  // });
 });

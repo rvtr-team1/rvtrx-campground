@@ -10,6 +10,7 @@ import {Bathroom} from './bathroom.model';
  * id: string;
  * location: Location;
  * name: string;
+ * bathrooms: number;
  * rentals: Rental[];
  * reviews: Review[];
  * bathrooms: Bathroom[];
@@ -19,7 +20,7 @@ export interface Lodging {
   id: string;
   location: Location;
   name: string;
+  bathrooms: number;
   rentals: Rental[];
   reviews: Review[];
-  bathrooms: Bathroom[];
 }
