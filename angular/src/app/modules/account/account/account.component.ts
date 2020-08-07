@@ -29,6 +29,9 @@ export class AccountComponent implements OnInit {
   @ViewChild(ProfileComponent, { static: false }) profiles: ProfileComponent;
   private id: string = '100';
 
+  ngAfterViewInit() {
+    console.log(this.payments);
+  }
   constructor(private readonly accountService: AccountService) {}
 
   ngOnInit(): void {
