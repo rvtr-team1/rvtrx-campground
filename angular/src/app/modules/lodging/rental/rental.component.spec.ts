@@ -26,10 +26,10 @@ describe('RentalComponent', () => {
           locale: 'testLocale',
           longitude: 'testLong'
         },
+        bathrooms: 1,
         name: 'test',
         rentals: [],
         reviews: [],
-        bathrooms: []
       }
     ];
 
