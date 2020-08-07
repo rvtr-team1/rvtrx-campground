@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-
+import { scan } from 'rxjs/operators';
 import { EditingService } from './editingservice.service';
 
 describe('EditingserviceService', () => {
