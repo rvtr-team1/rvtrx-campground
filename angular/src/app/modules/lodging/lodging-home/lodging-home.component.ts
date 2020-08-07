@@ -18,7 +18,7 @@ export class LodgingHomeComponent implements OnInit {
    * represents lodging-home component's constructor
    * @param lodgingService the lodging service
    */
-  constructor(private lodgingService: LodgingService) {}
+  constructor(private readonly lodgingService: LodgingService) {}
 
   /**
    * gets all the lodges available with the help of
@@ -42,8 +42,10 @@ export class LodgingHomeComponent implements OnInit {
     let message: string;
     if (error.status === 0) {
       message = 'Unable to connect to server';
+      console.log(message);
     } else {
       message = error.status.toString();
+      console.log(message);
     }
   }
 }

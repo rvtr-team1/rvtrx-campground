@@ -6,7 +6,6 @@ import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
 import { MonitoringService } from './services/monitoring/monitoring.service';
 import { environment } from '../environments/environment';
-import { LodgingHomeComponent } from './modules/lodging/lodging-home/lodging-home.component';
 
 @NgModule({
   bootstrap: [AppComponent],
