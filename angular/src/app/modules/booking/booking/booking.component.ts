@@ -40,12 +40,15 @@ export class BookingComponent implements OnInit {
     let occupancy = form.value.adults + form.value.children;
 
     // this.searchByCityAndOccupancy(form.value.location, occupancy);
-
-    let checkIn = form.value["check-in"]
-    let checkOut = form.value["check-out"]
+    let city = form.value.location;
+    let checkIn = form.value["check-in"];
+    let checkOut = form.value["check-out"];
     
+    // this.searchByDate(checkIn, checkOut);
 
-    this.searchByDate(checkIn, checkOut);
+    this.searchByAll(city, checkIn, checkOut, occupancy);
+
+
     this.isSearched = true;
   }
   
@@ -55,6 +58,7 @@ export class BookingComponent implements OnInit {
     console.log(checkIn, checkOut);
     this.lodgings$ = this.lodgingService.get();
     this.availableRentals = [];
+    this.searchResults = [];
 
     let lodgingRentals = [];
     let bookingRentals = [];
@@ -170,6 +174,105 @@ export class BookingComponent implements OnInit {
 
     console.log(this.searchResults);
     this.lodgings$ = of(this.searchResults);
+  }
+
+
+  searchByAll(city: string, occupancy: number, checkIn: Date, checkOut: Date): void {
+    console.log(city);
+    console.log(occupancy);
+    console.log(checkIn);
+    console.log(checkOut);
+    this.lodgings$ = this.lodgingService.get();
+    this.searchResults = [];
+
+    let lodgingRentals = [];
+    let bookingRentals = [];
+
+    this.bookings$.subscribe(
+      bookings => bookings.forEach(
+        booking => booking.rentals.forEach(
+          bookingRental => {
+            bookingRentals.push(bookingRental);
+          }
+        )
+      )
+    )
+    
+    console.log(bookingRentals);
+
+    this.lodgings$.subscribe(
+      lodgings => lodgings.forEach(
+        lodging => lodging.rentals.forEach(
+          lodgingRental => {
+            lodgingRentals.push(lodgingRental);
+          }
+        )
+      )
+    )
+    
+    console.log(lodgingRentals);
+    
+    this.bookings$.subscribe(
+      bookings => bookings.forEach(
+        booking => {
+          if (checkIn < booking.stay.checkIn && checkOut < booking.stay.checkIn) {
+            lodgingRentals.forEach(
+              lodgingRental => {
+                if (booking.rentals.includes(lodgingRental)) {
+                  console.log(`lodging rental ${lodgingRental.name} is available`)
+                  this.availableRentals.push(lodgingRental);
+                }
+                else if (!booking.rentals.includes(lodgingRental)) {
+                  console.log(`lodging rental ${lodgingRental.name} is available`)
+                  this.availableRentals.push(lodgingRental);
+                }
+              }
+            )
+          }
+          else if (checkIn > booking.stay.checkOut && checkOut > booking.stay.checkOut ) {
+            lodgingRentals.forEach(
+              lodgingRental => {
+                if (booking.rentals.includes(lodgingRental)) {
+                  console.log(`lodging rental ${lodgingRental.name} is available`)
+                  this.availableRentals.push(lodgingRental);
+                }
+              }
+            )
+          }
+        }
+      )
+    )
+
+    console.log(this.availableRentals);
+    
+    this.lodgings$.subscribe(
+      lodgings => lodgings.forEach(
+        lodging => lodging.rentals.forEach( 
+          lodgingRental => {
+            this.availableRentals.forEach(
+              availableRental => {
+                if (lodgingRental.id === availableRental.id) {
+                  console.log(lodgingRental);
+                  console.log(availableRental);
+                  console.log(lodging);
+                  if (availableRental.rentalUnit.occupancy >= occupancy && lodging.location.address.city == city ) {
+                    if (!this.searchResults.includes(lodging)) {
+                      this.searchResults.push(lodging);
+                    }
+                  }
+                }
+              }
+            )
+          }
+        )
+        
+      )
+    )
+
+  
+    console.log(this.searchResults);
+    this.lodgings$ = of(this.searchResults);
+
   }
 
 
