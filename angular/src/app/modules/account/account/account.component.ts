@@ -8,9 +8,7 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
-import { AddressComponent } from '../address/address.component';
-import { PaymentComponent } from '../payment/payment.component';
-import { ProfileComponent } from '../profile/profile.component';
+import { EditingService } from '../editingservice.service';
 
 @Component({
   selector: 'uic-account',
@@ -24,17 +22,17 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  @ViewChild(AddressComponent, { static: false }) address: AddressComponent;
-  @ViewChild(PaymentComponent, { static: false }) payments: PaymentComponent;
-  @ViewChild(ProfileComponent, { static: false }) profiles: ProfileComponent;
   private id: string = '100';
 
-  ngAfterViewInit() {
-    console.log(this.payments);
-  }
-  constructor(private readonly accountService: AccountService) {}
+  constructor(
+    private readonly accountService: AccountService,
+    private editingService: EditingService
+  ) {}
 
   ngOnInit(): void {
+    this.editingService
+      .createChannel()
+      .subscribe((e) => console.log('Hello from account component' + JSON.stringify(e)));
     this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
@@ -90,9 +88,10 @@ export class AccountComponent implements OnInit {
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }
-
+  public update() {}
+  /*
   public update(): void {
-    let payload = {
+    const payload = {
       id: this.id,
       profiles: this.profiles.profiles,
       address: this.address.address,
@@ -101,4 +100,5 @@ export class AccountComponent implements OnInit {
     debugger;
     this.accountService.put(payload).subscribe();
   }
+  */
 }

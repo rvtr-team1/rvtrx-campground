@@ -1,5 +1,6 @@
-import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
+import { EditingService } from '../editingservice.service';
 
 @Component({
   selector: 'uic-profile',
@@ -9,8 +10,14 @@ export class ProfileComponent implements OnInit {
   @Input() profiles: Profile[];
   @Output('ngModelChange') profileEdited = new EventEmitter();
 
-  constructor() {}
-
+  constructor(private service: EditingService) {}
+  log() {
+    this.service.update(this.profiles);
+    console.log(this.profiles);
+  }
+  ngOnChanges() {
+    console.log(this.profiles);
+  }
   ngOnInit(): void {}
 
   /* ngOnChanges(changes: SimpleChanges) {

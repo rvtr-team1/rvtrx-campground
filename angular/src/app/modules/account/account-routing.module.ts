@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { EditableComponent } from './editable/editable.component';
 import { FormsModule } from '@angular/forms';
+
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
 @NgModule({
