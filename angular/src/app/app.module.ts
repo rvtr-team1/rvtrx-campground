@@ -10,7 +10,7 @@ import { LodgingHomeComponent } from './modules/lodging/lodging-home/lodging-hom
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent, LodgingHomeComponent],
+  declarations: [AppComponent],
   imports: [AppRoutingModule, BrowserModule, LayoutModule],
   providers: [
     Monitoring,

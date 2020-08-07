@@ -7,10 +7,12 @@ import { RentalUnit } from './rental-unit.model';
  * id: string;
  * name: string;
  * rentalUnit: RentalUnit;
+ * availability:boolean
  * ```
  */
 export interface Rental {
   id: string;
   name: string;
   rentalUnit: RentalUnit;
+  availability: boolean;
 }

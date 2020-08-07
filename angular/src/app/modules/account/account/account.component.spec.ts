@@ -23,8 +23,8 @@ describe('AccountComponent', () => {
           stateProvince: '',
           street: '',
         },
-        payments: null,
-        profiles: null,
+        payments: [],
+        profiles: [],
       };
 
       return of(account);
