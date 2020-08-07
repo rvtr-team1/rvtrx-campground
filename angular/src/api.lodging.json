@@ -29,7 +29,7 @@
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
         },
         "status": "available"
@@ -46,7 +46,7 @@
             "type": "Twin Bed"
           },
           "name": "Triple Room",
-          "occupancy": "3",
+          "occupancy": 3,
           "type": "testType"
         },
         "status": "available"
@@ -64,7 +64,7 @@
             "type": "Twin Bed"
           },
           "name": "Double Room",
-          "occupancy": "2",
+          "occupancy": 2,
           "type": "testType"
         },
         "status": "available"
