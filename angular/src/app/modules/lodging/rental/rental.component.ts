@@ -38,7 +38,7 @@ export class RentalComponent implements OnInit {
    * @param lodgingService
    * Constructor injects lodgingService
    */
-  constructor(private lodgingService: LodgingService) {}
+  constructor(private readonly lodgingService: LodgingService) {}
 
   ngOnInit(): void {
     this.loadLodgings();
@@ -90,8 +90,10 @@ export class RentalComponent implements OnInit {
     let message: string;
     if (error.status === 0) {
       message = 'Unable to connect to server';
+      console.log(message);
     } else {
       message = error.status.toString();
+      console.log(message);
     }
   }
 }
