@@ -28,7 +28,7 @@ describe('LodgingHomeComponent', () => {
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: [],
+      bathrooms: 1,
     },
   ];
 

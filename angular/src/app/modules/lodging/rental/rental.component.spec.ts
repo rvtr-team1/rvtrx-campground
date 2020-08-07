@@ -34,9 +34,7 @@ describe('RentalComponent', () => {
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
-
-  // const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['loadLodgings']);
-  const rentalComponent = new RentalComponent(lodgingService);
+  const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['SetRentals']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -56,7 +54,6 @@ describe('RentalComponent', () => {
   it('should get rental', () => {
     expect(component.lodgings![0].rentals).toBeTruthy();
     expect(component.lodgings![0].rentals).toEqual(lodgings[0].rentals);
-    //expect(rentalComponent.).toHaveBeenCalled();
   });
 
   it('should have valid values', () => {
@@ -67,12 +64,8 @@ describe('RentalComponent', () => {
     expect(component.lodgings![0].name).toEqual(lodgings[0].name);
   });
 
-  // TestBed.configureTestingModule({
-  //   declarations: [RentalComponent],
-  //   providers: [{ provide: LodgingService, useValue: rentalComponentSpy }],
-  // }).compileComponents();
-
-  // it('should call CountAvailableRooms', () => {
-  //   expect(rentalComponentSpy).toHaveBeenCalled();
-  // });
+  it('should ensure Rental Component public methods are called', () => {
+    rentalComponentSpy.SetRentals();
+    expect(rentalComponentSpy.SetRentals).toHaveBeenCalledTimes(1);
+  });
 });
