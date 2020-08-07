@@ -5,12 +5,14 @@ import { BookingComponent } from './booking/booking.component';
 import { SpotlightComponent } from './spotlight/spotlight.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { FeaturedLodgingComponent } from './featured-lodging/featured-lodging.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 const routes: Routes = [{ component: BookingComponent, path: '' }];
 
 @NgModule({
   declarations: [
     BookingComponent,
+    SearchBarComponent,
     SpotlightComponent,
     SearchResultsComponent,
     FeaturedLodgingComponent,
