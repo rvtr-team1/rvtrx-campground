@@ -12,7 +12,7 @@ export class FeaturedLodgingComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    setTimeout(() => this.setFeaturedLodgings(), 3000);
+    // setTimeout(() => this.setFeaturedLodgings(), 3000);
   }
 
   setFeaturedLodgings(): void {
