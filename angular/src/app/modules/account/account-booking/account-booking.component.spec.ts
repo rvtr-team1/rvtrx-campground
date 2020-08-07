@@ -34,8 +34,7 @@ describe('AccountBookingComponent', () => {
           name: 'string',
           occupancy: 2,
           type: 'string',
-        },
-        availability: true
+        }
       },
     ],
     stay: {
