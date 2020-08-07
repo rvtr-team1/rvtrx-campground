@@ -7,7 +7,6 @@ import { LayoutModule } from './layout/layout.module';
 import { MonitoringService } from './services/monitoring/monitoring.service';
 import { environment } from '../environments/environment';
 
-
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [AppComponent],

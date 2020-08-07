@@ -5,59 +5,6 @@
       "id": "1",
       "address": {
         "id": "1",
-        "city": "Laketown",
-        "country": "USA",
-        "postalCode": "84038",
-        "stateProvince": "Utah",
-        "street": "1220 North Bear Lake Boulevard"
-      },
-      "latitude": "testLat",
-      "locale": "testLocale",
-      "longitude": "testLong"
-    },
-    "name": "Bear Lake State Park - Rendezvous Beach",
-    "rentals": [
-      {
-        "id": "1",
-        "name": "testRental",
-        "rentalUnit": {
-          "id": "1",
-          "bathrooms": [
-            {
-              "id": "1",
-              "fixture": "1"
-            }
-          ],
-          "bedrooms": [
-            {
-              "id": "1",
-              "count": "1",
-              "type": "testBedType"
-            }
-          ],
-          "name": "testRentalUnit",
-          "occupancy": "1",
-          "type": "testType"
-        }
-      }
-    ],
-    "reviews": [
-      {
-        "id": "1",
-        "accountId": "1",
-        "hotelId": "1",
-        "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
-        "rating": "1"
-      }
-    ]
-  },
-  {
-    "id": "1",
-    "location": {
-      "id": "1",
-      "address": {
-        "id": "1",
         "city": "testCity",
         "country": "testCountry",
         "postalCode": "testCode",
@@ -74,67 +21,12 @@
         "id": "1",
         "name": "testRental",
         "rentalUnit": {
-          "id": "1",
-          "bathrooms": [
-            {
-              "id": "1",
-              "fixture": "1"
-            }
-          ],
-          "bedrooms": [
-            {
-              "id": "1",
-              "count": "1",
-              "type": "testBedType"
-            }
-          ],
-          "name": "testRentalUnit",
-          "occupancy": "1",
-          "type": "testType"
-        }
-      }
-    ],
-    "reviews": [
-      {
-        "id": "1",
-        "accountId": "1",
-        "hotelId": "1",
-        "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
-        "rating": "1"
-      }
-    ]
-  },
-  {
-    "id": "1",
-    "location": {
-      "id": "1",
-      "address": {
-        "id": "1",
-        "city": "testCity",
-        "country": "testCountry",
-        "postalCode": "testCode",
-        "stateProvince": "testState",
-        "street": "testStreet"
-      },
-      "latitude": "testLat",
-      "locale": "testLocale",
-      "longitude": "testLong"
-    },
-    "name": "Test",
-    "rentals": [
-      {
-        "id": "1",
-        "name": "testRental",
-        "rentalUnit": 
-        {
           "id": "6",
-          "bedrooms":
-            {
-              "id": "1",
-              "count": "4",
-              "type": "Queen Bed"
-            },
+          "bedrooms": {
+            "id": "1",
+            "count": "4",
+            "type": "Queen Bed"
+          },
           "name": "Family Room",
           "occupancy": "5",
           "type": "testType"
@@ -144,38 +36,34 @@
       {
         "id": "2",
         "name": "testRental2",
-        "rentalUnit":
-        {
-        "id": "2",
-        "bedrooms":
-          {
+        "rentalUnit": {
+          "id": "2",
+          "bedrooms": {
             "id": "2",
             "count": "4",
             "type": "Twin Bed"
           },
-        "name": "Triple Room",
-        "occupancy": "3",
-        "type": "testType"
+          "name": "Triple Room",
+          "occupancy": "3",
+          "type": "testType"
         },
         "availability": false
       },
       {
         "id": "3",
         "name": "testRental3",
-        "rentalUnit":
-        {
-        "id": "3",
-        "bedrooms":
-          {
+        "rentalUnit": {
+          "id": "3",
+          "bedrooms": {
             "id": "3",
             "count": "2",
             "type": "Twin Bed"
           },
-        "name": "Double Room",
-        "occupancy": "2",
-        "type": "testType"
+          "name": "Double Room",
+          "occupancy": "2",
+          "type": "testType"
         },
-        "availability":true
+        "availability": true
       }
     ],
     "reviews": [
@@ -196,45 +84,70 @@
     ]
   },
   {
-    "id": "1",
+    "id": "2",
     "location": {
       "id": "1",
       "address": {
         "id": "1",
-        "city": "Laketown",
-        "country": "USA",
-        "postalCode": "84038",
-        "stateProvince": "Utah",
-        "street": "1220 North Bear Lake Boulevard"
+        "city": "testCity",
+        "country": "testCountry",
+        "postalCode": "testCode",
+        "stateProvince": "testState",
+        "street": "testStreet"
       },
       "latitude": "testLat",
       "locale": "testLocale",
       "longitude": "testLong"
     },
-    "name": "Bear Lake State Park - Rendezvous Beach",
+    "name": "Test2",
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
         "rentalUnit": {
-          "id": "1",
-          "bathrooms": [
-            {
-              "id": "1",
-              "fixture": "1"
-            }
-          ],
-          "bedrooms": [
-            {
-              "id": "1",
-              "count": "1",
-              "type": "testBedType"
-            }
-          ],
-          "name": "testRentalUnit",
-          "occupancy": "1",
+          "id": "6",
+          "bedrooms": {
+            "id": "1",
+            "count": "4",
+            "type": "Queen Bed"
+          },
+          "name": "Family Room",
+          "occupancy": "5",
           "type": "testType"
-        }
+        },
+        "availability": true
+      },
+      {
+        "id": "2",
+        "name": "testRental2",
+        "rentalUnit": {
+          "id": "2",
+          "bedrooms": {
+            "id": "2",
+            "count": "4",
+            "type": "Twin Bed"
+          },
+          "name": "Triple Room",
+          "occupancy": "3",
+          "type": "testType"
+        },
+        "availability": false
+      },
+      {
+        "id": "3",
+        "name": "testRental3",
+        "rentalUnit": {
+          "id": "3",
+          "bedrooms": {
+            "id": "3",
+            "count": "2",
+            "type": "Twin Bed"
+          },
+          "name": "Double Room",
+          "occupancy": "2",
+          "type": "testType"
+        },
+        "availability": true
       }
     ],
     "reviews": [
@@ -245,6 +158,96 @@
         "comment": "comment",
         "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
         "rating": "1"
+      }
+    ],
+    "bathrooms": [
+      {
+        "id": "1",
+        "fixture": "1"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "location": {
+      "id": "1",
+      "address": {
+        "id": "1",
+        "city": "testCity",
+        "country": "testCountry",
+        "postalCode": "testCode",
+        "stateProvince": "testState",
+        "street": "testStreet"
+      },
+      "latitude": "testLat",
+      "locale": "testLocale",
+      "longitude": "testLong"
+    },
+    "name": "Test3",
+    "rentals": [
+      {
+        "id": "1",
+        "name": "testRental",
+        "rentalUnit": {
+          "id": "6",
+          "bedrooms": {
+            "id": "1",
+            "count": "4",
+            "type": "Queen Bed"
+          },
+          "name": "Family Room",
+          "occupancy": "5",
+          "type": "testType"
+        },
+        "availability": true
+      },
+      {
+        "id": "2",
+        "name": "testRental2",
+        "rentalUnit": {
+          "id": "2",
+          "bedrooms": {
+            "id": "2",
+            "count": "4",
+            "type": "Twin Bed"
+          },
+          "name": "Triple Room",
+          "occupancy": "3",
+          "type": "testType"
+        },
+        "availability": false
+      },
+      {
+        "id": "3",
+        "name": "testRental3",
+        "rentalUnit": {
+          "id": "3",
+          "bedrooms": {
+            "id": "3",
+            "count": "2",
+            "type": "Twin Bed"
+          },
+          "name": "Double Room",
+          "occupancy": "2",
+          "type": "testType"
+        },
+        "availability": true
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "comment",
+        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "rating": "1"
+      }
+    ],
+    "bathrooms": [
+      {
+        "id": "1",
+        "fixture": "1"
       }
     ]
   }
