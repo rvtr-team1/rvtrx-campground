@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Payment } from '../../../data/payment.model';
 
 @Component({

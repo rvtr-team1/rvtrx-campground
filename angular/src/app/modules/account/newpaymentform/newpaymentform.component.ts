@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Payment } from 'src/app/data/payment.model';
+import { Payment } from '../../../data/payment.model';
 
 @Component({
   selector: 'uic-newpaymentform',
