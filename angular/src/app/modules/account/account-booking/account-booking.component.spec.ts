@@ -21,12 +21,12 @@ describe('AccountBookingComponent', () => {
       {
         id: 'string',
         name: 'string',
-        availability: true,
+        status: 'string',
         price: 0.0,
         discountedPrice: 0.0,
         rentalUnit: {
           id: 'string',
-          bedrooms: {
+          bedroom: {
             id: 'string',
             count: 2,
             type: 'string',

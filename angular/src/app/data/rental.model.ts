@@ -6,7 +6,7 @@ import { RentalUnit } from './rental-unit.model';
  * ```yaml
  * id: string;
  * name: string;
- * availability: boolean;
+ * status: string;
  * price: number;
  * discountedPrice?: number;
  * rentalUnit: RentalUnit;
@@ -15,7 +15,7 @@ import { RentalUnit } from './rental-unit.model';
 export interface Rental {
   id: string;
   name: string;
-  availability: boolean;
+  status: string;
   price: number;
   discountedPrice?: number;
   rentalUnit: RentalUnit;
