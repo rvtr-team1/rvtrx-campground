@@ -8,40 +8,29 @@ import { Stay } from 'src/app/data/stay.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() lodgings: Lodging[];
-  @Input()  
-  reservation: Stay;
-
-  query: string = 'test query';
+  @Input() lodgings: Lodging[] | null;
+  query = 'test query';
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.lodgings);
-  }
+  ngOnInit(): void {}
 
   averageRating(lodging: Lodging) {
-    const maxRating: number = 10;
+    const maxRating = 10;
 
-    let ratings = lodging.reviews.map((review) => review.rating);
-    let ratingSum = ratings.reduce((a, b) => a + b, 0);
+    const ratings = lodging.reviews.map((review) => review.rating);
+    const ratingSum = ratings.reduce((a, b) => a + b, 0);
 
-    let stars = new Array<boolean>(maxRating);
+    const stars = new Array<boolean>(maxRating);
 
-    for (let i = 0; i < ratingSum; i++) {
-      stars[maxRating - i] = true;
-    }
+    const avgRating = Math.floor(ratingSum / ratings.length);
+
+    stars.fill(false, 0, maxRating - avgRating);
+    stars.fill(true, maxRating - avgRating, maxRating);
 
     return stars;
   }
 
   makeReservation(){
-    this.reservation = {
-      id: '1',
-      checkIn: new Date("2015-03-25"),
-      checkOut: new Date("2015-03-25"),
-      dateCreated: new Date(),
-      dateModified: new Date("2015-03-25"),
-    }
   }
 }

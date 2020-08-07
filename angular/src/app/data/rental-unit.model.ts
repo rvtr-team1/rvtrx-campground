@@ -1,4 +1,3 @@
-import { Bathroom } from './bathroom.model';
 import { Bedroom } from './bedroom.model';
 
 /**
@@ -15,11 +14,8 @@ import { Bedroom } from './bedroom.model';
  */
 export interface RentalUnit {
   id: string;
-  bathrooms: Bathroom[];
-  bedrooms: Bedroom[];
+  bedrooms: Bedroom;
   name: string;
   occupancy: number;
   type: string;
-  price: number;
-  discountedPrice?: number;
 }
