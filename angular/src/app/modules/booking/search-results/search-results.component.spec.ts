@@ -51,7 +51,12 @@ describe('SearchResultsComponent', () => {
           rating: 1,
         },
       ],
-      bathrooms: [],
+      bathrooms: [
+        {
+          id: '',
+          fixture: 1,
+        },
+      ],
     },
   ];
   const rating: boolean[] = [false, false, false, false, false, false, false, false, false, true];

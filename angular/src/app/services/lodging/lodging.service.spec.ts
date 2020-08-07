@@ -32,6 +32,7 @@ describe('LodgingService', () => {
       name: 'string',
       rentals: [],
       reviews: [],
+      bathrooms: [],
     },
   ];
 

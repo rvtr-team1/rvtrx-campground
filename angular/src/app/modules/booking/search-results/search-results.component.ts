@@ -8,13 +8,11 @@ import { Lodging } from 'src/app/data/lodging.model';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() lodgings: Lodging[];
-
   query: string = 'test query';
+
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.lodgings);
-  }
+  ngOnInit(): void {}
 
   averageRating(lodging: Lodging) {
     const maxRating: number = 10;
@@ -24,7 +22,7 @@ export class SearchResultsComponent implements OnInit {
 
     let stars = new Array<boolean>(maxRating);
 
-    for (let i = 0; i < ratingSum; i++) {
+    for (let i = 0; i < Math.floor(ratingSum / ratings.length); i++) {
       stars[maxRating - i] = true;
     }
 
