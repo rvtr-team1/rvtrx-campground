@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
-import { Stay } from 'src/app/data/stay.model';
 
 @Component({
   selector: 'uic-search-results',
