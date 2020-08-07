@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LodgingHomeComponent implements OnInit {
   /**
-   * fields usied in this component
+   * fields used in this component
    */
   lodgings: Lodging[] | null = null;
 
@@ -21,7 +21,7 @@ export class LodgingHomeComponent implements OnInit {
   constructor(private readonly lodgingService: LodgingService) {}
 
   /**
-   * gets all the lodges available with the help of
+   * gets all the lodging available with the help of
    * get() in lodging service component
    */
   ngOnInit(): void {
@@ -32,20 +32,16 @@ export class LodgingHomeComponent implements OnInit {
   }
 
   /**
-   * handles errors occured into execution of
-   * any functions if this function is called
+   * handles errors that occur due to unsuccessful Http responses
    *
    * @param error error message
    */
   handleError(error: HttpErrorResponse): void {
-    console.log(error.status);
     let message: string;
     if (error.status === 0) {
       message = 'Unable to connect to server';
-      console.log(message);
     } else {
       message = error.status.toString();
-      console.log(message);
     }
   }
 }
