@@ -11,7 +11,7 @@
          <tr *ngFor="let rental of rentals">
             <td>
                {{rental.rentalUnit.name}}<br>
-               {{rental.rentalUnit.bedrooms.count}} {{rental.rentalUnit.bedrooms.type}}
+               {{rental.rentalUnit.bedroom.count}} {{rental.rentalUnit.bedroom.type}}
                <i class="fas fa-bed"></i>
             </td>
             <td>{{rental.rentalUnit.occupancy}}</td>

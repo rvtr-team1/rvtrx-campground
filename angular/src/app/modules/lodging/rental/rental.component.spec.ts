@@ -90,6 +90,7 @@ describe('RentalComponent', () => {
     component.handleError(errorMsg);
     expect(component.errorMessage).toBeTruthy();
     expect(component.errorMessage).toEqual('404');
+  });
   it('should have valid values', () => {
     expect(component.lodgings![0].location.address).toEqual(lodgings[0].location.address);
     expect(component.lodgings![0].location.latitude).toEqual(lodgings[0].location.latitude);
