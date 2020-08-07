@@ -22,7 +22,7 @@
         "name": "testRental",
         "rentalUnit": {
           "id": "6",
-          "bedrooms": {
+          "bedroom": {
             "id": "1",
             "count": "4",
             "type": "Queen Bed"
@@ -38,7 +38,7 @@
         "name": "testRental2",
         "rentalUnit": {
           "id": "2",
-          "bedrooms": {
+          "bedroom": {
             "id": "2",
             "count": "4",
             "type": "Twin Bed"
@@ -54,7 +54,7 @@
         "name": "testRental3",
         "rentalUnit": {
           "id": "3",
-          "bedrooms": {
+          "bedroom": {
             "id": "3",
             "count": "2",
             "type": "Twin Bed"

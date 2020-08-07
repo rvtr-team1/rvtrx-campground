@@ -1,26 +1,29 @@
-<div>
-   <table class="table is-bordered is-hoverable is-fullwidth">
-      <thead>
-         <th>Room Type</th>
-         <th>Occupancy <i class="fas fa-users"></i> </th>
-         <th>Available For</th>
-         <th>Rooms Available</th>
-         <th id="Pricing"><i class="fas fa-dollar-sign"></i></th>
-      </thead>
-      <tbody>
-         <tr *ngFor="let rental of rentals">
-            <td>
-               {{rental.rentalUnit.name}}<br>
-               {{rental.rentalUnit.bedrooms.count}} {{rental.rentalUnit.bedrooms.type}}
-               <i class="fas fa-bed"></i>
-            </td>
-            <td>{{rental.rentalUnit.occupancy}}</td>
-            <td>Tent <i class="fas fa-campground"></i> <br> RV <i class="fas fa-caravan"></i></td>
-            <td *ngIf="rental.rentalUnit?.name === 'Family Room'">{{familyRoomCount}}</td>
-            <td *ngIf="rental.rentalUnit?.name === 'Triple Room'">{{tripleRoomCount}}</td>
-            <td *ngIf="rental.rentalUnit?.name === 'Double Room'">{{doubleRoomCount}}</td>
-            <td id="btCell"><button>Show Prices</button></td>
-         </tr>
-      </tbody>
-   </table>
+<div *ngIf="isLoaded">
+  <table class="table is-bordered is-hoverable is-fullwidth">
+    <thead>
+      <th>Room Type</th>
+      <th>Occupancy <i class="fas fa-users"></i></th>
+      <th>Available For</th>
+      <th>Rooms Available</th>
+      <th id="Pricing"><i class="fas fa-dollar-sign"></i></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rental of rentals">
+        <td>
+          {{ rental.rentalUnit.name }}<br />
+          {{ rental.rentalUnit.bedroom.count }} {{ rental.rentalUnit.bedroom.type }}
+          <i class="fas fa-bed"></i>
+        </td>
+        <td>{{ rental.rentalUnit.occupancy }}</td>
+        <td>
+          Tent <i class="fas fa-campground"></i> <br />
+          RV <i class="fas fa-caravan"></i>
+        </td>
+        <td *ngIf="rental.rentalUnit?.name === 'Family Room'">{{ familyRoomCount }}</td>
+        <td *ngIf="rental.rentalUnit?.name === 'Triple Room'">{{ tripleRoomCount }}</td>
+        <td *ngIf="rental.rentalUnit?.name === 'Double Room'">{{ doubleRoomCount }}</td>
+        <td id="btCell"><button>Show Prices</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>

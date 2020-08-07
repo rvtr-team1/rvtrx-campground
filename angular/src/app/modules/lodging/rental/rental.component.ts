@@ -33,6 +33,7 @@ export class RentalComponent implements OnInit {
   tripleRoomCount = 0;
   doubleRoomCount = 0;
   errorMessage: string;
+  isLoaded: boolean = false;
 
   /**
    * @param lodgingService
@@ -54,7 +55,10 @@ export class RentalComponent implements OnInit {
       .get()
       .toPromise()
       .then((data) => (this.lodgings = data))
-      .then(() => this.SetRentals())
+      .then(() => {
+        this.SetRentals();
+        this.isLoaded = true;
+      })
       .catch((error) => this.handleError(error));
   }
 
