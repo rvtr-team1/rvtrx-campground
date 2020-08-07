@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
@@ -8,6 +8,9 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
+import { AddressComponent } from '../address/address.component';
+import { PaymentComponent } from '../payment/payment.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'uic-account',
@@ -21,10 +24,18 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
+  @ViewChild(AddressComponent, { static: false }) address: AddressComponent;
+  @ViewChild(PaymentComponent, { static: false }) payments: PaymentComponent;
+  @ViewChild(ProfileComponent, { static: false }) profiles: ProfileComponent;
+  private id: string = '100';
+
+  ngAfterViewInit() {
+    console.log(this.payments);
+  }
   constructor(private readonly accountService: AccountService) {}
 
   ngOnInit(): void {
-    this.account$ = this.accountService.get('100');
+    this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
         id: '100',
@@ -78,5 +89,16 @@ export class AccountComponent implements OnInit {
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
+  }
+
+  public update(): void {
+    let payload = {
+      id: this.id,
+      profiles: this.profiles.profiles,
+      address: this.address.address,
+      payments: this.payments.payments,
+    } as Account;
+    debugger;
+    this.accountService.put(payload).subscribe();
   }
 }

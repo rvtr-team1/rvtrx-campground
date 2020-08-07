@@ -25,7 +25,7 @@ describe('AccountService', () => {
     payments: [
       {
         id: 'string',
-        cardExpirationDate: 'string',
+        cardExpirationDate: 'new Date()',
         cardName: 'string',
         cardNumber: 'string',
       },
