@@ -29,6 +29,5 @@ export class BookingComponent implements OnInit {
         lodgings.map((lodging) => lodging.reviews);
       })
     );
-    this.lodgings$.subscribe((value) => console.log(value));
   }
 }

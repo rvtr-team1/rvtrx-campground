@@ -7,7 +7,7 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() lodgings: Lodging[];
+  @Input() lodgings: Lodging[] | null;
   query: string = 'test query';
 
   constructor() {}
@@ -22,9 +22,10 @@ export class SearchResultsComponent implements OnInit {
 
     let stars = new Array<boolean>(maxRating);
 
-    for (let i = 0; i < Math.floor(ratingSum / ratings.length); i++) {
-      stars[maxRating - i] = true;
-    }
+    let avgRating = Math.floor(ratingSum / ratings.length);
+
+    stars.fill(false, 0, maxRating - avgRating);
+    stars.fill(true, maxRating - avgRating, maxRating);
 
     return stars;
   }
