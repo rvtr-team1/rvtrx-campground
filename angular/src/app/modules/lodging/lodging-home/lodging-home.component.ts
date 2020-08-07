@@ -13,6 +13,7 @@ export class LodgingHomeComponent implements OnInit {
    * fields usied in this component
    */
   lodgings: Lodging[] | null = null;
+  errorMessage: string;
 
   /**
    * represents lodging-home component's constructor
@@ -37,13 +38,12 @@ export class LodgingHomeComponent implements OnInit {
    *
    * @param error error message
    */
-  handleError(error: HttpErrorResponse): void {
+  public handleError(error: HttpErrorResponse): void {
     console.log(error.status);
-    let message: string;
     if (error.status === 0) {
-      message = 'Unable to connect to server';
+      this.errorMessage = 'Unable to connect to server';
     } else {
-      message = error.status.toString();
+      this.errorMessage = error.status.toString();
     }
   }
 }
