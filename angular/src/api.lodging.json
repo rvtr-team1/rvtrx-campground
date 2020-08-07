@@ -20,6 +20,7 @@
       {
         "id": "1",
         "name": "testRental",
+        "price": 100,
         "rentalUnit": {
           "id": "6",
           "bedrooms": {
@@ -36,6 +37,7 @@
       {
         "id": "2",
         "name": "testRental2",
+        "price": 100,
         "rentalUnit": {
           "id": "2",
           "bedrooms": {
@@ -52,6 +54,8 @@
       {
         "id": "3",
         "name": "testRental3",
+        "price": 100,
+        "discountedPrice": 90,
         "rentalUnit": {
           "id": "3",
           "bedrooms": {
