@@ -21,6 +21,8 @@ export class BookingComponent implements OnInit {
   lodgings$: Observable<Lodging[]>;
   locations$: Observable<Location[]>;
 
+  availableRentals: Rental[] = [];
+
   searchResults: Lodging[] = [];
   isSearched: Boolean = false;
 
@@ -34,10 +36,8 @@ export class BookingComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value );
-    // this.searchByCity(form.value.location);
 
     let occupancy = form.value.adults + form.value.children;
-    // this.searchByOccupancy(occupancy);
 
     // this.searchByCityAndOccupancy(form.value.location, occupancy);
 
@@ -49,47 +49,15 @@ export class BookingComponent implements OnInit {
     this.isSearched = true;
   }
   
-  searchByCity(searchLocation: string) {
-    console.log(searchLocation);
-    this.lodgings$.subscribe(
-      lodgings => lodgings.forEach(
-        lodging => {
-          if(lodging.location.address.city == searchLocation) {
-            this.searchResults.push(lodging);
-            console.log(this.searchResults);
-          };
-
-        }
-      )
-    ) 
-  }
-
-  searchByOccupancy(personCount: number) {
-    console.log(personCount);
-    this.lodgings$.subscribe(
-      lodgings => lodgings.forEach(
-        lodging => {
-          lodging.rentals.forEach(
-            rental => {
-              if(rental.rentalUnit.occupancy >= personCount) {
-                this.searchResults.push(lodging);
-                console.log(this.searchResults);
-              }
-            }
-          )
-        }
-      )
-    )
-  }
+  
 
   searchByDate(checkIn: Date, checkOut: Date) {
     console.log(checkIn, checkOut);
     this.lodgings$ = this.lodgingService.get();
-    this.searchResults = [];
+    this.availableRentals = [];
 
     let lodgingRentals = [];
     let bookingRentals = [];
-    let availableRentals = [];
 
     this.bookings$.subscribe(
       bookings => bookings.forEach(
@@ -114,16 +82,21 @@ export class BookingComponent implements OnInit {
     )
     
     console.log(lodgingRentals);
-          debugger;
+    
+    
     this.bookings$.subscribe(
       bookings => bookings.forEach(
         booking => {
-          console.log(booking);
           if (checkIn < booking.stay.checkIn && checkOut < booking.stay.checkIn) {
             lodgingRentals.forEach(
               lodgingRental => {
                 if (booking.rentals.includes(lodgingRental)) {
                   console.log(`lodging rental ${lodgingRental.name} is available`)
+                  this.availableRentals.push(lodgingRental);
+                }
+                else if (!booking.rentals.includes(lodgingRental)) {
+                  console.log(`lodging rental ${lodgingRental.name} is available`)
+                  this.availableRentals.push(lodgingRental);
                 }
               }
             )
@@ -133,6 +106,7 @@ export class BookingComponent implements OnInit {
               lodgingRental => {
                 if (booking.rentals.includes(lodgingRental)) {
                   console.log(`lodging rental ${lodgingRental.name} is available`)
+                  this.availableRentals.push(lodgingRental);
                 }
               }
             )
@@ -141,20 +115,29 @@ export class BookingComponent implements OnInit {
       )
     )
     
+    
 
-    console.log(availableRentals);
+    console.log(this.availableRentals);
     
     this.lodgings$.subscribe(
       lodgings => lodgings.forEach(
-        lodging => {
-           availableRentals.forEach(
-             availableRental => {
-               if (lodging.rentals.includes(availableRental)) {
-                 this.searchResults.push(lodging);
-               }
-             }
-           )
-        }
+        lodging => lodging.rentals.forEach( 
+          lodgingRental => {
+            this.availableRentals.forEach(
+              availableRental => {
+                if (lodgingRental.id === availableRental.id) {
+                  console.log(lodgingRental);
+                  console.log(availableRental);
+                  console.log(lodging);
+                  if (!this.searchResults.includes(lodging)) {
+                    this.searchResults.push(lodging);
+                  }
+                }
+              }
+            )
+          }
+        )
+        
       )
     )
 
