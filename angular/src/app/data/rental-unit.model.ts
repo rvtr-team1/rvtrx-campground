@@ -5,8 +5,7 @@ import { Bedroom } from './bedroom.model';
  *
  * ```yaml
  * id: string;
- * bathrooms: Bathroom[];
- * bedrooms: Bedroom[];
+ * bedroom: Bedroom;
  * name: string;
  * occupancy: number;
  * type: string;
@@ -14,7 +13,7 @@ import { Bedroom } from './bedroom.model';
  */
 export interface RentalUnit {
   id: string;
-  bedrooms: Bedroom;
+  bedroom: Bedroom;
   name: string;
   occupancy: number;
   type: string;
