@@ -6,17 +6,26 @@ import { Observable, Subject } from 'rxjs';
 })
 export class EditingService {
   private beacon = new Subject<any>();
+  private isAssembling: boolean = false;
 
-  private Assemble() {
+  public Assemble() {
     this.beacon.next('assemble');
   }
 
   update(e: any) {
     this.beacon.next(e);
+    if (this.isAssembling == false) {
+      this.isAssembling = true;
+      this.beacon.next('assemble');
+    }
   }
 
-  createChannel(): Observable<any> {
+  subject(): Observable<any> {
     return this.beacon.asObservable();
+  }
+
+  successfullAssembly(): void {
+    this.isAssembling = false;
   }
   constructor() {}
 }
