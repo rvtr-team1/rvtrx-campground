@@ -76,12 +76,7 @@
         "rating": "1"
       }
     ],
-    "bathrooms": [
-      {
-        "id": "1",
-        "fixture": "1"
-      }
-    ]
+    "bathrooms": 1
   },
   {
     "id": "2",
@@ -160,12 +155,7 @@
         "rating": "1"
       }
     ],
-    "bathrooms": [
-      {
-        "id": "1",
-        "fixture": "1"
-      }
-    ]
+    "bathrooms": 2
   },
   {
     "id": "3",
@@ -244,11 +234,6 @@
         "rating": "1"
       }
     ],
-    "bathrooms": [
-      {
-        "id": "1",
-        "fixture": "1"
-      }
-    ]
+    "bathrooms": 3
   }
 ]
