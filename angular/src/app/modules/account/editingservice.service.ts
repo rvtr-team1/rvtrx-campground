@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class EditingService {
-  private beacon = new Subject<any>();
+  private readonly beacon = new Subject<any>();
   private isAssembling = false;
 
   public Assemble() {

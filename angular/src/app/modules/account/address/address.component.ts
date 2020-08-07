@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Address } from '../../../data/address.model';
 import { EditingService } from '../editingservice.service';
 
@@ -7,7 +7,7 @@ import { EditingService } from '../editingservice.service';
   templateUrl: './address.component.html',
 })
 export class AddressComponent implements OnInit {
-  constructor(private editingservice: EditingService) {}
+  constructor(private readonly editingservice: EditingService) {}
   @Input() address: Address;
   @Output() addressEdited = new EventEmitter();
 
