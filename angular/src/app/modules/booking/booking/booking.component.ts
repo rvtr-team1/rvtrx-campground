@@ -26,7 +26,7 @@ export class BookingComponent implements OnInit {
           review.dateCreated = new Date(review.dateCreated);
           return review;
         }
-      )
+      );
     }
 
     this.lodgings$.pipe(
@@ -35,6 +35,6 @@ export class BookingComponent implements OnInit {
           (lodging) => lodging.reviews = mapDates(lodging.reviews)
         )
       )
-    )
+    );
   }
 }
