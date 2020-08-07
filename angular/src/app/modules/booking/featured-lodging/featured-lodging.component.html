@@ -13,14 +13,15 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-4">{{lodging.name}}</p>
-                  <p class="subtitle is-6">{{lodging.location.address.street}}, {{lodging.location.address.city}}, {{lodging.location.address.stateProvince}}</p>
+                  <p id="card-title" class="title is-4">{{lodging.name}}</p>
+                  <p id="card-subtitle" class="subtitle is-6">{{lodging.location.address.street}}, {{lodging.location.address.city}}, {{lodging.location.address.stateProvince}}</p>
                 </div>
               </div>
           
               <div class="content" *ngFor="let review of lodging.reviews">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                <p id="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Phasellus nec iaculis mauris. {{review.comment}}
+                </p>
               </div>
             </div>
           </div>
