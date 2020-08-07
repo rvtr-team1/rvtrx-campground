@@ -74,7 +74,7 @@ export class RentalComponent implements OnInit {
   private CountAvailableRooms(): void {
     if (this.rentals) {
       this.rentals.forEach((element) => {
-        if (element.availability === true) {
+        if (element.status === 'available') {
           this.availabilityCount[element.rentalUnit.occupancy - 1]++;
         }
       });
@@ -86,14 +86,11 @@ export class RentalComponent implements OnInit {
    * Method handles error and converts the status code to string.
    */
   private handleError(error: HttpErrorResponse): void {
-    console.log(error.status);
     let message: string;
     if (error.status === 0) {
       message = 'Unable to connect to server';
-      console.log(message);
     } else {
       message = error.status.toString();
-      console.log(message);
     }
   }
 }
