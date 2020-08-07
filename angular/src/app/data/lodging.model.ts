@@ -19,7 +19,7 @@ export interface Lodging {
   id: string;
   location: Location;
   name: string;
-  bathrooms: Bathroom[];
+  bathrooms: number;
   rentals: Rental[];
   reviews: Review[];
 }
