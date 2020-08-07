@@ -20,12 +20,7 @@
     "lib": ["es2018", "dom"],
   },
   "angularCompilerOptions": {
-<<<<<<< HEAD
-    "strictTemplates": true,
-    "strictInjectionParameters": true
-=======
     "strictInjectionParameters": true,
     "strictTemplates": true,
->>>>>>> a4d0727787e7e8a271ea295ae7792df572103dde
   }
 }

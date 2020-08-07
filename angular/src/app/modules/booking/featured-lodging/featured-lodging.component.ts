@@ -7,7 +7,7 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./featured-lodging.component.scss'],
 })
 export class FeaturedLodgingComponent implements OnInit {
-  @Input() featuredLodgings: Lodging[];
+  @Input() featuredLodgings: Lodging[] | null;
 
   constructor() {}
 
@@ -16,9 +16,11 @@ export class FeaturedLodgingComponent implements OnInit {
   setFeaturedLodgings(): void {
     let lodgings: Lodging[] = new Array(6);
 
-    for (let index = 0; index < lodgings.length; index++) {
-      if (this.featuredLodgings[index].reviews) {
-        lodgings.push(this.featuredLodgings[index]);
+    if (this.featuredLodgings){
+      for (let index = 0; index < lodgings.length; index++) {
+        if (this.featuredLodgings[index].reviews) {
+          lodgings.push(this.featuredLodgings[index]);
+        }
       }
     }
 
