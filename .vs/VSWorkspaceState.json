@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\angular",
+    "\\angular\\src",
+    "\\angular\\src\\app",
+    "\\angular\\src\\app\\modules",
+    "\\angular\\src\\app\\modules\\lodging",
+    "\\angular\\src\\app\\modules\\lodging\\lodging",
+    "\\angular\\src\\app\\modules\\lodging\\rental"
+  ],
+  "SelectedNode": "\\angular\\src\\app\\modules\\lodging\\lodging\\lodging.component.ts",
+  "PreviewInSolutionExplorer": false
+}

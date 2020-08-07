@@ -1,4 +1,3 @@
-import { Bathroom } from './bathroom.model';
 import { Bedroom } from './bedroom.model';
 
 /**
