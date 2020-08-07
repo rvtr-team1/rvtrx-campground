@@ -11,7 +11,6 @@ export class EditableComponent implements OnInit {
   @Input() data: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
   editMode = false;
-
   ngOnInit() {}
 
   onFocusOut(e: Event) {

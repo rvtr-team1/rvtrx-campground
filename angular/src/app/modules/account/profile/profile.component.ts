@@ -10,16 +10,17 @@ export class ProfileComponent implements OnInit {
   @Input() profiles: Profile[];
   @Output('ngModelChange') profileEdited = new EventEmitter();
 
-  constructor(private service: EditingService) {}
-  log() {
-    this.service.update(this.profiles);
-    console.log(this.profiles);
+  edited() {
+    this.editingservice.update({ profiles: this.profiles });
   }
-  ngOnChanges() {
-    console.log(this.profiles);
-  }
-  ngOnInit(): void {}
 
+  ngOnInit(): void {
+    this.editingservice.subject().subscribe({
+      next: (v) =>
+        v == 'assemble' ? this.editingservice.update({ profiles: this.profiles }) : null,
+    });
+  }
+  constructor(private editingservice: EditingService) {}
   /* ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {

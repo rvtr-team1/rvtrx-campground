@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, scan } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
 import { Address } from '../../../data/address.model';
 import { Booking } from '../../../data/booking.model';
@@ -23,6 +23,14 @@ export class AccountComponent implements OnInit {
   reviews$: Observable<Review[]>;
 
   private id: string = '100';
+  private editUpdates = this.editingService
+    .subject()
+    .pipe(scan((acc, curr) => (typeof curr == 'object' ? Object.assign({}, acc, curr) : null), {}));
+
+  private subscribe = this.editUpdates.subscribe(
+    (val) => this.update(val)
+    //console.log('Accumulated object in account from all subcomponents:', val)
+  );
 
   constructor(
     private readonly accountService: AccountService,
@@ -30,9 +38,6 @@ export class AccountComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.editingService
-      .createChannel()
-      .subscribe((e) => console.log('Hello from account component' + JSON.stringify(e)));
     this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
@@ -88,17 +93,11 @@ export class AccountComponent implements OnInit {
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }
-  public update() {}
-  /*
-  public update(): void {
-    const payload = {
-      id: this.id,
-      profiles: this.profiles.profiles,
-      address: this.address.address,
-      payments: this.payments.payments,
-    } as Account;
-    debugger;
-    this.accountService.put(payload).subscribe();
+  public update(payload: any) {
+    this.validateManifest(payload) ? console.log(JSON.stringify(payload)) : null;
   }
-  */
+  private validateManifest(payload: any) {
+    if (payload && payload.Address !== undefined && payload.profiles !== undefined) return true;
+    else return false;
+  }
 }
