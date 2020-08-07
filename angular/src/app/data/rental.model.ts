@@ -7,13 +7,16 @@ import { RentalUnit } from './rental-unit.model';
  * id: string;
  * name: string;
  * rentalUnit: RentalUnit;
+ * status: string;
+ * price: number;
+ * discountedPrice: number;
  * ```
  */
 export interface Rental {
   id: string;
   name: string;
+  rentalUnit: RentalUnit;
   status: string;
   price: number;
   discountedPrice?: number;
-  rentalUnit: RentalUnit;
 }

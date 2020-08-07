@@ -31,6 +31,5 @@ export class SearchResultsComponent implements OnInit {
     return stars;
   }
 
-  makeReservation(){
-  }
+  makeReservation() {}
 }

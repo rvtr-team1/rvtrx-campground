@@ -29,7 +29,7 @@ describe('SearchResultsComponent', () => {
           price: 0,
           rentalUnit: {
             id: '',
-            bedrooms: {
+            bedroom: {
               id: '',
               count: 1,
               type: '',
