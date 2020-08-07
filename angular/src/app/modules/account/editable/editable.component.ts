@@ -6,16 +6,19 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./editable.component.scss'],
 })
 export class EditableComponent implements OnInit {
+  constructor() {}
+
   @Input() data: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
   editMode = false;
-  constructor() {}
 
   ngOnInit() {}
 
   onFocusOut(e: Event) {
+    const target = e.target as HTMLInputElement;
+    console.log(target);
     this.editMode = false;
-    this.data = (e.target as HTMLInputElement).value;
+    this.data = target.value;
     this.dataChange.emit(this.data);
   }
 }

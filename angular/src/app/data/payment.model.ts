@@ -10,7 +10,6 @@
  */
 export interface Payment {
   id: string;
-  // cardExpirationDate: Date;
   cardExpirationDate: string;
   cardName: string;
   cardNumber: string;

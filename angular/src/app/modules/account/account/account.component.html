@@ -9,13 +9,17 @@
           <div class="tile is-parent is-vertical">
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">address</h2>
-              <uic-address *ngIf="address$ | async as address" [address]="address"></uic-address>
+              <uic-address *ngIf="address$ | async as address" [address]="address" (addressEdited)="update()"></uic-address>
             </div>
             
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
+<<<<<<< HEAD
               <uic-newpaymentform></uic-newpaymentform>
               <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment" (onSubmit)='addCard($event)'>
+=======
+              <uic-payment *ngIf="payments$ | async as payments" [payments]="payments" (paymentsEdited)="update()">
+>>>>>>> origin/account-editing-service
               </uic-payment>
               
             
@@ -28,7 +32,7 @@
             <div class="tile is-parent">
               <div class="tile box is-child">
                 <h2 class="title is-4">profiles</h2>
-                <uic-profile *ngIf="profiles$ | async as profiles" [profiles]="profiles"></uic-profile>
+                <uic-profile *ngIf="profiles$ | async as profiles" [profiles]="profiles" (profileEdited)="update()"></uic-profile>
               </div>
             </div>
 

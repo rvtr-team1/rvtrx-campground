@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
+=======
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable, of } from 'rxjs';
+>>>>>>> origin/account-editing-service
 import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
 import { Address } from '../../../data/address.model';
@@ -8,6 +13,7 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
+import { EditingService } from '../editingservice.service';
 
 @Component({
   selector: 'uic-account',
@@ -21,10 +27,18 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  constructor(private readonly accountService: AccountService) {}
+  private id: string = '100';
+
+  constructor(
+    private readonly accountService: AccountService,
+    private editingService: EditingService
+  ) {}
 
   ngOnInit(): void {
-    this.account$ = this.accountService.get('100');
+    this.editingService
+      .createChannel()
+      .subscribe((e) => console.log('Hello from account component' + JSON.stringify(e)));
+    this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
         id: '100',
@@ -79,4 +93,17 @@ export class AccountComponent implements OnInit {
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }
+  public update() {}
+  /*
+  public update(): void {
+    const payload = {
+      id: this.id,
+      profiles: this.profiles.profiles,
+      address: this.address.address,
+      payments: this.payments.payments,
+    } as Account;
+    debugger;
+    this.accountService.put(payload).subscribe();
+  }
+  */
 }

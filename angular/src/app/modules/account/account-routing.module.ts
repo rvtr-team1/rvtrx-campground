@@ -8,8 +8,13 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { EditableComponent } from './editable/editable.component';
+<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewpaymentformComponent } from './newpaymentform/newpaymentform.component';
+=======
+import { FormsModule } from '@angular/forms';
+
+>>>>>>> origin/account-editing-service
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
 @NgModule({
