@@ -1,8 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LodgingService } from '../../../services/lodging/lodging.service';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Booking } from 'src/app/data/booking.model';
 import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
@@ -17,16 +13,14 @@ export class SpotlightComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    this.setSpotlight();
-  }
+  ngOnInit(): void {}
 
-  setSpotlight(): void {
+  setSpotlight(lodgings: Lodging[]): void {
     let temp = 0;
-    for (let i = 0; i < this.lodgings.length; i++) {
-      if (this.lodgings[i].rentals.length > temp) {
-        temp = this.lodgings[i].rentals.length;
-        this.selectedLodging = this.lodgings[i];
+    for (let i = 0; i < lodgings.length; i++) {
+      if (lodgings[i].rentals.length > temp) {
+        temp = lodgings[i].rentals.length;
+        this.selectedLodging = lodgings[i];
       }
     }
   }
