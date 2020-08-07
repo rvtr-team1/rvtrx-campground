@@ -8,7 +8,6 @@ import { EditingService } from '../editingservice.service';
 })
 export class ProfileComponent implements OnInit {
   @Input() profiles: Profile[];
-  @Output('ngModelChange') profileEdited = new EventEmitter();
 
   edited() {
     this.editingservice.update({ profiles: this.profiles });
@@ -17,7 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.editingservice.subject().subscribe({
       next: (v) =>
-        v == 'assemble' ? this.editingservice.update({ profiles: this.profiles }) : null,
+        v === 'assemble' ? this.editingservice.update({ profiles: this.profiles }) : null,
     });
   }
   constructor(private editingservice: EditingService) {}

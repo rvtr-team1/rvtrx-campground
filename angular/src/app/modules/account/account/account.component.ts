@@ -22,15 +22,14 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  private id: string = '100';
+  private id = '100';
   private editUpdates = this.editingService
     .subject()
-    .pipe(scan((acc, curr) => (typeof curr == 'object' ? Object.assign({}, acc, curr) : null), {}));
+    .pipe(
+      scan((acc, curr) => (typeof curr === 'object' ? Object.assign({}, acc, curr) : null), {})
+    );
 
-  private subscribe = this.editUpdates.subscribe(
-    (val) => this.update(val)
-    //console.log('Accumulated object in account from all subcomponents:', val)
-  );
+  private subscribe = this.editUpdates.subscribe((val) => this.update(val));
 
   constructor(
     private readonly accountService: AccountService,
@@ -93,11 +92,17 @@ export class AccountComponent implements OnInit {
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
   }
-  public update(payload: any) {
-    this.validateManifest(payload) ? console.log(JSON.stringify(payload)) : null;
+
+  public update(payload: any): void {
+    if (this.validateManifest(payload)) {
+      console.log(JSON.stringify(payload));
+    }
   }
+
   private validateManifest(payload: any) {
-    if (payload && payload.Address !== undefined && payload.profiles !== undefined) return true;
-    else return false;
+    if (payload && payload.Address !== undefined && payload.profiles !== undefined) {
+      return true;
+    }
+    return false;
   }
 }

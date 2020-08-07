@@ -21,8 +21,7 @@ export class NewpaymentformComponent implements OnInit {
 
   constructor() {}
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    let payload = {
+    const payload = {
       cardExpirationDate: this.PaymentForm.value.ExpDate,
       cardName: this.PaymentForm.value.Bank,
       cardNumber: this.PaymentForm.value.CCNumber,

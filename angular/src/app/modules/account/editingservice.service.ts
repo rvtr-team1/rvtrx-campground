@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class EditingService {
   private beacon = new Subject<any>();
-  private isAssembling: boolean = false;
+  private isAssembling = false;
 
   public Assemble() {
     this.beacon.next('assemble');
@@ -14,7 +14,7 @@ export class EditingService {
 
   update(e: any) {
     this.beacon.next(e);
-    if (this.isAssembling == false) {
+    if (this.isAssembling === false) {
       this.isAssembling = true;
       this.beacon.next('assemble');
     }

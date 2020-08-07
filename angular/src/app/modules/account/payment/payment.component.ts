@@ -17,17 +17,4 @@ export class PaymentComponent implements OnInit {
     this.payments.push(newCard);
     console.log(JSON.stringify(newCard));
   }
-
-  ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      if (changes.hasOwnProperty(propName)) {
-        const change = changes[propName];
-        switch (propName) {
-          case 'payments': {
-            this.paymentsEdited.emit();
-          }
-        }
-      }
-    }
-  }
 }

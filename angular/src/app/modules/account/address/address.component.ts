@@ -13,7 +13,8 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(): void {
     this.editingservice.subject().subscribe({
-      next: (v) => (v == 'assemble' ? this.editingservice.update({ Address: this.address }) : null),
+      next: (v) =>
+        v === 'assemble' ? this.editingservice.update({ Address: this.address }) : null,
     });
   }
 
