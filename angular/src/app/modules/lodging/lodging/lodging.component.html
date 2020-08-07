@@ -64,7 +64,7 @@
               <div class="level">
                 <div class="level-item">
                   <div>
-                    <p class="title has-text-light is-3">{{lodging?.name}}</p>
+                    <p class="title has-text-light is-3">{{lodging!.name}}</p>
                   </div>
                 </div>
               </div>
@@ -84,14 +84,14 @@
                   <div class="level-item">
                     <div>
                       <p class="heading">address</p>
-                      <p class="title is-6">{{lodging?.location.address.street}}</p> 
+                      <p class="title is-6">{{lodging!.location.address.street}}</p> 
                       <p class="title is-6">
-                        {{lodging?.location.address.city}},
-                        {{lodging?.location.address.stateProvince}},
-                        {{lodging?.location.address.country}}
+                        {{lodging!.location.address.city}},
+                        {{lodging!.location.address.stateProvince}},
+                        {{lodging!.location.address.country}}
                       </p>    
                       <p class="title is-6">
-                        {{lodging?.location.address.postalCode}}
+                        {{lodging!.location.address.postalCode}}
                       </p>
                     </div>
                   </div>

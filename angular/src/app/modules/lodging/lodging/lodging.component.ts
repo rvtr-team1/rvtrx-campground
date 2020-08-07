@@ -25,7 +25,12 @@ export class LodgingComponent implements OnInit {
   getLodgingById(): void
   {
     // const idString = this.route.snapshot.paramMap.get('id');
-    this.route.paramMap.subscribe(params => { this.idString = params.get('id')});
+    this.route.paramMap.subscribe(params => 
+      { 
+        this.idString = params.get('id')
+      }
+    );
+    console.log(this.idString);
     if (this.idString){
       this.lodgingService.get(this.idString).toPromise()
       .then(data => this.lodging = data[0])
