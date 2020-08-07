@@ -14,9 +14,22 @@ import { Lodging } from '../../data/lodging.model';
 describe('LodgingService', () => {
   const lodgingMock: Lodging[] = [
     {
-      id: '0',
-      location: null,
-      name: null,
+      id: 'string',
+      location: {
+        id: 'string',
+        address: {
+          id: 'string',
+          city: 'string',
+          country: 'string',
+          postalCode: 'string',
+          stateProvince: 'string',
+          street: 'string',
+        },
+        latitude: 'string',
+        locale: 'string',
+        longitude: 'string',
+      },
+      name: 'string',
       rentals: [],
       reviews: [],
       bathrooms: []
@@ -27,12 +40,27 @@ describe('LodgingService', () => {
     get() {
       const config: Config = {
         api: {
-          account: null,
-          booking: null,
+          account: '',
+          booking: '',
           lodging: 'test',
-          monitoring: null,
+          monitoring: '',
         },
-        navigation: null,
+        navigation: {
+          footer: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+          header: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+        },
       };
 
       return scheduled([config], asyncScheduler);
