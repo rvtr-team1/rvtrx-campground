@@ -3,8 +3,6 @@ import { LodgingHomeComponent } from './lodging-home.component';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 describe('LodgingHomeComponent', () => {
   let component: LodgingHomeComponent;
@@ -30,6 +28,7 @@ describe('LodgingHomeComponent', () => {
       name: 'test',
       rentals: [],
       reviews: [],
+      bathrooms: [],
     },
   ];
 

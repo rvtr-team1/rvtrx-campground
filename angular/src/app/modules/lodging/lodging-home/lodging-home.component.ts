@@ -6,10 +6,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'uic-lodging-home',
   templateUrl: './lodging-home.component.html',
-  styleUrls: ['./lodging-home.component.scss']
+  styleUrls: ['./lodging-home.component.scss'],
 })
 export class LodgingHomeComponent implements OnInit {
-
   /**
    * fields usied in this component
    */
@@ -19,7 +18,7 @@ export class LodgingHomeComponent implements OnInit {
    * represents lodging-home component's constructor
    * @param lodgingService the lodging service
    */
-  constructor(private lodgingService: LodgingService) { }
+  constructor(private lodgingService: LodgingService) {}
 
   /**
    * gets all the lodges available with the help of
@@ -27,7 +26,9 @@ export class LodgingHomeComponent implements OnInit {
    */
   ngOnInit(): void {
     this.lodgingService.get().subscribe(
-      data => this.lodgings = data, error => this.handleError(error));
+      (data) => (this.lodgings = data),
+      (error) => this.handleError(error)
+    );
   }
 
   /**
@@ -45,9 +46,4 @@ export class LodgingHomeComponent implements OnInit {
       message = error.status.toString();
     }
   }
-
 }
-
-
-
-
