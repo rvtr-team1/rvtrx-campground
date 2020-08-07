@@ -2,7 +2,7 @@
   {
     "id": "1",
     "accountId": "100",
-    "lodgingId": "2",
+    "lodgingId": "1",
     "guests": [
       {
         "id": "100",
@@ -27,37 +27,23 @@
     ],
     "rentals": [
       {
-        "id": "2",
-        "name": "Unit A",
+        "id": "1",
+        "name": "testRental",
+        "price": 100,
         "rentalUnit": {
-          "id": "3",
-          "bathrooms": [
-            {
-              "id": "4",
-              "fixture": "1"
-            },
-            {
-              "id": "2",
-              "fixture": "2"
-            }
-          ],
-          "bedrooms": [
-            {
-              "id": "1",
-              "count": 2,
-              "type": "Queen"
-            },
-            {
-              "id": "2",
-              "count": 2,
-              "type": "Queen"
-            }
-          ],
-          "name": "Unit A",
-          "occupancy": 4,
-          "type": "family"
-        }
+          "id": "6",
+          "bedroom": {
+            "id": "1",
+            "count": 4,
+            "type": "Queen Bed"
+          },
+          "name": "Family Room",
+          "occupancy": 5,
+          "type": "testType"
+        },
+        "status": "available"
       }
+      
     ],
     "stay": {
       "id": "1",

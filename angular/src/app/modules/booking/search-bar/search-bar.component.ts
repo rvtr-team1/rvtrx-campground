@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
+import { Location } from '../../../data/location.model';
+
 import { map } from 'rxjs/operators';
 
 import { Rental } from '../../../data/rental.model';
@@ -27,7 +29,6 @@ export class SearchBarComponent implements OnInit {
   lodgingRentals: Rental[] =[];
 
   searchResults: Lodging[] = [];
-  isSearched: Boolean = false;
 
   constructor(
     private bookingService: BookingService,
@@ -52,7 +53,6 @@ export class SearchBarComponent implements OnInit {
     this.searchByAll(city, checkIn, checkOut, occupancy);
 
 
-    this.isSearched = true;
   }
   
   
@@ -277,24 +277,16 @@ export class SearchBarComponent implements OnInit {
 
   }
 
+    
 
 
   ngOnInit(): void {
     this.lodgings$ = this.lodgingService.get();
+    this.bookings$ = this.bookingService.get();
 
-    this.lodgings$.pipe(
-      map((lodgings) => {
-        lodgings.map((lodging) => lodging.rentals);
-      })
-    );
-
-    this.lodgings$.pipe(
-      map((lodgings) => {
-        lodgings.map((lodging) => lodging.reviews);
-      })
-    );
-    this.lodgings$.subscribe((value) => console.log(value));
-
+    this.lodgings$.subscribe (
+      lodgings => this.locations$ = of(lodgings.map(lodging => lodging.location))
+    )
 
   }
 
