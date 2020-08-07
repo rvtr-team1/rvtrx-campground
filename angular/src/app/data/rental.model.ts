@@ -6,10 +6,13 @@ import { RentalUnit } from './rental-unit.model';
  * ```yaml
  * id: string;
  * name: string;
- * rentalUnit: RentalUnit;
+ * status: string;
+ * price: number;
+ * discountedPrice?: number;
  * status: string;
  * price: number;
  * discountedPrice: number;
+ * rentalUnit: RentalUnit;
  * ```
  * status: Rental occupation/checkin/checkout status
  * price: Normal nightly cost for the rental

@@ -22,6 +22,9 @@ describe('AccountBookingComponent', () => {
       {
         id: 'string',
         name: 'string',
+        status: 'string',
+        price: 0.0,
+        discountedPrice: 0.0,
         rentalUnit: {
           id: 'string',
           bedroom: {
@@ -33,8 +36,6 @@ describe('AccountBookingComponent', () => {
           occupancy: 2,
           type: 'string',
         },
-        status: 'available',
-        price: 0,
       },
     ],
     stay: {

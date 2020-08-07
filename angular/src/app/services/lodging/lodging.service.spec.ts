@@ -30,9 +30,9 @@ describe('LodgingService', () => {
         longitude: 'string',
       },
       name: 'string',
+      bathrooms: 1,
       rentals: [],
       reviews: [],
-      bathrooms: [],
     },
   ];
 
