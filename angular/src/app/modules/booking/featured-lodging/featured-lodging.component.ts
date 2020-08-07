@@ -11,9 +11,7 @@ export class FeaturedLodgingComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    // setTimeout(() => this.setFeaturedLodgings(), 3000);
-  }
+  ngOnInit(): void {}
 
   setFeaturedLodgings(): void {
     let lodgings: Lodging[] = new Array(6);
