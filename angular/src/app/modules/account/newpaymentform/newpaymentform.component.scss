@@ -1,3 +1,8 @@
+.modal-content {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;

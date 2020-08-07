@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
     this.service.update(this.profiles);
     console.log(this.profiles);
   }
+
   ngOnChanges() {
     console.log(this.profiles);
   }

@@ -13,6 +13,11 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  addCard(newCard: Payment) {
+    this.payments.push(newCard);
+    console.log(JSON.stringify(newCard));
+  }
+
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {

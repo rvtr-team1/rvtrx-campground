@@ -26,6 +26,7 @@ export class NewpaymentformComponent implements OnInit {
       cardExpirationDate: this.PaymentForm.value.ExpDate,
       cardName: this.PaymentForm.value.Bank,
       cardNumber: this.PaymentForm.value.CCNumber,
+      id: '',
     } as Payment;
     this.newPayment.emit(payload);
     console.warn(this.PaymentForm.value);

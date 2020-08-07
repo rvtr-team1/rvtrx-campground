@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
-=======
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
->>>>>>> origin/account-editing-service
 import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
 import { Address } from '../../../data/address.model';

@@ -3,53 +3,51 @@
 </button>
 
 <div *ngIf="showMore">
-  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit(); showMore = !showMore">
     <div class="modal is-active" id="page-modal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="row">
           <div class="col-75">
             <div class="container">
-              <form action="/action_page.php">
-                <div class="row">
-                  <div class="col-50">
-                    <label for="cname">Bank</label>
-                    <input
-                      type="text"
-                      id="cname"
-                      name="cardname"
-                      placeholder="ie. Amex"
-                      formControlName="Bank"
-                    />
-                    <label for="ccnum">Credit card number</label>
-                    <input
-                      type="text"
-                      id="ccnum"
-                      name="cardnumber"
-                      placeholder="1111-2222-3333-4444"
-                      formControlName="CCNumber"
-                    />
-                    <label for="expyear">Exp Date</label>
-                    <input
-                      type="text"
-                      id="expyear"
-                      name="expyear"
-                      placeholder="2018"
-                      formControlName="ExpDate"
-                    />
-                  </div>
+              <div class="row">
+                <div class="col-50">
+                  <label for="cname">Bank</label>
+                  <input
+                    type="text"
+                    id="cname"
+                    name="cardname"
+                    placeholder="ie. Amex"
+                    formControlName="Bank"
+                  />
+                  <label for="ccnum">Credit card number</label>
+                  <input
+                    type="text"
+                    id="ccnum"
+                    name="cardnumber"
+                    placeholder="1111-2222-3333-4444"
+                    formControlName="CCNumber"
+                  />
+                  <label for="expyear">Exp Date</label>
+                  <input
+                    type="text"
+                    id="expyear"
+                    name="expyear"
+                    placeholder="2018"
+                    formControlName="ExpDate"
+                  />
                 </div>
-                <label>
-                  <input type="checkbox" checked="checked" name="sameadr" /> Shipping address same
-                  as billing
-                </label>
-                <input
-                  type="submit"
-                  [disabled]="!PaymentForm.valid"
-                  value="Add payment"
-                  class="btn"
-                />
-              </form>
+              </div>
+              <!-- <label>
+                <input type="checkbox" checked="checked" name="sameadr" /> Shipping address same as
+                billing
+              </label> -->
+              <input
+                type="submit"
+                [disabled]="!PaymentForm.valid"
+                value="Add payment"
+                class="btn"
+              />
             </div>
           </div>
           <button

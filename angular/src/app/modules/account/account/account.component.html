@@ -1,7 +1,7 @@
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-head">
     <div class="container">
-      <br>
+      <br />
       <h1 class="title is-2">account</h1>
 
       <div class="tile is-ancestor">
@@ -9,20 +9,22 @@
           <div class="tile is-parent is-vertical">
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">address</h2>
-              <uic-address *ngIf="address$ | async as address" [address]="address" (addressEdited)="update()"></uic-address>
+              <uic-address
+                *ngIf="address$ | async as address"
+                [address]="address"
+                (addressEdited)="update()"
+              ></uic-address>
             </div>
-            
+
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
-<<<<<<< HEAD
-              <uic-newpaymentform></uic-newpaymentform>
-              <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment" (onSubmit)='addCard($event)'>
-=======
-              <uic-payment *ngIf="payments$ | async as payments" [payments]="payments" (paymentsEdited)="update()">
->>>>>>> origin/account-editing-service
+
+              <uic-payment
+                *ngIf="payments$ | async as payments"
+                [payments]="payments"
+                (paymentsEdited)="update()"
+              >
               </uic-payment>
-              
-            
             </div>
           </div>
         </div>
@@ -32,7 +34,11 @@
             <div class="tile is-parent">
               <div class="tile box is-child">
                 <h2 class="title is-4">profiles</h2>
-                <uic-profile *ngIf="profiles$ | async as profiles" [profiles]="profiles" (profileEdited)="update()"></uic-profile>
+                <uic-profile
+                  *ngIf="profiles$ | async as profiles"
+                  [profiles]="profiles"
+                  (profileEdited)="update()"
+                ></uic-profile>
               </div>
             </div>
 
@@ -40,7 +46,10 @@
               <div class="tile is-parent">
                 <div class="tile box is-child">
                   <h2 class="title is-4">bookings</h2>
-                  <uic-account-booking *ngFor="let booking of (bookings$ | async)" [booking]="booking">
+                  <uic-account-booking
+                    *ngFor="let booking of bookings$ | async"
+                    [booking]="booking"
+                  >
                   </uic-account-booking>
                 </div>
               </div>
@@ -48,7 +57,10 @@
               <div class="tile is-parent">
                 <div class="tile box is-child">
                   <h2 class="title is-4">reviews</h2>
-                  <uic-account-review *ngFor="let review of (reviews$ | async)" [review]="review"></uic-account-review>
+                  <uic-account-review
+                    *ngFor="let review of reviews$ | async"
+                    [review]="review"
+                  ></uic-account-review>
                 </div>
               </div>
             </div>
