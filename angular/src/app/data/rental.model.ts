@@ -10,7 +10,6 @@ import { RentalUnit } from './rental-unit.model';
  * price: number;
  * discountedPrice?: number;
  * rentalUnit: RentalUnit;
- * availability:boolean
  * ```
  */
 export interface Rental {
@@ -20,5 +19,4 @@ export interface Rental {
   price: number;
   discountedPrice?: number;
   rentalUnit: RentalUnit;
-  availability: boolean;
 }
