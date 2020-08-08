@@ -5,10 +5,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'uic-lodging-home',
-  templateUrl: './lodging-home.component.html',
-  styleUrls: ['./lodging-home.component.scss'],
+  templateUrl: './lodging.component.html',
+  styleUrls: ['./lodging.component.scss'],
 })
-export class LodgingHomeComponent implements OnInit {
+export class LodgingComponent implements OnInit {
   /**
    * fields usied in this component
    */

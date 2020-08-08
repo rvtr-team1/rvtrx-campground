@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { LodgingHomeComponent } from './lodging-home.component';
+import { LodgingComponent } from './lodging.component';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 
 describe('LodgingHomeComponent', () => {
-  let component: LodgingHomeComponent;
-  let fixture: ComponentFixture<LodgingHomeComponent>;
+  let component: LodgingComponent;
+  let fixture: ComponentFixture<LodgingComponent>;
 
   const lodgings: Lodging[] = [
     {
@@ -37,11 +37,11 @@ describe('LodgingHomeComponent', () => {
     lodgingService.get.and.returnValue(of(lodgings));
 
     TestBed.configureTestingModule({
-      declarations: [LodgingHomeComponent],
+      declarations: [LodgingComponent],
       providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LodgingHomeComponent);
+    fixture = TestBed.createComponent(LodgingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
