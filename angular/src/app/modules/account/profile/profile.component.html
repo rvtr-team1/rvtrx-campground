@@ -10,10 +10,10 @@
           <div>
             <p class="heading">adult</p>
             <p class="title is-6">
-              <uic-editable [(data)]='profile.name.given' (dataChange)="edited()">
+              <uic-editable [(data)]='profile.name.given' (dataChange)="edited()" Type="credit-card">
                 <p class="title is-6"> {{profile.name.given}}</p>
               </uic-editable>
-              <uic-editable [(data)]='profile.name.family' (dataChange)="edited()">
+              <uic-editable [(data)]='profile.name.family' (dataChange)="edited()" Type="name">
                 <p class="title is-6"> {{profile.name.family}}</p>
               </uic-editable>
             </p>

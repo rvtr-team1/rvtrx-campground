@@ -1,7 +1,9 @@
 <div (click)="editMode=true">
   <ng-content *ngIf='!editMode' select="*"></ng-content>
-  <form *ngIf='editMode'>
-    <input name='validate' class="input is-rounded swing-in-left-bck " [(ngModel)]="data" type='text'
-      (focusout)="onFocusOut($event)" pattern="/^[a-z ,.'-]+$/i" required>
-  </form>
+  <input *ngIf="editMode" class="input is-rounded swing-in-left-bck " ngmodel type='text' [value]='data'
+    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+    (focusout)="onFocusOut($event)" [pattern]="pattern">
+  <div *ngIf="error" class="alert alert-danger">
+    {{ErrorMessage}}
+  </div>
 </div>

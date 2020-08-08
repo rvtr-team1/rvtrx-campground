@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import ValidationConfig from './Editable.Validation.Config';
 @Component({
   selector: 'uic-editable',
   templateUrl: './editable.component.html',
@@ -9,14 +9,34 @@ export class EditableComponent implements OnInit {
   constructor() {}
 
   @Input() data: string;
+  @Input() pattern: RegExp;
+  @Input() ErrorMessage: string;
+  @Input() Type: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
   editMode = false;
-  ngOnInit() {}
+  error = false;
+
+  ngOnInit() {
+    if (this.Type) {
+      debugger;
+      const config = ValidationConfig[this.Type];
+      this.pattern = config.pattern;
+      this.ErrorMessage = config.ErrorMessage;
+    }
+  }
 
   onFocusOut(e: Event) {
+    const reg = new RegExp(this.pattern);
     const target = e.target as HTMLInputElement;
-    this.editMode = false;
-    this.data = target.value;
-    this.dataChange.emit(this.data);
+    const valid = reg.test(target.value);
+    if (!valid) {
+      this.error = true;
+    } else {
+      this.error = false;
+      console.log('success');
+      this.editMode = false;
+      this.data = target.value;
+      this.dataChange.emit(this.data);
+    }
   }
 }
