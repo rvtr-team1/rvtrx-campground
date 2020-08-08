@@ -6,7 +6,6 @@
           <figure class="image is-128x128">
             <img alt="placeholder image" class="is-rounded" src="https://bulma.io/images/placeholders/256x256.png">
           </figure>
-
           <br>
           <div>
             <p class="heading">adult</p>
@@ -14,9 +13,9 @@
               <uic-editable [(data)]='profile.name.given' (dataChange)="edited()">
                 <p class="title is-6"> {{profile.name.given}}</p>
               </uic-editable>
-              <uic-editable [(data)]='profile.name.family'></uic-editable>
-              {{profile.name.given}}
-              {{profile.name.family}}
+              <uic-editable [(data)]='profile.name.family' (dataChange)="edited()">
+                <p class="title is-6"> {{profile.name.family}}</p>
+              </uic-editable>
             </p>
           </div>
         </div>

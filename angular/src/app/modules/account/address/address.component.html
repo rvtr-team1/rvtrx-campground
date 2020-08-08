@@ -3,8 +3,9 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">street</p>
-        <uic-editable [(data)]='address.street'></uic-editable>
-        <p class="title has-text-light is-6">{{ address?.street }}</p>
+        <uic-editable [(data)]='address.street' (dataChange)="edited()">
+          <p class="title has-text-light is-6">{{ address?.street }}</p>
+        </uic-editable>
       </div>
     </div>
 
@@ -32,16 +33,18 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">state</p>
-        <uic-editable [(data)]='address.stateProvince'></uic-editable>
-        <p class="title has-text-light is-6">{{ address?.stateProvince }}</p>
+        <uic-editable [(data)]='address.stateProvince' (dataChange)="edited()">
+          <p class="title has-text-light is-6">{{ address?.stateProvince }}</p>
+        </uic-editable>
       </div>
     </div>
 
     <div class="level-item has-text-light">
       <div>
         <p class="heading">postal code</p>
-        <uic-editable [(data)]='address.postalCode'></uic-editable>
-        <p class="title has-text-light is-6">{{ address?.postalCode }}</p>
+        <uic-editable [(data)]='address.postalCode' (dataChange)="edited()">
+          <p class="title has-text-light is-6">{{ address?.postalCode }}</p>
+        </uic-editable>
       </div>
     </div>
   </div>
@@ -52,8 +55,9 @@
     <div class="level-item has-text-light">
       <div>
         <p class="heading">country</p>
-        <uic-editable [(data)]='address.country'></uic-editable>
-        <p class="title has-text-light is-6">{{ address?.country }}</p>
+        <uic-editable [(data)]='address.country' (dataChange)="edited()">
+          <p class="title has-text-light is-6">{{ address?.country }}</p>
+        </uic-editable>
       </div>
     </div>
   </div>

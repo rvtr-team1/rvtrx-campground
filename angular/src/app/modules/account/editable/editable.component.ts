@@ -15,7 +15,6 @@ export class EditableComponent implements OnInit {
 
   onFocusOut(e: Event) {
     const target = e.target as HTMLInputElement;
-    console.log(target);
     this.editMode = false;
     this.data = target.value;
     this.dataChange.emit(this.data);

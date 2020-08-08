@@ -1,7 +1,7 @@
 <div (click)="editMode=true">
   <ng-content *ngIf='!editMode' select="*"></ng-content>
   <form *ngIf='editMode'>
-    <input name='validate' class="input swing-in-left-bck" [(ngModel)]="data" type='text'
+    <input name='validate' class="input is-rounded swing-in-left-bck " [(ngModel)]="data" type='text'
       (focusout)="onFocusOut($event)" pattern="/^[a-z ,.'-]+$/i" required>
   </form>
 </div>

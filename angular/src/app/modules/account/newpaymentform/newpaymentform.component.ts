@@ -10,9 +10,10 @@ import { Payment } from '../../../data/payment.model';
   styleUrls: ['./newpaymentform.component.scss'],
 })
 export class NewpaymentformComponent implements OnInit {
-  showMore = false;
+  showModal = false;
 
   @Output() newPayment: EventEmitter<Payment> = new EventEmitter<Payment>();
+
   PaymentForm = new FormGroup({
     Bank: new FormControl(''),
     CCNumber: new FormControl(''),
@@ -21,6 +22,7 @@ export class NewpaymentformComponent implements OnInit {
 
   constructor() {}
   onSubmit() {
+    this.showModal = !this.showModal;
     const payload = {
       cardExpirationDate: this.PaymentForm.value.ExpDate,
       cardName: this.PaymentForm.value.Bank,

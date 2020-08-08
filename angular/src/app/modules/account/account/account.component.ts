@@ -95,7 +95,7 @@ export class AccountComponent implements OnInit {
 
   public update(payload: any): void {
     if (this.validateManifest(payload)) {
-      console.log(JSON.stringify(payload));
+      console.log(payload);
     }
   }
 

@@ -1,57 +1,31 @@
-<button class="button is-link" id="paymentButton" (click)="showMore = !showMore">
-  Add Payment
-</button>
-
-<div *ngIf="showMore">
-  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit(); showMore = !showMore">
+<button class="button is-primary" (click)="showModal = !showModal">Add a payment</button>
+<div *ngIf="showModal">
+  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit();">
     <div class="modal is-active" id="page-modal">
       <div class="modal-background"></div>
       <div class="modal-content">
         <div class="row">
           <div class="col-75">
-            <div class="container">
+            <div class="container is-fluid">
               <div class="row">
                 <div class="col-50">
-                  <label for="cname">Bank</label>
-                  <input
-                    type="text"
-                    id="cname"
-                    name="cardname"
-                    placeholder="ie. Amex"
-                    formControlName="Bank"
-                  />
+                  <label class="label" for="cname">Bank</label>
+                  <input type="text" id="cname" name="cardname" placeholder="ie. Amex" formControlName="Bank"
+                    class="input is-medium" />
                   <label for="ccnum">Credit card number</label>
-                  <input
-                    type="text"
-                    id="ccnum"
-                    name="cardnumber"
-                    placeholder="1111-2222-3333-4444"
-                    formControlName="CCNumber"
-                  />
+                  <input type="text" id="ccnum" name="cardnumber" class="input is-medium"
+                    placeholder="1111-2222-3333-4444" formControlName="CCNumber" />
                   <label for="expyear">Exp Date</label>
-                  <input
-                    type="text"
-                    id="expyear"
-                    name="expyear"
-                    placeholder="2018"
-                    formControlName="ExpDate"
-                  />
+                  <input type="text" id="expyear" name="expyear" placeholder="2018" formControlName="ExpDate" />
                 </div>
               </div>
-            
-              <input
-                type="submit"
-                [disabled]="!PaymentForm.valid"
-                value="Add payment"
-                class="btn"
-              />
+              <div class="level">
+                <button class="button is-primary level-item" type="submit">Add Card</button>
+              </div>
             </div>
           </div>
-          <button
-            class="modal-close is-large"
-            aria-label="close"
-            (click)="showMore = !showMore"
-          ></button>
+
+          <button class="modal-close is-large level-right" aria-label="close" (click)="showModal = !showModal"></button>
         </div>
       </div>
     </div>
