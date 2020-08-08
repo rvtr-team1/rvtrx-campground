@@ -56,7 +56,6 @@ describe('BookingService', () => {
           ],
         },
       };
-
       return scheduled([config], asyncScheduler);
     },
   };
