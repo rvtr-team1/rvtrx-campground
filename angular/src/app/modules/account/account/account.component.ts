@@ -8,7 +8,7 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
-import { EditingService } from '../editingservice.service';
+import { AccountEditingService } from './services/accountediting.service';
 
 @Component({
   selector: 'uic-account',
@@ -23,17 +23,10 @@ export class AccountComponent implements OnInit {
   reviews$: Observable<Review[]>;
 
   private readonly id = '100';
-  private readonly editUpdates = this.editingService
-    .subject()
-    .pipe(
-      scan((acc, curr) => (typeof curr === 'object' ? Object.assign({}, acc, curr) : null), {})
-    );
-
-  private readonly subscribe = this.editUpdates.subscribe((val) => this.update(val));
 
   constructor(
     private readonly accountService: AccountService,
-    private readonly editingService: EditingService
+    private readonly editingService: AccountEditingService
   ) {}
 
   ngOnInit(): void {
@@ -91,18 +84,12 @@ export class AccountComponent implements OnInit {
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
+    this.editingService.PayloadEmitter.subscribe((val: Account) => this.update(val));
   }
 
-  public update(payload: any): void {
-    if (this.validateManifest(payload)) {
-      console.log(payload);
-    }
-  }
+  ngOnChanges() {}
 
-  private validateManifest(payload: any) {
-    if (payload && payload.Address !== undefined && payload.profiles !== undefined) {
-      return true;
-    }
-    return false;
+  private update(payload: Account): void {
+    console.log(payload);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import ValidationConfig from './Editable.Validation.Config';
+import ValidationConfig from './editable.validation.config';
 @Component({
   selector: 'uic-editable',
   templateUrl: './editable.component.html',

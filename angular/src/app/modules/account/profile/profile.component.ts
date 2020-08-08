@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
-import { EditingService } from '../editingservice.service';
+import { AccountEditingService } from '../account/services/accountediting.service';
 
 @Component({
   selector: 'uic-profile',
@@ -14,10 +14,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editingservice.subject().subscribe({
-      next: (v) =>
-        v === 'assemble' ? this.editingservice.update({ profiles: this.profiles }) : null,
-    });
+    this.editingservice.register({ profiles: this.profiles });
   }
-  constructor(private readonly editingservice: EditingService) {}
+  constructor(private readonly editingservice: AccountEditingService) {}
 }
