@@ -38,7 +38,7 @@ describe('EditableComponent', () => {
     fixture.debugElement.query(By.css('div')).nativeElement.click();
     fixture.detectChanges();
     const i = fixture.debugElement.query(By.css('input')).nativeElement;
-    expect(i).toBeTruthy;
+    expect(i).toBeTruthy();
   });
 
   it('on input focusout should change value an trigger an event', () => {
