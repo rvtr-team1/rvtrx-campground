@@ -87,9 +87,7 @@ export class AccountComponent implements OnInit {
     this.editingService.PayloadEmitter.subscribe((val: Account) => this.update(val));
   }
 
-  ngOnChanges() {}
-
   private update(payload: Account): void {
-    console.log(payload);
+    this.accountService.put(payload);
   }
 }
