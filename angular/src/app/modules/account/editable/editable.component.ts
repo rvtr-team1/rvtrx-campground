@@ -18,7 +18,6 @@ export class EditableComponent implements OnInit {
 
   ngOnInit() {
     if (this.Type) {
-      debugger;
       const config = ValidationConfig[this.Type];
       this.pattern = config.pattern;
       this.ErrorMessage = config.ErrorMessage;
@@ -33,7 +32,6 @@ export class EditableComponent implements OnInit {
       this.error = true;
     } else {
       this.error = false;
-      console.log('success');
       this.editMode = false;
       this.data = target.value;
       this.dataChange.emit(this.data);
