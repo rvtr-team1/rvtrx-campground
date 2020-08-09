@@ -30,7 +30,6 @@ export class AccountComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
     this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
@@ -89,7 +88,6 @@ export class AccountComponent implements OnInit {
   }
 
   private update(payload: Account): void {
-    debugger;
     this.accountService.put(payload).subscribe({
       next: (e) => console.log(e),
       error: (e) => console.log(e),
