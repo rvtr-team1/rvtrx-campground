@@ -4,7 +4,7 @@ import { LodgingDetailsComponent } from './lodging-details/lodging-details.compo
 import { LodgingComponent } from './lodging/lodging.component';
 
 const routes: Routes = [
-  { component: LodgingDetailsComponent, path: 'details/{id}' },
+  { component: LodgingDetailsComponent, path: 'details/:id' },
   { component: LodgingComponent, path: '' },
 ];
 
