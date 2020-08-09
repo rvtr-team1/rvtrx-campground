@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LodgingService } from './src/app/services/lodging/lodging.service';
-
-import { Lodging } from 'src/app/data/lodging.model';
+import { LodgingService } from '../../../services/lodging/lodging.service';
+import {Lodging} from '../../../data/lodging.model';
 import { HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'uic-lodging-home',
@@ -39,8 +39,7 @@ export class LodgingHomeComponent implements OnInit {
    */
   handleError(error: HttpErrorResponse): void {
     let message: string = '';
-    //message = error.status.toString();
-    //let message:string = error.status.toString();
+    
     if (error.status === 0) {
 
       message += 'Unable to connect to server';
