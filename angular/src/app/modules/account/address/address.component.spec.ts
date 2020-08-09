@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
+import { AccountEditingService } from '../services/account.editing.service';
 
 describe('AddressComponent', () => {
   const address = {
@@ -17,6 +18,7 @@ describe('AddressComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent],
+      providers: [AccountEditingService],
     }).compileComponents();
   }));
 

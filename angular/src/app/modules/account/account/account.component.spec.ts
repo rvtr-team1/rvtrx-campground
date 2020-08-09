@@ -9,6 +9,7 @@ import { PaymentComponent } from '../payment/payment.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
+import { AccountEditingService } from '../services/account.editing.service';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -45,7 +46,7 @@ describe('AccountComponent', () => {
         ProfileComponent,
       ],
       imports: [HttpClientTestingModule],
-      providers: [{ provide: AccountService, useValue: accountServiceStub }],
+      providers: [AccountEditingService, { provide: AccountService, useValue: accountServiceStub }],
     }).compileComponents();
   }));
 

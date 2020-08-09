@@ -8,7 +8,7 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
-import { AccountEditingService } from './services/accountediting.service';
+import { AccountEditingService } from '../services/account.editing.service';
 
 @Component({
   selector: 'uic-account',

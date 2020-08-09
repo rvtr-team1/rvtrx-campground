@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
+import { AccountEditingService } from '../services/account.editing.service';
 
 describe('ProfileComponent', () => {
   const profiles = [
@@ -22,6 +23,7 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent],
+      providers: [AccountEditingService],
     }).compileComponents();
   }));
 

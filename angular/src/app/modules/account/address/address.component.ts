@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Address } from '../../../data/address.model';
-import { AccountEditingService } from '../account/services/accountediting.service';
+import { AccountEditingService } from '../services/account.editing.service';
 
 @Component({
   selector: 'uic-address',

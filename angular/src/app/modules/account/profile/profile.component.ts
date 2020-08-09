@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, SimpleChange } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
-import { AccountEditingService } from '../account/services/accountediting.service';
+import { AccountEditingService } from '../services/account.editing.service';
 
 @Component({
   selector: 'uic-profile',
