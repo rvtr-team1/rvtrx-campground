@@ -72,10 +72,4 @@ describe('LodgingHomeComponent', () => {
     expect(info[3].textContent).toContain('testCode');
   });
 
-  /**
-   * tests the handle error function in lodging-home component
-   */
-  it('should handle errors', () => {
-    expect(component.handleError).toBeTruthy();
-  });
 });

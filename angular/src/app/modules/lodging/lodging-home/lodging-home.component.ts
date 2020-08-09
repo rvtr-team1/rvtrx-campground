@@ -26,26 +26,7 @@ export class LodgingHomeComponent implements OnInit {
    */
   ngOnInit(): void {
     this.lodgingService.get().subscribe(
-      (data) => (this.lodgings = data),
-      (error) => this.handleError(error)
+      (data) => (this.lodgings = data)
     );
-  }
-
-  /**
-   * handles errors occured into execution of
-   * any functions if this function is called
-   *
-   * @param error error message
-   */
-  handleError(error: HttpErrorResponse): void {
-    console.log(error.status);
-    let message: string;
-    if (error.status === 0) {
-      message = 'Unable to connect to server';
-      console.log(message);
-    } else {
-      message = error.status.toString();
-      console.log(message);
-    }
   }
 }
