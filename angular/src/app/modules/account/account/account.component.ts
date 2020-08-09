@@ -22,7 +22,7 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  private readonly id = '100';
+  private readonly id = '1';
 
   constructor(
     private readonly accountService: AccountService,
@@ -30,6 +30,7 @@ export class AccountComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    debugger;
     this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
@@ -88,6 +89,10 @@ export class AccountComponent implements OnInit {
   }
 
   private update(payload: Account): void {
-    this.accountService.put(payload);
+    debugger;
+    this.accountService.put(payload).subscribe({
+      next: (e) => console.log(e),
+      error: (e) => console.log(e),
+    });
   }
 }

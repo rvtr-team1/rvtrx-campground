@@ -13,7 +13,6 @@ export class NewpaymentformComponent implements OnInit {
   showModal = false;
 
   @Output() newPayment: EventEmitter<Payment> = new EventEmitter<Payment>();
-
   PaymentForm = new FormGroup({
     Bank: new FormControl(''),
     CCNumber: new FormControl(''),

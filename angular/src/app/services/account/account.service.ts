@@ -39,7 +39,7 @@ export class AccountService {
    */
   get(id: string): Observable<Account> {
     const options = { params: new HttpParams().set('id', id) };
-    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Account>(url, options)));
+    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Account>(url + '/', options)));
   }
 
   /**
@@ -57,6 +57,6 @@ export class AccountService {
    * @param account Account
    */
   put(account: Account): Observable<Account> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.put<Account>(url, account)));
+    return this.apiUrl$.pipe(concatMap((url) => this.http.put<Account>(url + '/', account)));
   }
 }

@@ -1,13 +1,12 @@
 {
   "api": {
-    "account": "api.account.json",
+    "account": "http://localhost:3000/account",
     "booking": null,
     "lodging": null,
     "monitoring": "https://ec61288c429544a6ad850b94de25004a@o388320.ingest.sentry.io/5229046"
   },
   "navigation": {
-    "footer": [
-      {
+    "footer": [{
         "icon": "fab fa-github",
         "text": "GitHub",
         "url": "https://github.com/RVTR/rvtr-app-campsite#readme"
@@ -18,10 +17,18 @@
         "url": "https://sonarcloud.io/dashboard?id=rvtr_app_campsite"
       }
     ],
-    "header": [
-      { "text": "account", "url": "account" },
-      { "text": "booking", "url": "booking" },
-      { "text": "lodging", "url": "lodging" }
+    "header": [{
+        "text": "account",
+        "url": "account"
+      },
+      {
+        "text": "booking",
+        "url": "booking"
+      },
+      {
+        "text": "lodging",
+        "url": "lodging"
+      }
     ]
   }
 }
