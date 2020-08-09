@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-//import {LodgingService} from '../services/lodging/lodging.service';
+
 import { Lodging } from 'src/app/data/lodging.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -26,10 +26,10 @@ export class LodgingHomeComponent implements OnInit {
    * get() in lodging service component
    */
   ngOnInit(): void {
-    this.lodgingService.get().subscribe(
-      (data) => (this.lodgings = data),
-      (error) => this.handleError(error)
-    );
+     this.lodgingService.get().subscribe(
+       (data) => (this.lodgings = data),
+       (error) => this.handleError(error)
+     );
   }
 
   /**
