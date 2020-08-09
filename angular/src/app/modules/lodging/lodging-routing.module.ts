@@ -9,7 +9,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LodgingComponent],
+  declarations: [],
   exports: [RouterModule],
   imports: [RouterModule.forChild(routes)],
 })
