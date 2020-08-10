@@ -22,8 +22,7 @@
         "id": "1",
         "name": "testRental",
         "status": "available",
-        "price": 0.0,
-        "discountedPrice": 0.0,
+        "price": 100,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
@@ -37,7 +36,16 @@
         }
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "comment",
+        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "rating": 5
+      }
+    ]
   },
   {
     "id": "2",
@@ -62,8 +70,7 @@
         "id": "1",
         "name": "testRental",
         "status": "available",
-        "price": 0.0,
-        "discountedPrice": 0.0,
+        "price": 100,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
@@ -77,7 +84,16 @@
         }
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "comment",
+        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "rating": 4
+      }
+    ]
   },
   {
     "id": "3",
@@ -102,8 +118,8 @@
         "id": "1",
         "name": "testRental",
         "status": "available",
-        "price": 0.0,
-        "discountedPrice": 0.0,
+        "price": 100,
+        "discountedPrice": 90,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
@@ -117,6 +133,15 @@
         }
       }
     ],
-    "reviews": []
+    "reviews": [
+      {
+        "id": "1",
+        "accountId": "1",
+        "hotelId": "1",
+        "comment": "comment",
+        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "rating": 6
+      }
+    ]
   }
 ]

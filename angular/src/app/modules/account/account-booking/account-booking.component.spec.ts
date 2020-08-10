@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AccountBookingComponent } from './account-booking.component';
+import { Booking } from 'src/app/data/booking.model';
 describe('AccountBookingComponent', () => {
-  const booking = {
+  const booking: Booking = {
     id: 'string',
     accountId: 'string',
     lodgingId: 'string',
@@ -44,7 +45,6 @@ describe('AccountBookingComponent', () => {
       dateCreated: new Date(),
       dateModified: new Date(),
     },
-    status: 'string',
   };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;
