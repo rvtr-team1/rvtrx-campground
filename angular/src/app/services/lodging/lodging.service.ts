@@ -43,6 +43,16 @@ export class LodgingService {
   }
 
   /**
+   * Represents the _Lodging Service_ `getById` method
+   *
+   * @param id string
+   */
+  getById(id: string): Observable<Lodging> {
+    const options = id ? { params: new HttpParams().set('id', id) } : {};
+    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Lodging>(url, options)));
+  }
+
+  /**
    * Represents the _Lodging Service_ `post` method
    *
    * @param lodging Lodging

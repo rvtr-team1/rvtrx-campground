@@ -1,9 +1,8 @@
-<section class="hero is-fullheight-with-navbar">
+<section *ngIf="isLoaded" class="hero is-fullheight-with-navbar">
   <div class="hero-head">
     <div class="container">
       <br />
       <h1 class="title is-2">lodging</h1>
-
       <div class="tile is-ancestor">
         <div class="tile is-6 is-parent is-vertical">
           <div class="tile is-child">
@@ -15,7 +14,6 @@
             </figure>
           </div>
         </div>
-
         <div class="tile is-vertical">
           <div class="tile">
             <div class="tile is-parent is-vertical">
@@ -27,7 +25,6 @@
                   />
                 </figure>
               </div>
-
               <div class="tile is-child">
                 <figure class="image is-5by3">
                   <img
@@ -37,7 +34,6 @@
                 </figure>
               </div>
             </div>
-
             <div class="tile is-parent is-vertical">
               <div class="tile is-child">
                 <figure class="image is-5by3">
@@ -47,7 +43,6 @@
                   />
                 </figure>
               </div>
-
               <div class="tile is-child">
                 <figure class="image is-5by3">
                   <img
@@ -57,7 +52,6 @@
                 </figure>
               </div>
             </div>
-
             <div class="tile is-parent is-vertical">
               <div class="tile is-child">
                 <figure class="image is-5by3">
@@ -67,7 +61,6 @@
                   />
                 </figure>
               </div>
-
               <div class="tile is-child">
                 <figure class="image is-5by3">
                   <img
@@ -78,13 +71,12 @@
               </div>
             </div>
           </div>
-
           <div class="tile is-parent">
             <div class="tile box has-background-dark is-child">
               <div class="level">
                 <div class="level-item">
                   <div>
-                    <p class="title has-text-light is-3">Lorem Ipsum Hotel</p>
+                    <p class="title has-text-light is-3">{{ lodging!.name }}</p>
                   </div>
                 </div>
               </div>
@@ -92,26 +84,29 @@
           </div>
         </div>
       </div>
-
       <div class="tile is-ancestor">
         <div class="tile is-3">
           <div class="tile is-parent">
             <div class="tile box is-child">
               <h2 class="title is-4">overview</h2>
-
               <div class="level">
                 <div class="level-left">
                   <div class="level-item">
                     <div>
                       <p class="heading">address</p>
-                      <p class="title is-6">987 Main Street</p>
-                      <p class="title is-6">Dallas, TX 75200</p>
-                      <p class="title is-6">United States</p>
+                      <p class="title is-6">{{ lodging!.location.address.street }}</p>
+                      <p class="title is-6">
+                        {{ lodging!.location.address.city }},
+                        {{ lodging!.location.address.stateProvince }},
+                        {{ lodging!.location.address.country }}
+                      </p>
+                      <p class="title is-6">
+                        {{ lodging!.location.address.postalCode }}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div class="level">
                 <div class="level-left">
                   <div class="level-item">
@@ -135,7 +130,6 @@
             </div>
           </div>
         </div>
-
         <div class="tile">
           <div class="tile is-parent">
             <div class="tile box is-child">
