@@ -2,10 +2,9 @@
  * importing the necessary modules, services and models.
  */
 import { Component, OnInit } from '@angular/core';
-import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { Lodging } from 'src/app/data/lodging.model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Rental } from 'src/app/data/rental.model';
+import { LodgingService } from '../../../services/lodging/lodging.service';
+import { Lodging } from '../../..//data/lodging.model';
+import { Rental } from '../../../data/rental.model';
 
 /**
  * Rental component metadata
@@ -29,6 +28,7 @@ export class RentalComponent implements OnInit {
    */
   lodgings: Lodging[] | null = null;
   rentals: Rental[] | null = null;
+  availabilityCount: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   familyRoomCount = 0;
   tripleRoomCount = 0;
   doubleRoomCount = 0;
@@ -37,7 +37,7 @@ export class RentalComponent implements OnInit {
    * @param lodgingService
    * Constructor injects lodgingService
    */
-  constructor(private lodgingService: LodgingService) {}
+  constructor(private readonly lodgingService: LodgingService) {}
 
   ngOnInit(): void {
     this.loadLodgings();
@@ -53,8 +53,7 @@ export class RentalComponent implements OnInit {
       .get()
       .toPromise()
       .then((data) => (this.lodgings = data))
-      .then(() => this.SetRentals())
-      .catch((error) => this.handleError(error));
+      .then(() => this.SetRentals());
   }
 
   /**
@@ -73,30 +72,10 @@ export class RentalComponent implements OnInit {
   private CountAvailableRooms(): void {
     if (this.rentals) {
       this.rentals.forEach((element) => {
-        if (element.rentalUnit.name === 'Family Room' && element.availability === true) {
-          this.familyRoomCount++;
-        } else if (element.rentalUnit.name === 'Triple Room' && element.availability === true) {
-          this.tripleRoomCount++;
-        } else if (element.rentalUnit.name === 'Double Room' && element.availability === true) {
-          this.doubleRoomCount++;
-        } else {
-          // do nothing
+        if (element.status === 'available') {
+          this.availabilityCount[element.rentalUnit.occupancy - 1]++;
         }
       });
-    }
-  }
-
-  /**
-   * @param error
-   * Method handles error and converts the status code to string.
-   */
-  private handleError(error: HttpErrorResponse): void {
-    console.log(error.status);
-    let message: string;
-    if (error.status === 0) {
-      message = 'Unable to connect to server';
-    } else {
-      message = error.status.toString();
     }
   }
 }

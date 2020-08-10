@@ -7,7 +7,7 @@ import { LodgingDetailsComponent } from './lodging-details/lodging-details.compo
 import { LodgingComponent } from './lodging/lodging.component';
 
 @NgModule({
-  declarations: [LodgingDetailsComponent, RentalComponent, LodgingComponent],
+  declarations: [LodgingComponent, LodgingDetailsComponent, RentalComponent],
   imports: [CommonModule, LodgingRoutingModule],
 })
 export class LodgingModule {}
