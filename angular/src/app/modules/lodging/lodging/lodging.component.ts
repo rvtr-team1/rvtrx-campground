@@ -1,51 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { Lodging } from 'src/app/data/lodging.model';
-import { HttpErrorResponse } from '@angular/common/http';
+import { LodgingService } from '../../../services/lodging/lodging.service';
+import { Lodging } from '../../../data/lodging.model';
 
 @Component({
-  selector: 'uic-lodging',
+  selector: 'uic-lodging-home',
   templateUrl: './lodging.component.html',
+  styleUrls: ['./lodging.component.scss'],
 })
 export class LodgingComponent implements OnInit {
+  /**
+   * fields used in this component
+   */
+  lodgings: Lodging[] | null = null;
 
-  lodging: Lodging | null = null;
-  idString: string | null = null;
+  /**
+   * represents lodging component's constructor
+   * @param lodgingService the lodging service
+   */
+  constructor(private readonly lodgingService: LodgingService) {}
 
-  constructor(
-    private route: ActivatedRoute,
-    private lodgingService: LodgingService
-  ) {}
-
+  /**
+   * gets all the lodging available with the help of
+   * get() in lodging service component
+   */
   ngOnInit(): void {
-    this.getLodgingById();
+    this.lodgingService.get().subscribe((data) => (this.lodgings = data));
   }
-
-  getLodgingById(): void
-  {
-    // const idString = this.route.snapshot.paramMap.get('id');
-    this.route.paramMap.subscribe(params => 
-      { 
-        this.idString = params.get('id')
-      }
-    );
-    console.log(this.idString);
-    if (this.idString){
-      this.lodgingService.get(this.idString).toPromise()
-      .then(data => this.lodging = data[0])
-      .catch(error => this.handleError(error));
-    }
-  }
-
-  private handleError(error: HttpErrorResponse): void {
-    console.log(error.status);
-    let message: string;
-    if (error.status === 0) {
-      message = 'Unable to connect to server';
-    } else {
-      message = error.status.toString();
-    }
-  }
-
 }

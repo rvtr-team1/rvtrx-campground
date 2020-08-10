@@ -25,10 +25,10 @@ describe('RentalComponent', () => {
         locale: 'testLocale',
         longitude: 'testLong',
       },
+      bathrooms: 1,
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: [],
     },
   ];
 
@@ -51,8 +51,8 @@ describe('RentalComponent', () => {
   });
 
   it('should get rental', () => {
-    expect(component.lodgings[0].rentals).toBeTruthy();
-    expect(component.lodgings[0].rentals).toEqual(lodgings[0].rentals);
-    expect(component.lodgings[0].rentals).toBeNull();
+    expect(component.lodgings![0].rentals).toBeTruthy();
+    expect(component.lodgings![0].rentals).toEqual(lodgings[0].rentals);
+    expect(component.lodgings![0].rentals).toBeNull();
   });
 });
