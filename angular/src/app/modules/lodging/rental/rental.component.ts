@@ -54,8 +54,7 @@ export class RentalComponent implements OnInit {
       .get()
       .toPromise()
       .then((data) => (this.lodgings = data))
-      .then(() => this.SetRentals())
-      .catch((error) => this.handleError(error));
+      .then(() => this.SetRentals());
   }
 
   /**
@@ -78,19 +77,6 @@ export class RentalComponent implements OnInit {
           this.availabilityCount[element.rentalUnit.occupancy - 1]++;
         }
       });
-    }
-  }
-
-  /**
-   * @param error
-   * Method handles error and converts the status code to string.
-   */
-  private handleError(error: HttpErrorResponse): void {
-    let message: string;
-    if (error.status === 0) {
-      message = 'Unable to connect to server';
-    } else {
-      message = error.status.toString();
     }
   }
 }
