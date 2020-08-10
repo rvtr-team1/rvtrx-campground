@@ -3,25 +3,20 @@
   <table class="table is-bordered is-hoverable is-fullwidth" aria-describedby="tableinfo">
     <thead>
       <th id="RoomType">Room Type</th>
-      <th id="Occupancy">Occupancy <em class="fas fa-users"></em></th>
-      <th id="Available">Available For</th>
+      <th id="Occupancy">Occupancy <span class="fas fa-users"></span></th>
       <th id="Rooms">Rooms Available</th>
-      <th id="Pricing"><em class="fas fa-dollar-sign"></em></th>
+      <th id="pricing"><span class="fas fa-dollar-sign"></span></th>
     </thead>
     <tbody>
       <tr *ngFor="let rental of rentals">
         <td>
           {{ rental.rentalUnit.name }}<br />
           {{ rental.rentalUnit.bedroom.count }} {{ rental.rentalUnit.bedroom.type }}
-          <em class="fas fa-bed"></em>
+          <span class="fas fa-bed"></span>
         </td>
         <td>{{ rental.rentalUnit.occupancy }}</td>
-        <td>
-          Tent <em class="fas fa-campground"></em> <br />
-          RV <em class="fas fa-caravan"></em>
-        </td>
         <td>{{ availabilityCount[rental.rentalUnit.occupancy - 1] }}</td>
-        <td id="btCell"><button>Show Prices</button></td>
+        <td id="bt-Cell"><button>Show Prices</button></td>
       </tr>
     </tbody>
   </table>
