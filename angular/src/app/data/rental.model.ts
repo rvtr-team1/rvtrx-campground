@@ -6,11 +6,17 @@ import { RentalUnit } from './rental-unit.model';
  * ```yaml
  * id: string;
  * name: string;
+ * status: string;
+ * price: number;
+ * discountedPrice?: number;
  * rentalUnit: RentalUnit;
  * ```
  */
 export interface Rental {
   id: string;
   name: string;
+  status: string;
+  price: number;
+  discountedPrice?: number;
   rentalUnit: RentalUnit;
 }
