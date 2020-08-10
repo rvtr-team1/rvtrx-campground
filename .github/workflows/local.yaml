@@ -45,6 +45,9 @@ jobs:
       - name: npm_install
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: prettier
+        run: npx prettier --check angular
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: npm_test
         run: npm run test
         working-directory: ${{ env.WORKING_DIRECTORY }}
