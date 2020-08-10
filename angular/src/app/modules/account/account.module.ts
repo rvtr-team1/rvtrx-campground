@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountEditingService } from './services/account.editing.service';
 
 @NgModule({
-  imports: [AccountRoutingModule, FormsModule, FormsModule, ReactiveFormsModule],
+  imports: [AccountRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [AccountEditingService],
 })
 export class AccountModule {}
