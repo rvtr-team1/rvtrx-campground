@@ -7,6 +7,8 @@ import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewaddressformComponent } from './newaddressform/newaddressform.component';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -18,8 +20,9 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     PaymentComponent,
     ProfileComponent,
     AccountReviewComponent,
+    NewaddressformComponent,
   ],
   exports: [RouterModule],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, ReactiveFormsModule],
 })
 export class AccountRoutingModule {}

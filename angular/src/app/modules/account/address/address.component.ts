@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Address } from '../../../data/address.model';
 
 @Component({
@@ -7,8 +7,14 @@ import { Address } from '../../../data/address.model';
 })
 export class AddressComponent implements OnInit {
   @Input() address: Address;
+  @Output() addressEdited = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  addAddress(newAddress: Address) {
+    //this.address.push(newAddress);
+    console.log(newAddress);
+  }
 }
