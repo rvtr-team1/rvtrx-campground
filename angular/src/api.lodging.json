@@ -16,23 +16,23 @@
       "longitude": "testLong"
     },
     "name": "Test",
-    "bathrooms": "1",
+    "bathrooms": 1,
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
         "status": "available",
-        "price": "0.0",
-        "discountPrice": "0.0",
+        "price": 0.0,
+        "discountedPrice": 0.0,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
             "id": "1",
-            "count": "4",
+            "count": 4,
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
         }
       }
@@ -56,23 +56,23 @@
       "longitude": "testLong"
     },
     "name": "Test2",
-    "bathrooms": "1",
+    "bathrooms": 1,
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
         "status": "available",
-        "price": "0.0",
-        "discountPrice": "0.0",
+        "price": 0.0,
+        "discountedPrice": 0.0,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
             "id": "1",
-            "count": "4",
+            "count": 4,
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
         }
       }
@@ -96,23 +96,23 @@
       "longitude": "testLong"
     },
     "name": "Test3",
-    "bathrooms": "1",
+    "bathrooms": 1,
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
         "status": "available",
-        "price": "0.0",
-        "discountPrice": "0.0",
+        "price": 0.0,
+        "discountedPrice": 0.0,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
             "id": "1",
-            "count": "4",
+            "count": 4,
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
         }
       }
