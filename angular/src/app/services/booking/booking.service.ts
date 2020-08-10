@@ -60,7 +60,4 @@ export class BookingService {
   put(booking: Booking): Observable<Booking> {
     return this.apiUrl$.pipe(concatMap((url) => this.http.put<Booking>(url, booking)));
   }
-
-  
-
 }

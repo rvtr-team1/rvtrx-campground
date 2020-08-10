@@ -21,5 +21,4 @@ describe('FeaturedLodgingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

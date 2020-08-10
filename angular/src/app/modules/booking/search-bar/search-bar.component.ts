@@ -10,7 +10,6 @@ import { BookingService } from 'src/app/services/booking/booking.service';
 import { Lodging } from '../../../data/lodging.model';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 
-
 @Component({
   selector: 'uic-search-bar',
   templateUrl: './search-bar.component.html',
@@ -33,10 +32,10 @@ export class SearchBarComponent implements OnInit {
   constructor(private bookingService: BookingService, private lodgingService: LodgingService) {}
 
   onSubmit(form: NgForm) {
-    let occupancy = form.value.adults + form.value.children;
-    let city = form.value.location;
-    let checkIn = form.value['check-in'];
-    let checkOut = form.value['check-out'];
+    const occupancy = form.value.adults + form.value.children;
+    const city = form.value.location;
+    const checkIn = form.value['check-in'];
+    const checkOut = form.value['check-out'];
     this.searchByAll(city, checkIn, checkOut, occupancy);
 
     this.isSearched.emit(true);

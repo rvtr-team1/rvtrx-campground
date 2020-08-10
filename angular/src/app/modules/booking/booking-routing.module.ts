@@ -19,6 +19,6 @@ const routes: Routes = [{ component: BookingComponent, path: '' }];
     FeaturedLodgingComponent,
   ],
   exports: [RouterModule],
-  imports: [FormsModule,CommonModule,RouterModule.forChild(routes)],
+  imports: [FormsModule, CommonModule, RouterModule.forChild(routes)],
 })
 export class BookingRoutingModule {}
