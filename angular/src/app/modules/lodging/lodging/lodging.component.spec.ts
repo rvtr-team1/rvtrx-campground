@@ -28,7 +28,7 @@ describe('LodgingHomeComponent', () => {
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: [],
+      bathrooms: 1,
     },
   ];
 
@@ -47,7 +47,7 @@ describe('LodgingHomeComponent', () => {
   }));
 
   /**
-   * tests the whole lodging-home component
+   * tests the whole lodging component
    */
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -70,12 +70,5 @@ describe('LodgingHomeComponent', () => {
     expect(info[1].textContent).toContain('testStreet');
     expect(info[2].textContent).toContain('testCity, testState, testCountry');
     expect(info[3].textContent).toContain('testCode');
-  });
-
-  /**
-   * tests the handle error function in lodging-home component
-   */
-  it('should handle errors', () => {
-    expect(component.handleError).toBeTruthy();
   });
 });
