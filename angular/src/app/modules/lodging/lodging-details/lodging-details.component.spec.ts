@@ -1,19 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { LodgingDetailsComponent } from './lodging-details.component';
 
-import { FeaturedLodgingComponent } from './featured-lodging.component';
-
-describe('FeaturedLodgingComponent', () => {
-  let component: FeaturedLodgingComponent;
-  let fixture: ComponentFixture<FeaturedLodgingComponent>;
+describe('LodgingComponent', () => {
+  let component: LodgingDetailsComponent;
+  let fixture: ComponentFixture<LodgingDetailsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FeaturedLodgingComponent],
+      declarations: [LodgingDetailsComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FeaturedLodgingComponent);
+    fixture = TestBed.createComponent(LodgingDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,5 +20,4 @@ describe('FeaturedLodgingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

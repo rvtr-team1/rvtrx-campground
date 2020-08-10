@@ -1,44 +1,44 @@
 <form #searchForm="ngForm" (ngSubmit) = "onSubmit(searchForm)" >
-	<div class="tile is-parent">
-	  <div class="tile is-child">
-		<div class="field">
-		  <label for="location" class="label">location</label>
-		  <div class="control">
-			<input class="input" id="location" name="location" placeholder="Add the destination" type="text" ngModel>
-		  </div>
-		</div>
-	  </div>
+    <div class="tile is-parent">
+      <div class="tile is-child">
+        <div class="field">
+          <label for="location" class="label">location</label>
+          <div class="control">
+            <input class="input" id="location" name="location" placeholder="Add the destination" type="text" ngModel>
+          </div>
+        </div>
+      </div>
 
-	  <div class="tile is-child">
-		<label for="check-in" class="label">check-in / check-out</label>
-		<div class="field has-addons">
-		  <div class="control is-expanded">
-			<input class="input" id="check-in" name="check-in" placeholder="Add the traveling date" type="date" ngModel>
-		  </div>
-		  <div class="control is-expanded">
-			<input class="input" id="check-out" name="check-out" placeholder="Add the returning date"
-			  type="date" ngModel>
-		  </div>
-		</div>
-	  </div>
+      <div class="tile is-child">
+        <label for="check-in" class="label">check-in / check-out</label>
+        <div class="field has-addons">
+          <div class="control is-expanded">
+            <input class="input" id="check-in" name="check-in" placeholder="Add the traveling date" type="date" ngModel>
+          </div>
+          <div class="control is-expanded">
+            <input class="input" id="check-out" name="check-out" placeholder="Add the returning date"
+              type="date" ngModel>
+          </div>
+        </div>
+      </div>
 
-	  <div class="tile is-child">
-		<label for="adults" class="label">guests</label>
-		<div class="field has-addons">
-		  <div class="control">
-			<input class="input" id="adults" name="adults" placeholder="Adults" type="number" ngModel>
-		  </div>
-		  <div class="control">
-			<input class="input" id="children" name="children" placeholder="Children" type="number" ngModel>
-		  </div>
-		  <div class="control">
-			<div class="buttons">
-				<button class="button is-primary" type="submit" value="Send">search</button>
-				<button class="button is-primary is-outlined" type="button">clear
-					search</button>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
+      <div class="tile is-child">
+        <label for="adults" class="label">guests</label>
+        <div class="field has-addons">
+          <div class="control">
+            <input class="input" id="adults" name="adults" placeholder="Adults" type="number" ngModel>
+          </div>
+          <div class="control">
+            <input class="input" id="children" name="children" placeholder="Children" type="number" ngModel>
+          </div>
+          <div class="control">
+            <div class="buttons">
+                <button class="button is-primary" type="submit" value="Send">search</button>
+                <button class="button is-primary is-outlined" type="button" (click)="isSearched.emit(false)">clear
+                    search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>

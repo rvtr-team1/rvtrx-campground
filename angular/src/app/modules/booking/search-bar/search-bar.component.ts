@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Booking } from '../../../data/booking.model';
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { Lodging } from '../../../data/lodging.model';
 import { LodgingService } from '../../../services/lodging/lodging.service';
+
 
 @Component({
   selector: 'uic-search-bar',
@@ -27,6 +28,8 @@ export class SearchBarComponent implements OnInit {
 
   searchResults: Lodging[] = [];
 
+  @Output() isSearched = new EventEmitter<boolean>();
+
   constructor(private bookingService: BookingService, private lodgingService: LodgingService) {}
 
   onSubmit(form: NgForm) {
@@ -34,8 +37,9 @@ export class SearchBarComponent implements OnInit {
     let city = form.value.location;
     let checkIn = form.value['check-in'];
     let checkOut = form.value['check-out'];
-
     this.searchByAll(city, checkIn, checkOut, occupancy);
+
+    this.isSearched.emit(true);
   }
 
   searchByAll(city: string, occupancy: number, checkIn: Date, checkOut: Date): void {

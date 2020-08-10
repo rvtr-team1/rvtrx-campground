@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Observable } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { map } from 'rxjs/operators';
-import { Review } from 'src/app/data/review.model';
 
 @Component({
   selector: 'uic-booking',
@@ -13,8 +10,7 @@ import { Review } from 'src/app/data/review.model';
 })
 export class BookingComponent implements OnInit {
   lodgings$: Observable<Lodging[]>;
-
-  isSearched: boolean = false;
+  isSearched = false;
 
   constructor(private readonly lodgingService: LodgingService) {}
 

@@ -5,7 +5,6 @@ import { Bedroom } from './bedroom.model';
  *
  * ```yaml
  * id: string;
- * bathrooms: Bathroom[];
  * bedroom: Bedroom;
  * name: string;
  * occupancy: number;

@@ -47,11 +47,11 @@ describe('SearchResultsComponent', () => {
           accountId: '1',
           hotelId: '1',
           comment: 'comment',
-          dateCreated: new Date(Date.now()),
+          dateCreated: new Date(),
           rating: 1,
         },
       ],
-      bathrooms: 1
+      bathrooms: 1,
     },
   ];
   const rating: boolean[] = [false, false, false, false, false, false, false, false, false, true];
