@@ -2,10 +2,10 @@
  * importing the necessary modules, services and models.
  */
 import { Component, OnInit } from '@angular/core';
-import { LodgingService } from '../../../../../src/app/services/lodging/lodging.service';
-import { Lodging } from '../../../../../src/app/data/lodging.model';
+import { LodgingService } from '../../../services/lodging/lodging.service';
+import { Lodging } from '../../..//data/lodging.model';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Rental } from '../../../../../src/app/data/rental.model';
+import { Rental } from '../../../data/rental.model';
 
 /**
  * Rental component metadata
