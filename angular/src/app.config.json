@@ -1,11 +1,7 @@
 {
   "api": {
     "account": "api.account.json",
-<<<<<<< HEAD
     "booking": "api.booking.json",
-=======
-    "booking": null,
->>>>>>> 0ceef984fb59fc1098df4c6f478af9bb249f26e3
     "lodging": "api.lodging.json",
     "monitoring": "https://ec61288c429544a6ad850b94de25004a@o388320.ingest.sentry.io/5229046"
   },
