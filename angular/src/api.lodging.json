@@ -16,54 +16,24 @@
       "longitude": "testLong"
     },
     "name": "Test",
+    "bathrooms": 1,
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
+        "status": "available",
+        "price": 100,
         "rentalUnit": {
           "id": "6",
           "bedroom": {
             "id": "1",
-            "count": "4",
+            "count": 4,
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
-        },
-        "availability": true
-      },
-      {
-        "id": "2",
-        "name": "testRental2",
-        "rentalUnit": {
-          "id": "2",
-          "bedroom": {
-            "id": "2",
-            "count": "4",
-            "type": "Twin Bed"
-          },
-          "name": "Triple Room",
-          "occupancy": "3",
-          "type": "testType"
-        },
-        "availability": false
-      },
-      {
-        "id": "3",
-        "name": "testRental3",
-        "rentalUnit": {
-          "id": "3",
-          "bedroom": {
-            "id": "3",
-            "count": "2",
-            "type": "Twin Bed"
-          },
-          "name": "Double Room",
-          "occupancy": "2",
-          "type": "testType"
-        },
-        "availability": true
+        }
       }
     ],
     "reviews": [
@@ -73,10 +43,9 @@
         "hotelId": "1",
         "comment": "comment",
         "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
-        "rating": "1"
+        "rating": 5
       }
-    ],
-    "bathrooms": 1
+    ]
   },
   {
     "id": "2",
@@ -95,54 +64,24 @@
       "longitude": "testLong"
     },
     "name": "Test2",
+    "bathrooms": 1,
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
+        "status": "available",
+        "price": 100,
         "rentalUnit": {
           "id": "6",
-          "bedrooms": {
+          "bedroom": {
             "id": "1",
-            "count": "4",
+            "count": 4,
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
-        },
-        "availability": true
-      },
-      {
-        "id": "2",
-        "name": "testRental2",
-        "rentalUnit": {
-          "id": "2",
-          "bedrooms": {
-            "id": "2",
-            "count": "4",
-            "type": "Twin Bed"
-          },
-          "name": "Triple Room",
-          "occupancy": "3",
-          "type": "testType"
-        },
-        "availability": false
-      },
-      {
-        "id": "3",
-        "name": "testRental3",
-        "rentalUnit": {
-          "id": "3",
-          "bedrooms": {
-            "id": "3",
-            "count": "2",
-            "type": "Twin Bed"
-          },
-          "name": "Double Room",
-          "occupancy": "2",
-          "type": "testType"
-        },
-        "availability": true
+        }
       }
     ],
     "reviews": [
@@ -152,10 +91,9 @@
         "hotelId": "1",
         "comment": "comment",
         "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
-        "rating": "1"
+        "rating": 4
       }
-    ],
-    "bathrooms": 2
+    ]
   },
   {
     "id": "3",
@@ -174,54 +112,25 @@
       "longitude": "testLong"
     },
     "name": "Test3",
+    "bathrooms": 1,
     "rentals": [
       {
         "id": "1",
         "name": "testRental",
+        "status": "available",
+        "price": 100,
+        "discountedPrice": 90,
         "rentalUnit": {
           "id": "6",
-          "bedrooms": {
+          "bedroom": {
             "id": "1",
-            "count": "4",
+            "count": 4,
             "type": "Queen Bed"
           },
           "name": "Family Room",
-          "occupancy": "5",
+          "occupancy": 5,
           "type": "testType"
-        },
-        "availability": true
-      },
-      {
-        "id": "2",
-        "name": "testRental2",
-        "rentalUnit": {
-          "id": "2",
-          "bedrooms": {
-            "id": "2",
-            "count": "4",
-            "type": "Twin Bed"
-          },
-          "name": "Triple Room",
-          "occupancy": "3",
-          "type": "testType"
-        },
-        "availability": false
-      },
-      {
-        "id": "3",
-        "name": "testRental3",
-        "rentalUnit": {
-          "id": "3",
-          "bedrooms": {
-            "id": "3",
-            "count": "2",
-            "type": "Twin Bed"
-          },
-          "name": "Double Room",
-          "occupancy": "2",
-          "type": "testType"
-        },
-        "availability": true
+        }
       }
     ],
     "reviews": [
@@ -231,9 +140,8 @@
         "hotelId": "1",
         "comment": "comment",
         "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
-        "rating": "1"
+        "rating": 6
       }
-    ],
-    "bathrooms": 3
+    ]
   }
 ]

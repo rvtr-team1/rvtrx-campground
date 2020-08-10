@@ -36,7 +36,6 @@ describe('AccountBookingComponent', () => {
           occupancy: 2,
           type: 'string',
         },
-        availability: true
       },
     ],
     stay: {
@@ -46,7 +45,6 @@ describe('AccountBookingComponent', () => {
       dateCreated: new Date(),
       dateModified: new Date(),
     },
-    status: 'string',
   };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;

@@ -26,10 +26,10 @@ describe('RentalComponent', () => {
         locale: 'testLocale',
         longitude: 'testLong',
       },
+      bathrooms: 1,
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: 1,
     },
   ];
 
@@ -57,10 +57,6 @@ describe('RentalComponent', () => {
     expect(component.lodgings![0].rentals).toEqual(lodgings[0].rentals);
   });
 
-  it('should get handleError', () => {
-    expect(component.handleError).toBeTruthy();
-  });
-
   /**
    * tests the handle error function to see if a 0 status code is sent it responds with a
    * unable to connect to server message
@@ -72,7 +68,6 @@ describe('RentalComponent', () => {
       statusText: 'unable to connect to server',
     });
 
-    component.handleError(errorMsg);
     expect(component.errorMessage).toBeTruthy();
     expect(component.errorMessage).toEqual('Unable to connect to server');
   });
@@ -87,7 +82,6 @@ describe('RentalComponent', () => {
       statusText: 'Not Found',
     });
 
-    component.handleError(errorMsg);
     expect(component.errorMessage).toBeTruthy();
     expect(component.errorMessage).toEqual('404');
   });
