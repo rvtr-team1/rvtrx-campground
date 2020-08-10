@@ -91,8 +91,8 @@ jobs:
         working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: npm_scan
         run: npm run scan --
-          -Dsonar.organization=${{ github.event.organization }}
-          -Dsonar.projectKey=${{ github.event.organization }}_${{ github.event.repository.name }}
+          -Dsonar.organization=${{ github.event.pull_request.base.user.login }}
+          -Dsonar.projectKey=${{ github.event.pull_request.base.user.login }}_${{ github.event.pull_request.base.repo.name }}
         working-directory: ${{ env.WORKING_DIRECTORY }}
 
 name: build
