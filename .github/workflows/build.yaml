@@ -20,8 +20,7 @@ jobs:
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: prettier
-        run: npx prettier --check angular
-        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: npx prettier --check ${{ env.WORKING_DIRECTORY }}
       - name: npm_lint
         run: npm run lint
         working-directory: ${{ env.WORKING_DIRECTORY }}
