@@ -24,9 +24,6 @@ export class LodgingComponent implements OnInit {
    * get() in lodging service component
    */
   ngOnInit(): void {
-    this.lodgingService.get().subscribe(
-      (data) => (this.lodgings = data),
-    );
+    this.lodgingService.get().subscribe((data) => (this.lodgings = data));
   }
-
 }
