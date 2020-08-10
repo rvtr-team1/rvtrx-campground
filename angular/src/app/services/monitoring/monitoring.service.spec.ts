@@ -11,14 +11,28 @@ describe('MonitorService', () => {
     get() {
       const config: Config = {
         api: {
-          account: null,
-          booking: null,
-          lodging: null,
-          monitoring: null,
+          account: '',
+          booking: '',
+          lodging: '',
+          monitoring: '',
         },
-        navigation: null,
+        navigation: {
+          footer: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+          header: [
+            {
+              icon: 'string',
+              text: 'string',
+              url: 'string',
+            },
+          ],
+        },
       };
-
       return scheduled([config], asyncScheduler);
     },
   };
