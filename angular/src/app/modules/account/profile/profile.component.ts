@@ -17,4 +17,5 @@ export class ProfileComponent implements OnInit {
     this.editingservice.register({ profiles: this.profiles });
   }
   constructor(private readonly editingservice: AccountEditingService) {}
+
 }

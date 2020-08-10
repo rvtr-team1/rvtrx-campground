@@ -1,9 +1,23 @@
-<div (click)="editMode=true">
+
+<div (click)="editMode=true" class="editable level">
   <ng-content *ngIf='!editMode' select="*"></ng-content>
-  <input *ngIf="editMode" class="input is-rounded swing-in-left-bck " ngmodel type='text' [value]='data'
-    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-    (focusout)="onFocusOut($event)" [pattern]="pattern">
-  <div *ngIf="error" class="has-text-danger">
-    <p>{{ErrorMessage}}</p>
-  </div>
+  
+  <input *ngIf="editMode" class="input level-item is-rounded swing-in-left-bck " name="userInput" ngModel type='text' [value]='data'
+    title="Edit and press Enter"
+    (keydown.enter)="onFocusOut($event)" [pattern]="pattern" #userInput="ngModel" placeholder={{data}}>
+  
+  
+  <span *ngIf="error" class="icon has-text-danger level-item">
+    <i class="fas fa-ban" title={{ErrorMessage}}></i>
+  </span>
+  
+  <span *ngIf="valid" class="icon has-text-success level-item">
+    <i class="fas fa-check-square" title="Field was successfully edited"></i>
+  </span>
+  
 </div>
+
+
+
+
+

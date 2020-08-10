@@ -14,7 +14,7 @@ import { AccountEditingService } from '../services/account.editing.service';
   selector: 'uic-account',
   templateUrl: './account.component.html',
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent implements OnInit { 
   account$: Observable<Account>;
   address$: Observable<Address>;
   bookings$: Observable<Booking[]>;
