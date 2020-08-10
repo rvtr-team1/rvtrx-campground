@@ -7,7 +7,7 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./spotlight.component.scss'],
 })
 export class SpotlightComponent implements OnInit {
-  @Input() lodgings: Lodging[];
+  @Input() lodgings: Lodging[] | null;
 
   selectedLodging: Lodging;
 
@@ -15,12 +15,14 @@ export class SpotlightComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  setSpotlight(lodgings: Lodging[]): void {
+  setSpotlight(lodgings: Lodging[] | null): void {
     let temp = 0;
-    for (let i = 0; i < lodgings.length; i++) {
-      if (lodgings[i].rentals.length > temp) {
-        temp = lodgings[i].rentals.length;
-        this.selectedLodging = lodgings[i];
+    if (lodgings){
+      for (let i = 0; i < lodgings.length; i++) {
+        if (lodgings[i].rentals.length > temp) {
+          temp = lodgings[i].rentals.length;
+          this.selectedLodging = lodgings[i];
+        }
       }
     }
   }

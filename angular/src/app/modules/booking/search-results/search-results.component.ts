@@ -7,7 +7,7 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() lodgings: Lodging[];
+  @Input() lodgings: Lodging[] | null;
 
   query: string = 'test query';
   constructor() {}
