@@ -8,31 +8,29 @@ describe('RentalComponent', () => {
   let component: RentalComponent;
   let fixture: ComponentFixture<RentalComponent>;
 
-  const lodgings: Lodging[] =
-    [
-      {
+  const lodgings: Lodging[] = [
+    {
+      id: '1',
+      location: {
         id: '1',
-        location: {
+        address: {
           id: '1',
-          address: {
-            id: '1',
-            city: 'testCity',
-            country: 'testCountry',
-            postalCode: 'testCode',
-            stateProvince: 'testState',
-            street: 'testStreet'
-          },
-          latitude: 'testLat',
-          locale: 'testLocale',
-          longitude: 'testLong'
+          city: 'testCity',
+          country: 'testCountry',
+          postalCode: 'testCode',
+          stateProvince: 'testState',
+          street: 'testStreet',
         },
-        bathrooms: 1,
-        name: 'test',
-        rentals: [],
-        reviews: [],
-      }
-    ];
-
+        latitude: 'testLat',
+        locale: 'testLocale',
+        longitude: 'testLong',
+      },
+      bathrooms: 1,
+      name: 'test',
+      rentals: [],
+      reviews: [],
+    },
+  ];
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
