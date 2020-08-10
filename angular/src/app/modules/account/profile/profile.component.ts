@@ -6,9 +6,15 @@ import { AccountEditingService } from '../services/account.editing.service';
   selector: 'uic-profile',
   templateUrl: './profile.component.html',
 })
+/**
+ * Class representing a user's profile information
+ */
 export class ProfileComponent implements OnInit {
   @Input() profiles: Profile[];
 
+  /**
+   * Updates the _Editing Service_ with the new profile information
+   */
   edited() {
     this.editingservice.update({ profiles: this.profiles });
   }
@@ -16,6 +22,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.editingservice.register({ profiles: this.profiles });
   }
+  /**
+   * Represents the _Profile Component_ 'constructor' method
+   * @param editingservice AccountEditingService
+   */
   constructor(private readonly editingservice: AccountEditingService) {}
-
 }
