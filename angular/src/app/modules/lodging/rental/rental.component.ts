@@ -49,17 +49,17 @@ export class RentalComponent implements OnInit {
    * the lodgings Rental property.
    */
   private loadLodgings(): void {
-    this.lodgingService
-      .get()
-      .toPromise()
-      .then((data) => (this.lodgings = data))
-      .then(() => this.SetRentals());
+    this.lodgingService.get()
+    .subscribe((data) => {
+      this.lodgings = data;
+      this.setRentals();
+    });
   }
 
   /**
    * sets the rentals property to the lodging's rentals property
    */
-  public SetRentals(): void {
+  public setRentals(): void {
     if (this.lodgings) {
       this.rentals = this.lodgings[0].rentals;
       this.CountAvailableRooms();
