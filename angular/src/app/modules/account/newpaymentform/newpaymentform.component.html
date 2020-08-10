@@ -1,0 +1,63 @@
+<button class="button is-primary" (click)="showModal = !showModal">Add a payment</button>
+<div *ngIf="showModal">
+  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit();">
+    <div class="modal is-active" id="page-modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="row">
+          <div class="col-75">
+            <div class="container is-fluid">
+              <div class="row">
+                <div class="col-50">
+                  <label for="cname">Bank</label>
+                  <input
+                    type="text"
+                    id="cname"
+                    name="cardname"
+                    placeholder="ie. Amex"
+                    formControlName="Bank"
+                  />
+                  <div
+                    *ngIf="Bank.invalid && (Bank.touched || Bank.dirty)"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="Bank.errors.required" class="lengthError">Bank is required</div>
+                  </div>
+                  <label for="ccnum">Credit card number</label>
+                  <input
+                    type="text"
+                    id="ccnum"
+                    class="form-control"
+                    placeholder="1111-2222-3333-4444"
+                    formControlName="CCNumber"
+                    required
+                    maxlength="16"
+                  />
+                  <div
+                    *ngIf="CCNumber.invalid && (CCNumber.dirty || CCNumber.touched)"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="CCNumber!.errors.required" class="lengthError">
+                      Credit card number is required
+                    </div>
+                    <div *ngIf="CCNumber!.errors.minlength" class="lengthError">
+                      Credit Card must be 16 characters
+                    </div>
+                  </div>
+
+                  <label for="expyear">Exp Date</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="2018" formControlName="ExpDate" />
+                </div>
+              </div>
+              <div class="level">
+                <button class="button is-primary level-item" type="submit">Add Card</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="modal-close is-large level-right" aria-label="close" (click)="showModal = !showModal"></button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
