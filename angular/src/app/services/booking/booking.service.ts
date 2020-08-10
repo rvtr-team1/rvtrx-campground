@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Booking } from '../../data/booking.model';
+import { Rental } from 'src/app/data/rental.model';
 
 @Injectable({
   providedIn: 'root',
@@ -59,4 +60,7 @@ export class BookingService {
   put(booking: Booking): Observable<Booking> {
     return this.apiUrl$.pipe(concatMap((url) => this.http.put<Booking>(url, booking)));
   }
+
+  
+
 }

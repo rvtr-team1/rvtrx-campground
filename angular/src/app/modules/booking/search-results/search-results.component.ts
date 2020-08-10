@@ -7,12 +7,28 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent implements OnInit {
-  @Input() lodgings: Lodging[];
+  @Input() lodgings: Lodging[] | null;
+  query = 'test query';
 
-  query: string = 'test query';
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.lodgings);
+  ngOnInit(): void {}
+
+  averageRating(lodging: Lodging) {
+    const maxRating = 10;
+
+    const ratings = lodging.reviews.map((review) => review.rating);
+    const ratingSum = ratings.reduce((a, b) => a + b, 0);
+
+    const stars = new Array<boolean>(maxRating);
+
+    const avgRating = Math.floor(ratingSum / ratings.length);
+
+    stars.fill(false, 0, maxRating - avgRating);
+    stars.fill(true, maxRating - avgRating, maxRating);
+
+    return stars;
   }
+
+  makeReservation() {}
 }

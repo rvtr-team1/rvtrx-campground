@@ -2,7 +2,7 @@
   {
     "id": "1",
     "accountId": "100",
-    "lodgingId": "1",
+    "lodgingId": "2",
     "guests": [
       {
         "id": "100",
@@ -27,18 +27,18 @@
     ],
     "rentals": [
       {
-        "id": "1",
+        "id": "2",
         "name": "Unit A",
         "rentalUnit": {
-          "id": "1",
+          "id": "3",
           "bathrooms": [
             {
-              "id": "1",
-              "fixture": 1
+              "id": "4",
+              "fixture": "1"
             },
             {
               "id": "2",
-              "fixture": 2
+              "fixture": "2"
             }
           ],
           "bedrooms": [
@@ -55,17 +55,16 @@
           ],
           "name": "Unit A",
           "occupancy": 4,
-          "type": ""
+          "type": "family"
         }
       }
     ],
     "stay": {
       "id": "1",
-      "checkIn": "2019-01-16",
-      "checkOut": "2019-01-17",
-      "dateCreated": "2019-01-01",
+      "checkIn": "2020-08-6",
+      "checkOut": "2020-08-17",
+      "dateCreated": "2020-08-01",
       "dateModified": ""
-    },
-    "status": "Paid"
+    }
   }
 ]

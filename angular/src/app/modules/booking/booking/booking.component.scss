@@ -1,11 +1,10 @@
 .feature-image {
-  -webkit-box-shadow: 0px 20px 35px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 20px 35px 0 rgba(0, 0, 0, 0.3);
+  $feature-shadow: 0 20px 35px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: $feature-shadow;
+  box-shadow: $feature-shadow;
 }
 
 #clear-search {
   margin-top: 1rem;
   display: inline-flex;
-  
-  
 }
