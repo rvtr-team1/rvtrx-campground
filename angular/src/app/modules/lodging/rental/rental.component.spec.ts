@@ -64,7 +64,7 @@ describe('RentalComponent', () => {
   });
 
   it('should do nothing if rental is null', () => {
-    component.lodgings![0].rentals = [];
-    expect(component.rentals!.length).toEqual(0);
+    component.rentals = null;
+    expect(component.rentals).toBeFalsy();
   });
 });
