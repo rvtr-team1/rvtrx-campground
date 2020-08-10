@@ -50,7 +50,11 @@ describe('RentalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get rental', () => {
+  it('should get lodgings', () => {
     expect(component.lodgings).toBeTruthy();
+  });
+
+  it('should get rentals from lodgings', () => {
+    expect(component.rentals).toBeTruthy();
   });
 });
