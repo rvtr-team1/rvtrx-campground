@@ -71,5 +71,4 @@ describe('LodgingComponent', () => {
     expect(info[2].textContent).toContain('testCity, testState, testCountry');
     expect(info[3].textContent).toContain('testCode');
   });
-
 });
