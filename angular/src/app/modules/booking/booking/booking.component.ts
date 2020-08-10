@@ -7,10 +7,7 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 @Component({
   selector: 'uic-booking',
   templateUrl: './booking.component.html',
-<<<<<<< HEAD
   styleUrls: ['./booking.component.scss'],
-=======
->>>>>>> 1836d848ecf12dc65851e133924e4bbaffc16c39
 })
 export class BookingComponent implements OnInit {
   lodgings$: Observable<Lodging[]>;
