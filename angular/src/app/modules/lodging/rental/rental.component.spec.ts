@@ -57,14 +57,4 @@ describe('RentalComponent', () => {
   it('should get rentals from lodgings', () => {
     expect(component.rentals).toBeTruthy();
   });
-
-  it('should do nothing if lodgings is null', () => {
-    component.lodgings = null;
-    expect(component.lodgings).toBeFalsy();
-  });
-
-  it('should do nothing if rental is null', () => {
-    component.rentals = null;
-    expect(component.rentals).toBeFalsy();
-  });
 });
