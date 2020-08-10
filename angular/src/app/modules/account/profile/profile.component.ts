@@ -12,7 +12,6 @@ export class ProfileComponent implements OnInit {
   edited() {
     this.editingservice.update({ profiles: this.profiles });
   }
-
   ngOnInit(): void {
     this.editingservice.register({ profiles: this.profiles });
   }

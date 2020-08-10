@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Payment } from '../../../data/payment.model';
+import { EditingService } from '../services/abstract.editing.service';
+import { AccountEditingService } from '../services/account.editing.service';
 
 @Component({
   selector: 'uic-payment',
@@ -9,9 +11,11 @@ export class PaymentComponent implements OnInit {
   @Input() payments: Payment[];
   @Output() paymentsEdited = new EventEmitter();
 
-  constructor() {}
+  constructor(private editingService: AccountEditingService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.editingService.register({ payments: this.payments });
+  }
 
   addCard(newCard: Payment) {
     this.payments.push(newCard);

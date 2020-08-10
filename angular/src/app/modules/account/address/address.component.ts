@@ -12,10 +12,10 @@ export class AddressComponent implements OnInit {
   @Output() addressEdited = new EventEmitter();
 
   ngOnInit(): void {
-    this.editingservice.register({ Address: this.address });
+    this.editingservice.register({ address: this.address });
   }
 
   edited() {
-    this.editingservice.update({ Address: this.address });
+    this.editingservice.update({ address: this.address });
   }
 }

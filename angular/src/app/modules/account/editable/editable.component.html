@@ -1,7 +1,6 @@
 <div (click)="editMode=true">
   <ng-content *ngIf='!editMode' select="*"></ng-content>
   <input *ngIf="editMode" class="input is-rounded swing-in-left-bck " ngmodel type='text' [value]='data'
-    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
     (focusout)="onFocusOut($event)" [pattern]="pattern">
   <div *ngIf="error" class="has-text-danger">
     <p>{{ErrorMessage}}</p>

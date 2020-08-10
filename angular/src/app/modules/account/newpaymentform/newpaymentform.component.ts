@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Payment } from '../../../data/payment.model';
-
+import { AccountService } from '../../../services/account/account.service';
 @Component({
   selector: 'uic-newpaymentform',
   templateUrl: './newpaymentform.component.html',
@@ -19,7 +19,7 @@ export class NewpaymentformComponent implements OnInit {
     ExpDate: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private readonly accountService: AccountService) {}
   onSubmit() {
     this.showModal = !this.showModal;
     const payload = {
