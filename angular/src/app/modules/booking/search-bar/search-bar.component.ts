@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
@@ -9,6 +9,7 @@ import { Booking } from '../../../data/booking.model';
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { Lodging } from '../../../data/lodging.model';
 import { LodgingService } from '../../../services/lodging/lodging.service';
+
 
 @Component({
   selector: 'uic-search-bar',
@@ -27,32 +28,29 @@ export class SearchBarComponent implements OnInit {
   lodgingRentals: Rental[] =[];
 
   searchResults: Lodging[] = [];
-  isSearched: Boolean = false;
+  @Output() isSearched = new EventEmitter<boolean>();
 
   constructor(
     private bookingService: BookingService,
     private lodgingService: LodgingService
   ) {}
 
-    
-  
-
   onSubmit(form: NgForm) {
     console.log('Your form data : ', form.value );
 
-    let occupancy = form.value.adults + form.value.children;
+    // let occupancy = form.value.adults + form.value.children;
 
     // this.searchByCityAndOccupancy(form.value.location, occupancy);
-    let city = form.value.location;
-    let checkIn = form.value["check-in"];
-    let checkOut = form.value["check-out"];
+    // let city = form.value.location;
+    // let checkIn = form.value["check-in"];
+    // let checkOut = form.value["check-out"];
     
     // this.searchByDate(checkIn, checkOut);
 
-    this.searchByAll(city, checkIn, checkOut, occupancy);
+    // this.searchByAll(city, checkIn, checkOut, occupancy);
 
-
-    this.isSearched = true;
+    debugger;
+    this.isSearched.emit(true);
   }
   
   

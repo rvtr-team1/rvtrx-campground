@@ -13,7 +13,6 @@ import { map } from 'rxjs/operators';
 })
 export class BookingComponent implements OnInit {
   lodgings$: Observable<Lodging[]>;
-
   isSearched: boolean = false;
 
   constructor(private lodgingService: LodgingService) {}
