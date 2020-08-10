@@ -14,7 +14,7 @@ export class LodgingComponent implements OnInit {
   lodgings: Lodging[] | null = null;
 
   /**
-   * represents lodging-home component's constructor
+   * represents lodging component's constructor
    * @param lodgingService the lodging service
    */
   constructor(private readonly lodgingService: LodgingService) {}

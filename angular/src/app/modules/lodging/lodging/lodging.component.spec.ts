@@ -47,7 +47,7 @@ describe('LodgingHomeComponent', () => {
   }));
 
   /**
-   * tests the whole lodging-home component
+   * tests the whole lodging component
    */
   it('should create', () => {
     expect(component).toBeTruthy();
