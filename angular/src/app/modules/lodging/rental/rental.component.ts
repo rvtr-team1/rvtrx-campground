@@ -32,6 +32,8 @@ export class RentalComponent implements OnInit {
   familyRoomCount = 0;
   tripleRoomCount = 0;
   doubleRoomCount = 0;
+  errorMessage: string;
+  isLoaded: boolean = false;
 
   /**
    * @param lodgingService
