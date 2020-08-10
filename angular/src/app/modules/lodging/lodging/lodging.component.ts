@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { Lodging } from 'src/app/data/lodging.model';
-import { HttpErrorResponse } from '@angular/common/http';
+import { LodgingService } from '../../../services/lodging/lodging.service';
+import { Lodging } from '../../../data/lodging.model';
 
 @Component({
   selector: 'uic-lodging',
@@ -27,21 +26,7 @@ export class LodgingComponent implements OnInit {
   ngOnInit(): void {
     this.lodgingService.get().subscribe(
       (data) => (this.lodgings = data),
-      (error) => this.handleError(error)
     );
   }
 
-  /**
-   * handles errors that occur due to unsuccessful Http responses
-   *
-   * @param error error message
-   */
-  handleError(error: HttpErrorResponse): void {
-    let message: string;
-    if (error.status === 0) {
-      message = 'Unable to connect to server';
-    } else {
-      message = error.status.toString();
-    }
-  }
 }
