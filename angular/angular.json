@@ -20,7 +20,10 @@
             "aot": true,
             "assets": [
               "src/api.account.json",
+<<<<<<< HEAD
               "src/api.booking.json",
+=======
+>>>>>>> 0ceef984fb59fc1098df4c6f478af9bb249f26e3
               "src/api.lodging.json",
               "src/app.config.json",
               "src/favicon.ico",
