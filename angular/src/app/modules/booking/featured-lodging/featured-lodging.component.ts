@@ -14,7 +14,7 @@ export class FeaturedLodgingComponent implements OnInit {
   ngOnInit(): void {}
 
   setFeaturedLodgings(): void {
-    let lodgings: Lodging[] = new Array(6);
+    const lodgings: Lodging[] = new Array(6);
 
     if (this.featuredLodgings) {
       for (let index = 0; index < lodgings.length; index++) {

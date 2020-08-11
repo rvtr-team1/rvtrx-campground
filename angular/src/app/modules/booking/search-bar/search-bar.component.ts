@@ -21,7 +21,7 @@ export class SearchBarComponent implements OnInit {
   @Output() isSearched = new EventEmitter<boolean>();
 
   constructor(private bookingService: BookingService, private lodgingService: LodgingService) {}
-
+  
   ngOnInit(): void {
     this.lodgings$ = this.lodgingService.get();
     this.bookings$ = this.bookingService.get();
