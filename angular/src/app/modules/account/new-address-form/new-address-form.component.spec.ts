@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormControl, FormsModule } from '@angular/forms';
-import { NewaddressformComponent } from './newaddressform.component';
+import { NewAddressformComponent } from './new-address-form.component';
 import { Address } from '../../../data/address.model';
 describe('NewaddressformComponent', () => {
-  let component: NewaddressformComponent;
-  let fixture: ComponentFixture<NewaddressformComponent>;
+  let component: NewAddressformComponent;
+  let fixture: ComponentFixture<NewAddressformComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NewaddressformComponent],
+      declarations: [NewAddressformComponent],
       imports: [FormsModule],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewaddressformComponent);
+    fixture = TestBed.createComponent(NewAddressformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -38,7 +38,7 @@ describe('NewaddressformComponent', () => {
   });
 
   it('it should display the modal on button click', () => {
-    fixture = TestBed.createComponent(NewaddressformComponent);
+    fixture = TestBed.createComponent(NewAddressformComponent);
     fixture.whenStable().then(() => {
       const button = fixture.debugElement.query(By.css('button'));
       fixture.detectChanges();
@@ -55,7 +55,7 @@ describe('NewaddressformComponent', () => {
     id: '';
   };
   it('It should emit a payload on submit', () => {
-    const newform = new NewaddressformComponent();
+    const newform = new NewAddressformComponent();
     newform.newAddress.subscribe((e: Address) => {
       expect(e as address).toBeTrue();
     });

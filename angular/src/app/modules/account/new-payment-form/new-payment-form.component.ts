@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Payment } from '../../../data/payment.model';
 
 @Component({
-  selector: 'uic-newpaymentform',
-  templateUrl: './newpaymentform.component.html',
-  styleUrls: ['./newpaymentform.component.scss'],
+  selector: 'uic-new-payment-form',
+  templateUrl: './new-payment-form.component.html',
+  styleUrls: ['./new-payment-form.component.scss'],
 })
 export class NewPaymentFormComponent implements OnInit {
   showModal = false;
