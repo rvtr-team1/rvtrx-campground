@@ -18,26 +18,26 @@ export class NewPaymentFormComponent implements OnInit {
   @Output() newPayment: EventEmitter<Payment> = new EventEmitter<Payment>();
   /**
    * The FormGroup represents the data collected from the user to add a payment
-   * @param {FormControl} CCNumber - The number for the Credit Card w/ validators
+   * @param {FormControl} ccNumber - The number for the Credit Card w/ validators
    */
-  PaymentForm = new FormGroup({
-    CCNumber: new FormControl('', [
+  paymentForm = new FormGroup({
+    ccNumber: new FormControl('', [
       Validators.required,
       Validators.pattern(/\d{4}-?\d{4}-?\d{4}-?\d{4}$/),
     ]),
     /**
-     * @param {FormControl} ExpDate - The Expiration date for the Credit Card w/validators
+     * @param {FormControl} expDate - The Expiration date for the Credit Card w/validators
      */
-    ExpDate: new FormControl('', [
+    expDate: new FormControl('', [
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(5),
       Validators.pattern(/^(0[1-9]|1[0-2])\/?(2[0-9])$/),
     ]),
     /**
-     * @param {FormControl} SecurityNumber - The CVV for the added Credit Card w/ validators
+     * @param {FormControl} securityNumber - The CVV for the added Credit Card w/ validators
      */
-    SecurityNumber: new FormControl('', [
+    securityNumber: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(3),
@@ -55,20 +55,20 @@ export class NewPaymentFormComponent implements OnInit {
   /**
    * @function get - retrieves CCNumber Form Control
    */
-  get CCNumber() {
-    return this.PaymentForm.get('CCNumber') as FormControl;
+  get ccNumber() {
+    return this.paymentForm.get('ccNumber') as FormControl;
   }
   /**
    * @function get - retrieves ExpDate Form Control
    */
-  get ExpDate() {
-    return this.PaymentForm.get('ExpDate') as FormControl;
+  get expDate() {
+    return this.paymentForm.get('expDate') as FormControl;
   }
   /**
    * @function get - retrieves the SecurityNumer Form Control
    */
-  get SecurityNumber() {
-    return this.PaymentForm.get('SecurityNumber') as FormControl;
+  get securityNumber() {
+    return this.paymentForm.get('securityNumber') as FormControl;
   }
   constructor() {}
   /**
@@ -81,9 +81,9 @@ export class NewPaymentFormComponent implements OnInit {
   onSubmit() {
     this.showModal = !this.showModal;
     const payload = {
-      cardExpirationDate: new Date(this.PaymentForm.value.ExpDate),
+      cardExpirationDate: new Date(this.paymentForm.value.expDate),
       cardName: '',
-      cardNumber: this.PaymentForm.value.CCNumber,
+      cardNumber: this.paymentForm.value.ccNumber,
       id: '',
     } as Payment;
     this.newPayment.emit(payload);

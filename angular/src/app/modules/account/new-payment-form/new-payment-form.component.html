@@ -4,7 +4,7 @@
   </div>
 </div>
 <div *ngIf="showModal">
-  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
     <div class="modal is-active" id="page-modal">
       <div class="modal-background"></div>
       <div class="modal-content">
@@ -21,11 +21,11 @@
                       name="cardnumber"
                       class="input is-medium level-item"
                       placeholder="1111-2222-3333-4444"
-                      formControlName="CCNumber"
+                      formControlName="ccNumber"
                     />
                     <span class="level-item">
                       <i
-                        *ngIf="CCNumber.invalid && (CCNumber.touched || CCNumber.dirty)"
+                        *ngIf="ccNumber.invalid && (ccNumber.touched || ccNumber.dirty)"
                         class="level-item fas fa-ban has-text-danger"
                         title="Please enter valid CC info"
                         aria-hidden="true"
@@ -40,18 +40,18 @@
                       name="expyear"
                       class="input is-medium level-item"
                       placeholder="MM/YY"
-                      formControlName="ExpDate"
+                      formControlName="expDate"
                     />
                     <span class="level-item">
                       <i
-                        *ngIf="ExpDate.invalid && (ExpDate.touched || ExpDate.dirty)"
+                        *ngIf="expDate.invalid && (expDate.touched || expDate.dirty)"
                         class="level-item fas fa-ban has-text-danger"
                         title="Please enter valid CC info: MM/YY"
                         aria-hidden="true"
                       ></i>
                     </span>
                   </div>
-                  <label for="Securty Number">Security Number</label>
+                  <label for="Security Number">Security Number</label>
                   <div class="level is-flex">
                     <input
                       type="number"
@@ -59,16 +59,16 @@
                       name="secnumber"
                       class="input is-medium level-item"
                       placeholder="ex: 111"
-                      formControlName="SecurityNumber"
+                      formControlName="securityNumber"
                     />
                     <span class="level-item">
                       <i
                         *ngIf="
-                          SecurityNumber.invalid && (SecurityNumber.touched || SecurityNumber.dirty)
+                          securityNumber.invalid && (securityNumber.touched || securityNumber.dirty)
                         "
                         class="level-item fas fa-ban has-text-danger"
                         aria-hidden="true"
-                        title="Please enter valid CC Securty number: 111"
+                        title="Please enter valid CC Security number: 111"
                       ></i>
                     </span>
                   </div>

@@ -47,23 +47,23 @@ describe('NewpaymentformComponent', () => {
     });
     const controls = [
       {
-        control: 'CCNumber',
+        control: 'ccNumber',
         InitialValue: '1234',
         ProperValue: '1234-1234-2134-1234',
       },
       {
-        control: 'ExpDate',
+        control: 'expDate',
         InitialValue: '1111',
         ProperValue: '08/24',
       },
       {
-        control: 'SecurityNumber',
+        control: 'securityNumber',
         InitialValue: '1111',
         ProperValue: '111',
       },
     ];
     controls.forEach((el) => {
-      const field = newform.PaymentForm.controls[el.control];
+      const field = newform.paymentForm.controls[el.control];
       field.setValue(el.InitialValue);
       expect(field.valid).toBeFalse();
       field.setValue(el.ProperValue);
@@ -77,7 +77,7 @@ describe('NewpaymentformComponent', () => {
    */
 
   it('should return form controls from getters', () => {
-    const getters = [component.CCNumber, component.ExpDate, component.SecurityNumber];
+    const getters = [component.ccNumber, component.expDate, component.securityNumber];
     for (const g of getters) {
       expect(g instanceof FormControl).toBeTruthy();
     }
