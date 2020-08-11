@@ -52,33 +52,7 @@ describe('RentalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get rental', () => {
-    if (component.lodgings !== null) {
-      expect(component.lodgings[0].rentals).toBeTruthy();
-      expect(component.lodgings[0].rentals).toEqual(lodgings[0].rentals);
-    }
-  });
-
-  it('should have valid values', () => {
-    if (component.lodgings !== null) {
-      expect(component.lodgings[0].location.address).toEqual(lodgings[0].location.address);
-      expect(component.lodgings[0].location.latitude).toEqual(lodgings[0].location.latitude);
-      expect(component.lodgings[0].location.longitude).toEqual(lodgings[0].location.longitude);
-      expect(component.lodgings[0].location.locale).toEqual(lodgings[0].location.locale);
-      expect(component.lodgings[0].name).toEqual(lodgings[0].name);
-    }
-  });
-
-  it('should ensure Rental Component public methods are called', () => {
-    rentalComponentSpy.SetRentals();
-    expect(rentalComponentSpy.SetRentals).toHaveBeenCalledTimes(1);
-  });
-
-  it('should get lodgings', () => {
-    expect(component.lodgings).toBeTruthy();
-  });
-
-  it('should get rentals from lodgings', () => {
-    expect(component.rentals).toBeTruthy();
+  it('should get rentalUnits', () => {
+    expect(component.rentalUnits).toBeTruthy();
   });
 });
