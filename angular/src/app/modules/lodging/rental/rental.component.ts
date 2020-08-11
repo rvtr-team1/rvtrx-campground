@@ -2,10 +2,9 @@
  * importing the necessary modules, services and models.
  */
 import { Component, OnInit } from '@angular/core';
-import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { Lodging } from 'src/app/data/lodging.model';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Rental } from 'src/app/data/rental.model';
+import { LodgingService } from '../../../services/lodging/lodging.service';
+import { Lodging } from '../../../data/lodging.model';
+import { RentalUnit } from '../../../data/rental-unit.model';
 
 /**
  * Rental component metadata
@@ -21,18 +20,12 @@ import { Rental } from 'src/app/data/rental.model';
  */
 export class RentalComponent implements OnInit {
   /**
-   * lodgings property
-   * rentals property
-   * setting familyRoomCount to 0
-   * setting tripleRoomCount to 0
-   * setting doubleRoomCount to 0
+   * fields of the component
+   * rentalUnits: array of RentalUnits
+   * availabilityCount: maps number of available rentals to rentalUnit.id
    */
-  lodgings: Lodging[] | null = null;
-  rentals: Rental[] | null = null;
-  availabilityCount: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-  familyRoomCount = 0;
-  tripleRoomCount = 0;
-  doubleRoomCount = 0;
+  rentalUnits: RentalUnit[] = [];
+  availabilityCount = new Map<string, number>();
 
   /**
    * @param lodgingService
@@ -46,54 +39,39 @@ export class RentalComponent implements OnInit {
 
   /**
    * uses a lodgingService to make a http get request to get
-   * lodging information. It then sets the rentals variable to
-   * the lodgings Rental property.
+   * lodging information then sends the lodgings to setRentalUnits method
    */
   private loadLodgings(): void {
-    this.lodgingService
-      .get()
-      .toPromise()
-      .then((data) => (this.lodgings = data))
-      .then(() => this.SetRentals())
-      .catch((error) => this.handleError(error));
+    this.lodgingService.get().subscribe((lodgings) => {
+      this.setRentalUnits(lodgings);
+    });
   }
 
   /**
-   * sets the rentals property to the lodging's rentals property
+   * populates rentalUnits array and keeps track of the availability of each rental
    */
-  public SetRentals(): void {
-    if (this.lodgings) {
-      this.rentals = this.lodgings[0].rentals;
-      this.CountAvailableRooms();
-    }
-  }
-
-  /**
-   * Counts the available rooms based on the room type in each rental.
-   */
-  private CountAvailableRooms(): void {
-    if (this.rentals) {
-      this.rentals.forEach((element) => {
-        if (element.status === 'available') {
-          this.availabilityCount[element.rentalUnit.occupancy - 1]++;
+  public setRentalUnits(lodgings: Lodging[]): void {
+    if (lodgings) {
+      // get one lodging (hardcoded for now) from the lodging array
+      // loop through its rentals
+      // check to see if a rental has duplicate rental units
+      // only keep track of the rental units that are unique
+      // increment the availability count for each rental unit if the rentals are available
+      lodgings[0].rentals.forEach((rental) => {
+        if (!this.rentalUnits.find((rentalUnit) => rentalUnit.id === rental.rentalUnit.id)) {
+          this.availabilityCount.set(rental.rentalUnit.id, 1);
+          this.rentalUnits.push(rental.rentalUnit);
+        }
+        // The rental unit already exists in the array so just check availability and add it to the count
+        else {
+          if (rental.status === 'available') {
+            const count = this.availabilityCount.get(rental.rentalUnit.id);
+            if (count) {
+              this.availabilityCount.set(rental.rentalUnit.id, count + 1);
+            }
+          }
         }
       });
-    }
-  }
-
-  /**
-   * @param error
-   * Method handles error and converts the status code to string.
-   */
-  private handleError(error: HttpErrorResponse): void {
-    console.log(error.status);
-    let message: string;
-    if (error.status === 0) {
-      message = 'Unable to connect to server';
-      console.log(message);
-    } else {
-      message = error.status.toString();
-      console.log(message);
     }
   }
 }

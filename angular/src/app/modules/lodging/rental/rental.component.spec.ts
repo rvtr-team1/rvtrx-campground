@@ -25,8 +25,13 @@ describe('RentalComponent', () => {
         locale: 'testLocale',
         longitude: 'testLong',
       },
+<<<<<<< HEAD
       name: 'test',
       bathrooms: 2,
+=======
+      bathrooms: 1,
+      name: 'test',
+>>>>>>> 9d94ab8c715d07c165cc34d5d1ed37d6ee060586
       rentals: [],
       reviews: [],
     },
@@ -50,7 +55,7 @@ describe('RentalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get rental', () => {
-    expect(component.lodgings).toBeTruthy();
+  it('should get rentalUnits', () => {
+    expect(component.rentalUnits).toBeTruthy();
   });
 });

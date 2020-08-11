@@ -1,26 +1,24 @@
+<div id="table-info" hidden>Rental unit table</div>
 <div>
-  <table class="table is-bordered is-hoverable is-fullwidth">
+  <table class="table is-bordered is-hoverable is-fullwidth" aria-describedby="table-info">
     <thead>
-      <th id="RoomType">Room Type</th>
-      <th id="Occupancy">Occupancy <em class="fas fa-users"></em></th>
-      <th id="Available">Available For</th>
-      <th id="Rooms">Rooms Available</th>
-      <th id="Pricing"><em class="fas fa-dollar-sign"></em></th>
+      <tr>
+        <th id="room-type">Room Type</th>
+        <th id="occupancy">Occupancy <span class="fas fa-users"></span></th>
+        <th id="rooms">Rooms Available</th>
+        <th id="pricing"><span class="fas fa-dollar-sign"></span></th>
+      </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rental of rentals">
+      <tr *ngFor="let rentalUnit of rentalUnits">
         <td>
-          {{ rental.rentalUnit.name }}<br />
-          {{ rental.rentalUnit.bedroom.count }} {{ rental.rentalUnit.bedroom.type }}
-          <i class="fas fa-bed"></i>
+          {{ rentalUnit.name }}<br />
+          {{ rentalUnit.bedroom.count }} {{ rentalUnit.bedroom.type }}
+          <span class="fas fa-bed"></span>
         </td>
-        <td>{{ rental.rentalUnit.occupancy }}</td>
-        <td>
-          Tent <em class="fas fa-campground"></em> <br />
-          RV <em class="fas fa-caravan"></em>
-        </td>
-        <td>{{ availabilityCount[rental.rentalUnit.occupancy - 1] }}</td>
-        <td id="btCell"><button>Show Prices</button></td>
+        <td>{{ rentalUnit.occupancy }}</td>
+        <td>{{ availabilityCount.get(rentalUnit.id) }}</td>
+        <td id="bt-cell"><button>Show Prices</button></td>
       </tr>
     </tbody>
   </table>
