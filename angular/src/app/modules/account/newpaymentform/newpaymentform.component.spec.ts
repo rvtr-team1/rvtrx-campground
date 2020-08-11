@@ -30,7 +30,7 @@ describe('NewpaymentformComponent', () => {
     const controls = [
       {
         control: 'CCNumber',
-        InitialValue: '1234123421341234',
+        InitialValue: '1234',
         ProperValue: '1234-1234-2134-1234',
       },
       {
@@ -47,7 +47,7 @@ describe('NewpaymentformComponent', () => {
     controls.forEach((el) => {
       const field = newform.PaymentForm.controls[el.control];
       field.setValue(el.InitialValue);
-      expect(field.valid).toBeFalsy();
+      expect(field.valid).toBeFalse();
       field.setValue(el.ProperValue);
       expect(field.valid).toBeTruthy();
     });
