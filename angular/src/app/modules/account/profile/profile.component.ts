@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChange } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
 import { AccountEditingService } from '../services/account.editing.service';
 

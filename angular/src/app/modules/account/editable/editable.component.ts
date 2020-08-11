@@ -26,12 +26,19 @@ export class EditableComponent implements OnInit {
    */
   ngOnInit() {
     if (this.Type) {
-      const config = ValidationConfig[this.Type];
-      this.pattern = config.pattern;
-      this.ErrorMessage = config.ErrorMessage;
+      this.SetValidationType(this.Type);
     }
   }
 
+  /**
+   * Setter function for Validation Type
+   * @param Type string
+   */
+  public SetValidationType(Type: string): void {
+    const config = ValidationConfig[Type];
+    this.pattern = config.pattern;
+    this.ErrorMessage = config.ErrorMessage;
+  }
   /**
    * Emits a change event if user input is valid
    * @param e Event

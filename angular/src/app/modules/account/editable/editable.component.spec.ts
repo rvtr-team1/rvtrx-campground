@@ -33,7 +33,6 @@ describe('EditableComponent', () => {
 
   it('#clicked() should display an input', () => {
     const el = fixture.debugElement.componentInstance;
-    expect(el.editMode).toBe(false, 'off at first');
     fixture.debugElement.query(By.css('div')).nativeElement.click();
     fixture.detectChanges();
     const i = fixture.debugElement.query(By.css('input')).nativeElement;
@@ -42,12 +41,20 @@ describe('EditableComponent', () => {
 
   it('on input focusout should change value and trigger an event', () => {
     const el = fixture.debugElement.componentInstance;
-    expect(el.editMode).toBe(false, 'off at first');
     fixture.debugElement.query(By.css('div')).nativeElement.click();
     fixture.detectChanges();
     const i = fixture.debugElement.query(By.css('input')).nativeElement;
     i.value = 'test';
     i.dispatchEvent(new Event('focusout'));
     expect(el.data).toBe('test', 'on focusout');
+  });
+
+  fit('should adapt to the profile from setting Type', () => {
+    const comp = fixture.debugElement.componentInstance;
+    comp.SetValidationType('name');
+    fixture.whenStable().then(() => {
+      expect(component.ErrorMessage).toBe('Names cannot contain punctuation, spaces or numbers');
+      expect(component.pattern).toEqual(/^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$/);
+    });
   });
 });
