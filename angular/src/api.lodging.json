@@ -42,7 +42,7 @@
         "accountId": "1",
         "hotelId": "1",
         "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "dateCreated": "2019-02-05",
         "rating": 5
       }
     ]
@@ -90,7 +90,7 @@
         "accountId": "1",
         "hotelId": "1",
         "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "dateCreated": "2019-02-05",
         "rating": 4
       }
     ]
@@ -139,7 +139,7 @@
         "accountId": "1",
         "hotelId": "1",
         "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "dateCreated": "2019-02-05",
         "rating": 6
       }
     ]

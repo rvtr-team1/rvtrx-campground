@@ -11,8 +11,8 @@
  */
 export interface Stay {
   id: string;
-  checkIn: Date;
-  checkOut: Date;
-  dateCreated: Date;
-  dateModified: Date;
+  checkIn: string;
+  checkOut: string;
+  dateCreated: string;
+  dateModified: string;
 }

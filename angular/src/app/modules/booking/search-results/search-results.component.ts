@@ -42,10 +42,11 @@ export class SearchResultsComponent implements OnInit {
       rentals: [],
       stay: {
         id: '',
-        dateCreated: new Date(Date.now()),
-        dateModified: new Date(Date.now()),
-        checkIn: new Date(Date.now()),
-        checkOut: new Date(Date.now()),
+        dateCreated: new Date().toDateString(),
+        dateModified: new Date().toDateString(),
+        // TODO change to specified times (form data maybe?)
+        checkIn: new Date().toDateString(),
+        checkOut: new Date().toDateString(),
       },
     };
     this.bookingService.post(this.reservation);
