@@ -17,19 +17,19 @@ export class NewPaymentFormComponent implements OnInit {
   PaymentForm = new FormGroup({
     CCNumber: new FormControl('', [
       Validators.required,
-      Validators.pattern(/\d{4}-?\d{4}-?\d{4}-?\d{4}$/)
+      Validators.pattern(/\d{4}-?\d{4}-?\d{4}-?\d{4}$/),
     ]),
     ExpDate: new FormControl('', [
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(5),
-      Validators.pattern(/^(0[1-9]|1[0-2])\/?(2[0-9])$/)
+      Validators.pattern(/^(0[1-9]|1[0-2])\/?(2[0-9])$/),
     ]),
     SecurityNumber: new FormControl('', [
       Validators.required,
       Validators.minLength(3),
       Validators.maxLength(3),
-      Validators.pattern(/^([0-9]{3})$/)
+      Validators.pattern(/^([0-9]{3})$/),
     ]),
   });
 
