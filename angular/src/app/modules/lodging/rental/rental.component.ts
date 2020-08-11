@@ -32,7 +32,7 @@ export class RentalComponent implements OnInit {
   familyRoomCount = 0;
   tripleRoomCount = 0;
   doubleRoomCount = 0;
-  isLoaded: boolean = false;
+  isLoaded = false;
 
   /**
    * @param lodgingService
@@ -50,8 +50,7 @@ export class RentalComponent implements OnInit {
    * the lodgings Rental property.
    */
   private loadLodgings(): void {
-    this.lodgingService.get()
-    .subscribe((data) => {
+    this.lodgingService.get().subscribe((data) => {
       this.lodgings = data;
       this.setRentals();
     });

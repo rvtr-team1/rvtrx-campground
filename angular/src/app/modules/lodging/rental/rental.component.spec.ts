@@ -53,12 +53,14 @@ describe('RentalComponent', () => {
   });
 
   it('should get rental', () => {
-    expect(component.lodgings![0].rentals).toBeTruthy();
-    expect(component.lodgings![0].rentals).toEqual(lodgings[0].rentals);
+    if (component.lodgings !== null) {
+      expect(component.lodgings[0].rentals).toBeTruthy();
+      expect(component.lodgings[0].rentals).toEqual(lodgings[0].rentals);
+    }
   });
 
   it('should have valid values', () => {
-    if(component.lodgings){
+    if (component.lodgings !== null) {
       expect(component.lodgings[0].location.address).toEqual(lodgings[0].location.address);
       expect(component.lodgings[0].location.latitude).toEqual(lodgings[0].location.latitude);
       expect(component.lodgings[0].location.longitude).toEqual(lodgings[0].location.longitude);

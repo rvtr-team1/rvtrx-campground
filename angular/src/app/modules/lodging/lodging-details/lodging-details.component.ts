@@ -37,10 +37,12 @@ export class LodgingDetailsComponent implements OnInit {
       this.idString = params.get('id');
     });
     console.log(this.idString);
-    if (this.idString) {
+    if (this.idString !== null) {
       this.lodgingService.get(this.idString).subscribe((data) => {
-        this.lodging = data[parseInt(this.idString!, 10) - 1];
-        this.isLoaded = true;
+        if (this.idString !== null) {
+          this.lodging = data[parseInt(this.idString, 10) - 1];
+          this.isLoaded = true;
+        }
       });
     }
   }
