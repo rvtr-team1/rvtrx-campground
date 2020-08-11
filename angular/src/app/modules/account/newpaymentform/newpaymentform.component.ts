@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Payment } from '../../../data/payment.model';
 
 @Component({

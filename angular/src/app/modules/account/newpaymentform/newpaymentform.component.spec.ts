@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NewPaymentFormComponent } from './newpaymentform.component';
+import { FormControl } from '@angular/forms';
 
 describe('NewpaymentformComponent', () => {
   let component: NewPaymentFormComponent;
@@ -25,6 +26,7 @@ describe('NewpaymentformComponent', () => {
     component.ngOnInit();
     expect(component.showModal).toBeFalsy();
   });
+
   it('should properly validate input', () => {
     const newform = new NewPaymentFormComponent();
     const controls = [
@@ -51,5 +53,11 @@ describe('NewpaymentformComponent', () => {
       field.setValue(el.ProperValue);
       expect(field.valid).toBeTruthy();
     });
+  });
+  it('should return form controls from getters', () => {
+    const getters = [component.CCNumber, component.ExpDate, component.SecurityNumber];
+    for (const g of getters) {
+      expect(g instanceof FormControl).toBeTruthy();
+    }
   });
 });
