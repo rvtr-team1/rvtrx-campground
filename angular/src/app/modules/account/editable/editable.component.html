@@ -10,11 +10,11 @@
   
   
   <span *ngIf="error" class="icon has-text-danger level-item">
-    <i class="fas fa-ban" title={{ErrorMessage}}></i>
+    <i class="fas fa-ban" title={{ErrorMessage}} aria-hidden=true></i>
   </span>
   
   <span *ngIf="valid" class="icon has-text-success level-item">
-    <i class="fas fa-check-square" title="Field was successfully edited"></i>
+    <i class="fas fa-check-square" aria-hidden=true title="Field was successfully edited"></i>
   </span>
   
 </div>
