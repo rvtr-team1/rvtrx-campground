@@ -18,10 +18,10 @@ describe('lodging', () => {
         });
     });
 
-    it('Checking page title is not empty', () => {
+    it('Checking page title length', () => {
         browser.get('http://localhost:4200/lodging');
         browser.driver.getTitle().then((pageTitle) => {
-        expect(pageTitle).toBeTrue;
+        expect(pageTitle.length).toBe(15);
 
         });
     });
