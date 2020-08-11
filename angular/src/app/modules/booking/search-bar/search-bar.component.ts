@@ -21,18 +21,18 @@ export class SearchBarComponent implements OnInit {
   @Output() isSearched = new EventEmitter<boolean>();
 
   constructor(private bookingService: BookingService, private lodgingService: LodgingService) {}
-  
+
   ngOnInit(): void {
     this.lodgings$ = this.lodgingService.get();
     this.bookings$ = this.bookingService.get();
   }
 
   async onSubmit(form: NgForm) {
-    let occupancy = form.value.adults + form.value.children;
-    let city = form.value.location;
+    const occupancy = form.value.adults + form.value.children;
+    const city = form.value.location;
 
-    let checkIn = form.value['check-in'];
-    let checkOut = form.value['check-out'];
+    const checkIn = form.value['check-in'];
+    const checkOut = form.value['check-out'];
 
     await this.searchByAll(checkIn, checkOut, city, occupancy);
     this.isSearched.emit(true);
@@ -42,7 +42,7 @@ export class SearchBarComponent implements OnInit {
     return this.lodgings$
       .pipe(
         map<Lodging[], Rental[]>((lodgings) => {
-          let rentals = lodgings.map((lodging) => lodging.rentals);
+          const rentals = lodgings.map((lodging) => lodging.rentals);
           return rentals.reduce((a, b) => a.concat(b));
         })
       )
@@ -50,12 +50,12 @@ export class SearchBarComponent implements OnInit {
   }
 
   private async getAvailableRentals(checkIn: Date, checkOut: Date): Promise<Rental[]> {
-    let lodgingRentals = await this.getLodgingRentals();
+    const lodgingRentals = await this.getLodgingRentals();
 
     return this.bookings$
       .pipe(
         map((bookings) => {
-          let availableRentals: Rental[] = [];
+          const availableRentals: Rental[] = [];
 
           bookings.forEach((booking) => {
             if (checkIn < booking.stay.checkIn && checkOut < booking.stay.checkIn) {
@@ -80,10 +80,10 @@ export class SearchBarComponent implements OnInit {
   }
 
   async searchByAll(checkIn: Date, checkOut: Date, city: string, occupancy: number) {
-    var availableRentals: Rental[] = await this.getAvailableRentals(checkIn, checkOut);
+    const availableRentals: Rental[] = await this.getAvailableRentals(checkIn, checkOut);
 
     function isAvailable(rental: Rental) {
-      for (let availableRental of availableRentals) {
+      for (const availableRental of availableRentals) {
         if (rental.id === availableRental.id) {
           return true;
         }
@@ -94,11 +94,11 @@ export class SearchBarComponent implements OnInit {
     // Most of this should be backend logic eventually,
     // but this works for now
     this.lodgings$.subscribe((lodgings) => {
-      let searchResults: Lodging[] = [];
+      const searchResults: Lodging[] = [];
 
       lodgings.forEach((lodging) => {
         if (lodging.location.address.city === city) {
-          let availableLodgingRentals = lodging.rentals.filter((rental) => isAvailable(rental));
+          const availableLodgingRentals = lodging.rentals.filter((rental) => isAvailable(rental));
 
           availableLodgingRentals.forEach((availableRental) => {
             if (availableRental.rentalUnit.occupancy >= occupancy) {

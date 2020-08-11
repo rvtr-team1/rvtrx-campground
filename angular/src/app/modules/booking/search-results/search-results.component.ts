@@ -34,7 +34,7 @@ export class SearchResultsComponent implements OnInit {
     return stars;
   }
 
-  makeReservation(lodging: Lodging, rental: Rental) {
+  makeReservation(lodging: Lodging) {
     this.reservation = {
       id: '1',
       lodgingId: lodging.id,
