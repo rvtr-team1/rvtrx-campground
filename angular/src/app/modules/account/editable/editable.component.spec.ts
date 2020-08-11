@@ -49,7 +49,7 @@ describe('EditableComponent', () => {
     expect(el.data).toBe('test', 'on focusout');
   });
 
-  fit('should adapt to the profile from setting Type', () => {
+  it('should adapt to the profile from setting Type', () => {
     const comp = fixture.debugElement.componentInstance;
     comp.SetValidationType('name');
     fixture.whenStable().then(() => {
