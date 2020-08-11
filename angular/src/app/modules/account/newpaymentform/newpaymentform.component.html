@@ -1,7 +1,7 @@
- <div class="level"> 
-<div class="level-item">
-<button class="button is-primary" (click)="showModal = !showModal">Add a payment</button>
-</div>
+<div class="level">
+  <div class="level-item">
+    <button class="button is-primary" (click)="showModal = !showModal">Add a payment</button>
+  </div>
 </div>
 <div *ngIf="showModal">
   <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit()">
@@ -15,31 +15,61 @@
                 <div class="col-50">
                   <label for="ccnum">Credit card number</label>
                   <div class="level is-flex">
-                    <input type="text" id="ccnum" name="cardnumber" class="input is-medium level-item"
-                      placeholder="1111-2222-3333-4444" formControlName="CCNumber"
-                      />
+                    <input
+                      type="text"
+                      id="ccnum"
+                      name="cardnumber"
+                      class="input is-medium level-item"
+                      placeholder="1111-2222-3333-4444"
+                      formControlName="CCNumber"
+                    />
                     <span class="level-item">
-                      <i *ngIf="CCNumber.invalid && (CCNumber.touched || CCNumber.dirty)"
-                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true" ></i>
+                      <i
+                        *ngIf="CCNumber.invalid && (CCNumber.touched || CCNumber.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid CC info"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                   <label for="expyear">Exp Date</label>
                   <div class="level is-flex">
-                    <input type="text" id="expyear" name="expyear" class="input is-medium level-item"
-                      placeholder="MM/YY" formControlName="ExpDate" />
+                    <input
+                      type="text"
+                      id="expyear"
+                      name="expyear"
+                      class="input is-medium level-item"
+                      placeholder="MM/YY"
+                      formControlName="ExpDate"
+                    />
                     <span class="level-item">
-                      <i *ngIf="ExpDate.invalid && (ExpDate.touched || ExpDate.dirty)"
-                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info: MM/YY" aria-hidden="true" ></i>
+                      <i
+                        *ngIf="ExpDate.invalid && (ExpDate.touched || ExpDate.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid CC info: MM/YY"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                   <label for="Securty Number">Security Number</label>
                   <div class="level is-flex">
-                    <input type="number" id="secnumber" name="secnumber" class="input is-medium level-item"
-                      placeholder="ex: 111" formControlName="SecurityNumber" />
+                    <input
+                      type="number"
+                      id="secnumber"
+                      name="secnumber"
+                      class="input is-medium level-item"
+                      placeholder="ex: 111"
+                      formControlName="SecurityNumber"
+                    />
                     <span class="level-item">
-                      <i *ngIf="SecurityNumber.invalid && (SecurityNumber.touched || SecurityNumber.dirty)"
-                        class="level-item fas fa-ban has-text-danger" aria-hidden="true" 
-                        title="Please enter valid CC Securty number: 111"></i>
+                      <i
+                        *ngIf="
+                          SecurityNumber.invalid && (SecurityNumber.touched || SecurityNumber.dirty)
+                        "
+                        class="level-item fas fa-ban has-text-danger"
+                        aria-hidden="true"
+                        title="Please enter valid CC Securty number: 111"
+                      ></i>
                     </span>
                   </div>
                 </div>
@@ -51,7 +81,11 @@
             </div>
           </div>
 
-          <button class="modal-close is-large level-right" aria-label="close" (click)="showModal = !showModal"></button>
+          <button
+            class="modal-close is-large level-right"
+            aria-label="close"
+            (click)="showModal = !showModal"
+          ></button>
         </div>
       </div>
     </div>

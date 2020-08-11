@@ -17,15 +17,27 @@ describe('NewpaymentformComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  /**
+   * This test checks if the NewpaymentformComponent is created
+   */
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
+  /**
+   * This test checks if the modal is not displaying when the user clicks on the accounts page
+   * Expects that the modal should not display unless the components is interacted with
+   */
+
   it('should not show modal on init', () => {
     component.ngOnInit();
     expect(component.showModal).toBeFalsy();
   });
+  /**
+   * This test checks if the input for the form controls is validated
+   * iterates over each control and expects the InitialValue to be invalid and the ProperValue to be valid
+   */
 
   it('should properly validate input', () => {
     const newform = new NewPaymentFormComponent();
@@ -54,6 +66,11 @@ describe('NewpaymentformComponent', () => {
       expect(field.valid).toBeTruthy();
     });
   });
+  /**
+   * This test checks if the getters return the form control
+   * iterates over each value in the getters array and checks if they are an instance of FormControl
+   */
+
   it('should return form controls from getters', () => {
     const getters = [component.CCNumber, component.ExpDate, component.SecurityNumber];
     for (const g of getters) {
