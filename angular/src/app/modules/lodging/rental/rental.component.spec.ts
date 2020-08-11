@@ -3,7 +3,8 @@ import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
-import { HttpErrorResponse } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -35,11 +36,11 @@ describe('RentalComponent', () => {
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
-  const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['SetRentals']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
+      imports: [RouterModule.forRoot([]), HttpClientModule],
       providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 
