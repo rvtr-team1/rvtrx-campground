@@ -1,7 +1,5 @@
 
-import { browser, logging, WebDriver, by } from 'protractor';
-
-
+import { browser, logging, WebDriver, by, element } from 'protractor';
 
 
 describe('lodging', () => {
@@ -20,15 +18,6 @@ describe('lodging', () => {
         });
     });
 
-
-    it('Should have the current URL', () => {
-        browser.get('http://localhost:4200/lodging');
-        browser.driver.getCurrentUrl().then((currentUrl) => {
-        expect(currentUrl).toEqual('http://localhost:4200/lodging');
-
-        });
-    });
-
     it('Checking page title is not empty', () => {
         browser.get('http://localhost:4200/lodging');
         browser.driver.getTitle().then((pageTitle) => {
@@ -38,4 +27,38 @@ describe('lodging', () => {
     });
 
 
+    it('Should have the current URL', () => {
+        browser.get('http://localhost:4200/lodging');
+        browser.driver.getCurrentUrl().then((currentUrl) => {
+        expect(currentUrl).toEqual('http://localhost:4200/lodging');
+
+        });
+    });
+
+    it('Should be on the current URL for Lodging Test details', () => {
+        browser.get('http://localhost:4200/lodging/details/1');
+        browser.driver.getCurrentUrl().then((currentUrl) => {
+        expect(currentUrl).toEqual('http://localhost:4200/lodging/details/1');
+
+        });
+    });
+
+    it('Should be on the current URL for Lodging Test2 details', () => {
+        browser.get('http://localhost:4200/lodging/details/2');
+        browser.driver.getCurrentUrl().then((currentUrl) => {
+        expect(currentUrl).toEqual('http://localhost:4200/lodging/details/2');
+
+        });
+    });
+
+    it('Should be on the current URL for Lodging Test3 details', () => {
+        browser.get('http://localhost:4200/lodging/details/3');
+        browser.driver.getCurrentUrl().then((currentUrl) => {
+        expect(currentUrl).toEqual('http://localhost:4200/lodging/details/3');
+
+        });
+    });
+
 });
+
+
