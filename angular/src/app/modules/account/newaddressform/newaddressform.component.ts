@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Address } from '../../../data/address.model';
 
 @Component({
@@ -12,11 +12,26 @@ export class NewaddressformComponent implements OnInit {
 
   @Output() newAddress: EventEmitter<Address> = new EventEmitter<Address>();
   AddressForm = new FormGroup({
-    City: new FormControl(''),
-    Country: new FormControl(''),
-    PostalCode: new FormControl(''),
-    StateProvince: new FormControl(''),
-    Street: new FormControl(''),
+    City: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/),
+    ]),
+    Country: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/),
+    ]),
+    PostalCode: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^([0-9]{5})([\-]{1}[0-9]{4})?$/),
+    ]),
+    StateProvince: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/),
+    ]),
+    Street: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/\d{1,3}.?\d{0,3}\s[a-zA-Z]{2,30}\s[a-zA-Z]{2,15}/),
+    ]),
   });
 
   get City() {
