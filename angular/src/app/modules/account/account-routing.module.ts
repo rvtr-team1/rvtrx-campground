@@ -7,7 +7,7 @@ import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NewaddressformComponent } from './newaddressform/newaddressform.component';
 import { NewPaymentFormComponent } from './newpaymentform/newpaymentform.component';
 
@@ -25,6 +25,6 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     NewPaymentFormComponent,
   ],
   exports: [RouterModule],
-  imports: [CommonModule, RouterModule.forChild(routes), FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
 })
 export class AccountRoutingModule {}
