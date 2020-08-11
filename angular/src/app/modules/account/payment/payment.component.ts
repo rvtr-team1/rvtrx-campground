@@ -15,12 +15,12 @@ export class PaymentComponent implements OnInit {
 
   /**
    * Represents the _Payment Component_ 'constructor' method
-   * @param editingservice AccountEditingService
+   * @param editingService AccountEditingService
    */
-  constructor(private readonly editingservice: AccountEditingService) {}
+  constructor(private readonly editingService: AccountEditingService) {}
 
   ngOnInit(): void {
-    this.editingservice.register({ payments: this.payments });
+    this.editingService.register({ payments: this.payments });
   }
 
   /**

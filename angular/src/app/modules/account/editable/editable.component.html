@@ -1,25 +1,18 @@
-
 <div (click)="editMode=true" class="editable level">
-  <ng-content *ngIf='!editMode' select="*"></ng-content>
+  <ng-content *ngIf="!editMode" select="*"></ng-content>
   
-  <input *ngIf="editMode" class="input level-item is-rounded swing-in-left-bck " name="userInput" ngModel type='text' [value]='data'
-    title="Edit and press Enter"
-    (keydown.enter)="onFocusOut($event)" 
-    (focusout)="onFocusOut($event)" 
-    [pattern]="pattern" #userInput="ngModel" placeholder={{data}}>
-  
+  <input *ngIf="editMode" class="input level-item is-rounded swing-in-left-bck " 
+    name="userInput" ngModel type="text" [value]="data"
+    [title]="titleInput" (keydown.enter)="onFocusOut($event)" 
+    (focusout)="onFocusOut($event)" [pattern]="pattern" 
+    #userInput="ngModel" placeholder={{data}}>
   
   <span *ngIf="error" class="icon has-text-danger level-item">
-    <i class="fas fa-ban" title={{ErrorMessage}} aria-hidden=true></i>
+    <i class="fas fa-ban" title={{errorMessage}} aria-hidden="true"></i>
   </span>
   
   <span *ngIf="valid" class="icon has-text-success level-item">
-    <i class="fas fa-check-square" aria-hidden=true title="Field was successfully edited"></i>
+    <i class="fas fa-check-square" aria-hidden="true" [title]="titleSuccess"></i>
   </span>
   
 </div>
-
-
-
-
-

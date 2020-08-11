@@ -10,11 +10,11 @@
           <div>
             <p class="heading">adult</p>
             <p class="title is-6">
-              <uic-editable [(data)]='profile.name.given' Type="name">
-                <p class="title is-6"> {{profile.name.given}} </p>
+              <uic-editable [(data)]="profile.name.given" (dataChange)="edited()" type="name">
+                <p class="title is-6"> {{ profile.name.given }} </p>
               </uic-editable>
-              <uic-editable [(data)]='profile.name.family' Type="name">
-                <p class="title is-6"> {{profile.name.family}} </p>
+              <uic-editable [(data)]="profile.name.family" (dataChange)="edited()" type="name">
+                <p class="title is-6"> {{ profile.name.family }} </p>
               </uic-editable> 
             </p>
           </div>
