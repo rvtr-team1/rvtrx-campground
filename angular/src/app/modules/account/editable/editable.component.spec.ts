@@ -53,7 +53,7 @@ describe('EditableComponent', () => {
     const comp = fixture.debugElement.componentInstance;
     comp.SetValidationType('name');
     fixture.whenStable().then(() => {
-      expect(component.ErrorMessage).toBe('Names cannot contain punctuation, spaces or numbers');
+      expect(component.errorMessage).toBe('Names cannot contain punctuation, spaces or numbers');
       expect(component.pattern).toEqual(/^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$/);
     });
   });
