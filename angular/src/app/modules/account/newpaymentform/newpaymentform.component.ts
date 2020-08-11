@@ -5,8 +5,6 @@ import { Payment } from '../../../data/payment.model';
 @Component({
   selector: 'uic-newpaymentform',
   templateUrl: './newpaymentform.component.html',
-  template: ``,
-
   styleUrls: ['./newpaymentform.component.scss'],
 })
 export class NewPaymentFormComponent implements OnInit {

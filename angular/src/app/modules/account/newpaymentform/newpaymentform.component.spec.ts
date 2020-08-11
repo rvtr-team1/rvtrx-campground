@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NewPaymentFormComponent } from './newpaymentform.component';
 import { FormControl } from '@angular/forms';
+import { Payment } from 'src/app/data/payment.model';
 
 describe('NewpaymentformComponent', () => {
   let component: NewPaymentFormComponent;
@@ -41,6 +42,9 @@ describe('NewpaymentformComponent', () => {
 
   it('should properly validate input', () => {
     const newform = new NewPaymentFormComponent();
+    newform.newPayment.subscribe((e: Payment) => {
+      expect(e as Payment).toBeTrue();
+    });
     const controls = [
       {
         control: 'CCNumber',
@@ -65,6 +69,7 @@ describe('NewpaymentformComponent', () => {
       field.setValue(el.ProperValue);
       expect(field.valid).toBeTruthy();
     });
+    component.onSubmit();
   });
   /**
    * This test checks if the getters return the form control
