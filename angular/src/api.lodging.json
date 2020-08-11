@@ -24,11 +24,45 @@
         "status": "available",
         "price": 100,
         "rentalUnit": {
-          "id": "6",
+          "id": "1",
           "bedroom": {
             "id": "1",
             "count": 4,
             "type": "Queen Bed"
+          },
+          "name": "Family Room",
+          "occupancy": 5,
+          "type": "testType"
+        }
+      },
+      {
+        "id": "2",
+        "name": "testRental",
+        "status": "available",
+        "price": 100,
+        "rentalUnit": {
+          "id": "1",
+          "bedroom": {
+            "id": "1",
+            "count": 4,
+            "type": "Queen Bed"
+          },
+          "name": "Family Room",
+          "occupancy": 5,
+          "type": "testType"
+        }
+      },
+      {
+        "id": "3",
+        "name": "testRental",
+        "status": "available",
+        "price": 100,
+        "rentalUnit": {
+          "id": "2",
+          "bedroom": {
+            "id": "1",
+            "count": 4,
+            "type": "King Bed"
           },
           "name": "Family Room",
           "occupancy": 5,
