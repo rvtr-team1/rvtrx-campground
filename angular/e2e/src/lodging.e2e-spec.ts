@@ -6,33 +6,33 @@ import { browser, logging, WebDriver, by } from 'protractor';
 
 describe('lodging', () => {
 
-    it('Page title contains Campsite', function() {
+    it('Page title contains Campsite', () => {
         browser.get('http://localhost:4200/lodging');
-        browser.driver.getTitle().then(function(pageTitle) {
+        browser.driver.getTitle().then((pageTitle) => {
         expect(pageTitle).toContain('Campsite');
         });
     });
 
-    it('Page title contains RVTR', function() {
+    it('Page title contains RVTR', () => {
         browser.get('http://localhost:4200/lodging');
-        browser.driver.getTitle().then(function(pageTitle) {
+        browser.driver.getTitle().then((pageTitle) => {
         expect(pageTitle).toContain('RVTR');
         });
     });
 
 
-    it('Should have the current URL', function() {
+    it('Should have the current URL', () => {
         browser.get('http://localhost:4200/lodging');
-        browser.driver.getCurrentUrl().then(function(currentUrl) {
+        browser.driver.getCurrentUrl().then((currentUrl) => {
         expect(currentUrl).toEqual('http://localhost:4200/lodging');
 
         });
     });
 
-    it('The length of the page title is not 7', function() {
+    it('Checking page title is not empty', () => {
         browser.get('http://localhost:4200/lodging');
-        browser.driver.getTitle().then(function(pageTitle){
-        expect(pageTitle).length !== 7;
+        browser.driver.getTitle().then((pageTitle) => {
+        expect(pageTitle).toBeTrue;
 
         });
     });
