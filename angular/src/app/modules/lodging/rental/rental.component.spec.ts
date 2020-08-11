@@ -34,7 +34,6 @@ describe('RentalComponent', () => {
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
-  const rentalComponentSpy = jasmine.createSpyObj('RentalComponent', ['setRentalUnits']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -53,10 +52,5 @@ describe('RentalComponent', () => {
 
   it('should get rentalUnits', () => {
     expect(component.rentalUnits).toBeTruthy();
-    expect(component.rentalUnits)
-  });
-
-  it('should ensure Rental Component public methods are called', () => {
-    rentalComponentSpy
   });
 });
