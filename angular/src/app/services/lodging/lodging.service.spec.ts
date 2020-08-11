@@ -32,11 +32,7 @@ describe('LodgingService', () => {
       name: 'string',
       bathrooms: 1,
       rentals: [],
-      reviews: [],
-<<<<<<< HEAD
-      bathrooms: []
-=======
->>>>>>> master
+      reviews: []
     },
   ];
 

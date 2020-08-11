@@ -40,12 +40,11 @@ describe('AccountBookingComponent', () => {
     ],
     stay: {
       id: 'string',
-      checkIn: new Date(),
-      checkOut: new Date(),
-      dateCreated: new Date(),
-      dateModified: new Date(),
+      checkIn: '2020-08-01',
+      checkOut: '2020-08-01',
+      dateCreated: '2020-08-01',
+      dateModified: '2020-08-01',
     },
-    status: 'string',
   };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;

@@ -3,6 +3,8 @@ import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -25,10 +27,10 @@ describe('RentalComponent', () => {
         locale: 'testLocale',
         longitude: 'testLong',
       },
+      bathrooms: 1,
       name: 'test',
       rentals: [],
       reviews: [],
-      bathrooms: [],
     },
   ];
 
@@ -38,6 +40,7 @@ describe('RentalComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
+      imports: [RouterModule.forRoot([]), HttpClientModule],
       providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 
@@ -50,9 +53,7 @@ describe('RentalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get rental', () => {
-    expect(component.lodgings[0].rentals).toBeTruthy();
-    expect(component.lodgings[0].rentals).toEqual(lodgings[0].rentals);
-    expect(component.lodgings[0].rentals).toBeNull();
+  it('should get rentalUnits', () => {
+    expect(component.rentalUnits).toBeTruthy();
   });
 });

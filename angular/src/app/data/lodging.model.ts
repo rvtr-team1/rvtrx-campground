@@ -1,10 +1,6 @@
 import { Location } from './location.model';
 import { Review } from './review.model';
 import { Rental } from './rental.model';
-<<<<<<< HEAD
-import {Bathroom} from './bathroom.model';
-=======
->>>>>>> master
 
 /**
  * Represents the _Lodging_ model

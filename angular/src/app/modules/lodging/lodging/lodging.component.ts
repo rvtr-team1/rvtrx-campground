@@ -3,7 +3,7 @@ import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Lodging } from '../../../data/lodging.model';
 
 @Component({
-  selector: 'uic-lodging',
+  selector: 'uic-lodging-home',
   templateUrl: './lodging.component.html',
   styleUrls: ['./lodging.component.scss'],
 })

@@ -7,7 +7,7 @@ describe('AccountReviewComponent', () => {
     accountId: '',
     hotelId: '',
     comment: '',
-    dateCreated: new Date(),
+    dateCreated: '2020-08-01',
     rating: 0,
   };
   let component: AccountReviewComponent;

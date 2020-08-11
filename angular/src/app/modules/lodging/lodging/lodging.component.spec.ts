@@ -1,10 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { LodgingComponent } from './lodging.component';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 
-describe('LodgingComponent', () => {
+describe('LodgingHomeComponent', () => {
   let component: LodgingComponent;
   let fixture: ComponentFixture<LodgingComponent>;
 
