@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Lodging } from '../../../data/lodging.model';
 import { RentalUnit } from '../../../data/rental-unit.model';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * Rental component metadata
@@ -24,12 +25,16 @@ export class RentalComponent implements OnInit {
    */
   rentalUnits: RentalUnit[] = [];
   availabilityCount = new Map<string, number>();
+  idString: string | null;
 
   /**
    * @param lodgingService
    * Constructor injects lodgingService
    */
-  constructor(private readonly lodgingService: LodgingService) {}
+  constructor(
+    private readonly lodgingService: LodgingService,
+    private readonly route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.loadLodgings();
@@ -41,21 +46,26 @@ export class RentalComponent implements OnInit {
    */
   private loadLodgings(): void {
     this.lodgingService.get().subscribe((lodgings) => {
-      this.setRentalUnits(lodgings);
+      this.route.paramMap.subscribe((params) => {
+        this.idString = params.get('id');
+      });
+      if (this.idString !== null) {
+        this.setRentalUnits(lodgings[parseInt(this.idString, 10)]);
+      }
     });
   }
 
   /**
    * populates rentalUnits array and keeps track of the availability of each rental
    */
-  public setRentalUnits(lodgings: Lodging[]): void {
+  public setRentalUnits(lodgings: Lodging): void {
     if (lodgings) {
       // get one lodging (hardcoded for now) from the lodging array
       // loop through its rentals
       // check to see if a rental has duplicate rental units
       // only keep track of the rental units that are unique
       // increment the availability count for each rental unit if the rentals are available
-      lodgings[0].rentals.forEach((rental) => {
+      lodgings.rentals.forEach((rental) => {
         if (!this.rentalUnits.find((rentalUnit) => rentalUnit.id === rental.rentalUnit.id)) {
           this.availabilityCount.set(rental.rentalUnit.id, 1);
           this.rentalUnits.push(rental.rentalUnit);
