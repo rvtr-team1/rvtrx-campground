@@ -17,7 +17,7 @@ export class SpotlightComponent implements OnInit {
 
   setSpotlight(lodgings: Lodging[] | null): void {
     let temp = 0;
-    if (lodgings){
+    if (lodgings) {
       for (let i = 0; i < lodgings.length; i++) {
         if (lodgings[i].rentals.length > temp) {
           temp = lodgings[i].rentals.length;

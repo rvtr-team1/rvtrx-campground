@@ -16,7 +16,7 @@ export class FeaturedLodgingComponent implements OnInit {
   setFeaturedLodgings(): void {
     let lodgings: Lodging[] = new Array(6);
 
-    if (this.featuredLodgings){
+    if (this.featuredLodgings) {
       for (let index = 0; index < lodgings.length; index++) {
         if (this.featuredLodgings[index].reviews) {
           lodgings.push(this.featuredLodgings[index]);
