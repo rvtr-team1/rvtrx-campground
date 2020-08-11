@@ -19,18 +19,9 @@
       }
     ],
     "header": [
-      {
-        "text": "account",
-        "url": "account"
-      },
-      {
-        "text": "booking",
-        "url": "booking"
-      },
-      {
-        "text": "lodging",
-        "url": "lodging"
-      }
+      { "text": "account", "url": "account" },
+      { "text": "booking", "url": "booking" },
+      { "text": "lodging", "url": "lodging" }
     ]
   }
 }
