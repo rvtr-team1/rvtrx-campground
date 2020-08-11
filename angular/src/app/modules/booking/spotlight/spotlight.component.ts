@@ -4,7 +4,6 @@ import { Lodging } from 'src/app/data/lodging.model';
 @Component({
   selector: 'uic-spotlight',
   templateUrl: './spotlight.component.html',
-  styleUrls: ['./spotlight.component.scss'],
 })
 export class SpotlightComponent implements OnInit {
   @Input() lodgings: Lodging[] | null;

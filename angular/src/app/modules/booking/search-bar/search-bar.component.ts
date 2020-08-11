@@ -11,7 +11,6 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'uic-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
   bookings$: Observable<Booking[]>;
@@ -20,7 +19,10 @@ export class SearchBarComponent implements OnInit {
   @Output() searchResults = new EventEmitter<Lodging[]>();
   @Output() isSearched = new EventEmitter<boolean>();
 
-  constructor(private bookingService: BookingService, private lodgingService: LodgingService) {}
+  constructor(
+    private readonly bookingService: BookingService,
+    private readonly lodgingService: LodgingService
+  ) {}
 
   ngOnInit(): void {
     this.lodgings$ = this.lodgingService.get();
@@ -52,19 +54,21 @@ export class SearchBarComponent implements OnInit {
   private async getAvailableRentals(checkIn: Date, checkOut: Date): Promise<Rental[]> {
     const lodgingRentals = await this.getLodgingRentals();
 
+    // Find rentals that don't already exist in 
+    // bookings within the checkIn - checkOut range
     return this.bookings$
       .pipe(
         map((bookings) => {
           const availableRentals: Rental[] = [];
 
           bookings.forEach((booking) => {
-            if (checkIn < booking.stay.checkIn && checkOut < booking.stay.checkIn) {
-              lodgingRentals.forEach((lodgingRental) => {
-                if (!booking.rentals.includes(lodgingRental)) {
-                  availableRentals.push(lodgingRental);
-                }
-              });
-            } else if (checkIn > booking.stay.checkOut && checkOut > booking.stay.checkOut) {
+            const bookingCheckIn = new Date(booking.stay.checkIn);
+            const bookingCheckOut = new Date(booking.stay.checkOut);
+
+            if (
+              (checkIn < bookingCheckIn && checkOut < bookingCheckIn) ||
+              (checkIn > bookingCheckOut && checkOut > bookingCheckOut)
+            ) {
               lodgingRentals.forEach((lodgingRental) => {
                 if (!booking.rentals.includes(lodgingRental)) {
                   availableRentals.push(lodgingRental);
@@ -79,6 +83,7 @@ export class SearchBarComponent implements OnInit {
       .toPromise();
   }
 
+  
   async searchByAll(checkIn: Date, checkOut: Date, city: string, occupancy: number) {
     const availableRentals: Rental[] = await this.getAvailableRentals(checkIn, checkOut);
 

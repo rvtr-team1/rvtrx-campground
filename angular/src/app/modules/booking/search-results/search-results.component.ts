@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
-import { Rental } from 'src/app/data/rental.model';
 import { Booking } from 'src/app/data/booking.model';
 import { BookingService } from 'src/app/services/booking/booking.service';
 
@@ -14,7 +13,7 @@ export class SearchResultsComponent implements OnInit {
   reservation: Booking;
   query = 'test query';
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private readonly bookingService: BookingService) {}
 
   ngOnInit(): void {}
 
