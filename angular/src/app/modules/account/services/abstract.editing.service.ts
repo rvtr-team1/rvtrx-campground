@@ -24,5 +24,5 @@ export abstract class EditingService<T> {
     return this.subject;
   }
 
-  constructor(private typeGuard: (args: {}) => boolean) {}
+  constructor(private readonly typeGuard: (args: {}) => boolean) {}
 }
