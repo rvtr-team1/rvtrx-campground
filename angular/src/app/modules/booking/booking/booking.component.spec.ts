@@ -53,7 +53,7 @@ describe('BookingComponent', () => {
               accountId: '1',
               hotelId: '1',
               comment: 'comment',
-              dateCreated: new Date(Date.now()),
+              dateCreated: '2020-08-01',
               rating: 1,
             },
           ],
