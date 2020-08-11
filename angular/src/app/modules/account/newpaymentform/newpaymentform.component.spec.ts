@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NewPaymentFormComponent } from './newpaymentform.component';
 
-
 describe('NewpaymentformComponent', () => {
   let component: NewPaymentFormComponent;
   let fixture: ComponentFixture<NewPaymentFormComponent>;
@@ -32,25 +31,25 @@ describe('NewpaymentformComponent', () => {
       {
         control: 'CCNumber',
         InitialValue: '1234123421341234',
-        ProperValue: '1234-1234-2134-1234'
+        ProperValue: '1234-1234-2134-1234',
       },
       {
         control: 'ExpDate',
         InitialValue: '1111',
-        ProperValue: '08/24'
+        ProperValue: '08/24',
       },
       {
         control: 'SecurityNumber',
         InitialValue: '1111',
-        ProperValue: '111'
-      }
+        ProperValue: '111',
+      },
     ];
-    controls.forEach(el => {
+    controls.forEach((el) => {
       const field = newform.PaymentForm.controls[el.control];
       field.setValue(el.InitialValue);
       expect(field.valid).toBeFalsy();
       field.setValue(el.ProperValue);
       expect(field.valid).toBeTruthy();
     });
-    });
+  });
 });

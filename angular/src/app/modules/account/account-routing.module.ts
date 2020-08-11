@@ -22,7 +22,7 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     ProfileComponent,
     AccountReviewComponent,
     NewaddressformComponent,
-    NewPaymentFormComponent
+    NewPaymentFormComponent,
   ],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes), FormsModule, ReactiveFormsModule],
