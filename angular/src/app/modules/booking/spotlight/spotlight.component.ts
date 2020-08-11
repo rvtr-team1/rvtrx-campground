@@ -24,7 +24,6 @@ export class SpotlightComponent implements OnInit {
           this.selectedLodging = lodging;
         }
       }
-
     }
   }
 }
