@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import validationConfig from './editable.validation.config';
+import validationConfig from './editable.validationConfig';
 
 @Component({
   selector: 'uic-editable',
@@ -23,6 +23,16 @@ export class EditableComponent implements OnInit {
   @Input() errorMessage: string;
   /**
    * Used to identify which validation message to render
+   * Expandable in ./editable.validationConfig.ts
+   * Choices:
+   * creditCard
+   * name
+   * city
+   * date
+   * state
+   * street
+   * postal
+   * country
    */
   @Input() type: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
@@ -37,7 +47,7 @@ export class EditableComponent implements OnInit {
    */
   ngOnInit() {
     if (this.type) {
-      this.SetValidationType(this.type);
+      this.setValidationType(this.type);
     }
   }
 
@@ -45,7 +55,7 @@ export class EditableComponent implements OnInit {
    * Setter function for Validation Type
    * @param type string
    */
-  public SetValidationType(type: string): void {
+  public setValidationType(type: string): void {
     const config = validationConfig[type];
     this.pattern = config.pattern;
     this.errorMessage = config.errorMessage;

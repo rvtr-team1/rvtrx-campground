@@ -12,11 +12,11 @@ export abstract class EditingService<T> {
     .pipe(filter((el) => this.typeGuard(el || {})))
     .pipe(skip(1));
 
-  public update(e: M) {
+  public update(e: T) {
     this.subject.next(e);
   }
 
-  public register(e: M) {
+  public register(e: T) {
     this.subject.next(e);
   }
 
