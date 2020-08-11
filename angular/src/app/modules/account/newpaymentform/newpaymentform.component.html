@@ -20,7 +20,7 @@
                       />
                     <span class="level-item">
                       <i *ngIf="CCNumber.invalid && (CCNumber.touched || CCNumber.dirty)"
-                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true" ></i>
                     </span>
                   </div>
                   <label for="expyear">Exp Date</label>
@@ -29,7 +29,7 @@
                       placeholder="MM/YY" formControlName="ExpDate" />
                     <span class="level-item">
                       <i *ngIf="ExpDate.invalid && (ExpDate.touched || ExpDate.dirty)"
-                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info: MM/YY"></i>
+                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info: MM/YY" aria-hidden="true" ></i>
                     </span>
                   </div>
                   <label for="Securty Number">Security Number</label>
@@ -38,7 +38,7 @@
                       placeholder="ex: 111" formControlName="SecurityNumber" />
                     <span class="level-item">
                       <i *ngIf="SecurityNumber.invalid && (SecurityNumber.touched || SecurityNumber.dirty)"
-                        class="level-item fas fa-ban has-text-danger"
+                        class="level-item fas fa-ban has-text-danger" aria-hidden="true" 
                         title="Please enter valid CC Securty number: 111"></i>
                     </span>
                   </div>

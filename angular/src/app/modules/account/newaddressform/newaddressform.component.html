@@ -14,7 +14,7 @@
                     <input type="text" id="ciname" name="cityname" placeholder="ie. Amex" formControlName="City"
                       pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" class="input is-medium level-item" />
                     <span class="level-item">
-                      <i *ngIf="City.invalid && (City.touched || City.dirty)"  class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                      <i *ngIf="City.invalid && (City.touched || City.dirty)"  class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true"></i>
                     </span>
                   </div>
                   <label class="label" for="coname">Country</label>
@@ -22,7 +22,7 @@
                     <input type="text" id="coname" name="Countryname" placeholder="ie. Amex" formControlName="Country"
                       pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" class="input is-medium level-item" />
                     <span class="level-item">
-                      <i *ngIf="Country.invalid && (Country.touched || Country.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                      <i *ngIf="Country.invalid && (Country.touched || Country.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true"></i>
                     </span>
                   </div>
                   <label class="label" for="pnum">Postal Code number</label>
@@ -30,7 +30,7 @@
                     <input type="text" id="pnum" name="postalcode" class="input is-medium level-item"
                       pattern="^([0-9]{5})([\-]{1}[0-9]{4})?$" placeholder="11111" formControlName="PostalCode" />
                     <span class="level-item">
-                      <i *ngIf="PostalCode.invalid && (PostalCode.touched || PostalCode.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                      <i *ngIf="PostalCode.invalid && (PostalCode.touched || PostalCode.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true"></i>
                     </span>
                   </div>
                   <label class="label" for="sprovince">State Province</label>
@@ -38,7 +38,7 @@
                     <input type="text" id="sprovince" name="State/Province Name" placeholder="ie. Amex" formControlName="StateProvince"
                       pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" class="input is-medium level-item" />
                     <span class="level-item">
-                      <i *ngIf="StateProvince.invalid && (StateProvince.touched || StateProvince.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                      <i *ngIf="StateProvince.invalid && (StateProvince.touched || StateProvince.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true"></i>
                     </span>
                   </div>
                   <label class="label" for="str">Street</label>
@@ -46,7 +46,7 @@
                     <input type="text" id="str" name="Street Address" placeholder="ie. Amex" formControlName="Street"
                       pattern="^\d+\s[A-z]+\s[A-z]+" class="input is-medium level-item" />
                     <span class="level-item">
-                      <i *ngIf="Street.invalid && (Street.touched || Street.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                      <i *ngIf="Street.invalid && (Street.touched || Street.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info" aria-hidden="true"></i>
                     </span>
                   </div>
                 </div>
