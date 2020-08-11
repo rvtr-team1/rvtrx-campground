@@ -54,7 +54,7 @@ export class SearchBarComponent implements OnInit {
   private async getAvailableRentals(checkIn: Date, checkOut: Date): Promise<Rental[]> {
     const lodgingRentals = await this.getLodgingRentals();
 
-    // Find rentals that don't already exist in 
+    // Find rentals that don't already exist in
     // bookings within the checkIn - checkOut range
     return this.bookings$
       .pipe(
@@ -83,7 +83,6 @@ export class SearchBarComponent implements OnInit {
       .toPromise();
   }
 
-  
   async searchByAll(checkIn: Date, checkOut: Date, city: string, occupancy: number) {
     const availableRentals: Rental[] = await this.getAvailableRentals(checkIn, checkOut);
 
