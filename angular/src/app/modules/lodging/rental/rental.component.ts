@@ -4,7 +4,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Lodging } from '../../..//data/lodging.model';
-import { Rental } from '../../../data/rental.model';
 import { RentalUnit } from 'src/app/data/rental-unit.model';
 
 /**
