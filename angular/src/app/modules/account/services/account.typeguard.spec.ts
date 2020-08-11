@@ -46,7 +46,6 @@ const Payload = {
     },
   ],
 };
-
 describe('TypeGuard', () => {
   const tg = TypeGuard;
   it('Should return false', () => {

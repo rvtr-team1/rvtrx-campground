@@ -1,9 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Payment } from '../../../data/payment.model';
-<<<<<<< HEAD
-import { EditingService } from '../services/abstract.editing.service';
-=======
->>>>>>> account-validation-bulma
 import { AccountEditingService } from '../services/account.editing.service';
 
 @Component({
@@ -17,12 +13,6 @@ export class PaymentComponent implements OnInit {
   @Input() payments: Payment[];
   @Output() paymentsEdited = new EventEmitter();
 
-<<<<<<< HEAD
-  constructor(private editingService: AccountEditingService) {}
-
-  ngOnInit(): void {
-    this.editingService.register({ payments: this.payments });
-=======
   /**
    * Represents the _Payment Component_ 'constructor' method
    * @param editingservice AccountEditingService
@@ -31,7 +21,6 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.editingservice.register({ payments: this.payments });
->>>>>>> account-validation-bulma
   }
 
   /**
@@ -40,6 +29,6 @@ export class PaymentComponent implements OnInit {
    */
   addCard(newCard: Payment) {
     this.payments.push(newCard);
-    console.log(JSON.stringify(newCard));
+    console.log(newCard);
   }
 }

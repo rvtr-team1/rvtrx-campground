@@ -11,13 +11,17 @@ export const TypeGuard = (el: any): el is Account => {
     AllAreTrue(el.payments, CheckPayment)
   ) {
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 };
 export function AllAreTrue(x: Array<any>, CheckFunction: (p: any) => boolean) {
   const _ = [...new Set(x.map((p: any) => CheckFunction(p))).values()];
   if (_.length === 1 && _[0] === true) {
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 }
 export function CheckAddress(x: any): boolean {
   if (
@@ -29,7 +33,9 @@ export function CheckAddress(x: any): boolean {
     typeof x.street === 'string'
   ) {
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 }
 export function CheckProfile(x: any): boolean {
   if (
@@ -39,7 +45,9 @@ export function CheckProfile(x: any): boolean {
     typeof x.phone === 'string'
   ) {
     return true;
-  } else return false;
+  } else {
+    return false;
+  }
 }
 export function CheckPayment(x: any): boolean {
   if (
@@ -49,12 +57,14 @@ export function CheckPayment(x: any): boolean {
     typeof x.cardNumber === 'string'
   ) {
     return true;
+  } else {
+    return false;
   }
-  return false;
 }
 export function CheckName(x: any): boolean {
   if (typeof x.id === 'string' && typeof x.family === 'string' && typeof x.given === 'string') {
     return true;
+  } else {
+    return false;
   }
-  return false;
 }

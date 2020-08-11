@@ -7,9 +7,6 @@
             <div>
               <p class="heading">bank</p>
               <p class="title has-text-light is-6">{{ payment.cardName }}
-                <!-- <uic-editable [(data)]="payment.cardName" Type="name">
-                  <p class="title has-text-light is-6">{{ payment.cardName }}</p>
-                </uic-editable>  -->
               </p>
             </div>
           </div>
@@ -18,9 +15,6 @@
             <div>
               <p class="heading">number</p>
               <p class="title has-text-light is-6">{{ payment.cardNumber }}
-                <!-- <uic-editable [(data)]="payment.cardNumber" Type="creditCard">
-                  <p class="title has-text-light is-6">{{ payment.cardNumber | slice: -4 }}</p>
-                </uic-editable>  -->
               </p>
             </div>
           </div>
@@ -29,9 +23,6 @@
             <div>
               <p class="heading">expiry</p>
               <p class="title has-text-light is-6">{{ payment.cardExpirationDate | date: 'MM/yy' }}
-                <!-- <uic-editable [(data)]="payment.cardExpirationDate" Type="date">
-                  <p class="title has-text-light is-6">{{ payment.cardExpirationDate | date: 'MM/yy' }}</p>
-                </uic-editable> -->
               </p>
             </div>
           </div>
@@ -43,6 +34,5 @@
 </div>
 <div class="level">
   <div class="level-item">
-    <uic-newpaymentform (newPayment)="addCard($event)"></uic-newpaymentform>
   </div>
 </div>

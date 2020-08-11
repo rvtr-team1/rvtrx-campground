@@ -1,17 +1,12 @@
 
 <div (click)="editMode=true" class="editable level">
   <ng-content *ngIf='!editMode' select="*"></ng-content>
-<<<<<<< HEAD
-  <input *ngIf="editMode" class="input is-rounded swing-in-left-bck " ngmodel type='text' [value]='data'
-    (focusout)="onFocusOut($event)" [pattern]="pattern">
-  <div *ngIf="error" class="has-text-danger">
-    <p>{{ErrorMessage}}</p>
-  </div>
-=======
   
   <input *ngIf="editMode" class="input level-item is-rounded swing-in-left-bck " name="userInput" ngModel type='text' [value]='data'
     title="Edit and press Enter"
-    (keydown.enter)="onFocusOut($event)" [pattern]="pattern" #userInput="ngModel" placeholder={{data}}>
+    (keydown.enter)="onFocusOut($event)" 
+    (focusout)="onFocusOut($event)" 
+    [pattern]="pattern" #userInput="ngModel" placeholder={{data}}>
   
   
   <span *ngIf="error" class="icon has-text-danger level-item">
@@ -22,7 +17,6 @@
     <i class="fas fa-check-square" title="Field was successfully edited"></i>
   </span>
   
->>>>>>> account-validation-bulma
 </div>
 
 

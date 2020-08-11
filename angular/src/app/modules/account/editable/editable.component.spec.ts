@@ -1,14 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { EditableComponent } from './editable.component';
 
 describe('EditableComponent', () => {
   let component: EditableComponent;
   let fixture: ComponentFixture<EditableComponent>;
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [EditableComponent],
+      imports: [FormsModule],
     }).compileComponents();
   }));
 
@@ -24,7 +25,6 @@ describe('EditableComponent', () => {
 
   it('#clicked() should toggle #editMode', () => {
     const el = fixture.debugElement.componentInstance;
-    console.log(fixture.nativeElement);
     expect(el.editMode).toBe(false, 'off at first');
     fixture.debugElement.query(By.css('div')).nativeElement.click();
     fixture.detectChanges();
@@ -33,7 +33,6 @@ describe('EditableComponent', () => {
 
   it('#clicked() should display an input', () => {
     const el = fixture.debugElement.componentInstance;
-    console.log(fixture.nativeElement);
     expect(el.editMode).toBe(false, 'off at first');
     fixture.debugElement.query(By.css('div')).nativeElement.click();
     fixture.detectChanges();
@@ -41,9 +40,8 @@ describe('EditableComponent', () => {
     expect(i).toBeTruthy();
   });
 
-  it('on input focusout should change value an trigger an event', () => {
+  it('on input focusout should change value and trigger an event', () => {
     const el = fixture.debugElement.componentInstance;
-    console.log(fixture.nativeElement);
     expect(el.editMode).toBe(false, 'off at first');
     fixture.debugElement.query(By.css('div')).nativeElement.click();
     fixture.detectChanges();

@@ -6,7 +6,8 @@
     "monitoring": "https://ec61288c429544a6ad850b94de25004a@o388320.ingest.sentry.io/5229046"
   },
   "navigation": {
-    "footer": [{
+    "footer": [
+      {
         "icon": "fab fa-github",
         "text": "GitHub",
         "url": "https://github.com/RVTR/rvtr-app-campsite#readme"
@@ -17,7 +18,8 @@
         "url": "https://sonarcloud.io/dashboard?id=rvtr_app_campsite"
       }
     ],
-    "header": [{
+    "header": [
+      {
         "text": "account",
         "url": "account"
       },
