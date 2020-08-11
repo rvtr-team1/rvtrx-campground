@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewPaymentFormComponent } from './newpaymentform.component';
+import { NewPaymentFormComponent } from './new-payment-form.component';
 import { FormControl } from '@angular/forms';
 import { Payment } from 'src/app/data/payment.model';
 

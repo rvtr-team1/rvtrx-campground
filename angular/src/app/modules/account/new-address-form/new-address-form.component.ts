@@ -3,11 +3,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Address } from '../../../data/address.model';
 
 @Component({
-  selector: 'uic-newaddressform',
-  templateUrl: './newaddressform.component.html',
-  styleUrls: ['./newaddressform.component.scss'],
+  selector: 'uic-new-address-form',
+  templateUrl: './new-address-form.component.html',
+  styleUrls: ['./new-address-form.component.scss'],
 })
-export class NewaddressformComponent implements OnInit {
+export class NewAddressformComponent implements OnInit {
   showModal = false;
 
   @Output() newAddress: EventEmitter<Address> = new EventEmitter<Address>();
