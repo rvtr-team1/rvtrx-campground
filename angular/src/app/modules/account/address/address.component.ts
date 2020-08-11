@@ -10,18 +10,18 @@ import { AccountEditingService } from '../services/account.editing.service';
  * Class representing a user's address
  */
 export class AddressComponent implements OnInit {
-  constructor(private readonly editingservice: AccountEditingService) {}
+  constructor(private readonly editingService: AccountEditingService) {}
   @Input() address: Address;
   @Output() addressEdited = new EventEmitter();
 
   ngOnInit(): void {
-    this.editingservice.register({ address: this.address });
+    this.editingService.register({ address: this.address });
   }
 
   /**
    * Updates the _Editing Service_ with the new address information
    */
   edited() {
-    this.editingservice.update({ address: this.address });
+    this.editingService.update({ address: this.address });
   }
 }

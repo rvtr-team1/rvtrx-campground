@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import ValidationConfig from './editable.validation.config';
+import validationConfig from './editable.validation.config';
 
 @Component({
   selector: 'uic-editable',
@@ -13,31 +13,42 @@ export class EditableComponent implements OnInit {
   constructor() {}
 
   @Input() data: string;
+  /**
+   * Pattern that must be matched for each type of input validation
+   */
   @Input() pattern: RegExp;
-  @Input() ErrorMessage: string;
-  @Input() Type: string;
+  /**
+   * Custom messages for input validation
+   */
+  @Input() errorMessage: string;
+  /**
+   * Used to identify which validation message to render
+   */
+  @Input() type: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
   editMode = false;
   error = false;
   valid = false;
+  titleInput: string = 'Edit and Press Enter';
+  titleSuccess: string = 'Field was successfully edited';
 
   /**
    * Used to add custom validation messages based on user input
    */
   ngOnInit() {
-    if (this.Type) {
-      this.SetValidationType(this.Type);
+    if (this.type) {
+      this.SetValidationType(this.type);
     }
   }
 
   /**
    * Setter function for Validation Type
-   * @param Type string
+   * @param type string
    */
-  public SetValidationType(Type: string): void {
-    const config = ValidationConfig[Type];
+  public SetValidationType(type: string): void {
+    const config = validationConfig[type];
     this.pattern = config.pattern;
-    this.ErrorMessage = config.ErrorMessage;
+    this.errorMessage = config.errorMessage;
   }
   /**
    * Emits a change event if user input is valid
