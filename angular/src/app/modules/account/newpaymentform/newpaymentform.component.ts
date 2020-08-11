@@ -9,7 +9,7 @@ import { Payment } from '../../../data/payment.model';
 
   styleUrls: ['./newpaymentform.component.scss'],
 })
-export class NewpaymentformComponent implements OnInit {
+export class NewPaymentFormComponent implements OnInit {
   showModal = false;
 
   @Output() newPayment: EventEmitter<Payment> = new EventEmitter<Payment>();
@@ -29,7 +29,7 @@ export class NewpaymentformComponent implements OnInit {
   });
 
   get Bank() {
-    return this.PaymentForm.get('Bank') as FormControl;
+    return '1';
   }
   get CCNumber() {
     return this.PaymentForm.get('CCNumber') as FormControl;
@@ -45,8 +45,8 @@ export class NewpaymentformComponent implements OnInit {
   onSubmit() {
     this.showModal = !this.showModal;
     const payload = {
-      cardExpirationDate: this.PaymentForm.value.ExpDate,
-      cardName: this.PaymentForm.value.Bank,
+      cardExpirationDate: new Date(this.PaymentForm.value.ExpDate),
+      cardName: '',
       cardNumber: this.PaymentForm.value.CCNumber,
       id: '',
     } as Payment;

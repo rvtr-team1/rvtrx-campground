@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewaddressformComponent } from './newaddressform/newaddressform.component';
+import { NewPaymentFormComponent } from './newpaymentform/newpaymentform.component';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -21,6 +22,7 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     ProfileComponent,
     AccountReviewComponent,
     NewaddressformComponent,
+    NewPaymentFormComponent
   ],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes), FormsModule, ReactiveFormsModule],

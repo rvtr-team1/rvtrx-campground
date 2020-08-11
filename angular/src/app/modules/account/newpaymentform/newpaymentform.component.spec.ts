@@ -1,21 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NewPaymentFormComponent } from './newpaymentform.component';
 
-import { NewpaymentformComponent } from './newpaymentform.component';
-import { FormControl } from '@angular/forms';
-import { componentFactoryName } from '@angular/compiler';
 
 describe('NewpaymentformComponent', () => {
-  let component: NewpaymentformComponent;
-  let fixture: ComponentFixture<NewpaymentformComponent>;
+  let component: NewPaymentFormComponent;
+  let fixture: ComponentFixture<NewPaymentFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NewpaymentformComponent],
+      declarations: [NewPaymentFormComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewpaymentformComponent);
+    fixture = TestBed.createComponent(NewPaymentFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -28,21 +26,31 @@ describe('NewpaymentformComponent', () => {
     component.ngOnInit();
     expect(component.showModal).toBeFalsy();
   });
-
-  it('should emit reply action on submit'),
-    () => {
-      const newform = new NewpaymentformComponent();
-      newform.PaymentForm.setValue({
-        Bank: 'Amex',
-        CCNumber: '123456781234',
-        ExpDate: '12/20',
-        SecurityNumber: '111',
-      });
-
-      newform.onSubmit();
-      expect(component.Bank).toEqual(new FormControl('Amex'));
-      expect(component.CCNumber).toEqual(new FormControl('123456781234'));
-      expect(component.ExpDate).toEqual(new FormControl('12/20'));
-      expect(component.SecurityNumber).toEqual(new FormControl('111'));
-    };
+  it('should properly validate input', () => {
+    const newform = new NewPaymentFormComponent();
+    const controls = [
+      {
+        control: 'CCNumber',
+        InitialValue: '1234123421341234',
+        ProperValue: '1234-1234-2134-1234'
+      },
+      {
+        control: 'ExpDate',
+        InitialValue: '1111',
+        ProperValue: '08/24'
+      },
+      {
+        control: 'SecurityNumber',
+        InitialValue: '1111',
+        ProperValue: '111'
+      }
+    ];
+    controls.forEach(el => {
+      const field = newform.PaymentForm.controls[el.control];
+      field.setValue(el.InitialValue);
+      expect(field.valid).toBeFalsy();
+      field.setValue(el.ProperValue);
+      expect(field.valid).toBeTruthy();
+    });
+    });
 });

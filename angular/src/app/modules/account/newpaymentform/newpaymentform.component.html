@@ -1,6 +1,10 @@
+ <div class="level"> 
+<div class="level-item">
 <button class="button is-primary" (click)="showModal = !showModal">Add a payment</button>
+</div>
+</div>
 <div *ngIf="showModal">
-  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit();">
+  <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit()">
     <div class="modal is-active" id="page-modal">
       <div class="modal-background"></div>
       <div class="modal-content">
@@ -9,46 +13,38 @@
             <div class="container is-fluid">
               <div class="row">
                 <div class="col-50">
-                  <label for="cname">Bank</label>
-                  <input
-                    type="text"
-                    id="cname"
-                    name="cardname"
-                    placeholder="ie. Amex"
-                    formControlName="Bank"
-                  />
-                  <div
-                    *ngIf="Bank.invalid && (Bank.touched || Bank.dirty)"
-                    class="alert alert-danger"
-                  >
-                    <div *ngIf="Bank.errors.required" class="lengthError">Bank is required</div>
-                  </div>
                   <label for="ccnum">Credit card number</label>
-                  <input
-                    type="text"
-                    id="ccnum"
-                    class="form-control"
-                    placeholder="1111-2222-3333-4444"
-                    formControlName="CCNumber"
-                    required
-                    maxlength="16"
-                  />
-                  <div
-                    *ngIf="CCNumber.invalid && (CCNumber.dirty || CCNumber.touched)"
-                    class="alert alert-danger"
-                  >
-                    <div *ngIf="CCNumber!.errors.required" class="lengthError">
-                      Credit card number is required
-                    </div>
-                    <div *ngIf="CCNumber!.errors.minlength" class="lengthError">
-                      Credit Card must be 16 characters
-                    </div>
+                  <div class="level is-flex">
+                    <input type="text" id="ccnum" name="cardnumber" class="input is-medium level-item"
+                      placeholder="1111-2222-3333-4444" formControlName="CCNumber"
+                      pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" />
+                    <span class="level-item">
+                      <i *ngIf="CCNumber.invalid && (CCNumber.touched || CCNumber.dirty)"
+                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info"></i>
+                    </span>
                   </div>
-
                   <label for="expyear">Exp Date</label>
-                  <input type="text" id="expyear" name="expyear" placeholder="2018" formControlName="ExpDate" />
+                  <div class="level is-flex">
+                    <input type="text" id="expyear" name="expyear" class="input is-medium level-item"
+                      placeholder="MM/YY" formControlName="ExpDate" pattern="^(0[1-9]|1[0-2])\/?(2[0-9])$" />
+                    <span class="level-item">
+                      <i *ngIf="ExpDate.invalid && (ExpDate.touched || ExpDate.dirty)"
+                        class="level-item fas fa-ban has-text-danger" title="Please enter valid CC info: MM/YY"></i>
+                    </span>
+                  </div>
+                  <label for="Securty Number">Security Number</label>
+                  <div class="level is-flex">
+                    <input type="number" id="secnumber" name="secnumber" class="input is-medium level-item"
+                      placeholder="ex: 111" formControlName="SecurityNumber" pattern="^([0-9]{3})$" />
+                    <span class="level-item">
+                      <i *ngIf="SecurityNumber.invalid && (SecurityNumber.touched || SecurityNumber.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid CC Securty number: 111"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
+
               <div class="level">
                 <button class="button is-primary level-item" type="submit">Add Card</button>
               </div>

@@ -11,10 +11,10 @@
               <h2 class="title has-text-light is-4">address</h2>
               <uic-address *ngIf="address$ | async as address" [address]="address"></uic-address>
             </div>
-
             <div class="tile box has-background-dark is-child">
               <h2 class="title has-text-light is-4">payments</h2>
               <uic-payment *ngFor="let payment of (payments$ | async)" [payment]="payment"></uic-payment>
+              <uic-newpaymentform></uic-newpaymentform>
             </div>
           </div>
         </div>

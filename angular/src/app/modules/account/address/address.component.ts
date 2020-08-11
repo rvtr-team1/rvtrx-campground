@@ -14,7 +14,6 @@ export class AddressComponent implements OnInit {
   ngOnInit(): void {}
 
   addAddress(newAddress: Address) {
-    //this.address.push(newAddress);
     console.log(newAddress);
   }
 }
