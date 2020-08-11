@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
@@ -6,24 +6,16 @@ import { Lodging } from 'src/app/data/lodging.model';
   templateUrl: './featured-lodging.component.html',
   styleUrls: ['./featured-lodging.component.scss'],
 })
-export class FeaturedLodgingComponent implements OnInit {
+export class FeaturedLodgingComponent implements OnInit, OnChanges {
   @Input() featuredLodgings: Lodging[] | null;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  setFeaturedLodgings(): void {
-    const lodgings: Lodging[] = new Array(6);
-
+  ngOnChanges() {
     if (this.featuredLodgings) {
-      for (let index = 0; index < lodgings.length; index++) {
-        if (this.featuredLodgings[index].reviews) {
-          lodgings.push(this.featuredLodgings[index]);
-        }
-      }
+      this.featuredLodgings = this.featuredLodgings.slice(0, 6);
     }
-
-    this.featuredLodgings = lodgings;
   }
 }

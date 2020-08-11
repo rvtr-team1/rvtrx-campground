@@ -61,7 +61,7 @@ export class SearchBarComponent implements OnInit {
         map((bookings) => {
           const availableRentals: Rental[] = [];
 
-          bookings.forEach((booking) => {
+          for (const booking of bookings) {
             const bookingCheckIn = new Date(booking.stay.checkIn);
             const bookingCheckOut = new Date(booking.stay.checkOut);
 
@@ -69,13 +69,13 @@ export class SearchBarComponent implements OnInit {
               (checkIn < bookingCheckIn && checkOut < bookingCheckIn) ||
               (checkIn > bookingCheckOut && checkOut > bookingCheckOut)
             ) {
-              lodgingRentals.forEach((lodgingRental) => {
+              for (const lodgingRental of lodgingRentals) {
                 if (!booking.rentals.includes(lodgingRental)) {
                   availableRentals.push(lodgingRental);
                 }
-              });
+              }
             }
-          });
+          }
 
           return availableRentals;
         })
@@ -100,19 +100,18 @@ export class SearchBarComponent implements OnInit {
     this.lodgings$.subscribe((lodgings) => {
       const searchResults: Lodging[] = [];
 
-      lodgings.forEach((lodging) => {
+      for (const lodging of lodgings) {
         if (lodging.location.address.city === city) {
           const availableLodgingRentals = lodging.rentals.filter((rental) => isAvailable(rental));
 
-          availableLodgingRentals.forEach((availableRental) => {
+          for (const availableRental of availableLodgingRentals) {
             if (availableRental.rentalUnit.occupancy >= occupancy) {
               searchResults.push(lodging);
-              return false;
+              break;
             }
-            return true;
-          });
+          }
         }
-      });
+      }
 
       this.searchResults.emit(searchResults);
     });
