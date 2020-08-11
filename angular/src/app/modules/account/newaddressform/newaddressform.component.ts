@@ -5,7 +5,6 @@ import { Address } from '../../../data/address.model';
 @Component({
   selector: 'uic-newaddressform',
   templateUrl: './newaddressform.component.html',
-  template: '',
   styleUrls: ['./newaddressform.component.scss'],
 })
 export class NewaddressformComponent implements OnInit {
