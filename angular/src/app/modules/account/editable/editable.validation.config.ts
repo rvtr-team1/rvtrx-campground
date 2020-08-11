@@ -10,14 +10,28 @@ ValidationConfig.creditCard = {
 };
 ValidationConfig.name = {
   pattern: /^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$/,
-  ErrorMessage: 'Names cannout contain punctuation, spaces or numbers',
+  ErrorMessage: 'Names cannot contain punctuation, spaces or numbers',
 };
-ValidationConfig.email = {
-  pattern: /^w+@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/,
-  ErrorMessage: 'email must be: user@example.com',
-};
+
 ValidationConfig.city = {
-  pattern: /(([0-9]{2}|0{1}((x|[0-9]){2}[0-9]{2})))s*[0-9]{3,4}[- ]*[0-9]{4}/,
-  ErrorMessage: 'email must be: user@example.com',
+  pattern: /^[A-Za-z ]+$/,
+  ErrorMessage: 'Please enter a valid city ex. New York',
 };
+ValidationConfig.date = {
+  pattern: /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/,
+  ErrorMessage: 'Please enter a valid date in the format dd/mm/yyyy',
+};
+ValidationConfig.state = {
+  pattern: /^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/,
+  ErrorMessage: 'Please enter a valid US state ex. NY',
+};
+ValidationConfig.street = {
+  pattern: /^[#.0-9a-zA-Z\s,-]+$/,
+  ErrorMessage: 'Please enter a valid street address',
+};
+ValidationConfig.postal = {
+  pattern: /^[0-9]{5}$/,
+  ErrorMessage: 'Please enter a valid zip code ex. 12345',
+};
+
 export default ValidationConfig;

@@ -1,10 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import ValidationConfig from './editable.validation.config';
+
 @Component({
   selector: 'uic-editable',
   templateUrl: './editable.component.html',
   styleUrls: ['./editable.component.scss'],
 })
+/**
+ * Class representing an _Editable Component_
+ */
 export class EditableComponent implements OnInit {
   constructor() {}
 
@@ -15,7 +19,11 @@ export class EditableComponent implements OnInit {
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
   editMode = false;
   error = false;
+  valid = false;
 
+  /**
+   * Used to add custom validation messages based on user input
+   */
   ngOnInit() {
     if (this.Type) {
       const config = ValidationConfig[this.Type];
@@ -24,14 +32,20 @@ export class EditableComponent implements OnInit {
     }
   }
 
+  /**
+   * Emits a change event if user input is valid
+   * @param e Event
+   */
   onFocusOut(e: Event) {
     const reg = new RegExp(this.pattern);
     const target = e.target as HTMLInputElement;
     const valid = reg.test(target.value);
     if (!valid) {
       this.error = true;
+      this.valid = false;
     } else {
       this.error = false;
+      this.valid = true;
       this.editMode = false;
       this.data = target.value;
       this.dataChange.emit(this.data);

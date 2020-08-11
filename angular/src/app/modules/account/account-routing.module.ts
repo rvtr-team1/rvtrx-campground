@@ -9,7 +9,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { EditableComponent } from './editable/editable.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NewpaymentformComponent } from './newpaymentform/newpaymentform.component';
 import { AccountEditingService } from './services/account.editing.service';
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -22,7 +21,6 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     ProfileComponent,
     AccountReviewComponent,
     EditableComponent,
-    NewpaymentformComponent,
   ],
   providers: [AccountEditingService],
   exports: [RouterModule],

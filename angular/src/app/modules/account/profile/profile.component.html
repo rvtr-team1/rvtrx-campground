@@ -10,12 +10,16 @@
           <div>
             <p class="heading">adult</p>
             <p class="title is-6">
+<<<<<<< HEAD
               <uic-editable [(data)]='profile.name.given' (dataChange)="edited()" Type="name">
+=======
+              <uic-editable [(data)]='profile.name.given' Type="name">
+>>>>>>> account-validation-bulma
                 <p class="title is-6"> {{profile.name.given}}</p>
               </uic-editable>
-              <uic-editable [(data)]='profile.name.family' (dataChange)="edited()" Type="name">
+              <uic-editable [(data)]='profile.name.family' Type="name">
                 <p class="title is-6"> {{profile.name.family}}</p>
-              </uic-editable>
+              </uic-editable> 
             </p>
           </div>
         </div>
