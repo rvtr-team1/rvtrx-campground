@@ -22,6 +22,8 @@ import { ActivatedRoute } from '@angular/router';
 export class RentalComponent implements OnInit {
   /**
    * fields of the component
+   * rentalUnits: array of RentalUnits
+   * availabilityCount: maps number of available rentals to rentalUnit.id
    */
   rentalUnits: RentalUnit[] = [];
   availabilityCount = new Map<string, number>();
