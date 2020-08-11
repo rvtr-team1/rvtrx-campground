@@ -23,8 +23,6 @@ export class RentalComponent implements OnInit {
   /**
    * fields of the component
    */
-  lodgings: Lodging[] | null = null;
-  rentals: Rental[] | null = null;
   rentalUnits: RentalUnit[] = [];
   availabilityCount = new Map<string, number>();
 
@@ -40,13 +38,11 @@ export class RentalComponent implements OnInit {
 
   /**
    * uses a lodgingService to make a http get request to get
-   * lodging information. It then sets the rentals variable to
-   * the lodgings Rental property.
+   * lodging information then sends the lodgings to setRentalUnits method
    */
   private loadLodgings(): void {
-    this.lodgingService.get().subscribe((data) => {
-      this.lodgings = data;
-      this.setRentalUnits(this.lodgings);
+    this.lodgingService.get().subscribe((lodgings) => {
+      this.setRentalUnits(lodgings);
     });
   }
 
@@ -55,17 +51,17 @@ export class RentalComponent implements OnInit {
    */
   public setRentalUnits(lodgings: Lodging[]): void {
     if (lodgings) {
-      this.rentals = lodgings[0].rentals; // hardcoded for now, taking the first lodging from the test data
-      // loop through rentals
+      // get one lodging (hardcoded for now) from the lodging array
+      // loop through its rentals
       // check to see if a rental has duplicate rental units
       // only keep track of the rental units that are unique
-      // increment the availability count if the rentals are available
-      this.rentals.forEach((rental) => {
+      // increment the availability count for each rental unit if the rentals are available
+      lodgings[0].rentals.forEach((rental) => {
         if (!this.rentalUnits.find((rentalUnit) => rentalUnit.id === rental.rentalUnit.id)) {
           this.availabilityCount.set(rental.rentalUnit.id, 1);
           this.rentalUnits.push(rental.rentalUnit);
         }
-        // The rental already exists so just check availability and add it to the count
+        // The rental unit already exists in the array so just check availability and add it to the count
         else {
           if (rental.status === 'available') {
             const count = this.availabilityCount.get(rental.rentalUnit.id);
