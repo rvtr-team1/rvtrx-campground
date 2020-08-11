@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AccountBookingComponent } from '../account-booking/account-booking.component';
 import { AccountReviewComponent } from '../account-review/account-review.component';
@@ -32,6 +32,10 @@ describe('AccountComponent', () => {
     },
   };
 
+  const AccountEditingServiceStub = {
+    PayloadEmitter: new Subject(),
+    register: () => {},
+  };
   let component: AccountComponent;
   let fixture: ComponentFixture<AccountComponent>;
 
@@ -46,7 +50,10 @@ describe('AccountComponent', () => {
         ProfileComponent,
       ],
       imports: [HttpClientTestingModule],
-      providers: [AccountEditingService, { provide: AccountService, useValue: accountServiceStub }],
+      providers: [
+        { provide: AccountEditingService, useValue: AccountEditingServiceStub },
+        { provide: AccountService, useValue: accountServiceStub },
+      ],
     }).compileComponents();
   }));
 

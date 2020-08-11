@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { AccountEditingService } from '../services/account.editing.service';
-
+import { Subject } from 'rxjs';
 describe('AddressComponent', () => {
   const address = {
     id: '',
@@ -11,14 +11,17 @@ describe('AddressComponent', () => {
     stateProvince: '',
     street: '',
   };
-
+  const AccountEditingServiceStub = {
+    PayloadEmitter: new Subject(),
+    register: () => {},
+  };
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent],
-      providers: [AccountEditingService],
+      providers: [{ provide: AccountEditingService, useValue: AccountEditingServiceStub }],
     }).compileComponents();
   }));
 

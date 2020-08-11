@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Subject } from 'rxjs';
 import { ProfileComponent } from './profile.component';
 import { AccountEditingService } from '../services/account.editing.service';
 
@@ -16,14 +16,17 @@ describe('ProfileComponent', () => {
       phone: '',
     },
   ];
-
+  const AccountEditingServiceStub = {
+    PayloadEmitter: new Subject(),
+    register: () => {},
+  };
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-      providers: [AccountEditingService],
+      providers: [{ provide: AccountEditingService, useValue: AccountEditingServiceStub }],
     }).compileComponents();
   }));
 
