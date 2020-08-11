@@ -1,5 +1,7 @@
 $shadow-color: rgba(0, 0, 0, 0.3);
-
+section{
+  padding-bottom: 2rem;
+}
 .result-image {
   $result-shadow: 0 7px 15px 0 $shadow-color;
   -webkit-box-shadow: $result-shadow;
