@@ -52,7 +52,7 @@ export class RentalComponent implements OnInit {
         this.idString = params.get('id');
       });
       if (this.idString !== null) {
-        this.setRentalUnits(lodgings[parseInt(this.idString, 10)]);
+        this.setRentalUnits(lodgings[parseInt(this.idString, 10) - 1]);
       }
     });
   }
