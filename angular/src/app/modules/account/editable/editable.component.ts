@@ -29,8 +29,8 @@ export class EditableComponent implements OnInit {
   editMode = false;
   error = false;
   valid = false;
-  titleInput: string = 'Edit and Press Enter';
-  titleSuccess: string = 'Field was successfully edited';
+  titleInput = 'Edit and Press Enter';
+  titleSuccess = 'Field was successfully edited';
 
   /**
    * Used to add custom validation messages based on user input
