@@ -8,6 +8,7 @@ import { Lodging } from 'src/app/data/lodging.model';
 })
 export class FeaturedLodgingComponent implements OnInit, OnChanges {
   @Input() featuredLodgings: Lodging[] | null;
+  displayLodgings: Lodging[] = [];
 
   constructor() {}
 
@@ -15,7 +16,7 @@ export class FeaturedLodgingComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.featuredLodgings) {
-      this.featuredLodgings = this.featuredLodgings.slice(0, 6);
+      this.displayLodgings = this.featuredLodgings.slice(0, 6);
     }
   }
 }
