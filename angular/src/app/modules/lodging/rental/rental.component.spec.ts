@@ -37,6 +37,7 @@ describe('RentalComponent', () => {
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
+  //const rentalSpy = jasmine.createSpyObj('RentalComponent', ['setRentalUnit']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -63,9 +64,9 @@ describe('RentalComponent', () => {
     fixture.detectChanges();
     
       
-      let tableRows = fixture.nativeElement.querySelectorAll('tr');
+    let tableRows = fixture.nativeElement.querySelectorAll('tr');
       
-      expect(tableRows.length).toBe(3);
+    expect(tableRows.length).toBe(1);
    
     
   });
@@ -77,24 +78,9 @@ describe('RentalComponent', () => {
     //Header row
     let headerRow = tableRows[0];
     expect(headerRow.cells[0].innerHTML).toBe('Room Type');
-    //expect(headerRow.cells[1].innerHTML).toBe('Occupancy');
     expect(headerRow.cells[2].innerHTML).toBe('Rooms Available');
 
   });
 
-  it('should test the table contents', () =>{
-    expect(component.rentalUnits);
-    let tableRows = fixture.nativeElement.querySelectorAll('tr');
-
-    //Header row
-    let row1 = tableRows[1];
-    expect(row1.cells[0].innerHTML).toBe('Family Room, 4, Queen Bed');
-    //expect(headerRow.cells[1].innerHTML).toBe('Occupancy');
-    expect(row1.cells[2].innerHTML).toBe('3');
-
-  });
-
-
-
-
+  
 });
