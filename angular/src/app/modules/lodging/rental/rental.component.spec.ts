@@ -34,6 +34,7 @@ describe('RentalComponent', () => {
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
+  //const rentalSpy = jasmine.createSpyObj('RentalComponent', ['setRentalUnit']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -52,5 +53,11 @@ describe('RentalComponent', () => {
 
   it('should get rentalUnits', () => {
     expect(component.rentalUnits).toBeTruthy();
+  });
+
+  //test ngOnInit, loadLodgings, setRentalUnits
+  it('should call setRentalUnit', () => {
+    component.ngOnInit();
+    expect(component.setRentalUnits).toHaveBeenCalledTimes(1);
   });
 });
