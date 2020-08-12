@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
+import { Booking } from 'src/app/data/booking.model';
+import { BookingService } from 'src/app/services/booking/booking.service';
 
 @Component({
   selector: 'uic-search-results',
@@ -8,9 +10,10 @@ import { Lodging } from 'src/app/data/lodging.model';
 })
 export class SearchResultsComponent implements OnInit {
   @Input() lodgings: Lodging[] | null;
+  reservation: Booking;
   query = 'test query';
 
-  constructor() {}
+  constructor(private readonly bookingService: BookingService) {}
 
   ngOnInit(): void {}
 
@@ -30,5 +33,22 @@ export class SearchResultsComponent implements OnInit {
     return stars;
   }
 
-  makeReservation() {}
+  makeReservation(lodging: Lodging) {
+    this.reservation = {
+      id: '1',
+      lodgingId: lodging.id,
+      guests: [],
+      accountId: '1',
+      rentals: [],
+      stay: {
+        id: '',
+        dateCreated: new Date().toDateString(),
+        dateModified: new Date().toDateString(),
+        // TODO change to specified times (form data maybe?)
+        checkIn: new Date().toDateString(),
+        checkOut: new Date().toDateString(),
+      },
+    };
+    this.bookingService.post(this.reservation);
+  }
 }
