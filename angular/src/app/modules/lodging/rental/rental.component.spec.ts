@@ -63,7 +63,7 @@ describe('RentalComponent', () => {
     fixture.detectChanges();
     
       
-      let tableRows = fixture.nativeElement.querySelectorAll('thead');
+      let tableRows = fixture.nativeElement.querySelectorAll('tr');
       
       expect(tableRows.length).toBe(3);
    
