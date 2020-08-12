@@ -3,9 +3,6 @@ import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
-import { DebugElement } from '@angular/core';
-import { By } from 'protractor';
-import { repeat } from 'rxjs/operators';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
