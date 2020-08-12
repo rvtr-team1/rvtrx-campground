@@ -138,7 +138,7 @@ describe('RentalComponent', () => {
     const tableRows = fixture.nativeElement.querySelectorAll('tr');
 
     const headerRow = tableRows[0];
-    expect(headerRow.cells[0].innerHTML).toBe('Room Type');
-    expect(headerRow.cells[2].innerHTML).toBe('Rooms Available');
+    expect(headerRow.cells[0].innerHTML).toContain('Room Type');
+    expect(headerRow.cells[2].innerHTML).toContain('Rooms Available');
   });
 });
