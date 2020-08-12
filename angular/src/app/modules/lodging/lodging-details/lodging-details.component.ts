@@ -36,10 +36,12 @@ export class LodgingDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.idString = params.get('id');
     });
-    console.log(this.idString);
-    if (this.idString !== null) {
-      this.lodgingService.get(this.idString).subscribe((data) => {
-        if (this.idString !== null) {
+    if (this.idString) {
+      // gets the lodgings array then gets the correct lodging based on the id
+      // this works because the test data is in order
+      // when the api is ready, there would be a call to get the lodging by id instead
+      this.lodgingService.get().subscribe((data) => {
+        if (this.idString) {
           this.lodging = data[parseInt(this.idString, 10) - 1];
           this.isLoaded = true;
         }
