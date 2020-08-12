@@ -63,22 +63,22 @@ describe('NewaddressformComponent', () => {
       {
         control: 'City',
         InitialValue: '1234',
-        ProperValue: 'rweregrg',
+        ProperValue: 'Some Where',
       },
       {
         control: 'Country',
         InitialValue: '1111',
-        ProperValue: 'werwrecg',
+        ProperValue: 'US',
       },
       {
         control: 'PostalCode',
-        InitialValue: '1111',
+        InitialValue: 1,
         ProperValue: 11111,
       },
       {
         control: 'StateProvince',
-        InitialValue: '1111',
-        ProperValue: 'fgrtgrwtg',
+        InitialValue: '432',
+        ProperValue: 'TX',
       },
       {
         control: 'Street',
@@ -89,8 +89,10 @@ describe('NewaddressformComponent', () => {
     controls.forEach((el) => {
       const field = newform.AddressForm.controls[el.control];
       field.setValue(el.InitialValue);
+      fixture.detectChanges();
       expect(field.valid).toBeFalse();
       field.setValue(el.ProperValue);
+      fixture.detectChanges();
       expect(field.valid).toBeTruthy(el.InitialValue + el.control);
     });
     component.onSubmit();
