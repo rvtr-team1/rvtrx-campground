@@ -1,6 +1,5 @@
 import { Profile } from './profile.model';
 import { Rental } from './rental.model';
-import { Stay } from './stay.model';
 
 /**
  * Represents the _Booking_ model
@@ -20,5 +19,6 @@ export interface Booking {
   lodgingId: string;
   guests: Profile[];
   rentals: Rental[];
-  stay: Stay;
+  checkIn: string,
+  checkOut: string
 }

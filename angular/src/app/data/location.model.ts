@@ -13,6 +13,5 @@ export interface Location {
   id: string;
   address: Address;
   latitude: string;
-  locale: string;
   longitude: string;
 }
