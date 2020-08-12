@@ -25,16 +25,76 @@ describe('RentalComponent', () => {
         locale: 'testLocale',
         longitude: 'testLong',
       },
+      name: 'Test',
       bathrooms: 1,
-      name: 'test',
-      rentals: [],
-      reviews: [],
+      rentals: [
+        {
+          id: '1',
+          name: 'testRental',
+          status: 'available',
+          price: 100,
+          rentalUnit: {
+            id: '1',
+            bedroom: {
+              id: '1',
+              count: 4,
+              type: 'Queen Bed',
+            },
+            name: 'Family Room',
+            occupancy: 5,
+            type: 'testType',
+          },
+        },
+        {
+          id: '2',
+          name: 'testRental',
+          status: 'available',
+          price: 100,
+          rentalUnit: {
+            id: '1',
+            bedroom: {
+              id: '1',
+              count: 4,
+              type: 'Queen Bed',
+            },
+            name: 'Family Room',
+            occupancy: 5,
+            type: 'testType',
+          },
+        },
+        {
+          id: '3',
+          name: 'testRental',
+          status: 'available',
+          price: 100,
+          rentalUnit: {
+            id: '2',
+            bedroom: {
+              id: '1',
+              count: 4,
+              type: 'King Bed',
+            },
+            name: 'Family Room',
+            occupancy: 5,
+            type: 'testType',
+          },
+        },
+      ],
+      reviews: [
+        {
+          id: '1',
+          accountId: '1',
+          hotelId: '1',
+          comment: 'comment',
+          dateCreated: '2019-02-05',
+          rating: 5,
+        },
+      ],
     },
   ];
 
   const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   lodgingService.get.and.returnValue(of(lodgings));
-  //const rentalSpy = jasmine.createSpyObj('RentalComponent', ['setRentalUnit']);
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -53,11 +113,16 @@ describe('RentalComponent', () => {
 
   it('should get rentalUnits', () => {
     expect(component.rentalUnits).toBeTruthy();
+    expect(component.rentalUnits.length).toEqual(2);
   });
 
-  //test ngOnInit, loadLodgings, setRentalUnits
+  it('should set availability count correctly', () => {
+    expect(component.availabilityCount.get('1')).toEqual(2);
+  });
+
   it('should call setRentalUnit', () => {
+    spyOn(component, 'setRentalUnits');
     component.ngOnInit();
-    expect(component.setRentalUnits).toHaveBeenCalledTimes(1);
+    expect(component.setRentalUnits).toHaveBeenCalled();
   });
 });
