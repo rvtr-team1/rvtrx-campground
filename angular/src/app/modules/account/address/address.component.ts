@@ -13,6 +13,8 @@ export class AddressComponent implements OnInit {
   constructor(private readonly editingService: AccountEditingService) {}
   @Input() address: Address;
   @Output() addressEdited = new EventEmitter();
+  editMode = false;
+  titleEdit = 'Click To Edit Your Address';
 
   ngOnInit(): void {
     this.editingService.register({ address: this.address });

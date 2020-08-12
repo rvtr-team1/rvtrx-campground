@@ -1,4 +1,5 @@
-<div (click)="editMode=true" class="editable level">
+<div class="editable level">
+  
   <ng-content *ngIf="!editMode" select="*"></ng-content>
   
   <input *ngIf="editMode" class="input level-item is-rounded swing-in-left-bck " 

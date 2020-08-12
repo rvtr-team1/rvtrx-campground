@@ -12,6 +12,9 @@ import { AccountEditingService } from '../services/account.editing.service';
 export class ProfileComponent implements OnInit {
   @Input() profiles: Profile[];
 
+  editMode = false;
+  titleEdit = 'Click To Edit Your Profile';
+
   /**
    * Updates the _Editing Service_ with the new profile information
    */

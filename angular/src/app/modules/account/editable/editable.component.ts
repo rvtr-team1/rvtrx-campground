@@ -6,6 +6,7 @@ import validationConfig from './editable.validationConfig';
   templateUrl: './editable.component.html',
   styleUrls: ['./editable.component.scss'],
 })
+
 /**
  * Class representing an _Editable Component_
  */
@@ -26,7 +27,10 @@ export class EditableComponent implements OnInit {
    */
   @Input() type: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
-  editMode = false;
+
+  @Input() editMode: boolean;
+  @Output() editModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   error = false;
   valid = false;
   titleInput = 'Edit and Press Enter';
