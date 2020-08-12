@@ -13,4 +13,5 @@ export interface Payment {
   cardExpirationDate: string;
   cardName: string;
   cardNumber: string;
+  // securityCode: number;
 }

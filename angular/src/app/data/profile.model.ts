@@ -13,6 +13,9 @@ import { Name } from './name.model';
 export interface Profile {
   id: string;
   email: string;
-  name: Name;
+  type: string;
+  // name: Name;
+  givenName: string;
+  familyName: string;
   phone: string;
 }

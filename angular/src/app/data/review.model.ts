@@ -13,7 +13,7 @@
 export interface Review {
   id: string;
   accountId: string;
-  hotelId: string;
+  lodgingId: string;
   comment: string;
   dateCreated: string;
   rating: number;
