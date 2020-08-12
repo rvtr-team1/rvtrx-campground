@@ -8,28 +8,27 @@ import { RouterModule } from '@angular/router';
 describe('LodgingDetailsComponent', () => {
   let component: LodgingDetailsComponent;
   let fixture: ComponentFixture<LodgingDetailsComponent>;
-  const lodging: Lodging =
-    {
+  const lodging: Lodging = {
+    id: '1',
+    location: {
       id: '1',
-      location: {
+      address: {
         id: '1',
-        address: {
-          id: '1',
-          city: 'testCity',
-          country: 'testCountry',
-          postalCode: 'testCode',
-          stateProvince: 'testState',
-          street: 'testStreet',
-        },
-        latitude: 'testLat',
-        locale: 'testLocale',
-        longitude: 'testLong',
+        city: 'testCity',
+        country: 'testCountry',
+        postalCode: 'testCode',
+        stateProvince: 'testState',
+        street: 'testStreet',
       },
-      name: 'test',
-      rentals: [],
-      reviews: [],
-      bathrooms: 1,
-    };
+      latitude: 'testLat',
+      locale: 'testLocale',
+      longitude: 'testLong',
+    },
+    name: 'test',
+    rentals: [],
+    reviews: [],
+    bathrooms: 1,
+  };
   beforeEach(async(() => {
     const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
     lodgingService.get.and.returnValue(of(lodging));
