@@ -127,11 +127,11 @@ describe('RentalComponent', () => {
   });
 
   it('should do nothing when lodgingService returns a bad response', () => {
-    lodgings[0].rentals.forEach(rental => rental.status = 'booked');
+    lodgings[0].rentals.forEach((rental) => (rental.status = 'booked'));
     spyOn(component.availabilityCount, 'get');
     component.ngOnInit();
     expect(component.availabilityCount.get).toHaveBeenCalledTimes(0);
-    lodgings[0].rentals.forEach(rental => rental.status = 'available');
+    lodgings[0].rentals.forEach((rental) => (rental.status = 'available'));
   });
 
   it('should test the length of the rows', () => {
