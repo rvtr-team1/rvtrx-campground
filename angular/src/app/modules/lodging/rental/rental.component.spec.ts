@@ -129,15 +129,15 @@ describe('RentalComponent', () => {
   it('should test the length of the rows', () => {
     expect(component.rentalUnits);
     fixture.detectChanges();
-    let tableRows = fixture.nativeElement.querySelectorAll('tr');
+    const tableRows = fixture.nativeElement.querySelectorAll('tr');
     expect(tableRows.length).toBe(3);
   });
 
   it('should test the table headers', () => {
     expect(component.rentalUnits);
-    let tableRows = fixture.nativeElement.querySelectorAll('tr');
+    const tableRows = fixture.nativeElement.querySelectorAll('tr');
 
-    let headerRow = tableRows[0];
+    const headerRow = tableRows[0];
     expect(headerRow.cells[0].innerHTML).toBe('Room Type');
     expect(headerRow.cells[2].innerHTML).toBe('Rooms Available');
   });
