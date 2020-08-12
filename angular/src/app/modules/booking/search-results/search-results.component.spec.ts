@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchResultsComponent } from './search-results.component';
 import { Lodging } from 'src/app/data/lodging.model';
+import { HttpClient } from '@angular/common/http';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SearchResultsComponent', () => {
   const lodgings: Lodging[] = [
@@ -47,7 +48,7 @@ describe('SearchResultsComponent', () => {
           accountId: '1',
           hotelId: '1',
           comment: 'comment',
-          dateCreated: new Date(),
+          dateCreated: '2020-08-01',
           rating: 1,
         },
       ],
@@ -61,8 +62,12 @@ describe('SearchResultsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [SearchResultsComponent],
     }).compileComponents();
+
+    TestBed.inject(HttpClient);
+    TestBed.inject(HttpTestingController);
   }));
 
   beforeEach(() => {
