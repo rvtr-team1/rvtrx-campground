@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
@@ -124,6 +124,14 @@ describe('RentalComponent', () => {
     spyOn(component, 'setRentalUnits');
     component.ngOnInit();
     expect(component.setRentalUnits).toHaveBeenCalled();
+  });
+
+  it('should do nothing when lodgingService returns a bad response', () => {
+    lodgings[0].rentals.forEach(rental => rental.status = 'booked');
+    spyOn(component.availabilityCount, 'get');
+    component.ngOnInit();
+    expect(component.availabilityCount.get).toHaveBeenCalledTimes(0);
+    lodgings[0].rentals.forEach(rental => rental.status = 'available');
   });
 
   it('should test the length of the rows', () => {
