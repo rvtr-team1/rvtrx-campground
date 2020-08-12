@@ -42,7 +42,7 @@
         "accountId": "1",
         "hotelId": "1",
         "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "dateCreated": "2019-02-05",
         "rating": 5
       }
     ]
@@ -78,7 +78,7 @@
             "count": 4,
             "type": "Queen Bed"
           },
-          "name": "Family Room",
+          "name": "Triple Room",
           "occupancy": 5,
           "type": "testType"
         }
@@ -90,7 +90,7 @@
         "accountId": "1",
         "hotelId": "1",
         "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "dateCreated": "2019-02-05",
         "rating": 4
       }
     ]
@@ -127,8 +127,8 @@
             "count": 4,
             "type": "Queen Bed"
           },
-          "name": "Family Room",
-          "occupancy": 5,
+          "name": "Double Room",
+          "occupancy": 2,
           "type": "testType"
         }
       }
@@ -139,7 +139,7 @@
         "accountId": "1",
         "hotelId": "1",
         "comment": "comment",
-        "dateCreated": "Tue Feb 05 2019 12:05:22 GMT+0530 (IST)",
+        "dateCreated": "2019-02-05",
         "rating": 6
       }
     ]
