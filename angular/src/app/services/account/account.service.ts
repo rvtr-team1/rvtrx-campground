@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Account } from '../../data/account.model';
-
+import { Address } from '../../../app/data/address.model';
+import { Payment } from '../../../app/data/payment.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -38,8 +39,8 @@ export class AccountService {
    * @param id string
    */
   get(id: string): Observable<Account> {
-    const options = { params: new HttpParams().set('id', id) };
-    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Account>(url, options)));
+    //const options = { params: new HttpParams().set('id', id) };
+    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Account>(url + id)));
   }
 
   /**
@@ -49,6 +50,24 @@ export class AccountService {
    */
   post(account: Account): Observable<boolean> {
     return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, account)));
+  }
+
+  /**
+   * Represents the _Account Service_ `post` method
+   *
+   * @param account Account
+   */
+  postAddress(address: Address): Observable<boolean> {
+    return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, address)));
+  }
+
+  /**
+   * Represents the _Account Service_ `post` method
+   *
+   * @param account Account
+   */
+  postPayment(payment: Payment): Observable<boolean> {
+    return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, payment)));
   }
 
   /**
