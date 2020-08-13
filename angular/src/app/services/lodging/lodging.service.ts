@@ -21,6 +21,13 @@ export class LodgingService {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.lodging));
   }
 
+  getAvailable(city: string, occupancy: string): Observable<Lodging[]> {
+    const params = new HttpParams().set('city', city).set('occupancy', occupancy);
+    return this.apiUrl$.pipe(
+      concatMap((url) => this.http.get<Lodging[]>(url, { params: params }))
+    );
+  }
+
   /**
    * Represents the _Lodging Service_ `delete` method
    *
