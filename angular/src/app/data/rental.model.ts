@@ -12,7 +12,6 @@
  * ```
  */
 export interface Rental {
-  /** unique identifier */
   id: string;
   /** name of the site */
   name: string;

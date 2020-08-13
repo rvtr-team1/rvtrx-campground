@@ -8,5 +8,6 @@
  */
 export interface Bathroom {
   id: string;
+  /** number of bathrooms available */
   fixture: number;
 }

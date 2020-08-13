@@ -10,7 +10,6 @@
  * ```
  */
 export interface Profile {
-  /** unique identifier */
   id: string;
   /** email */
   email: string;
