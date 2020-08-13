@@ -7,12 +7,10 @@ describe('ProfileComponent', () => {
     {
       id: '',
       email: '',
-      name: {
-        id: '',
-        family: '',
-        given: '',
-      },
+      givenName: '',
+      familyName: '',
       phone: '',
+      type: '',
     },
   ];
 

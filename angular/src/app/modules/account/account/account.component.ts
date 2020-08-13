@@ -32,13 +32,8 @@ export class AccountComponent implements OnInit {
         lodgingId: '100',
         guests: [],
         rentals: [],
-        stay: {
-          id: '100',
-          checkIn: '2020-10-01',
-          checkOut: '2020-10-01',
-          dateCreated: '2020-10-01',
-          dateModified: '2020-10-01',
-        },
+        checkIn: '2020-10-01',
+        checkOut: '2020-10-01',
         status: '',
       },
       {
@@ -47,13 +42,8 @@ export class AccountComponent implements OnInit {
         lodgingId: '100',
         guests: [],
         rentals: [],
-        stay: {
-          id: '100',
-          checkIn: '2020-11-01',
-          checkOut: '2020-10-01',
-          dateCreated: '2020-10-01',
-          dateModified: '2020-10-01',
-        },
+        checkIn: '2020-11-01',
+        checkOut: '2020-10-01',
         status: '',
       },
     ]);

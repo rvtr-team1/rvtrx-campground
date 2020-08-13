@@ -18,7 +18,7 @@ export interface Rental {
   occupancy: number;
   /** type of site */
   type: string;
-  /** booking status, one of: 
+  /** booking status, one of:
    *  - available (neither booked nor currently in use)
    *  - booked (booked by someone else, but not in use)
    *  - occupied (currently in use)

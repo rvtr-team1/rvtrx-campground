@@ -19,7 +19,6 @@ describe('SearchResultsComponent', () => {
           street: '',
         },
         latitude: '',
-        locale: '',
         longitude: '',
       },
       name: '',
@@ -27,26 +26,15 @@ describe('SearchResultsComponent', () => {
         {
           id: '',
           name: '',
-          price: 0,
-          rentalUnit: {
-            id: '',
-            bedroom: {
-              id: '',
-              count: 1,
-              type: '',
-            },
-            name: '',
-            occupancy: 1,
-            type: '',
-          },
+          occupancy: 1,
+          type: '',
           status: 'available',
+          price: 1.0,
         },
       ],
       reviews: [
         {
           id: '1',
-          accountId: '1',
-          hotelId: '1',
           comment: 'comment',
           dateCreated: '2020-08-01',
           rating: 1,
