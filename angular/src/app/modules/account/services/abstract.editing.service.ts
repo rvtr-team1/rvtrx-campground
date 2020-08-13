@@ -20,7 +20,7 @@ export abstract class EditingService<T> {
     this.subject.next(e);
   }
 
-  public get Subject(): Subject<any> {
+  public get Subject(): Subject<T> {
     return this.subject;
   }
 
