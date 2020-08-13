@@ -10,7 +10,6 @@ import { LodgingService } from '../../../services/lodging/lodging.service';
   templateUrl: './search-bar.component.html',
 })
 export class SearchBarComponent implements OnInit {
-
   @Output() searchResults = new EventEmitter<Lodging[]>();
   @Output() isSearched = new EventEmitter<boolean>();
 
@@ -31,18 +30,14 @@ export class SearchBarComponent implements OnInit {
     const lodgings$ = this.lodgingService.getAvailable(city, occupancy);
     const bookings$ = this.bookingService.getByDateRange(checkIn, checkOut);
 
-    forkJoin([lodgings$, bookings$]).subscribe(
+    forkJoin([lodgings$, bookings$]).subscribe(([lodgings, bookings]) => {
+      const bookedLodgingIds: string[] = bookings.map((booking) => booking.lodgingId);
+      const availableLodgings: Lodging[] = lodgings.filter(
+        (lodging) => !bookedLodgingIds.includes(lodging.id)
+      );
 
-      ([lodgings, bookings]) => {
-
-        const bookedLodgingIds: string[] = bookings.map((booking) => booking.lodgingId);
-        const availableLodgings: Lodging[] = lodgings.filter(
-          (lodging) => !bookedLodgingIds.includes(lodging.id)
-        );
-
-        this.searchResults.emit(availableLodgings);
-        this.isSearched.emit(true);
-      }
-    );
+      this.searchResults.emit(availableLodgings);
+      this.isSearched.emit(true);
+    });
   }
 }

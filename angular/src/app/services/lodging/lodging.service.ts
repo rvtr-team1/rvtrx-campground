@@ -24,7 +24,7 @@ export class LodgingService {
   /**
    * Gets all lodgings filtered by city and occupancy
    * with at least one rental marked 'available'
-   * 
+   *
    * @param city string
    * @param occupancy string
    */
