@@ -6,7 +6,6 @@ import { Address } from './address.model';
  * id: string;
  * address: Address;
  * latitude: string;
- * locale: string;
  * longitude: string;
  */
 export interface Location {

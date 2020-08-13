@@ -10,7 +10,8 @@ import { Rental } from './rental.model';
  * lodgingId: string;
  * guests: Profile[];
  * rentals: Rental[];
- * stay: Stay;
+ * checkIn: string;
+ * checkOut: string;
  * ```
  */
 export interface Booking {
@@ -19,6 +20,6 @@ export interface Booking {
   lodgingId: string;
   guests: Profile[];
   rentals: Rental[];
-  checkIn: string,
-  checkOut: string
+  checkIn: string;
+  checkOut: string;
 }

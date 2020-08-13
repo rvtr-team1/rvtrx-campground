@@ -6,6 +6,7 @@
  * cardExpirationDate: Date;
  * cardName: string;
  * cardNumber: string;
+ * securityCode: string;
  * ```
  */
 export interface Payment {
@@ -13,5 +14,5 @@ export interface Payment {
   cardExpirationDate: string;
   cardName: string;
   cardNumber: string;
-  // securityCode: number;
+  securityCode: string;
 }
