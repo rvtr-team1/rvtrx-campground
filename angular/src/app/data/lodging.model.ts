@@ -17,8 +17,12 @@ import { Rental } from './rental.model';
 export interface Lodging {
   id: string;
   location: Location;
+  /** name of the campground */
   name: string;
+  /** number of bathrooms available to the campground */
   bathrooms: number;
+  /** sites within the campground */
   rentals: Rental[];
+  /** reviews associated with any sites within the campground */
   reviews: Review[];
 }

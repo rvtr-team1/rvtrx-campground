@@ -4,7 +4,6 @@
  * ```yaml
  * id: string;
  * email: string;
- * type: string;
  * givenName: string;
  * familyName: string;
  * phone: string;
@@ -12,9 +11,14 @@
  */
 export interface Profile {
   id: string;
+  /** email */
   email: string;
+  /** profile type: adult/child */
   type: string;
+  /** firstname */
   givenName: string;
+  /** lastname */
   familyName: string;
+  /** phone number */
   phone: string;
 }

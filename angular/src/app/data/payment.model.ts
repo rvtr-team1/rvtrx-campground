@@ -6,13 +6,15 @@
  * cardExpirationDate: string;
  * cardName: string;
  * cardNumber: string;
- * cvv: number;
+ * securityCode: string;
  * ```
  */
 export interface Payment {
   id: string;
   cardExpirationDate: string;
+  /** name on the card */
   cardName: string;
   cardNumber: string;
-  cvv: number;
+  /** three or four digit security code (CVV, CSC) */
+  securityCode: string;
 }
