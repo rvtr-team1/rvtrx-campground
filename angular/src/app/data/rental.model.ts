@@ -13,7 +13,6 @@
  */
 export interface Rental {
   id: string;
-  /** name of the site */
   name: string;
   /** maximum number of people allowed */
   occupancy: number;
