@@ -16,9 +16,7 @@ export class AddressComponent implements OnInit {
   editMode = false;
   titleEdit = 'Click To Edit Your Address';
 
-  ngOnInit(): void {
-    this.editingService.register({ address: this.address });
-  }
+  ngOnInit(): void {}
 
   /**
    * Updates the _Editing Service_ with the new address information

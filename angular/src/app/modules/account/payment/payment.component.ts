@@ -19,9 +19,7 @@ export class PaymentComponent implements OnInit {
    */
   constructor(private readonly editingService: AccountEditingService) {}
 
-  ngOnInit(): void {
-    this.editingService.register({ payments: this.payments });
-  }
+  ngOnInit(): void {}
 
   /**
    * Adds a new set of payment information

@@ -84,12 +84,19 @@ export class AccountComponent implements OnInit {
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
+    /**
+     * Pass initial model to editingService
+     */
+    this.account$.pipe(map((account) => this.editingService.update(account)));
+    /**
+     * Register function for Payload release from editing service
+     */
     this.editingService.PayloadEmitter.subscribe((val: Account) => this.update(val));
   }
 
   private update(payload: Account): void {
     this.accountService.put(payload).subscribe({
-      next: (e) => console.log(e),
+      next: (e) => this.accountService.put(e),
       error: (e) => console.log(e),
     });
   }

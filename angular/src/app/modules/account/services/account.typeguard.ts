@@ -7,22 +7,15 @@ export const TypeGuard = (el: any): el is Account => {
     Array.isArray(el.payments) &&
     typeof el.id === 'string' &&
     CheckAddress(el.address) &&
-    AllAreTrue(el.profiles, CheckProfile) &&
-    AllAreTrue(el.payments, CheckPayment)
+    el.profiles.every(CheckProfile) &&
+    el.payments.every(CheckPayment)
   ) {
     return true;
   } else {
     return false;
   }
 };
-export function AllAreTrue(x: Array<any>, CheckFunction: (p: any) => boolean) {
-  const _ = [...new Set(x.map((p: any) => CheckFunction(p))).values()];
-  if (_.length === 1 && _[0] === true) {
-    return true;
-  } else {
-    return false;
-  }
-}
+
 export function CheckAddress(x: any): boolean {
   if (
     typeof x.id === 'string' &&
