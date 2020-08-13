@@ -24,14 +24,14 @@ export class BookingService {
   /**
    * Gets all bookings where the existing checkIn and checkOut dates
    * intersect with the given checkIn and checkOut dates
-   * 
+   *
    * @param checkIn string
    * @param checkOut string
    */
   getByDateRange(checkIn: string, checkOut: string): Observable<Booking[]> {
     const params = new HttpParams().set('checkIn', checkIn).set('checkOut', checkOut);
     return this.apiUrl$.pipe(
-      concatMap((url) => this.http.get<Booking[]>(url + '/byDateRange', { params: params }))
+      concatMap((url) => this.http.get<Booking[]>(url + '/byDateRange', { params }))
     );
   }
 
