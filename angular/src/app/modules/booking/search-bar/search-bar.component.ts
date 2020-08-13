@@ -62,8 +62,8 @@ export class SearchBarComponent implements OnInit {
           const availableRentals: Rental[] = [];
 
           for (const booking of bookings) {
-            const bookingCheckIn = new Date(booking.stay.checkIn);
-            const bookingCheckOut = new Date(booking.stay.checkOut);
+            const bookingCheckIn = new Date(booking.checkIn);
+            const bookingCheckOut = new Date(booking.checkOut);
 
             if (
               (checkIn < bookingCheckIn && checkOut < bookingCheckIn) ||
@@ -105,7 +105,7 @@ export class SearchBarComponent implements OnInit {
           const availableLodgingRentals = lodging.rentals.filter((rental) => isAvailable(rental));
 
           for (const availableRental of availableLodgingRentals) {
-            if (availableRental.rentalUnit.occupancy >= occupancy) {
+            if (availableRental.occupancy >= occupancy) {
               searchResults.push(lodging);
               break;
             }
