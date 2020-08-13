@@ -21,9 +21,7 @@ export class ProfileComponent implements OnInit {
   edited() {
     this.editingService.update({ profiles: this.profiles });
   }
-  ngOnInit(): void {
-    this.editingService.register({ profiles: this.profiles });
-  }
+  ngOnInit(): void {}
   /**
    * Represents the _Profile Component_ 'constructor' method
    * @param editingService AccountEditingService
