@@ -21,10 +21,17 @@ export class LodgingService {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.lodging));
   }
 
+  /**
+   * Gets all lodgings filtered by city and occupancy
+   * with at least one rental marked 'available'
+   * 
+   * @param city string
+   * @param occupancy string
+   */
   getAvailable(city: string, occupancy: string): Observable<Lodging[]> {
     const params = new HttpParams().set('city', city).set('occupancy', occupancy);
     return this.apiUrl$.pipe(
-      concatMap((url) => this.http.get<Lodging[]>(url, { params: params }))
+      concatMap((url) => this.http.get<Lodging[]>(url + '/available', { params: params }))
     );
   }
 
