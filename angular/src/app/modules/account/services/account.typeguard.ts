@@ -1,14 +1,14 @@
 import { Account } from '../../../data/account.model';
 
-export const TypeGuard = (el: any): el is Account => {
+export const typeGuard = (el: any): el is Account => {
   if (
     el.hasOwnProperty('payments') &&
     Array.isArray(el.profiles) &&
     Array.isArray(el.payments) &&
     typeof el.id === 'string' &&
-    CheckAddress(el.address) &&
-    el.profiles.every(CheckProfile) &&
-    el.payments.every(CheckPayment)
+    checkAddress(el.address) &&
+    el.profiles.every(checkProfile) &&
+    el.payments.every(checkPayment)
   ) {
     return true;
   } else {
@@ -16,7 +16,7 @@ export const TypeGuard = (el: any): el is Account => {
   }
 };
 
-export function CheckAddress(x: any): boolean {
+export function checkAddress(x: any): boolean {
   if (
     typeof x.id === 'string' &&
     typeof x.city === 'string' &&
@@ -30,11 +30,11 @@ export function CheckAddress(x: any): boolean {
     return false;
   }
 }
-export function CheckProfile(x: any): boolean {
+export function checkProfile(x: any): boolean {
   if (
     typeof x.id === 'string' &&
     typeof x.email === 'string' &&
-    CheckName(x.name) === true &&
+    checkName(x.name) === true &&
     typeof x.phone === 'string'
   ) {
     return true;
@@ -42,7 +42,7 @@ export function CheckProfile(x: any): boolean {
     return false;
   }
 }
-export function CheckPayment(x: any): boolean {
+export function checkPayment(x: any): boolean {
   if (
     typeof x.id === 'string' &&
     typeof x.cardExpirationDate === 'string' &&
@@ -54,7 +54,7 @@ export function CheckPayment(x: any): boolean {
     return false;
   }
 }
-export function CheckName(x: any): boolean {
+export function checkName(x: any): boolean {
   if (typeof x.id === 'string' && typeof x.family === 'string' && typeof x.given === 'string') {
     return true;
   } else {

@@ -1,4 +1,4 @@
-import { TypeGuard } from './account.typeguard';
+import { typeGuard } from './account.typeguard';
 const Payload = {
   id: '100',
   address: {
@@ -47,7 +47,7 @@ const Payload = {
   ],
 };
 describe('TypeGuard', () => {
-  const tg = TypeGuard;
+  const tg = typeGuard;
   it('Should return false', () => {
     const result = tg({});
     expect(result).toBeFalse();
