@@ -10,7 +10,10 @@ import { Address } from './address.model';
  */
 export interface Location {
   id: string;
+  /** address of the campground */
   address: Address;
+  /** latitude for pinning on a map */
   latitude: string;
+  /** longitude for pinning on a map */
   longitude: string;
 }
