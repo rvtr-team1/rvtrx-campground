@@ -22,7 +22,6 @@ describe('LodgingComponent', () => {
           street: 'testStreet',
         },
         latitude: 'testLat',
-        locale: 'testLocale',
         longitude: 'testLong',
       },
       name: 'test',
