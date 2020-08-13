@@ -1,6 +1,6 @@
 {
   "api": {
-    "account": "http://localhost:8000/rest/account/0/Account/",
+    "account": "api.account.json",
     "booking": "api.booking.json",
     "lodging": "api.lodging.json",
     "monitoring": "https://ec61288c429544a6ad850b94de25004a@o388320.ingest.sentry.io/5229046"
