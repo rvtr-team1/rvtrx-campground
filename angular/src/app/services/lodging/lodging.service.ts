@@ -31,7 +31,7 @@ export class LodgingService {
   getAvailable(city: string, occupancy: string): Observable<Lodging[]> {
     const params = new HttpParams().set('city', city).set('occupancy', occupancy);
     return this.apiUrl$.pipe(
-      concatMap((url) => this.http.get<Lodging[]>(url + '/available', { params }))
+      concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))
     );
   }
 
