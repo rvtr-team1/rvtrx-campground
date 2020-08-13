@@ -1,5 +1,3 @@
-import { RentalUnit } from './rental-unit.model';
-
 /**
  * Represents the _Rental_ model
  *
@@ -8,11 +6,7 @@ import { RentalUnit } from './rental-unit.model';
  * name: string;
  * status: string;
  * price: number;
- * discountedPrice?: number;
- * status: string;
- * price: number;
  * discountedPrice: number;
- * rentalUnit: RentalUnit;
  * ```
  * status: Rental occupation/checkin/checkout status
  * price: Normal nightly cost for the rental
@@ -22,8 +16,8 @@ import { RentalUnit } from './rental-unit.model';
 export interface Rental {
   id: string;
   name: string;
-  // rentalUnit: RentalUnit;
-  
+  occupancy: number;
+  type: string;
   status: string;
   price: number;
   discountedPrice?: number;

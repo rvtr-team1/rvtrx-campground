@@ -3,9 +3,10 @@
  *
  * ```yaml
  * id: string;
- * cardExpirationDate: Date;
+ * cardExpirationDate: string;
  * cardName: string;
  * cardNumber: string;
+ * cvv: number;
  * ```
  */
 export interface Payment {
@@ -13,5 +14,5 @@ export interface Payment {
   cardExpirationDate: string;
   cardName: string;
   cardNumber: string;
-  // securityCode: number;
+  cvv: number;
 }
