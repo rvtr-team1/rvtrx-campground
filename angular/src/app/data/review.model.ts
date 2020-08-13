@@ -3,10 +3,8 @@
  *
  * ```yaml
  * id: string;
- * accountId: string;
- * hotelId: string;
  * comment: string;
- * dateCreated: Date;
+ * dateCreated: string;
  * rating: number;
  * ```
  */

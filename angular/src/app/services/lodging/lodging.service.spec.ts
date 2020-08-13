@@ -26,7 +26,6 @@ describe('LodgingService', () => {
           street: 'string',
         },
         latitude: 'string',
-        locale: 'string',
         longitude: 'string',
       },
       name: 'string',
