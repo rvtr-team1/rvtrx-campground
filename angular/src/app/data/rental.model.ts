@@ -1,5 +1,3 @@
-import { RentalUnit } from './rental-unit.model';
-
 /**
  * Represents the _Rental_ model
  *
@@ -22,8 +20,8 @@ import { RentalUnit } from './rental-unit.model';
 export interface Rental {
   id: string;
   name: string;
-  // rentalUnit: RentalUnit;
-  
+  occupancy: number;
+  type: string;
   status: string;
   price: number;
   discountedPrice?: number;

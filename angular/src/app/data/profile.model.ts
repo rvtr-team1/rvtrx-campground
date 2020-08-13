@@ -1,5 +1,3 @@
-import { Name } from './name.model';
-
 /**
  * Represents the _Profile_ model
  *
@@ -14,7 +12,6 @@ export interface Profile {
   id: string;
   email: string;
   type: string;
-  // name: Name;
   givenName: string;
   familyName: string;
   phone: string;
