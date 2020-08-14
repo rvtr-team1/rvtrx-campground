@@ -8,7 +8,7 @@ type Partial<T> = {
 
 /**
  * This is the type used in the generic editable service.
- * It ensures all updates passed are of type EditedAccount via unions
+ * It ensures all updates passed are of type EditedAccount or a Partial of
  * To add on to updated fields, add an interface and expand the union
  */
 export type EditedAccount = Partial<Account>;
