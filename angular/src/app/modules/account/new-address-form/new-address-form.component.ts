@@ -7,7 +7,7 @@ import { Address } from '../../../data/address.model';
   templateUrl: './new-address-form.component.html',
   styleUrls: ['./new-address-form.component.scss'],
 })
-export class NewAddressformComponent implements OnInit {
+export class NewAddressFormComponent implements OnInit {
   showModal = false;
 
   @Output() newAddress: EventEmitter<Address> = new EventEmitter<Address>();
