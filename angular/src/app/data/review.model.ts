@@ -3,18 +3,17 @@
  *
  * ```yaml
  * id: string;
- * accountId: string;
- * hotelId: string;
  * comment: string;
- * dateCreated: Date;
+ * dateCreated: string;
  * rating: number;
  * ```
  */
 export interface Review {
   id: string;
-  accountId: string;
-  hotelId: string;
+  /** text body */
   comment: string;
+  /** date the review was posted */
   dateCreated: string;
+  /** integer rating out of ten stars */
   rating: number;
 }

@@ -19,13 +19,8 @@ describe('BookingService', () => {
       lodgingId: '0',
       guests: [],
       rentals: [],
-      stay: {
-        id: 'string',
-        checkIn: '2020-08-01',
-        checkOut: '2020-08-01',
-        dateCreated: '2020-08-01',
-        dateModified: '2020-08-01',
-      },
+      checkIn: '2020-08-01',
+      checkOut: '2020-08-01',
     },
   ];
 

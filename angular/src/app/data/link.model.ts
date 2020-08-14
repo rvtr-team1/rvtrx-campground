@@ -1,5 +1,5 @@
 /**
- * Represent tje _Link_ model
+ * Represents the _Link_ model
  *
  * ```yaml
  * icon: string;
@@ -8,6 +8,7 @@
  * ```
  */
 export interface Link {
+  /** icon path */
   icon: string;
   text: string;
   url: string;
