@@ -40,9 +40,6 @@ export class LodgingDetailsComponent implements OnInit {
       this.idString = params.get('id');
     });
     if (this.idString) {
-      // gets the lodgings array then gets the correct lodging based on the id
-      // this works because the test data is in order
-      // when the api is ready, there would be a call to get the lodging by id instead
       this.lodgingService.getById(this.idString).subscribe((data) => {
         this.lodging = data;
         this.isLoaded = true;
