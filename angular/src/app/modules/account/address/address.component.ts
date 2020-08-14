@@ -3,6 +3,7 @@ import { Address } from '../../../data/address.model';
 import { Account } from '../../../data/account.model';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+
 @Component({
   selector: 'uic-address',
   templateUrl: './address.component.html',

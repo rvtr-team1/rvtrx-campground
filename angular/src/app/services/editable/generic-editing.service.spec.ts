@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GenericEditingService } from './generic-editing.service';
 import { Account } from '../../data/account.model';
+
 describe('AccountEditingService', () => {
   let service = new GenericEditingService<Partial<Account>>();
   const account: Account = {
