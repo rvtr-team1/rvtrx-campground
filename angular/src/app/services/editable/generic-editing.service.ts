@@ -24,7 +24,13 @@ export class GenericEditingService<T> {
    * Filter payload conditions below
    */
   editUpdates = this.subject.pipe(
-    scan((acc, curr) => (typeof curr === 'object' ? Object.assign({} as T, acc, curr) : null), {})
+    scan(
+      (acc, curr) => (typeof curr === 'object' ? Object.assign({} as T, acc, curr) : null),
+      /**
+       * This Seed value could be updated to reflect an inital state
+       */
+      {} as T
+    )
   );
 
   /**

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
@@ -9,7 +9,6 @@ import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
 import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
-import { EditedAccount } from '../../../data/edited-account.type';
 
 @Component({
   selector: 'uic-account',
@@ -27,7 +26,8 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private readonly accountService: AccountService,
-    private readonly editingService: GenericEditingService<EditedAccount>
+    @Inject('EditingService')
+    private readonly editingService: GenericEditingService<Partial<Account>>
   ) {}
 
   ngOnInit(): void {

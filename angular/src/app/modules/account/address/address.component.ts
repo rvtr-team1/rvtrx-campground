@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { Address } from '../../../data/address.model';
+import { Account } from '../../../data/account.model';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-import { EditedAccount } from 'src/app/data/edited-account.type';
 
 @Component({
   selector: 'uic-address',
@@ -11,7 +11,10 @@ import { EditedAccount } from 'src/app/data/edited-account.type';
  * Class representing a user's address
  */
 export class AddressComponent implements OnInit {
-  constructor(private readonly editingService: GenericEditingService<EditedAccount>) {}
+  constructor(
+    @Inject('EditingService')
+    private readonly editingService: GenericEditingService<Partial<Account>>
+  ) {}
   @Input() address: Address;
   @Output() addressEdited = new EventEmitter();
   editMode = false;

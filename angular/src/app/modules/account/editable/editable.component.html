@@ -4,10 +4,10 @@
 
   <input *ngIf="editMode" class="input level-item is-rounded swing-in-left-bck " name="userInput" type="text"
     [value]="data" [title]="titleInput" (keydown.enter)="onFocusOut($event)" (focusout)="onFocusOut($event)"
-    [pattern]="pattern" placeholder="{{data}}">
+    [pattern]="pattern" placeholder="{{ data }}">
 
   <span *ngIf="error" class="icon has-text-danger level-item">
-    <i class="fas fa-ban" title="{{errorMessage}}" aria-hidden="true"></i>
+    <i class="fas fa-ban" title="{{ errorMessage }}" aria-hidden="true"></i>
   </span>
 
   <span *ngIf="valid" class="icon has-text-success level-item">

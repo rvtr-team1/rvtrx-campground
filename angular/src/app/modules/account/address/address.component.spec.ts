@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { Subject } from 'rxjs';
-import { By } from '@angular/platform-browser';
-import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
 
 describe('AddressComponent', () => {
   const address = {
@@ -13,9 +11,8 @@ describe('AddressComponent', () => {
     stateProvince: '',
     street: '',
   };
-  const accountEditingServiceStub = {
-    PayloadEmitter: new Subject(),
-    register: () => {},
+  const mockEditingService = {
+    payloadEmitter: new Subject(),
   };
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
@@ -23,7 +20,7 @@ describe('AddressComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent],
-      providers: [{ provide: GenericEditingService, useValue: accountEditingServiceStub }],
+      providers: [{ provide: 'EditingService', useValue: mockEditingService }],
     }).compileComponents();
   }));
 
@@ -36,13 +33,5 @@ describe('AddressComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('#clicked() should toggle #editMode', () => {
-    const el = fixture.debugElement.componentInstance;
-    expect(el.editMode).toBe(false, 'off at first');
-    fixture.debugElement.query(By.css('i')).nativeElement.click();
-    fixture.detectChanges();
-    expect(el.editMode).toBe(true, 'on after click');
   });
 });

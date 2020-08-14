@@ -10,7 +10,6 @@ import { AccountReviewComponent } from './account-review/account-review.componen
 import { EditableComponent } from './editable/editable.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GenericEditingService } from '../../services/editable/generic-editing.service';
-import { EditedAccount } from '../../data/edited-account.type';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -26,8 +25,8 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
   ],
   providers: [
     {
-      provide: GenericEditingService,
-      useFactory: () => new GenericEditingService<EditedAccount>(),
+      provide: 'EditingService',
+      useFactory: () => new GenericEditingService<Partial<Account>>(),
     },
   ],
   exports: [RouterModule],

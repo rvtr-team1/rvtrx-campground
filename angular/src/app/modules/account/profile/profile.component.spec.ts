@@ -1,9 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import { ProfileComponent } from './profile.component';
-import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-import { EditedAccount } from 'src/app/data/edited-account.type';
-import { By } from '@angular/platform-browser';
 
 describe('ProfileComponent', () => {
   const profiles = [
@@ -18,9 +15,8 @@ describe('ProfileComponent', () => {
       phone: '',
     },
   ];
-  const AccountEditingServiceStub = {
-    PayloadEmitter: new Subject(),
-    register: () => {},
+  const mockEditingService = {
+    payloadEmitter: new Subject(),
   };
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
@@ -28,7 +24,7 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-      providers: [{ provide: GenericEditingService, useValue: AccountEditingServiceStub }],
+      providers: [{ provide: 'EditingService', useValue: mockEditingService }],
     }).compileComponents();
   }));
 
@@ -41,13 +37,5 @@ describe('ProfileComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('#clicked() should toggle #editMode', () => {
-    const el = fixture.debugElement.componentInstance;
-    expect(el.editMode).toBe(false, 'off at first');
-    fixture.debugElement.query(By.css('i')).nativeElement.click();
-    fixture.detectChanges();
-    expect(el.editMode).toBe(true, 'on after click');
   });
 });
