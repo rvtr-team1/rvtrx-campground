@@ -10,6 +10,7 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 })
 export class BookingComponent implements OnInit {
   lodgings$: Observable<Lodging[]>;
+  searchResults: Lodging[] = [];
   isSearched = false;
 
   constructor(private readonly lodgingService: LodgingService) {}

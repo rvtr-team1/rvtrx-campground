@@ -6,15 +6,15 @@ describe('AccountBookingComponent', () => {
     id: 'string',
     accountId: 'string',
     lodgingId: 'string',
+    checkIn: '',
+    checkOut: '',
     guests: [
       {
         id: 'string',
+        type: 'string',
         email: 'string',
-        name: {
-          id: 'string',
-          family: 'string',
-          given: 'string',
-        },
+        familyName: '',
+        givenName: '',
         phone: 'string',
       },
     ],
@@ -25,26 +25,10 @@ describe('AccountBookingComponent', () => {
         status: 'string',
         price: 0.0,
         discountedPrice: 0.0,
-        rentalUnit: {
-          id: 'string',
-          bedroom: {
-            id: 'string',
-            count: 2,
-            type: 'string',
-          },
-          name: 'string',
-          occupancy: 2,
-          type: 'string',
-        },
+        type: 'string',
+        occupancy: 1,
       },
     ],
-    stay: {
-      id: 'string',
-      checkIn: '2020-08-01',
-      checkOut: '2020-08-01',
-      dateCreated: '2020-08-01',
-      dateModified: '2020-08-01',
-    },
   };
   let component: AccountBookingComponent;
   let fixture: ComponentFixture<AccountBookingComponent>;

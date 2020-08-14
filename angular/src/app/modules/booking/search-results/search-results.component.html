@@ -33,8 +33,7 @@
                     </div>
 
                     <div class="content">
-                      {{ rental.rentalUnit.type }} • Occupancy: {{ rental.rentalUnit.occupancy }}
-                      Persons • Bedrooms: {{ rental.rentalUnit.bedroom.count }}
+                      {{ rental.type }} • Occupancy: {{ rental.occupancy }} Persons
                       <button class="button is-primary" (click)="makeReservation(lodging)">Reserve
                         Now!</button>
                       <br>
