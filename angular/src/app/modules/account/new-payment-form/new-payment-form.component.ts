@@ -64,10 +64,11 @@ export class NewPaymentFormComponent implements OnInit {
   onSubmit() {
     this.showModal = !this.showModal;
     const payload = {
-      cardExpirationDate: new Date(this.paymentForm.value.expDate),
+      id: '',
+      cardExpirationDate: `${new Date(this.paymentForm.value.expDate)}`,
       cardName: '',
       cardNumber: this.paymentForm.value.ccNumber,
-      id: '',
+      securityCode: '111',
     } as Payment;
     this.newPayment.emit(payload);
   }
