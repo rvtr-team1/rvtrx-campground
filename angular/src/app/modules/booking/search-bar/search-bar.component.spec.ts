@@ -8,6 +8,7 @@ describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
 
+  // TODO provide dummy data for mock service injections
   const testForm = {
     value: {
       adults: '',
