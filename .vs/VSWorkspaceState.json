@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\angular",
+    "\\angular\\src",
+    "\\angular\\src\\app",
+    "\\angular\\src\\app\\modules",
+    "\\angular\\src\\app\\modules\\account",
+    "\\angular\\src\\app\\modules\\account\\new-payment-form"
+  ],
+  "SelectedNode": "\\angular\\src\\app\\modules\\account\\new-payment-form\\new-payment-form.component.ts",
+  "PreviewInSolutionExplorer": false
+}
