@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RentalComponent } from './rental.component';
 import { Lodging } from 'src/app/data/lodging.model';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -65,7 +63,6 @@ describe('RentalComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
-      imports: [RouterModule.forRoot([]), HttpClientModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RentalComponent);

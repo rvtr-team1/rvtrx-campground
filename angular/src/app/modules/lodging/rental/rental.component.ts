@@ -2,9 +2,7 @@
  * importing the necessary modules, services and models.
  */
 import { Component, OnInit, Input } from '@angular/core';
-import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Lodging } from '../../../data/lodging.model';
-import { ActivatedRoute } from '@angular/router';
 import { Rental } from '../../../data/rental.model';
 
 /**
@@ -37,10 +35,7 @@ export class RentalComponent implements OnInit {
    * @param lodgingService
    * Constructor injects lodgingService
    */
-  constructor(
-    private readonly lodgingService: LodgingService,
-    private readonly route: ActivatedRoute
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.setRentals(this.lodging);
