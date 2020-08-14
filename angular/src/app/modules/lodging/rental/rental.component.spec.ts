@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of, Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
@@ -22,7 +22,6 @@ describe('RentalComponent', () => {
           street: 'testStreet',
         },
         latitude: 'testLat',
-        locale: 'testLocale',
         longitude: 'testLong',
       },
       name: 'Test',
@@ -30,66 +29,38 @@ describe('RentalComponent', () => {
       rentals: [
         {
           id: '1',
-          name: 'testRental',
+          name: 'Rental1',
+          occupancy: 2,
+          type: 'tent',
           status: 'available',
           price: 100,
-          rentalUnit: {
-            id: '1',
-            bedroom: {
-              id: '1',
-              count: 4,
-              type: 'Queen Bed',
-            },
-            name: 'Family Room',
-            occupancy: 5,
-            type: 'testType',
-          },
         },
         {
           id: '2',
-          name: 'testRental',
+          name: 'Rental2',
+          occupancy: 2,
+          type: 'tent',
           status: 'available',
           price: 100,
-          rentalUnit: {
-            id: '1',
-            bedroom: {
-              id: '1',
-              count: 4,
-              type: 'Queen Bed',
-            },
-            name: 'Family Room',
-            occupancy: 5,
-            type: 'testType',
-          },
         },
         {
           id: '3',
-          name: 'testRental',
+          name: 'Rental3',
+          occupancy: 2,
+          type: 'cabin',
           status: 'available',
           price: 100,
-          rentalUnit: {
-            id: '2',
-            bedroom: {
-              id: '1',
-              count: 4,
-              type: 'King Bed',
-            },
-            name: 'Family Room',
-            occupancy: 5,
-            type: 'testType',
-          },
         },
-      ],
-      reviews: [
         {
-          id: '1',
-          accountId: '1',
-          hotelId: '1',
-          comment: 'comment',
-          dateCreated: '2019-02-05',
-          rating: 5,
+          id: '4',
+          name: 'Rental4',
+          occupancy: 2,
+          type: 'cabin',
+          status: 'booked',
+          price: 100,
         },
       ],
+      reviews: [],
     },
   ];
 
@@ -111,19 +82,20 @@ describe('RentalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get rentalUnits', () => {
-    expect(component.rentalUnits).toBeTruthy();
-    expect(component.rentalUnits.length).toEqual(2);
+  it('should get rentals', () => {
+    expect(component.rentals).toBeTruthy();
+    expect(component.rentals.length).toEqual(2);
   });
 
   it('should set availability count correctly', () => {
-    expect(component.availabilityCount.get('1')).toEqual(2);
+    expect(component.availabilityCount.get('tent')).toEqual(2);
+    expect(component.availabilityCount.get('cabin')).toEqual(1);
   });
 
-  it('should call setRentalUnit', () => {
-    spyOn(component, 'setRentalUnits');
+  it('should call setRentals', () => {
+    spyOn(component, 'setRentals');
     component.ngOnInit();
-    expect(component.setRentalUnits).toHaveBeenCalled();
+    expect(component.setRentals).toHaveBeenCalled();
   });
 
   it('should do nothing when lodgingService returns a bad response', () => {
@@ -135,14 +107,14 @@ describe('RentalComponent', () => {
   });
 
   it('should test the length of the rows', () => {
-    expect(component.rentalUnits);
+    expect(component.rentals);
     fixture.detectChanges();
     const tableRows = fixture.nativeElement.querySelectorAll('tr');
     expect(tableRows.length).toBe(3);
   });
 
   it('should test the table headers', () => {
-    expect(component.rentalUnits);
+    expect(component.rentals);
     const tableRows = fixture.nativeElement.querySelectorAll('tr');
 
     const headerRow = tableRows[0];
