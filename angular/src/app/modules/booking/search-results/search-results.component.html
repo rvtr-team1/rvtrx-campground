@@ -2,7 +2,7 @@
   <div class="hero-head">
     <div class="container">
       <br>
-      <h3 class="title is-2">search results for "{{query}}"</h3>
+      <h3 class="title is-2">search results for "{{ query }}"</h3>
       <div *ngIf="lodgings">
         <h3>number of results found: {{ lodgings.length }}</h3>
         <hr>
@@ -33,9 +33,8 @@
                     </div>
 
                     <div class="content">
-                      {{ rental.rentalUnit.type }} • Occupancy: {{ rental.rentalUnit.occupancy }}
-                      Persons • Bedrooms: {{ rental.rentalUnit.bedroom.count }}
-                      <button class="button is-primary" (click)="makeReservation()">Reserve
+                      {{ rental.type }} • Occupancy: {{ rental.occupancy }} Persons
+                      <button class="button is-primary" (click)="makeReservation(lodging)">Reserve
                         Now!</button>
                       <br>
 

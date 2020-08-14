@@ -25,20 +25,19 @@ describe('AccountService', () => {
     payments: [
       {
         id: 'string',
-        cardExpirationDate: new Date(),
+        cardExpirationDate: '2020-08-01',
         cardName: 'string',
         cardNumber: 'string',
+        securityCode: '111',
       },
     ],
     profiles: [
       {
+        type: 'adult',
         id: 'string',
         email: 'string',
-        name: {
-          id: 'string',
-          family: 'string',
-          given: 'string',
-        },
+        familyName: 'string',
+        givenName: 'string',
         phone: 'string',
       },
     ],
