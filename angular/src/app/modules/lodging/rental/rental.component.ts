@@ -1,7 +1,7 @@
 /**
  * importing the necessary modules, services and models.
  */
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Rental } from '../../../data/rental.model';
 
 /**
@@ -16,13 +16,18 @@ import { Rental } from '../../../data/rental.model';
 /**
  * This class represents the Rental component
  */
-export class RentalComponent implements OnInit {
+export class RentalComponent implements OnInit, OnChanges {
   /**
-   * fields of the component
-   * rentals: array of Rentals
-   * availabilityCount: maps number of available rentals to rental type
+   * rentals taken from the lodging-details lodging.rentals
    */
   @Input() rentals: Rental[];
+  /**
+   * represents the set of rentals with unique types
+   */
+  rentalTypes: Rental[] = [];
+  /**
+   * maps the number of available rentals to the rental type
+   */
   availabilityCount = new Map<string, number>();
 
   /**
@@ -32,24 +37,24 @@ export class RentalComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.setRentals(this.rentals);
+    this.setRentalTypes(this.rentals);
   }
-  ngOnChanges(): void{
-    this.setRentals(this.rentals);
+  ngOnChanges(): void {
+    this.setRentalTypes(this.rentals);
   }
 
   /**
    * populates rentals array and keeps track of the availability of each rental
    */
-  public setRentals(rentals: Rental[]): void {
+  public setRentalTypes(rentals: Rental[]): void {
     // loop through the lodging's rentals
-    // check to see if a rental has the same type as one that's already in the rentals array
+    // check to see if a rental has the same type as one that's already in the rentalTypes
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
     rentals.forEach((rental) => {
-      if (!this.rentals.find((item) => item.type === rental.type)) {
+      if (!this.rentalTypes.find((item) => item.type === rental.type)) {
         this.availabilityCount.set(rental.type, 0);
-        this.rentals.push(rental);
+        this.rentalTypes.push(rental);
         if (rental.status === 'available') {
           this.availabilityCount.set(rental.type, 1);
         }
