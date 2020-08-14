@@ -32,11 +32,10 @@
             <input class="input" id="children" name="children" placeholder="Children" type="number" ngModel>
           </div>
           <div class="control">
-            <div class="buttons">
-                <button class="button is-primary" type="submit" value="Send">search</button>
-                <button class="button is-primary is-outlined" type="button" (click)="isSearched.emit(false)">clear
-                    search</button>
-            </div>
+              <button class="button is-primary" type="submit" value="Send">Search</button>
+          </div>
+          <div class="control">
+            <button class="button is-danger fa fa-window-close" type="button" (click)="isSearched.emit(false)"></button>
           </div>
         </div>
       </div>
