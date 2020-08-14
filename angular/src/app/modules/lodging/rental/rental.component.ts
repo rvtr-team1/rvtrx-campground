@@ -44,7 +44,7 @@ export class RentalComponent implements OnInit, OnChanges {
   }
 
   /**
-   * populates rentals array and keeps track of the availability of each rental
+   * populates rentalTypes and keeps track of the availability of each rental
    */
   public setRentalTypes(rentals: Rental[]): void {
     // loop through the lodging's rentals
