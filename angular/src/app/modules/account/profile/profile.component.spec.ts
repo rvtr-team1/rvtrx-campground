@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Subject } from 'rxjs';
 import { ProfileComponent } from './profile.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+
 describe('ProfileComponent', () => {
   const profiles = [
     {
