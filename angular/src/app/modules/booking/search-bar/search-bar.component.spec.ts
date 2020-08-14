@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { SearchBarComponent } from './search-bar.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
@@ -42,6 +42,7 @@ describe('SearchBarComponent', () => {
   it('should submit', () => {
     spyOn(component.isSearched, 'emit');
     spyOn(component.searchResults, 'emit');
+    
     component.onSubmit(testForm).then(() => {
       expect(component.isSearched.emit).toHaveBeenCalled();
       expect(component.searchResults.emit).toHaveBeenCalled();

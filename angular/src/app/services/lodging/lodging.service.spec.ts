@@ -85,6 +85,20 @@ describe('LodgingService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('should make httpGet request for available', fakeAsync(() => {
+    let req: TestRequest;
+
+    service.getAvailable('string', 'string').subscribe((res) => {
+      let lodgings: Lodging[] = JSON.parse(res.toString());
+      expect(lodgings.length).toEqual(1);
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test/available?city=string&occupancy=string');
+    req.flush(JSON.stringify(lodgingMock));
+  }));
+
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;
 
