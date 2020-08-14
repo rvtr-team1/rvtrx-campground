@@ -2,7 +2,6 @@
  * importing the necessary modules, services and models.
  */
 import { Component, OnInit, Input } from '@angular/core';
-import { Lodging } from '../../../data/lodging.model';
 import { Rental } from '../../../data/rental.model';
 
 /**
@@ -19,17 +18,12 @@ import { Rental } from '../../../data/rental.model';
  */
 export class RentalComponent implements OnInit {
   /**
-   * lodging taken from the lodging-details component
-   */
-  @Input() lodging: Lodging;
-  /**
    * fields of the component
    * rentals: array of Rentals
    * availabilityCount: maps number of available rentals to rental type
    */
-  rentals: Rental[] = [];
+  @Input() rentals: Rental[];
   availabilityCount = new Map<string, number>();
-  idString: string | null;
 
   /**
    * @param lodgingService
@@ -38,18 +32,21 @@ export class RentalComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.setRentals(this.lodging);
+    this.setRentals(this.rentals);
+  }
+  ngOnChanges(): void{
+    this.setRentals(this.rentals);
   }
 
   /**
    * populates rentals array and keeps track of the availability of each rental
    */
-  public setRentals(lodging: Lodging): void {
+  public setRentals(rentals: Rental[]): void {
     // loop through the lodging's rentals
     // check to see if a rental has the same type as one that's already in the rentals array
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
-    lodging.rentals.forEach((rental) => {
+    rentals.forEach((rental) => {
       if (!this.rentals.find((item) => item.type === rental.type)) {
         this.availabilityCount.set(rental.type, 0);
         this.rentals.push(rental);
