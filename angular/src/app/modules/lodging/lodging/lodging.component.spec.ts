@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LodgingComponent } from './lodging.component';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
