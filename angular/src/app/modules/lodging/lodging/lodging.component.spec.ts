@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 
-describe('LodgingHomeComponent', () => {
+describe('LodgingComponent', () => {
   let component: LodgingComponent;
   let fixture: ComponentFixture<LodgingComponent>;
 
