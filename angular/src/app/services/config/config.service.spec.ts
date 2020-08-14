@@ -7,13 +7,14 @@ import {
   TestRequest,
 } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 describe('ConfigService', () => {
   const configMock: Config = {
     api: {
-      account: 'test',
-      booking: '',
-      lodging: '',
+      account: { base: 'test', uri: { account: '', profile: '' } },
+      booking: { base: '', uri: { booking: '', stay: '' } },
+      lodging: { base: '', uri: { lodging: '', rental: '', review: '' } },
       monitoring: '',
     },
     navigation: {
@@ -59,7 +60,7 @@ describe('ConfigService', () => {
       expect(res).toBe(configMock);
     });
 
-    req = httpTestingController.expectOne('app.config.json');
+    req = httpTestingController.expectOne(environment.config);
 
     req.flush(configMock);
   });

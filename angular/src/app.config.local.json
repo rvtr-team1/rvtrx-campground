@@ -1,21 +1,21 @@
 {
   "api": {
     "account": {
-      "base": "https://api.rvtr.net/rest/account/0/",
+      "base": "http://localhost:8000/rest/account/0/",
       "uri": {
         "account": "account",
         "profile": "profile"
       }
     },
     "booking": {
-      "base": "https://api.rvtr.net/rest/booking/0/",
+      "base": "https://localhost:8001/rest/booking/0/",
       "uri": {
         "booking": "booking",
         "stay": "stay"
       }
     },
     "lodging": {
-      "base": "https://api.rvtr.net/rest/lodging/0/",
+      "base": "https://localhost:8002/rest/lodging/0/",
       "uri": {
         "lodging": "lodging",
         "rental": "rental",

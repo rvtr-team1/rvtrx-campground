@@ -9,7 +9,8 @@ import { Booking } from '../../data/booking.model';
   providedIn: 'root',
 })
 export class BookingService {
-  private readonly apiUrl$: Observable<string>;
+  private readonly bookingsUrl$: Observable<string>;
+  private readonly staysUrl$: Observable<string>;
 
   /**
    * Represents the _Booking Service_ `constructor` method
@@ -17,8 +18,14 @@ export class BookingService {
    * @param config ConfigService
    * @param http HttpClient
    */
-  constructor(private readonly config: ConfigService, private readonly http: HttpClient) {
-    this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.booking));
+  constructor(config: ConfigService, private readonly http: HttpClient) {
+    const config$ = config.get();
+    this.bookingsUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.booking.base}${cfg.api.booking.uri.booking}`)
+    );
+    this.staysUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.booking.base}${cfg.api.booking.uri.stay}`)
+    );
   }
 
   /**
@@ -27,7 +34,7 @@ export class BookingService {
    * @param id string
    */
   delete(id: string): Observable<boolean> {
-    return this.apiUrl$.pipe(
+    return this.bookingsUrl$.pipe(
       concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
     );
   }
@@ -39,7 +46,7 @@ export class BookingService {
    */
   get(id?: string): Observable<Booking[]> {
     const options = id ? { params: new HttpParams().set('id', id) } : {};
-    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Booking[]>(url, options)));
+    return this.bookingsUrl$.pipe(concatMap((url) => this.http.get<Booking[]>(url, options)));
   }
 
   /**
@@ -48,7 +55,7 @@ export class BookingService {
    * @param booking Booking
    */
   post(booking: Booking): Observable<boolean> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, booking)));
+    return this.bookingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, booking)));
   }
 
   /**
@@ -57,6 +64,6 @@ export class BookingService {
    * @param booking Booking
    */
   put(booking: Booking): Observable<Booking> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.put<Booking>(url, booking)));
+    return this.bookingsUrl$.pipe(concatMap((url) => this.http.put<Booking>(url, booking)));
   }
 }

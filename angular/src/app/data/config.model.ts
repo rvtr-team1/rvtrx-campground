@@ -10,9 +10,28 @@ import { Link } from './link.model';
  */
 export interface Config {
   api: {
-    account: string;
-    booking: string;
-    lodging: string;
+    account: {
+      base: string;
+      uri: {
+        account: string;
+        profile: string;
+      };
+    };
+    booking: {
+      base: string;
+      uri: {
+        booking: string;
+        stay: string;
+      };
+    };
+    lodging: {
+      base: string;
+      uri: {
+        lodging: string;
+        rental: string;
+        review: string;
+      };
+    };
     monitoring: string;
   };
   navigation: {

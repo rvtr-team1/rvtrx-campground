@@ -9,7 +9,9 @@ import { Lodging } from '../../data/lodging.model';
   providedIn: 'root',
 })
 export class LodgingService {
-  private readonly apiUrl$: Observable<string>;
+  private readonly lodgingsUrl$: Observable<string>;
+  private readonly rentalsUrl$: Observable<string>;
+  private readonly reviewsUrl$: Observable<string>;
 
   /**
    * Represents the _Lodging Service_ `constructor` method
@@ -17,8 +19,17 @@ export class LodgingService {
    * @param config ConfigService
    * @param http HttpClient
    */
-  constructor(private readonly config: ConfigService, private readonly http: HttpClient) {
-    this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.lodging));
+  constructor(config: ConfigService, private readonly http: HttpClient) {
+    const config$ = config.get();
+    this.lodgingsUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.lodging}`)
+    );
+    this.rentalsUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.rental}`)
+    );
+    this.reviewsUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.review}`)
+    );
   }
 
   /**
@@ -27,7 +38,7 @@ export class LodgingService {
    * @param id string
    */
   delete(id: string): Observable<boolean> {
-    return this.apiUrl$.pipe(
+    return this.lodgingsUrl$.pipe(
       concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
     );
   }
@@ -39,7 +50,7 @@ export class LodgingService {
    */
   get(id?: string): Observable<Lodging[]> {
     const options = id ? { params: new HttpParams().set('id', id) } : {};
-    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url, options)));
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url, options)));
   }
 
   /**
@@ -48,7 +59,7 @@ export class LodgingService {
    * @param lodging Lodging
    */
   post(lodging: Lodging): Observable<boolean> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, lodging)));
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, lodging)));
   }
 
   /**
@@ -57,6 +68,6 @@ export class LodgingService {
    * @param lodging Lodging
    */
   put(lodging: Lodging): Observable<Lodging> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.put<Lodging>(url, lodging)));
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.put<Lodging>(url, lodging)));
   }
 }
