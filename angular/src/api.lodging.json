@@ -12,7 +12,6 @@
         "street": "testStreet"
       },
       "latitude": "testLat",
-      "locale": "testLocale",
       "longitude": "testLong"
     },
     "name": "Test",
@@ -21,60 +20,15 @@
       {
         "id": "1",
         "name": "testRental",
+        "occupancy": 2,
+        "type": "tent",
         "status": "available",
-        "price": 100,
-        "rentalUnit": {
-          "id": "1",
-          "bedroom": {
-            "id": "1",
-            "count": 4,
-            "type": "Queen Bed"
-          },
-          "name": "Family Room",
-          "occupancy": 5,
-          "type": "testType"
-        }
-      },
-      {
-        "id": "2",
-        "name": "testRental",
-        "status": "available",
-        "price": 100,
-        "rentalUnit": {
-          "id": "1",
-          "bedroom": {
-            "id": "1",
-            "count": 4,
-            "type": "Queen Bed"
-          },
-          "name": "Family Room",
-          "occupancy": 5,
-          "type": "testType"
-        }
-      },
-      {
-        "id": "3",
-        "name": "testRental",
-        "status": "available",
-        "price": 100,
-        "rentalUnit": {
-          "id": "2",
-          "bedroom": {
-            "id": "1",
-            "count": 4,
-            "type": "King Bed"
-          },
-          "name": "Family Room",
-          "occupancy": 5,
-          "type": "testType"
-        }
+        "price": 100
       }
     ],
     "reviews": [
       {
         "id": "1",
-        "accountId": "1",
-        "hotelId": "1",
         "comment": "comment",
         "dateCreated": "2019-02-05",
         "rating": 5
@@ -94,7 +48,6 @@
         "street": "testStreet"
       },
       "latitude": "testLat",
-      "locale": "testLocale",
       "longitude": "testLong"
     },
     "name": "Test2",
@@ -103,26 +56,15 @@
       {
         "id": "1",
         "name": "testRental",
+        "occupancy": 2,
+        "type": "tent",
         "status": "available",
-        "price": 100,
-        "rentalUnit": {
-          "id": "6",
-          "bedroom": {
-            "id": "1",
-            "count": 4,
-            "type": "Queen Bed"
-          },
-          "name": "Triple Room",
-          "occupancy": 5,
-          "type": "testType"
-        }
+        "price": 100
       }
     ],
     "reviews": [
       {
         "id": "1",
-        "accountId": "1",
-        "hotelId": "1",
         "comment": "comment",
         "dateCreated": "2019-02-05",
         "rating": 4
@@ -142,7 +84,6 @@
         "street": "testStreet"
       },
       "latitude": "testLat",
-      "locale": "testLocale",
       "longitude": "testLong"
     },
     "name": "Test3",
@@ -151,27 +92,16 @@
       {
         "id": "1",
         "name": "testRental",
+        "occupancy": 2,
+        "type": "tent",
         "status": "available",
         "price": 100,
-        "discountedPrice": 90,
-        "rentalUnit": {
-          "id": "6",
-          "bedroom": {
-            "id": "1",
-            "count": 4,
-            "type": "Queen Bed"
-          },
-          "name": "Double Room",
-          "occupancy": 2,
-          "type": "testType"
-        }
+        "discountedPrice": 90
       }
     ],
     "reviews": [
       {
         "id": "1",
-        "accountId": "1",
-        "hotelId": "1",
         "comment": "comment",
         "dateCreated": "2019-02-05",
         "rating": 6
