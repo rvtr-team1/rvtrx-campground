@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 
 @Component({
-  selector: 'uic-lodging',
+  selector: 'uic-lodging-details',
   templateUrl: './lodging-details.component.html',
 })
 export class LodgingDetailsComponent implements OnInit {
@@ -40,11 +40,9 @@ export class LodgingDetailsComponent implements OnInit {
       // gets the lodgings array then gets the correct lodging based on the id
       // this works because the test data is in order
       // when the api is ready, there would be a call to get the lodging by id instead
-      this.lodgingService.get().subscribe((data) => {
-        if (this.idString) {
-          this.lodging = data[parseInt(this.idString, 10) - 1];
-          this.isLoaded = true;
-        }
+      this.lodgingService.getById(this.idString).subscribe((data) => {
+        this.lodging = data;
+        this.isLoaded = true;
       });
     }
   }

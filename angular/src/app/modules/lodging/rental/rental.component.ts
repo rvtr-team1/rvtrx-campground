@@ -1,7 +1,7 @@
 /**
  * importing the necessary modules, services and models.
  */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Lodging } from '../../../data/lodging.model';
 import { ActivatedRoute } from '@angular/router';
@@ -21,6 +21,10 @@ import { Rental } from '../../../data/rental.model';
  */
 export class RentalComponent implements OnInit {
   /**
+   * lodging taken from the lodging-details component
+   */
+  @Input() lodging: Lodging;
+  /**
    * fields of the component
    * rentals: array of Rentals
    * availabilityCount: maps number of available rentals to rental type
@@ -39,21 +43,7 @@ export class RentalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadLodgings();
-  }
-
-  /**
-   * uses a lodgingService to make a http get request to get
-   * lodging information then sends the lodgings to setRentals method
-   */
-  private loadLodgings(): void {
-    this.route.paramMap.subscribe((params) => {
-      this.idString = params.get('id');
-    });
-    if(this.idString)
-    this.lodgingService.getById(this.idString).subscribe((lodging) => {
-      this.setRentals(lodging);
-    });
+    this.setRentals(this.lodging);
   }
 
   /**
