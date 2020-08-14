@@ -10,14 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rentalUnit of rentalUnits">
+      <tr *ngFor="let rental of rentals">
         <td>
-          {{ rentalUnit.name }}<br />
-          {{ rentalUnit.bedroom.count }} {{ rentalUnit.bedroom.type }}
+          {{ rental.name }}<br />
+          {{ rental.type }}
           <span class="fas fa-bed"></span>
         </td>
-        <td>{{ rentalUnit.occupancy }}</td>
-        <td>{{ availabilityCount.get(rentalUnit.id) }}</td>
+        <td>{{ rental.occupancy }}</td>
+        <td>{{ availabilityCount.get(rental.type) }}</td>
         <td id="bt-cell"><button>Show Prices</button></td>
       </tr>
     </tbody>

@@ -4,7 +4,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LodgingService } from '../../../services/lodging/lodging.service';
 import { Lodging } from '../../../data/lodging.model';
-import { RentalUnit } from '../../../data/rental-unit.model';
+import { Rental } from 'src/app/data/rental.model';
 
 /**
  * Rental component metadata
@@ -24,7 +24,7 @@ export class RentalComponent implements OnInit {
    * rentalUnits: array of RentalUnits
    * availabilityCount: maps number of available rentals to rentalUnit.id
    */
-  rentalUnits: RentalUnit[] = [];
+  rentals: Rental[] = [];
   availabilityCount = new Map<string, number>();
 
   /**
@@ -57,16 +57,19 @@ export class RentalComponent implements OnInit {
     // only keep track of the rental units that are unique
     // increment the availability count for each rental unit if the rentals are available
     lodgings[0].rentals.forEach((rental) => {
-      if (!this.rentalUnits.find((rentalUnit) => rentalUnit.id === rental.rentalUnit.id)) {
-        this.availabilityCount.set(rental.rentalUnit.id, 1);
-        this.rentalUnits.push(rental.rentalUnit);
+      if (!this.rentals.find((item) => item.type === rental.type)) {
+        this.availabilityCount.set(rental.type, 0);
+        this.rentals.push(rental);
+        if(rental.status === 'available'){
+          this.availabilityCount.set(rental.type, 1);
+        }
       }
       // The rental unit already exists in the array so just check availability and add it to the count
       else {
         if (rental.status === 'available') {
-          const count = this.availabilityCount.get(rental.rentalUnit.id);
+          const count = this.availabilityCount.get(rental.type);
           if (count) {
-            this.availabilityCount.set(rental.rentalUnit.id, count + 1);
+            this.availabilityCount.set(rental.type, count + 1);
           }
         }
       }
