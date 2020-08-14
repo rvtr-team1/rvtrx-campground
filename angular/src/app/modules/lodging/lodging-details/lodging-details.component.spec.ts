@@ -3,8 +3,7 @@ import { LodgingDetailsComponent } from './lodging-details.component';
 import { Lodging } from 'src/app/data/lodging.model';
 import { of } from 'rxjs';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 describe('LodgingDetailsComponent', () => {
   let component: LodgingDetailsComponent;
   let fixture: ComponentFixture<LodgingDetailsComponent>;
@@ -29,15 +28,22 @@ describe('LodgingDetailsComponent', () => {
     bathrooms: 1,
   };
   beforeEach(async(() => {
-    const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
-    lodgingService.get.and.returnValue(of(lodging));
+    const lodgingService = jasmine.createSpyObj('LodgingService', ['getById']);
+    const route = jasmine.createSpyObj('ActivatedRoute', ['paramMap']);
+    route.paramMap = jasmine.createSpyObj('paramMap', ['subscribe']);
+    route.paramMap.subscribe.and.returnValue(of('1'));
+    lodgingService.getById.and.returnValue(of(lodging));
+
     TestBed.configureTestingModule({
       declarations: [LodgingDetailsComponent],
-      imports: [RouterModule.forRoot([]), HttpClientModule],
-      providers: [{ provide: LodgingService, useValue: lodgingService }],
+      providers: [
+        { provide: LodgingService, useValue: lodgingService },
+        { provide: ActivatedRoute, useValue: route },
+      ],
     }).compileComponents();
     fixture = TestBed.createComponent(LodgingDetailsComponent);
     component = fixture.componentInstance;
+    component.idString = lodging.id;
     fixture.detectChanges();
   }));
   it('should create', () => {
@@ -47,7 +53,8 @@ describe('LodgingDetailsComponent', () => {
    * tests if the lodge details are returned correctly
    */
   it('should get lodging details', () => {
-    expect(component.ngOnInit).toBeTruthy();
-    expect(component.getLodgingById).toBeTruthy();
+    expect(component.idString).toEqual('1');
+    expect(component.lodging).toBeTruthy();
+    expect(component.lodging).toEqual(lodging);
   });
 });

@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
-import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,74 +8,69 @@ describe('RentalComponent', () => {
   let component: RentalComponent;
   let fixture: ComponentFixture<RentalComponent>;
 
-  const lodgings: Lodging[] = [
-    {
+  const lodging: Lodging = {
+    id: '1',
+    location: {
       id: '1',
-      location: {
+      address: {
         id: '1',
-        address: {
-          id: '1',
-          city: 'testCity',
-          country: 'testCountry',
-          postalCode: 'testCode',
-          stateProvince: 'testState',
-          street: 'testStreet',
-        },
-        latitude: 'testLat',
-        longitude: 'testLong',
+        city: 'testCity',
+        country: 'testCountry',
+        postalCode: 'testCode',
+        stateProvince: 'testState',
+        street: 'testStreet',
       },
-      name: 'Test',
-      bathrooms: 1,
-      rentals: [
-        {
-          id: '1',
-          name: 'Rental1',
-          occupancy: 2,
-          type: 'tent',
-          status: 'available',
-          price: 100,
-        },
-        {
-          id: '2',
-          name: 'Rental2',
-          occupancy: 2,
-          type: 'tent',
-          status: 'available',
-          price: 100,
-        },
-        {
-          id: '3',
-          name: 'Rental3',
-          occupancy: 2,
-          type: 'cabin',
-          status: 'available',
-          price: 100,
-        },
-        {
-          id: '4',
-          name: 'Rental4',
-          occupancy: 2,
-          type: 'cabin',
-          status: 'available',
-          price: 100,
-        },
-      ],
-      reviews: [],
+      latitude: 'testLat',
+      longitude: 'testLong',
     },
-  ];
-
-  const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
-  lodgingService.get.and.returnValue(of(lodgings));
+    name: 'Test',
+    bathrooms: 1,
+    rentals: [
+      {
+        id: '1',
+        name: 'Rental1',
+        occupancy: 2,
+        type: 'tent',
+        status: 'available',
+        price: 100,
+      },
+      {
+        id: '2',
+        name: 'Rental2',
+        occupancy: 2,
+        type: 'tent',
+        status: 'available',
+        price: 100,
+      },
+      {
+        id: '3',
+        name: 'Rental3',
+        occupancy: 2,
+        type: 'cabin',
+        status: 'available',
+        price: 100,
+      },
+      {
+        id: '4',
+        name: 'Rental4',
+        occupancy: 2,
+        type: 'cabin',
+        status: 'available',
+        price: 100,
+      },
+    ],
+    reviews: [],
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
       imports: [RouterModule.forRoot([]), HttpClientModule],
-      providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(RentalComponent);
     component = fixture.componentInstance;
+    component.lodging = lodging;
     fixture.detectChanges();
   }));
 
@@ -102,11 +95,11 @@ describe('RentalComponent', () => {
   });
 
   it('should do nothing when lodgingService returns a bad response', () => {
-    lodgings[0].rentals.forEach((rental) => (rental.status = 'booked'));
+    lodging.rentals.forEach((rental) => (rental.status = 'booked'));
     spyOn(component.availabilityCount, 'get');
     component.ngOnInit();
     expect(component.availabilityCount.get).toHaveBeenCalledTimes(0);
-    lodgings[0].rentals.forEach((rental) => (rental.status = 'available'));
+    lodging.rentals.forEach((rental) => (rental.status = 'available'));
   });
 
   it('should test the length of the rows', () => {
