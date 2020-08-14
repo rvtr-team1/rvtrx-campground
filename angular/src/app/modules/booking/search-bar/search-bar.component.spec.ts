@@ -42,7 +42,7 @@ describe('SearchBarComponent', () => {
   it('should submit', () => {
     spyOn(component.isSearched, 'emit');
     spyOn(component.searchResults, 'emit');
-    
+
     component.onSubmit(testForm).then(() => {
       expect(component.isSearched.emit).toHaveBeenCalled();
       expect(component.searchResults.emit).toHaveBeenCalled();

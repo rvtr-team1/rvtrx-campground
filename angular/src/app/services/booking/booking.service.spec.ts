@@ -83,7 +83,7 @@ describe('BookingService', () => {
 
     tick();
 
-    req = httpTestingController.expectOne('test?checkIN=2020-08-02&checkOut=2020-08-02');
+    req = httpTestingController.expectOne('test?checkIn=2020-08-02&checkOut=2020-08-02');
     req.flush(JSON.stringify(bookingMock));
   }));
 

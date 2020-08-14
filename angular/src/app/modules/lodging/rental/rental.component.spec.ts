@@ -48,7 +48,7 @@ describe('RentalComponent', () => {
           name: 'Rental3',
           occupancy: 2,
           type: 'cabin',
-          status: 'available',
+          status: '',
           price: 100,
         },
         {
@@ -56,7 +56,7 @@ describe('RentalComponent', () => {
           name: 'Rental4',
           occupancy: 2,
           type: 'cabin',
-          status: 'available',
+          status: '',
           price: 100,
         },
       ],
@@ -89,7 +89,10 @@ describe('RentalComponent', () => {
 
   it('should set availability count correctly', () => {
     expect(component.availabilityCount.get('tent')).toEqual(2);
-    expect(component.availabilityCount.get('cabin')).toEqual(2);
+  });
+
+  it('should have none available', () => {
+    expect(component.availabilityCount.get('cabin')).toEqual(0);
   });
 
   it('should call setRentals', () => {
