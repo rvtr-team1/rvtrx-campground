@@ -37,7 +37,7 @@ export class BookingService {
    */
   getByDateRange(checkIn: string, checkOut: string): Observable<Booking[]> {
     const params = new HttpParams().set('checkIn', checkIn).set('checkOut', checkOut);
-    return this.apiUrl$.pipe(
+    return this.bookingsUrl$.pipe(
       concatMap((url) => this.http.get<Booking[]>(`${url}/byDateRange`, { params }))
     );
   }
