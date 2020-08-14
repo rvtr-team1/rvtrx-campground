@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of, Subject } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AccountBookingComponent } from '../account-booking/account-booking.component';
 import { AccountReviewComponent } from '../account-review/account-review.component';
@@ -9,8 +9,7 @@ import { PaymentComponent } from '../payment/payment.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
-import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-import { InjectionToken } from '@angular/core';
+import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -32,13 +31,11 @@ describe('AccountComponent', () => {
       return of(account);
     },
   };
-  const ACCOUNT_EDITING_SERVICE = new InjectionToken<GenericEditingService<Partial<Account>>>(
-    'AccountEditingService'
-  );
   const mockEditingService = {
-    payloadEmitter: new Subject(),
-    update: () => {},
+    payloadEmitter: new Observable<Partial<Account>>(),
+    update() {},
   };
+
   let component: AccountComponent;
   let fixture: ComponentFixture<AccountComponent>;
 
@@ -54,7 +51,10 @@ describe('AccountComponent', () => {
       ],
       imports: [HttpClientTestingModule],
       providers: [
-        { provide: ACCOUNT_EDITING_SERVICE, useValue: undefined },
+        {
+          provide: ACCOUNT_EDITING_SERVICE,
+          useValue: mockEditingService,
+        },
         { provide: AccountService, useValue: accountServiceStub },
       ],
     }).compileComponents();

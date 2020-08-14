@@ -1,9 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import { ProfileComponent } from './profile.component';
-import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-import { NgModule, InjectionToken } from '@angular/core';
-
+import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 describe('ProfileComponent', () => {
   const profiles = [
     {
@@ -15,12 +13,6 @@ describe('ProfileComponent', () => {
       type: '',
     },
   ];
-  const ACCOUNT_EDITING_SERVICE = new InjectionToken<GenericEditingService<Partial<Account>>>(
-    'AccountEditingService'
-  );
-  const mockEditingService = {
-    payloadEmitter: new Subject(),
-  };
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
 
