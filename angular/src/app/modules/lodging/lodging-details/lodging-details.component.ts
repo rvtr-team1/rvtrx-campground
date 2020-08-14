@@ -20,7 +20,7 @@ export class LodgingDetailsComponent implements OnInit {
    * @param route route gives access to URL where the component will be displayed
    * @param lodgingService service that requests lodging information
    */
-  constructor(private route: ActivatedRoute, private lodgingService: LodgingService) {}
+  constructor(private readonly route: ActivatedRoute, private readonly lodgingService: LodgingService) {}
 
   /**
    * On init, get the lodging for which the details will be displayed
