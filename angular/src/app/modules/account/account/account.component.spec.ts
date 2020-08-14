@@ -37,7 +37,6 @@ describe('AccountComponent', () => {
   );
   const mockEditingService = {
     payloadEmitter: new Subject(),
-    register: () => {},
     update: () => {},
   };
   let component: AccountComponent;
