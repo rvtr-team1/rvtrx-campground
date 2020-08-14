@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
-import { AccountEditingService } from '../services/account.editing.service';
 import { Subject } from 'rxjs';
 import { By } from '@angular/platform-browser';
-import { EditableComponent } from '../editable/editable.component';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
 
 describe('AddressComponent', () => {
   const address = {
@@ -14,7 +13,7 @@ describe('AddressComponent', () => {
     stateProvince: '',
     street: '',
   };
-  const AccountEditingServiceStub = {
+  const accountEditingServiceStub = {
     PayloadEmitter: new Subject(),
     register: () => {},
   };
@@ -24,7 +23,7 @@ describe('AddressComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent],
-      providers: [{ provide: AccountEditingService, useValue: AccountEditingServiceStub }],
+      providers: [{ provide: GenericEditingService, useValue: accountEditingServiceStub }],
     }).compileComponents();
   }));
 

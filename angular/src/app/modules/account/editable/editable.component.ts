@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import validationConfig from './editable.validationConfig';
+import validationConfig from './validation-config';
 
 @Component({
   selector: 'uic-editable',
@@ -24,7 +24,7 @@ export class EditableComponent implements OnInit {
   @Input() errorMessage: string;
   /**
    * Used to identify which validation message to render
-   * Expandable in ./editable.validationConfig.ts
+   * Expandable in ./validation-config.ts
    * Choices:
    * creditCard
    * name

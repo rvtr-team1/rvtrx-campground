@@ -1,7 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Subject } from 'rxjs';
 import { ProfileComponent } from './profile.component';
-import { AccountEditingService } from '../services/account.editing.service';
+import { GenericEditingService } from '../../../services/editable/generic-editing.service';
+import { EditedAccount } from 'src/app/data/edited-account.type';
 import { By } from '@angular/platform-browser';
 
 describe('ProfileComponent', () => {
@@ -27,7 +28,7 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-      providers: [{ provide: AccountEditingService, useValue: AccountEditingServiceStub }],
+      providers: [{ provide: GenericEditingService, useValue: AccountEditingServiceStub }],
     }).compileComponents();
   }));
 

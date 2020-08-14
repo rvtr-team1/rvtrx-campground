@@ -1,6 +1,8 @@
+import { Inject } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
-import { AccountEditingService } from '../services/account.editing.service';
+import { GenericEditingService } from '../../../services/editable/generic-editing.service';
+import { EditedAccount } from '../../../data/edited-account.type';
 
 @Component({
   selector: 'uic-profile',
@@ -26,5 +28,5 @@ export class ProfileComponent implements OnInit {
    * Represents the _Profile Component_ 'constructor' method
    * @param editingService AccountEditingService
    */
-  constructor(private readonly editingService: AccountEditingService) {}
+  constructor(private editingService: GenericEditingService<EditedAccount>) {}
 }

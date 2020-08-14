@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PaymentComponent } from './payment.component';
-import { AccountEditingService } from '../services/account.editing.service';
+import { Payment } from 'src/app/data/payment.model';
 import { Subject } from 'rxjs';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
+
 describe('PaymentComponent', () => {
   const payments = [
     {
@@ -9,18 +11,14 @@ describe('PaymentComponent', () => {
       cardNumber: '',
       cardExpirationDate: '',
       id: '',
-    },
+    } as Payment,
   ];
   let component: PaymentComponent;
   let fixture: ComponentFixture<PaymentComponent>;
-  const AccountEditingServiceStub = {
-    PayloadEmitter: new Subject(),
-    register: () => {},
-  };
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PaymentComponent],
-      providers: [{ provide: AccountEditingService, useValue: AccountEditingServiceStub }],
     }).compileComponents();
   }));
 

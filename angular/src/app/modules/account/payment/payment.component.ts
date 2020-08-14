@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Payment } from '../../../data/payment.model';
-import { AccountEditingService } from '../services/account.editing.service';
 
 @Component({
   selector: 'uic-payment',
@@ -15,9 +14,8 @@ export class PaymentComponent implements OnInit {
 
   /**
    * Represents the _Payment Component_ 'constructor' method
-   * @param editingService AccountEditingService
    */
-  constructor(private readonly editingService: AccountEditingService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

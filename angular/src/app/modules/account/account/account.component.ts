@@ -8,7 +8,8 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
-import { AccountEditingService } from '../services/account.editing.service';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
+import { EditedAccount } from '../../../data/edited-account.type';
 
 @Component({
   selector: 'uic-account',
@@ -26,7 +27,7 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private readonly accountService: AccountService,
-    private readonly editingService: AccountEditingService
+    private readonly editingService: GenericEditingService<EditedAccount>
   ) {}
 
   ngOnInit(): void {
@@ -84,20 +85,25 @@ export class AccountComponent implements OnInit {
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
+
     /**
-     * Pass initial model to editingService
+     * Pass initial model to editingService which acts as model for overwriting data coming in
      */
-    this.account$.pipe(map((account) => this.editingService.update(account)));
+    this.account$.subscribe((e) => this.editingService.update(e));
     /**
      * Register function for Payload release from editing service
      */
-    this.editingService.PayloadEmitter.subscribe((val: Account) => this.update(val));
+    this.editingService.payloadEmitter.subscribe((val: Account) => this.update(val));
   }
-
+  /**
+   * Function registered to the editing service
+   *  @param: payload
+   *
+   */
   private update(payload: Account): void {
     this.accountService.put(payload).subscribe({
-      next: (e) => this.accountService.put(e),
-      error: (e) => console.log(e),
+      next: (e) => {},
+      error: (e) => console.error(e),
     });
   }
 }

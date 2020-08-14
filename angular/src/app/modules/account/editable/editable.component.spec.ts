@@ -1,8 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
 import { EditableComponent } from './editable.component';
-import { ElementRef } from '@angular/core';
 
 describe('EditableComponent', () => {
   let component: EditableComponent;

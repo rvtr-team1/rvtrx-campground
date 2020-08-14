@@ -9,7 +9,8 @@ import { PaymentComponent } from '../payment/payment.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
-import { AccountEditingService } from '../services/account.editing.service';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
+import { EditedAccount } from 'src/app/data/edited-account.type';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -33,8 +34,9 @@ describe('AccountComponent', () => {
   };
 
   const AccountEditingServiceStub = {
-    PayloadEmitter: new Subject(),
+    payloadEmitter: new Subject(),
     register: () => {},
+    update: () => {},
   };
   let component: AccountComponent;
   let fixture: ComponentFixture<AccountComponent>;
@@ -51,7 +53,7 @@ describe('AccountComponent', () => {
       ],
       imports: [HttpClientTestingModule],
       providers: [
-        { provide: AccountEditingService, useValue: AccountEditingServiceStub },
+        { provide: GenericEditingService, useValue: AccountEditingServiceStub },
         { provide: AccountService, useValue: accountServiceStub },
       ],
     }).compileComponents();
