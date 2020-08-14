@@ -25,6 +25,11 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
   ],
   providers: [
     {
+      /**
+       * Injection token used:
+       * To allow for multiple editing services
+       * Comply with angular's injection
+       */
       provide: 'EditingService',
       useFactory: () => new GenericEditingService<Partial<Account>>(),
     },
