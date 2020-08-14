@@ -7,21 +7,15 @@
       {
         "id": "100",
         "email": "campero@demo.com",
-        "name": {
-          "id": "100",
-          "family": "demo",
-          "given": "campero"
-        },
+        "familyName": "demo",
+        "givenName": "campero",
         "phone": "800-123-9876"
       },
       {
         "id": "200",
         "email": "campera@demo.com",
-        "name": {
-          "id": "200",
-          "family": "demo",
-          "given": "campera"
-        },
+        "familyName": "demo",
+        "givenName": "campera",
         "phone": "800-123-9876"
       }
     ],
@@ -29,27 +23,13 @@
       {
         "id": "1",
         "name": "testRental",
-        "price": 100,
-        "rentalUnit": {
-          "id": "6",
-          "bedroom": {
-            "id": "1",
-            "count": 4,
-            "type": "Queen Bed"
-          },
-          "name": "Family Room",
-          "occupancy": 5,
-          "type": "testType"
-        },
-        "status": "available"
+        "occupancy": 5,
+        "type": "testType",
+        "status": "available",
+        "price": 100
       }
     ],
-    "stay": {
-      "id": "1",
-      "checkIn": "2020-08-6",
-      "checkOut": "2020-08-17",
-      "dateCreated": "2020-08-01",
-      "dateModified": "2020-08-01"
-    }
+    "checkIn": "2020-08-6",
+    "checkOut": "2020-08-17"
   }
 ]

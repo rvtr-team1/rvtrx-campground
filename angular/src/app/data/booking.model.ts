@@ -1,6 +1,5 @@
 import { Profile } from './profile.model';
 import { Rental } from './rental.model';
-import { Stay } from './stay.model';
 
 /**
  * Represents the _Booking_ model
@@ -11,14 +10,22 @@ import { Stay } from './stay.model';
  * lodgingId: string;
  * guests: Profile[];
  * rentals: Rental[];
- * stay: Stay;
+ * checkIn: string;
+ * checkOut: string;
  * ```
  */
 export interface Booking {
   id: string;
+  /** account associated with the reservation */
   accountId: string;
+  /** lodging that was reserved */
   lodgingId: string;
+  /** people the account owner has reserved the site with */
   guests: Profile[];
+  /** sites that are reserved */
   rentals: Rental[];
-  stay: Stay;
+  /** check-in date and time */
+  checkIn: string;
+  /** check-out date and time */
+  checkOut: string;
 }

@@ -9,9 +9,10 @@ describe('PaymentComponent', () => {
     {
       cardName: '',
       cardNumber: '',
-      cardExpirationDate: '',
+      cardExpirationDate: '2020-08-01',
       id: '',
-    } as Payment,
+      securityCode: '',
+    },
   ];
   let component: PaymentComponent;
   let fixture: ComponentFixture<PaymentComponent>;
