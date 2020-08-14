@@ -3,9 +3,9 @@
   <table class="table is-bordered is-hoverable is-fullwidth" aria-describedby="table-info">
     <thead>
       <tr>
-        <th id="room-type">Room Type <span class="fas fa-home"></span></th>
+        <th id="room-type">Site <span class="fas fa-home"></span></th>
         <th id="occupancy">Occupancy <span class="fas fa-users"></span></th>
-        <th id="rooms">Rooms Available <span class="fas fa-user-check"></span></th>
+        <th id="rooms">Sites Available <span class="fas fa-user-check"></span></th>
         <th id="pricing">Prices <span class="fas fa-dollar-sign"></span></th>
       </tr>
     </thead>
@@ -18,7 +18,7 @@
         </td>
         <td>{{ rental.occupancy }}</td>
         <td>{{ availabilityCount.get(rental.type) }}</td>
-        <td id="bt-cell"><button>Show Prices</button></td>
+        <td>{{ rental.price }}</td>
       </tr>
     </tbody>
   </table>
