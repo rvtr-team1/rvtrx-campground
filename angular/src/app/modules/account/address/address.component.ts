@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter, Inject } from '@angular
 import { Address } from '../../../data/address.model';
 import { Account } from '../../../data/account.model';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-
+import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 @Component({
   selector: 'uic-address',
   templateUrl: './address.component.html',
@@ -12,7 +12,7 @@ import { GenericEditingService } from '../../../services/editable/generic-editin
  */
 export class AddressComponent implements OnInit {
   constructor(
-    @Inject('EditingService')
+    @Inject(ACCOUNT_EDITING_SERVICE)
     private readonly editingService: GenericEditingService<Partial<Account>>
   ) {}
   @Input() address: Address;

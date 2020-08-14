@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
-import { Subject } from 'rxjs';
+import { GenericEditingService } from '../../../services/editable/generic-editing.service';
+import { InjectionToken } from '@angular/core';
 
 describe('AddressComponent', () => {
   const address = {
@@ -11,16 +12,16 @@ describe('AddressComponent', () => {
     stateProvince: '',
     street: '',
   };
-  const mockEditingService = {
-    payloadEmitter: new Subject(),
-  };
+  const ACCOUNT_EDITING_SERVICE = new InjectionToken<GenericEditingService<Partial<Account>>>(
+    'AccountEditingService'
+  );
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent],
-      providers: [{ provide: 'EditingService', useValue: mockEditingService }],
+      providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
     }).compileComponents();
   }));
 

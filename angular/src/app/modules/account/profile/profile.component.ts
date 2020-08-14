@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Inject } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
 import { Account } from '../../../data/account.model';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
+import { ACCOUNT_EDITING_SERVICE } from '../../account/account-editing.token';
 
 @Component({
   selector: 'uic-profile',
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
    * @param editingService AccountEditingService
    */
   constructor(
-    @Inject('EditingService')
+    @Inject(ACCOUNT_EDITING_SERVICE)
     private readonly editingService: GenericEditingService<Partial<Account>>
   ) {}
 }

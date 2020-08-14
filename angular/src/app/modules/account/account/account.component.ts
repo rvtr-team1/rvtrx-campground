@@ -9,6 +9,7 @@ import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
 import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
+import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 
 @Component({
   selector: 'uic-account',
@@ -26,7 +27,7 @@ export class AccountComponent implements OnInit {
 
   constructor(
     private readonly accountService: AccountService,
-    @Inject('EditingService')
+    @Inject(ACCOUNT_EDITING_SERVICE)
     private readonly editingService: GenericEditingService<Partial<Account>>
   ) {}
 

@@ -26,9 +26,7 @@ export class GenericEditingService<T> {
   editUpdates = this.subject.pipe(
     scan(
       (acc, curr) => (typeof curr === 'object' ? Object.assign({} as T, acc, curr) : null),
-      /**
-       * This Seed value could be updated to reflect an inital state
-       */
+      //This Seed value could be updated to reflect an inital state
       {} as T
     )
   );

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GenericEditingService } from './generic-editing.service';
 import { Account } from '../../data/account.model';
-describe('ProfileComponent', () => {
+describe('AccountEditingService', () => {
   const service = new GenericEditingService<Partial<Account>>();
   const account: Account = {
     id: '',
@@ -17,22 +17,21 @@ describe('ProfileComponent', () => {
     profiles: [],
   };
   const partial = { id: '4' };
-  fit('Should Initialize with the first object sent to it', () => {
+  it('Should Initialize with the first object sent to it', () => {
     service.editUpdates.subscribe((e) => {
       expect(e).toBeTruthy();
     });
     service.update(account);
   });
-  fit('Should update the field of key from a partial', () => {
+  it('Should update the field of key from a partial', () => {
     service.editUpdates.subscribe((e) => {
-      if (e) {
-        expect(e).toBeTrue();
-        expect(e.id).toEqual('4');
+      if (e != null) {
+        expect(e.id).toEqual('4', e.id);
       }
     });
     service.update(partial);
   });
-  fit('Should emit a payload', () => {
+  it('Should emit a payload', () => {
     service.payloadEmitter.subscribe((e) => {
       expect(e).toBeTruthy();
     });

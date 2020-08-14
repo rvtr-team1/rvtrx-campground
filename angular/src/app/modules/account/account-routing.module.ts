@@ -9,7 +9,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { EditableComponent } from './editable/editable.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GenericEditingService } from '../../services/editable/generic-editing.service';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -23,17 +22,7 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     AccountReviewComponent,
     EditableComponent,
   ],
-  providers: [
-    {
-      /**
-       * Injection token used:
-       * To allow for multiple editing services
-       * Comply with angular's injection
-       */
-      provide: 'EditingService',
-      useFactory: () => new GenericEditingService<Partial<Account>>(),
-    },
-  ],
+  providers: [],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
 })
