@@ -19,10 +19,34 @@
     "rentals": [
       {
         "id": "1",
-        "name": "testRental",
+        "name": "Rental1",
         "occupancy": 2,
         "type": "tent",
         "status": "available",
+        "price": 100
+      },
+      {
+        "id": "2",
+        "name": "Rental2",
+        "occupancy": 2,
+        "type": "tent",
+        "status": "available",
+        "price": 100
+      },
+      {
+        "id": "3",
+        "name": "Rental3",
+        "occupancy": 2,
+        "type": "cabin",
+        "status": "available",
+        "price": 100
+      },
+      {
+        "id": "4",
+        "name": "Rental4",
+        "occupancy": 2,
+        "type": "cabin",
+        "status": "booked",
         "price": 100
       }
     ],
