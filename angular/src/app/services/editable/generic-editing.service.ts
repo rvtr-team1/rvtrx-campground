@@ -1,6 +1,6 @@
-import { Injectable, Type, Inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { scan, filter, skip } from 'rxjs/operators';
+import { scan, skip } from 'rxjs/operators';
 
 @Injectable()
 /**

@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
 import { EditableComponent } from './editable/editable.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
+import { GenericEditingService } from '../../services/editable/generic-editing.service';
 import { EditedAccount } from '../../data/edited-account.type';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];

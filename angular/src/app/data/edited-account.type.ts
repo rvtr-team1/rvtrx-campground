@@ -1,6 +1,4 @@
 import { Account } from './account.model';
-import { Profile } from './profile.model';
-import { Address } from './address.model';
 
 type Partial<T> = {
   [P in keyof T]?: T[P];
