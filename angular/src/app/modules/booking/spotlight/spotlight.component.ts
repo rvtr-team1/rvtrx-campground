@@ -10,7 +10,7 @@ export class SpotlightComponent implements OnChanges {
   selectedLodging: Lodging | null = null;
 
   constructor() {}
-  
+
   ngOnChanges() {
     this.setSpotlight(this.lodgings);
   }

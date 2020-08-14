@@ -2,11 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchBarComponent } from './search-bar.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
+
+  const testForm = {
+    value: {
+      adults: '',
+      children: '',
+      location: '',
+      checkin: '',
+      checkout: '',
+    },
+  } as NgForm;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,5 +36,14 @@ describe('SearchBarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should submit', () => {
+    spyOn(component.isSearched, 'emit');
+    spyOn(component.searchResults, 'emit');
+    component.onSubmit(testForm).then(() => {
+      expect(component.isSearched.emit).toHaveBeenCalled();
+      expect(component.searchResults.emit).toHaveBeenCalled();
+    });
   });
 });

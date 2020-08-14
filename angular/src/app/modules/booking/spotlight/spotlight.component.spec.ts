@@ -32,11 +32,11 @@ describe('SpotlightComponent', () => {
           occupancy: 0,
           type: '',
           status: '',
-        }
+        },
       ],
       reviews: [],
-    }
-  ]
+    },
+  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
