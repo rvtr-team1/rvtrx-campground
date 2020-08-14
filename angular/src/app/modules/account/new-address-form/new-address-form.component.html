@@ -1,10 +1,10 @@
 <div class="level">
-<div class="level-item">
-<button class="button is-primary" (click)="showModal = !showModal">Add a address</button>
-</div>
+  <div class="level-item">
+    <button class="button is-primary" (click)="showModal = !showModal">Add a address</button>
+  </div>
 </div>
 <div *ngIf="showModal">
-  <form [formGroup]="AddressForm" (ngSubmit)="onSubmit();">
+  <form [formGroup]="AddressForm" (ngSubmit)="onSubmit()">
     <div class="modal is-active" id="page-modal">
       <div class="modal-background"></div>
       <div class="modal-content">
@@ -14,43 +14,100 @@
               <div class="row">
                 <div class="col-50">
                   <label class="label" for="ciname">City</label>
-                  <div class="level is-flex">
-                    <input type="text" id="ciname" name="cityname" placeholder="ie. Amex" formControlName="City"
-                      class="input is-medium level-item" />
+                  <div class="level is-flex" style="margin-bottom: 0.3rem;">
+                    <input
+                      type="text"
+                      id="ciname"
+                      name="cityname"
+                      placeholder="ex: Portland"
+                      formControlName="City"
+                      class="input is-medium level-item"
+                    />
                     <span class="level-item">
-                      <i *ngIf="City.invalid && (City.touched || City.dirty)"  class="level-item fas fa-ban has-text-danger" title="Please enter valid Address info" aria-hidden="true"></i>
+                      <i
+                        *ngIf="City.invalid && (City.touched || City.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid Address info"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                   <label class="label" for="coname">Country</label>
-                  <div class="level is-flex">
-                    <input type="text" id="coname" name="Countryname" placeholder="ie. Amex" formControlName="Country"
-                      class="input is-medium level-item" />
+                  <div class="level is-flex" style="margin-bottom: 0.3rem;">
+                    <input
+                      type="text"
+                      id="coname"
+                      name="Countryname"
+                      placeholder="ex: USA"
+                      formControlName="Country"
+                      class="input is-medium level-item"
+                    />
                     <span class="level-item">
-                      <i *ngIf="Country.invalid && (Country.touched || Country.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid Address info" aria-hidden="true"></i>
+                      <i
+                        *ngIf="Country.invalid && (Country.touched || Country.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid Address info"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                   <label class="label" for="pnum">Postal Code number</label>
-                  <div class="level is-flex">
-                    <input type="text" id="pnum" name="postalcode" class="input is-medium level-item"
-                      placeholder="11111" formControlName="PostalCode" />
+                  <div class="level is-flex" style="margin-bottom: 0.3rem;">
+                    <input
+                      type="text"
+                      id="pnum"
+                      name="postalcode"
+                      class="input is-medium level-item"
+                      placeholder="ex: 11111"
+                      formControlName="PostalCode"
+                    />
                     <span class="level-item">
-                      <i *ngIf="PostalCode.invalid && (PostalCode.touched || PostalCode.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid Address info" aria-hidden="true"></i>
+                      <i
+                        *ngIf="PostalCode.invalid && (PostalCode.touched || PostalCode.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid Address info"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                   <label class="label" for="sprovince">State Province</label>
-                  <div class="level is-flex">
-                    <input type="text" id="sprovince" name="State/Province Name" placeholder="ie. Amex" formControlName="StateProvince"
-                      class="input is-medium level-item" />
+                  <div class="level is-flex" style="margin-bottom: 0.3rem;">
+                    <input
+                      type="text"
+                      id="sprovince"
+                      name="State/Province Name"
+                      placeholder="ex: NY"
+                      formControlName="StateProvince"
+                      class="input is-medium level-item"
+                    />
                     <span class="level-item">
-                      <i *ngIf="StateProvince.invalid && (StateProvince.touched || StateProvince.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid Address info" aria-hidden="true"></i>
+                      <i
+                        *ngIf="
+                          StateProvince.invalid && (StateProvince.touched || StateProvince.dirty)
+                        "
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid Address info"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                   <label class="label" for="str">Street</label>
-                  <div class="level is-flex">
-                    <input type="text" id="str" name="Street Address" placeholder="1313 Mockingbird Lane" formControlName="Street"
-                      class="input is-medium level-item" />
+                  <div class="level is-flex" style="margin-bottom: 0.3rem;">
+                    <input
+                      type="text"
+                      id="str"
+                      name="Street Address"
+                      placeholder="ex: 1313 Mockingbird Lane"
+                      formControlName="Street"
+                      class="input is-medium level-item"
+                    />
                     <span class="level-item">
-                      <i *ngIf="Street.invalid && (Street.touched || Street.dirty)" class="level-item fas fa-ban has-text-danger" title="Please enter valid Address info" aria-hidden="true"></i>
+                      <i
+                        *ngIf="Street.invalid && (Street.touched || Street.dirty)"
+                        class="level-item fas fa-ban has-text-danger"
+                        title="Please enter valid Address info"
+                        aria-hidden="true"
+                      ></i>
                     </span>
                   </div>
                 </div>
@@ -62,7 +119,12 @@
             </div>
           </div>
 
-          <button class="modal-close is-large level-right" aria-label="close" (click)="showModal = !showModal"></button>
+          <button
+            class="modal-close is-large level-right"
+            style="background-color: black;"
+            aria-label="close"
+            (click)="showModal = !showModal"
+          ></button>
         </div>
       </div>
     </div>
