@@ -47,27 +47,24 @@ export class RentalComponent implements OnInit {
    * lodging information then sends the lodgings to setRentals method
    */
   private loadLodgings(): void {
-    this.lodgingService.get().subscribe((lodgings) => {
-      this.route.paramMap.subscribe((params) => {
-        this.idString = params.get('id');
-      });
-      if (this.idString !== null) {
-        this.setRentals(lodgings);
-      }
-      
+    this.route.paramMap.subscribe((params) => {
+      this.idString = params.get('id');
+    });
+    if(this.idString)
+    this.lodgingService.getById(this.idString).subscribe((lodging) => {
+      this.setRentals(lodging);
     });
   }
 
   /**
    * populates rentals array and keeps track of the availability of each rental
    */
-  public setRentals(lodgings: Lodging[]): void {
-    // get one lodging (hardcoded for now) from the lodging array
-    // loop through its rentals
+  public setRentals(lodging: Lodging): void {
+    // loop through the lodging's rentals
     // check to see if a rental has the same type as one that's already in the rentals array
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
-    lodgings[0].rentals.forEach((rental) => {
+    lodging.rentals.forEach((rental) => {
       if (!this.rentals.find((item) => item.type === rental.type)) {
         this.availabilityCount.set(rental.type, 0);
         this.rentals.push(rental);
