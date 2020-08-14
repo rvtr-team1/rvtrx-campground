@@ -9,7 +9,8 @@ import { Account } from '../../data/account.model';
   providedIn: 'root',
 })
 export class AccountService {
-  private readonly apiUrl$: Observable<string>;
+  private readonly accountsUrl$: Observable<string>;
+  private readonly profilesUrl$: Observable<string>;
 
   /**
    * Represents the _Account Service_ `constructor` method
@@ -17,8 +18,14 @@ export class AccountService {
    * @param config ConfigService
    * @param http HttpClient
    */
-  constructor(private readonly config: ConfigService, private readonly http: HttpClient) {
-    this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.account));
+  constructor(config: ConfigService, private readonly http: HttpClient) {
+    const config$ = config.get();
+    this.accountsUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.account}`)
+    );
+    this.profilesUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.profile}`)
+    );
   }
 
   /**
@@ -27,7 +34,7 @@ export class AccountService {
    * @param id string
    */
   delete(id: string): Observable<boolean> {
-    return this.apiUrl$.pipe(
+    return this.accountsUrl$.pipe(
       concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
     );
   }
@@ -39,7 +46,7 @@ export class AccountService {
    */
   get(id: string): Observable<Account> {
     const options = { params: new HttpParams().set('id', id) };
-    return this.apiUrl$.pipe(concatMap((url) => this.http.get<Account>(url, options)));
+    return this.accountsUrl$.pipe(concatMap((url) => this.http.get<Account>(url, options)));
   }
 
   /**
@@ -48,7 +55,7 @@ export class AccountService {
    * @param account Account
    */
   post(account: Account): Observable<boolean> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, account)));
+    return this.accountsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, account)));
   }
 
   /**
@@ -57,6 +64,6 @@ export class AccountService {
    * @param account Account
    */
   put(account: Account): Observable<Account> {
-    return this.apiUrl$.pipe(concatMap((url) => this.http.put<Account>(url, account)));
+    return this.accountsUrl$.pipe(concatMap((url) => this.http.put<Account>(url, account)));
   }
 }
