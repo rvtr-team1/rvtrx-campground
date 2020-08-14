@@ -1,21 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { Rental } from '../../../data/rental.model';
-import { Booking } from '../../../data/booking.model';
+import { forkJoin } from 'rxjs';
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { Lodging } from '../../../data/lodging.model';
 import { LodgingService } from '../../../services/lodging/lodging.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'uic-search-bar',
   templateUrl: './search-bar.component.html',
 })
 export class SearchBarComponent implements OnInit {
-  bookings$: Observable<Booking[]>;
-  lodgings$: Observable<Lodging[]>;
-
   @Output() searchResults = new EventEmitter<Lodging[]>();
   @Output() isSearched = new EventEmitter<boolean>();
 
@@ -24,12 +18,10 @@ export class SearchBarComponent implements OnInit {
     private readonly lodgingService: LodgingService
   ) {}
 
-  ngOnInit(): void {
-    this.lodgings$ = this.lodgingService.get();
-    this.bookings$ = this.bookingService.get();
-  }
+  ngOnInit(): void {}
 
   async onSubmit(form: NgForm) {
+<<<<<<< HEAD
     const occupancy = form.value.adults + form.value.children;
     const city = form.value.location;
 
@@ -94,16 +86,18 @@ export class SearchBarComponent implements OnInit {
       }
       return false;
     }
+=======
+    const occupancy: string = form.value.adults + form.value.children;
+    const city: string = form.value.location;
+>>>>>>> 1d47f772b4f85a420694469da6a991064b689bdf
 
-    // Most of this should be backend logic eventually,
-    // but this works for now
-    this.lodgings$.subscribe((lodgings) => {
-      const searchResults: Lodging[] = [];
+    const checkIn: string = form.value['check-in'];
+    const checkOut: string = form.value['check-out'];
 
-      for (const lodging of lodgings) {
-        if (lodging.location.address.city === city) {
-          const availableLodgingRentals = lodging.rentals.filter((rental) => isAvailable(rental));
+    const lodgings$ = this.lodgingService.getAvailable(city, occupancy);
+    const bookings$ = this.bookingService.getByDateRange(checkIn, checkOut);
 
+<<<<<<< HEAD
           for (const availableRental of availableLodgingRentals) {
             if (availableRental.occupancy >= occupancy) {
               searchResults.push(lodging);
@@ -112,8 +106,16 @@ export class SearchBarComponent implements OnInit {
           }
         }
       }
+=======
+    forkJoin([lodgings$, bookings$]).subscribe(([lodgings, bookings]) => {
+      const bookedLodgingIds: string[] = bookings.map((booking) => booking.lodgingId);
+      const availableLodgings: Lodging[] = lodgings.filter(
+        (lodging) => !bookedLodgingIds.includes(lodging.id)
+      );
+>>>>>>> 1d47f772b4f85a420694469da6a991064b689bdf
 
-      this.searchResults.emit(searchResults);
+      this.searchResults.emit(availableLodgings);
+      this.isSearched.emit(true);
     });
   }
 }
