@@ -1,64 +1,45 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RentalComponent } from './rental.component';
-import { Lodging } from 'src/app/data/lodging.model';
+import { Rental } from 'src/app/data/rental.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
   let fixture: ComponentFixture<RentalComponent>;
 
-  const lodging: Lodging = {
-    id: '1',
-    location: {
+  const rentals: Rental[] = [
+    {
       id: '1',
-      address: {
-        id: '1',
-        city: 'testCity',
-        country: 'testCountry',
-        postalCode: 'testCode',
-        stateProvince: 'testState',
-        street: 'testStreet',
-      },
-      latitude: 'testLat',
-      longitude: 'testLong',
+      name: 'Rental1',
+      occupancy: 2,
+      type: 'tent',
+      status: 'available',
+      price: 100,
     },
-    name: 'Test',
-    bathrooms: 1,
-    rentals: [
-      {
-        id: '1',
-        name: 'Rental1',
-        occupancy: 2,
-        type: 'tent',
-        status: 'available',
-        price: 100,
-      },
-      {
-        id: '2',
-        name: 'Rental2',
-        occupancy: 2,
-        type: 'tent',
-        status: 'available',
-        price: 100,
-      },
-      {
-        id: '3',
-        name: 'Rental3',
-        occupancy: 2,
-        type: 'cabin',
-        status: 'available',
-        price: 100,
-      },
-      {
-        id: '4',
-        name: 'Rental4',
-        occupancy: 2,
-        type: 'cabin',
-        status: 'available',
-        price: 100,
-      },
-    ],
-    reviews: [],
-  };
+    {
+      id: '2',
+      name: 'Rental2',
+      occupancy: 2,
+      type: 'tent',
+      status: 'available',
+      price: 100,
+    },
+    {
+      id: '3',
+      name: 'Rental3',
+      occupancy: 2,
+      type: 'cabin',
+      status: 'available',
+      price: 100,
+    },
+    {
+      id: '4',
+      name: 'Rental4',
+      occupancy: 2,
+      type: 'cabin',
+      status: 'available',
+      price: 100,
+    },
+  ];
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -67,7 +48,7 @@ describe('RentalComponent', () => {
 
     fixture = TestBed.createComponent(RentalComponent);
     component = fixture.componentInstance;
-    component.lodging = lodging;
+    component.rentals = rentals;
     fixture.detectChanges();
   }));
 
@@ -75,9 +56,9 @@ describe('RentalComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should get rentals', () => {
-    expect(component.rentals).toBeTruthy();
-    expect(component.rentals.length).toEqual(2);
+  it('should set rentalTypes', () => {
+    expect(component.rentalTypes).toBeTruthy();
+    expect(component.rentalTypes.length).toEqual(2);
   });
 
   it('should set availability count correctly', () => {
@@ -86,32 +67,28 @@ describe('RentalComponent', () => {
   });
 
   it('should call setRentals', () => {
-    spyOn(component, 'setRentals');
+    spyOn(component, 'setRentalTypes');
     component.ngOnInit();
-    expect(component.setRentals).toHaveBeenCalled();
+    expect(component.setRentalTypes).toHaveBeenCalled();
   });
 
   it('should do nothing when lodgingService returns a bad response', () => {
-    lodging.rentals.forEach((rental) => (rental.status = 'booked'));
+    rentals.forEach((rental) => (rental.status = 'booked'));
     spyOn(component.availabilityCount, 'get');
     component.ngOnInit();
     expect(component.availabilityCount.get).toHaveBeenCalledTimes(0);
-    lodging.rentals.forEach((rental) => (rental.status = 'available'));
+    rentals.forEach((rental) => (rental.status = 'available'));
   });
 
   it('should test the length of the rows', () => {
-    expect(component.rentals);
-    fixture.detectChanges();
     const tableRows = fixture.nativeElement.querySelectorAll('tr');
     expect(tableRows.length).toBe(3);
   });
 
   it('should test the table headers', () => {
-    expect(component.rentals);
     const tableRows = fixture.nativeElement.querySelectorAll('tr');
-
     const headerRow = tableRows[0];
-    expect(headerRow.cells[0].innerHTML).toContain('Room Type');
-    expect(headerRow.cells[2].innerHTML).toContain('Rooms Available');
+    expect(headerRow.cells[0].innerHTML).toContain('Site');
+    expect(headerRow.cells[2].innerHTML).toContain('Sites Available');
   });
 });
