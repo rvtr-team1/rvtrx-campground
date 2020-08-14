@@ -77,7 +77,7 @@ describe('BookingService', () => {
     let req: TestRequest;
 
     service.getByDateRange('2020-08-02', '2020-08-02').subscribe((res) => {
-      let bookings: Booking[] = JSON.parse(res.toString());
+      const bookings: Booking[] = JSON.parse(res.toString());
       expect(bookings.length).toEqual(1);
     });
 

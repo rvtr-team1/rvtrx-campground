@@ -5,10 +5,6 @@ import { Profile } from '../../../data/profile.model';
   selector: 'uic-profile',
   templateUrl: './profile.component.html',
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   @Input() profiles: Profile[];
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

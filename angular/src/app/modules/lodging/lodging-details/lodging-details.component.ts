@@ -4,8 +4,4 @@ import { Component, OnInit } from '@angular/core';
   selector: 'uic-lodging',
   templateUrl: './lodging-details.component.html',
 })
-export class LodgingDetailsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class LodgingDetailsComponent {}

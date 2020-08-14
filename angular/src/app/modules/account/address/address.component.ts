@@ -5,10 +5,6 @@ import { Address } from '../../../data/address.model';
   selector: 'uic-address',
   templateUrl: './address.component.html',
 })
-export class AddressComponent implements OnInit {
+export class AddressComponent {
   @Input() address: Address;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

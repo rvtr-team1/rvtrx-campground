@@ -5,10 +5,6 @@ import { Payment } from '../../../data/payment.model';
   selector: 'uic-payment',
   templateUrl: './payment.component.html',
 })
-export class PaymentComponent implements OnInit {
+export class PaymentComponent {
   @Input() payment: Payment;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

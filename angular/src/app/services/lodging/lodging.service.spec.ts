@@ -89,7 +89,7 @@ describe('LodgingService', () => {
     let req: TestRequest;
 
     service.getAvailable('string', 'string').subscribe((res) => {
-      let lodgings: Lodging[] = JSON.parse(res.toString());
+      const lodgings: Lodging[] = JSON.parse(res.toString());
       expect(lodgings.length).toEqual(1);
     });
 

@@ -8,14 +8,12 @@ import { BookingService } from 'src/app/services/booking/booking.service';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent {
   @Input() lodgings: Lodging[] | null;
   reservation: Booking;
   query = 'test query';
 
   constructor(private readonly bookingService: BookingService) {}
-
-  ngOnInit(): void {}
 
   averageRating(lodging: Lodging) {
     const maxRating = 10;
