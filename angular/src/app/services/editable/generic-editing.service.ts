@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { scan, skip } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'any',
+})
 /**
  * A lightweight state management class
  * Accumulates objects/releases on set conditions via pipes

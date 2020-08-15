@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Account } from '../../data/account.model';
+import { AccountModule } from 'src/app/modules/account/account.module';
 
 @Injectable({
   providedIn: 'root',

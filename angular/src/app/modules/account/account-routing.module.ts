@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, forwardRef } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { AccountBookingComponent } from './account-booking/account-booking.component';
@@ -23,7 +23,7 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     AccountReviewComponent,
     EditableComponent,
   ],
-  providers: [{ provide: ACCOUNT_EDITING_SERVICE, useExisting: ACCOUNT_EDITING_SERVICE }],
+  providers: [{ provide: parent, useExisting: forwardRef(() => ACCOUNT_EDITING_SERVICE) }],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],
 })
