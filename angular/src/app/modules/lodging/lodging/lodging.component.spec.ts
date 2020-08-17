@@ -47,7 +47,6 @@ describe('LodgingComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
 
-    TestBed.inject(HttpClient);
     TestBed.inject(HttpTestingController);
   }));
 

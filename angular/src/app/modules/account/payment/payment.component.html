@@ -1,25 +1,38 @@
-<div class="level">
+<div class="level" *ngFor="let payment of payments">
   <div class="level-left">
-    <div class="level-item has-text-light">
-      <div>
-        <p class="heading">bank</p>
-        <p class="title has-text-light is-6">{{ payment.cardName }}</p>
-      </div>
-    </div>
+    <div class="level-item has-text-centered">
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item has-text-light">
+            <div>
+              <p class="heading">bank</p>
+              <p class="title has-text-light is-6">{{ payment.cardName }}
+              </p>
+            </div>
+          </div>
+          
+          <div class="level-item has-text-light">
+            <div>
+              <p class="heading">number</p>
+              <p class="title has-text-light is-6">{{ payment.cardNumber }}
+              </p>
+            </div>
+          </div>
 
-    <div class="level-item has-text-light">
-      <div>
-        <p class="heading">number</p>
-        <p class="title has-text-light is-6">{{ payment.cardNumber }}</p>
+          <div class="level-item has-text-light">
+            <div>
+              <p class="heading">expiry</p>
+              <p class="title has-text-light is-6">{{ payment.cardExpirationDate | date: 'MM/yy' }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="level-item has-text-light">
-      <div>
-        <p class="heading">expiry</p>
-        <p class="title has-text-light is-6">{{ payment.cardExpirationDate | date: 'MM/yy' }}</p>
-      </div>
+      <hr />
     </div>
   </div>
 </div>
-<hr>
+<div class="level">
+  <div class="level-item">
+  </div>
+</div>
