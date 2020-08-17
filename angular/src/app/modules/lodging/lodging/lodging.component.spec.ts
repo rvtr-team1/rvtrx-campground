@@ -32,9 +32,10 @@ describe('LodgingComponent', () => {
     },
   ];
 
+  const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
+  lodgingService.get.and.returnValue(of(lodgings));
+
   beforeEach(async(() => {
-    const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
-    lodgingService.get.and.returnValue(of(lodgings));
 
     TestBed.configureTestingModule({
       declarations: [LodgingComponent],

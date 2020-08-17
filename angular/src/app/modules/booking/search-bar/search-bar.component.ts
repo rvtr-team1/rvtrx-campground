@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { BookingService } from 'src/app/services/booking/booking.service';
@@ -10,6 +10,8 @@ import { LodgingService } from '../../../services/lodging/lodging.service';
   templateUrl: './search-bar.component.html',
 })
 export class SearchBarComponent {
+  @ViewChild('searchForm', { 'static': false }) searchForm: NgForm;
+
   @Output() searchResults = new EventEmitter<Lodging[]>();
   @Output() isSearched = new EventEmitter<boolean>();
 

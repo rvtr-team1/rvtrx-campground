@@ -8,6 +8,7 @@ import { BookingService } from 'src/app/services/booking/booking.service';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Booking } from 'src/app/data/booking.model';
+import { Button } from 'protractor';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -122,15 +123,28 @@ describe('SearchBarComponent', () => {
   });
 
   it('should submit', () => {
-    spyOn(component.isSearched, 'emit');
-    spyOn(component.searchResults, 'emit');
+    const searchResultsSpy = spyOn(component.searchResults, 'emit');
+    const isSearchedSpy = spyOn(component.isSearched, 'emit');
 
     component.onSubmit(testForm).then(() => {
+
       expect(lodgingService.getAvailable).toHaveBeenCalled();
       expect(bookingService.getByDateRange).toHaveBeenCalled();
 
-      expect(component.isSearched.emit).toHaveBeenCalled();
-      expect(component.searchResults.emit).toHaveBeenCalled();
+      expect(searchResultsSpy).toHaveBeenCalled();
+      expect(isSearchedSpy).toHaveBeenCalledWith(true);
     });
+  });
+
+  it('should emit on click', () => {
+    const isSearchSpy = spyOn(component.isSearched, 'emit');
+
+    const nativeElement = fixture.nativeElement;
+    const clearButton = nativeElement.querySelector('#clearButton');
+    
+    clearButton.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+
+    expect(isSearchSpy).toHaveBeenCalledWith(false);
   });
 });

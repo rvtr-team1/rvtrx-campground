@@ -7,6 +7,7 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { FeaturedLodgingComponent } from '../featured-lodging/featured-lodging.component';
 import { SpotlightComponent } from '../spotlight/spotlight.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('BookingComponent', () => {
   let component: BookingComponent;
@@ -81,7 +82,7 @@ describe('BookingComponent', () => {
         FeaturedLodgingComponent,
         SpotlightComponent
       ],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, FormsModule],
       providers: [{ provide: LodgingService, useValue: lodgingServiceStub }],
     }).compileComponents();
   }));
