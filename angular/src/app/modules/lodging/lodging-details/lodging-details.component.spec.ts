@@ -29,21 +29,26 @@ describe('LodgingDetailsComponent', () => {
   };
   beforeEach(async(() => {
     const lodgingService = jasmine.createSpyObj('LodgingService', ['getById']);
-    const route = jasmine.createSpyObj('ActivatedRoute', ['paramMap']);
-    route.paramMap = jasmine.createSpyObj('paramMap', ['subscribe']);
-    route.paramMap.subscribe.and.returnValue(of('1'));
     lodgingService.getById.and.returnValue(of(lodging));
 
     TestBed.configureTestingModule({
       declarations: [LodgingDetailsComponent],
       providers: [
         { provide: LodgingService, useValue: lodgingService },
-        { provide: ActivatedRoute, useValue: route },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: of({
+              get(id: string): string {
+                return '1';
+              },
+            }),
+          },
+        },
       ],
     }).compileComponents();
     fixture = TestBed.createComponent(LodgingDetailsComponent);
     component = fixture.componentInstance;
-    component.idString = lodging.id;
     fixture.detectChanges();
   }));
   it('should create', () => {
@@ -53,7 +58,6 @@ describe('LodgingDetailsComponent', () => {
    * tests if the lodge details are returned correctly
    */
   it('should get lodging details', () => {
-    expect(component.idString).toEqual('1');
     expect(component.lodging).toBeTruthy();
     expect(component.lodging).toEqual(lodging);
   });
