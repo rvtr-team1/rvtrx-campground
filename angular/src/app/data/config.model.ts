@@ -15,6 +15,7 @@ export interface Config {
       uri: {
         account: string;
         profile: string;
+        payment: string;
       };
     };
     booking: {

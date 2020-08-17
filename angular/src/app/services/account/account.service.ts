@@ -29,7 +29,7 @@ export class AccountService {
       map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.profile}`)
     );
     this.paymentsUrl$ = config$.pipe(
-      map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.payments}`)
+      map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.payment}`)
     );
   }
 
