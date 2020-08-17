@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Booking } from 'src/app/data/booking.model';
 import { BookingService } from 'src/app/services/booking/booking.service';
@@ -8,14 +8,12 @@ import { BookingService } from 'src/app/services/booking/booking.service';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent {
   @Input() lodgings: Lodging[] | null;
   reservation: Booking;
   query = 'test query';
 
   constructor(private readonly bookingService: BookingService) {}
-
-  ngOnInit(): void {}
 
   averageRating(lodging: Lodging) {
     const maxRating = 10;

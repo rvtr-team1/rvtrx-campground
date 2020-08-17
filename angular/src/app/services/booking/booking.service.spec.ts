@@ -20,7 +20,7 @@ describe('BookingService', () => {
       guests: [],
       rentals: [],
       checkIn: '2020-08-01',
-      checkOut: '2020-08-01',
+      checkOut: '2020-08-03',
     },
   ];
 
@@ -72,6 +72,20 @@ describe('BookingService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should make httpGet request for date range', fakeAsync(() => {
+    let req: TestRequest;
+
+    service.getByDateRange('2020-08-02', '2020-08-02').subscribe((res) => {
+      const bookings: Booking[] = JSON.parse(res.toString());
+      expect(bookings.length).toEqual(1);
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test?checkIn=2020-08-02&checkOut=2020-08-02');
+    req.flush(JSON.stringify(bookingMock));
+  }));
 
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;

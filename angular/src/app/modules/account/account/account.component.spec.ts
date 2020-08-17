@@ -3,14 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, Input } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { AccountComponent } from './account.component';
-import { AccountBookingComponent } from '../account-booking/account-booking.component';
-import { AccountReviewComponent } from '../account-review/account-review.component';
-import { AddressComponent } from '../address/address.component';
-import { PaymentComponent } from '../payment/payment.component';
-import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -52,15 +48,7 @@ describe('AccountComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AccountComponent,
-        AccountBookingComponent,
-        AccountReviewComponent,
-        AddressComponent,
-        PaymentComponent,
-        ProfileComponent,
-        EditableStubComponent,
-      ],
+      declarations: [AccountComponent, EditableStubComponent],
       imports: [HttpClientTestingModule],
       providers: [
         {
@@ -69,6 +57,7 @@ describe('AccountComponent', () => {
         },
         { provide: AccountService, useValue: accountServiceStub },
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

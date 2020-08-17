@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Payment } from '../../../data/payment.model';
 
 @Component({
@@ -8,16 +8,9 @@ import { Payment } from '../../../data/payment.model';
 /**
  * Class representing a user's payment information
  */
-export class PaymentComponent implements OnInit {
+export class PaymentComponent {
   @Input() payments: Payment[];
   @Output() paymentsEdited = new EventEmitter();
-
-  /**
-   * Represents the _Payment Component_ 'constructor' method
-   */
-  constructor() {}
-
-  ngOnInit(): void {}
 
   /**
    * Adds a new set of payment information

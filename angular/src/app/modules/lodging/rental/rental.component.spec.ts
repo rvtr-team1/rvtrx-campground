@@ -28,7 +28,7 @@ describe('RentalComponent', () => {
       name: 'Rental3',
       occupancy: 2,
       type: 'cabin',
-      status: 'available',
+      status: 'booked',
       price: 100,
     },
     {
@@ -36,7 +36,7 @@ describe('RentalComponent', () => {
       name: 'Rental4',
       occupancy: 2,
       type: 'cabin',
-      status: 'available',
+      status: 'booked',
       price: 100,
     },
   ];
@@ -63,21 +63,16 @@ describe('RentalComponent', () => {
 
   it('should set availability count correctly', () => {
     expect(component.availabilityCount.get('tent')).toEqual(2);
-    expect(component.availabilityCount.get('cabin')).toEqual(2);
+  });
+
+  it('should have none available', () => {
+    expect(component.availabilityCount.get('cabin')).toEqual(0);
   });
 
   it('should call setRentals', () => {
     spyOn(component, 'setRentalTypes');
     component.ngOnInit();
     expect(component.setRentalTypes).toHaveBeenCalled();
-  });
-
-  it('should do nothing when lodgingService returns a bad response', () => {
-    rentals.forEach((rental) => (rental.status = 'booked'));
-    spyOn(component.availabilityCount, 'get');
-    component.ngOnInit();
-    expect(component.availabilityCount.get).toHaveBeenCalledTimes(0);
-    rentals.forEach((rental) => (rental.status = 'available'));
   });
 
   it('should test the length of the rows', () => {

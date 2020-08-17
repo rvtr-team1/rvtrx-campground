@@ -1,18 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
 
 @Component({
   selector: 'uic-spotlight',
   templateUrl: './spotlight.component.html',
 })
-export class SpotlightComponent implements OnInit {
+export class SpotlightComponent implements OnChanges {
   @Input() lodgings: Lodging[] | null;
+  selectedLodging: Lodging | null = null;
 
-  selectedLodging: Lodging;
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnChanges() {
+    this.setSpotlight(this.lodgings);
+  }
 
   setSpotlight(lodgings: Lodging[] | null): void {
     let temp = 0;

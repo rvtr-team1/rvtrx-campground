@@ -2,7 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookingComponent } from './booking.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { of } from 'rxjs';
-import { SearchResultsComponent } from '../search-results/search-results.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormsModule } from '@angular/forms';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('BookingComponent', () => {
   let component: BookingComponent;
@@ -70,8 +72,10 @@ describe('BookingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BookingComponent, SearchResultsComponent],
+      declarations: [BookingComponent],
+      imports: [HttpClientTestingModule, FormsModule],
       providers: [{ provide: LodgingService, useValue: lodgingServiceStub }],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
