@@ -1,4 +1,4 @@
-<div class="columns is-multiline is-centered">
+<div *ngIf="lodgings" class="columns is-multiline is-centered">
   <div class="column is-one-quarter" *ngFor="let lodging of lodgings">
     <a routerLink="details/{{ lodging.id }}">
       <div class="card">
