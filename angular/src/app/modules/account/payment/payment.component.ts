@@ -20,8 +20,6 @@ export class PaymentComponent {
    */
   constructor(private readonly accountService: AccountService) {}
 
-  ngOnInit(): void {}
-
   /**
    * Adds a new set of payment information
    * @param newCard Payment
