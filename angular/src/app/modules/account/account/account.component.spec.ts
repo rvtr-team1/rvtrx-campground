@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AccountBookingComponent } from '../account-booking/account-booking.component';
@@ -10,7 +11,6 @@ import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
-import { AccountModule } from '../account.module';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -42,6 +42,14 @@ describe('AccountComponent', () => {
   let component: AccountComponent;
   let fixture: ComponentFixture<AccountComponent>;
 
+  @Component({ selector: 'uic-editable', template: '' })
+  class EditableStubComponent {
+    @Input()
+    data: string;
+    @Input()
+    editMode = false;
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -51,6 +59,7 @@ describe('AccountComponent', () => {
         AddressComponent,
         PaymentComponent,
         ProfileComponent,
+        EditableStubComponent,
       ],
       imports: [HttpClientTestingModule],
       providers: [

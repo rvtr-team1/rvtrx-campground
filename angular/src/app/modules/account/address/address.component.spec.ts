@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
-import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-import { InjectionToken } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { Component, Input } from '@angular/core';
 
 describe('AddressComponent', () => {
   const address = {
@@ -16,9 +15,17 @@ describe('AddressComponent', () => {
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
 
+  @Component({ selector: 'uic-editable', template: '' })
+  class EditableStubComponent {
+    @Input()
+    data: string;
+    @Input()
+    editMode = false;
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AddressComponent],
+      declarations: [AddressComponent, EditableStubComponent],
       providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
     }).compileComponents();
   }));
