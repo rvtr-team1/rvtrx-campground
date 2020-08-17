@@ -12,8 +12,6 @@ export class LodgingDetailsComponent implements OnInit {
    * fields used in this component
    */
   lodging: Lodging | null = null;
-  idString: string | null = null;
-  isLoaded = false;
 
   /**
    * provide activated route to get route parameters and lodging service to get lodging
@@ -37,13 +35,12 @@ export class LodgingDetailsComponent implements OnInit {
    */
   getLodgingById(): void {
     this.route.paramMap.subscribe((params) => {
-      this.idString = params.get('id');
+      const idString = params.get('id');
+      if (idString) {
+        this.lodgingService.getById(idString).subscribe((data) => {
+          this.lodging = data;
+        });
+      }
     });
-    if (this.idString) {
-      this.lodgingService.getById(this.idString).subscribe((data) => {
-        this.lodging = data;
-        this.isLoaded = true;
-      });
-    }
   }
 }
