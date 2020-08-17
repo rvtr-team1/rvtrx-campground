@@ -3,6 +3,10 @@ import { BookingComponent } from './booking.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { of } from 'rxjs';
 import { SearchResultsComponent } from '../search-results/search-results.component';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { FeaturedLodgingComponent } from '../featured-lodging/featured-lodging.component';
+import { SpotlightComponent } from '../spotlight/spotlight.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('BookingComponent', () => {
   let component: BookingComponent;
@@ -70,7 +74,14 @@ describe('BookingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BookingComponent, SearchResultsComponent],
+      declarations: [
+        BookingComponent,
+        SearchBarComponent,
+        SearchResultsComponent,
+        FeaturedLodgingComponent,
+        SpotlightComponent
+      ],
+      imports: [HttpClientTestingModule],
       providers: [{ provide: LodgingService, useValue: lodgingServiceStub }],
     }).compileComponents();
   }));
