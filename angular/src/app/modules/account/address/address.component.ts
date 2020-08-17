@@ -13,10 +13,4 @@ export class AddressComponent implements OnInit {
   constructor(private readonly accountService: AccountService) {}
 
   ngOnInit(): void {}
-
-  /* addAddress(newAddress: Address) {
-    this.accountService.postAddress(newAddress).subscribe((e) => {
-      console.log(e);
-    });
-  } */
 }
