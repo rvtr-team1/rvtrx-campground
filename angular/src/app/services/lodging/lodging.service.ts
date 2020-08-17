@@ -62,9 +62,18 @@ export class LodgingService {
    *
    * @param id string
    */
-  get(id?: string): Observable<Lodging[]> {
-    const options = id ? { params: new HttpParams().set('id', id) } : {};
+  get(filter?: string): Observable<Lodging[]> {
+    const options = filter ? { params: new HttpParams().set('filter', filter) } : {};
     return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url, options)));
+  }
+
+  /**
+   * Represents the _Lodging Service_ `getById` method
+   *
+   * @param id string
+   */
+  getById(id: string): Observable<Lodging> {
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging>(`${url}/${id}`)));
   }
 
   /**
