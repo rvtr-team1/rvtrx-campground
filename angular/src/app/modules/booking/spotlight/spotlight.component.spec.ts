@@ -37,6 +37,26 @@ describe('SpotlightComponent', () => {
       ],
       reviews: [],
     },
+    {
+      id: '',
+      location: {
+        id: '',
+        address: {
+          id: '',
+          city: '',
+          postalCode: '',
+          country: '',
+          stateProvince: '',
+          street: '',
+        },
+        latitude: '',
+        longitude: '',
+      },
+      name: '',
+      bathrooms: 1,
+      rentals: [],
+      reviews: [],
+    },
   ];
 
   beforeEach(async(() => {
@@ -63,5 +83,12 @@ describe('SpotlightComponent', () => {
   it('should not have spotlight', () => {
     component.setSpotlight(null);
     expect(component.selectedLodging).toBe(null);
+  });
+
+  it('should change spotlight', () => {
+    spyOn(component, 'setSpotlight');
+    component.lodgings = testLodgings;
+    component.ngOnChanges();
+    expect(component.setSpotlight).toHaveBeenCalled();
   });
 });

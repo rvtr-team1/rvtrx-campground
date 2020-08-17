@@ -48,7 +48,7 @@ describe('RentalComponent', () => {
           name: 'Rental3',
           occupancy: 2,
           type: 'cabin',
-          status: '',
+          status: 'booked',
           price: 100,
         },
         {
@@ -56,7 +56,7 @@ describe('RentalComponent', () => {
           name: 'Rental4',
           occupancy: 2,
           type: 'cabin',
-          status: '',
+          status: 'booked',
           price: 100,
         },
       ],
@@ -99,14 +99,6 @@ describe('RentalComponent', () => {
     spyOn(component, 'setRentals');
     component.ngOnInit();
     expect(component.setRentals).toHaveBeenCalled();
-  });
-
-  it('should do nothing when lodgingService returns a bad response', () => {
-    lodgings[0].rentals.forEach((rental) => (rental.status = 'booked'));
-    spyOn(component.availabilityCount, 'get');
-    component.ngOnInit();
-    expect(component.availabilityCount.get).toHaveBeenCalledTimes(0);
-    lodgings[0].rentals.forEach((rental) => (rental.status = 'available'));
   });
 
   it('should test the length of the rows', () => {
