@@ -3,6 +3,7 @@ import { of } from 'rxjs';
 import { RentalComponent } from './rental.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { Lodging } from 'src/app/data/lodging.model';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -70,6 +71,7 @@ describe('RentalComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [RentalComponent],
+      imports: [HttpClientTestingModule],
       providers: [{ provide: LodgingService, useValue: lodgingService }],
     }).compileComponents();
 

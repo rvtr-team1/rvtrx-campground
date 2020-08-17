@@ -3,7 +3,8 @@ import { LodgingComponent } from './lodging.component';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
 
 describe('LodgingComponent', () => {
   let component: LodgingComponent;
@@ -46,6 +47,9 @@ describe('LodgingComponent', () => {
     fixture = TestBed.createComponent(LodgingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    TestBed.inject(HttpClient);
+    TestBed.inject(HttpTestingController);
   }));
 
   /**
