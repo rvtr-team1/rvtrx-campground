@@ -8,7 +8,6 @@ import { BookingService } from 'src/app/services/booking/booking.service';
 import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Booking } from 'src/app/data/booking.model';
-import { Button } from 'protractor';
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;

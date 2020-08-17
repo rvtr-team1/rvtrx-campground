@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FeaturedLodgingComponent } from './featured-lodging.component';
 import { Lodging } from 'src/app/data/lodging.model';
 

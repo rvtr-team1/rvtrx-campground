@@ -1,7 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
-import { GenericEditingService } from '../../../services/editable/generic-editing.service';
-import { InjectionToken } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 
 describe('AddressComponent', () => {

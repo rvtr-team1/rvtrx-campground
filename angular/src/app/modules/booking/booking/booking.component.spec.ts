@@ -2,10 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BookingComponent } from './booking.component';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { of } from 'rxjs';
-import { SearchResultsComponent } from '../search-results/search-results.component';
-import { SearchBarComponent } from '../search-bar/search-bar.component';
-import { FeaturedLodgingComponent } from '../featured-lodging/featured-lodging.component';
-import { SpotlightComponent } from '../spotlight/spotlight.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 
@@ -75,13 +71,7 @@ describe('BookingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        BookingComponent,
-        SearchBarComponent,
-        SearchResultsComponent,
-        FeaturedLodgingComponent,
-        SpotlightComponent,
-      ],
+      declarations: [BookingComponent],
       imports: [HttpClientTestingModule, FormsModule],
       providers: [{ provide: LodgingService, useValue: lodgingServiceStub }],
     }).compileComponents();
