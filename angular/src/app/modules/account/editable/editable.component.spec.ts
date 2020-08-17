@@ -51,4 +51,32 @@ describe('EditableComponent', () => {
       expect(component.pattern).toEqual(/^[a-zA-Z]+(([',.-][a-zA-Z])?[a-zA-Z]*)*$/);
     });
   });
+
+  it('should enable an error on focus out with improper input', () => {
+    component.editMode = true;
+    component.setValidationType('name');
+    fixture.detectChanges();
+    const i = Object.create(HTMLElement.prototype, {});
+    i.value = '1111';
+    const e = new Event('focusout');
+    spyOnProperty(e, 'target', 'get').and.returnValue(i);
+    component.onFocusOut(e);
+    fixture.detectChanges();
+    expect(component.valid).toBeFalsy();
+    expect(component.error).toBeTrue();
+  });
+
+  it('should allow proper value on focus out', () => {
+    component.editMode = true;
+    component.setValidationType('name');
+    fixture.detectChanges();
+    const i = Object.create(HTMLElement.prototype, {});
+    i.value = 'test';
+    const e = new Event('focusout');
+    spyOnProperty(e, 'target', 'get').and.returnValue(i);
+    component.onFocusOut(e);
+    fixture.detectChanges();
+    expect(component.valid).toBeTrue();
+    expect(component.error).toBeFalse();
+  });
 });
