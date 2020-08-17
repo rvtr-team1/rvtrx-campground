@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 describe('ConfigService', () => {
   const configMock: Config = {
     api: {
-      account: { base: 'test', uri: { account: '', profile: '' } },
+      account: { base: 'test', uri: { account: '', profile: '', payment: '' } },
       booking: { base: '', uri: { booking: '', stay: '' } },
       lodging: { base: '', uri: { lodging: '', rental: '', review: '' } },
       monitoring: '',
