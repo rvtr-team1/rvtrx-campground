@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
-import { Component, NO_ERRORS_SCHEMA, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 describe('AddressComponent', () => {
   const address = {

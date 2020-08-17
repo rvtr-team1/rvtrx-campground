@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
-import { Component, NO_ERRORS_SCHEMA, Input, Injector } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Subject } from 'rxjs';
-import { EditableComponent } from '../editable/editable.component';
 
 describe('ProfileComponent', () => {
   const profiles = [
