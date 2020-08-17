@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NO_ERRORS_SCHEMA, Input } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { AccountBookingComponent } from '../account-booking/account-booking.component';
@@ -11,7 +11,6 @@ import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
-import { AccountModule } from '../account.module';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -44,7 +43,12 @@ describe('AccountComponent', () => {
   let fixture: ComponentFixture<AccountComponent>;
 
   @Component({ selector: 'uic-editable', template: '' })
-  class EditableStubComponent {}
+  class EditableStubComponent {
+    @Input('data')
+    data: string;
+    @Input('editMode')
+    editMode = false;
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -65,7 +69,6 @@ describe('AccountComponent', () => {
         },
         { provide: AccountService, useValue: accountServiceStub },
       ],
-      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

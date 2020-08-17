@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NO_ERRORS_SCHEMA, Input } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Subject } from 'rxjs';
+import { EditableComponent } from '../editable/editable.component';
 
 describe('ProfileComponent', () => {
   const profiles = [
@@ -19,7 +20,12 @@ describe('ProfileComponent', () => {
   let fixture: ComponentFixture<ProfileComponent>;
 
   @Component({ selector: 'uic-editable', template: '' })
-  class EditableStubComponent {}
+  class EditableStubComponent {
+    @Input('data')
+    data: string;
+    @Input('editMode')
+    editMode = false;
+  }
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -36,7 +42,6 @@ describe('ProfileComponent', () => {
           },
         },
       ],
-      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
