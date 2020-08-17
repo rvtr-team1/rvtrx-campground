@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('LodgingComponent', () => {
   let component: LodgingComponent;
@@ -40,6 +41,7 @@ describe('LodgingComponent', () => {
       declarations: [LodgingComponent],
       imports: [HttpClientTestingModule],
       providers: [{ provide: LodgingService, useValue: lodgingService }],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LodgingComponent);

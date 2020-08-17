@@ -4,6 +4,7 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('BookingComponent', () => {
   let component: BookingComponent;
@@ -74,6 +75,7 @@ describe('BookingComponent', () => {
       declarations: [BookingComponent],
       imports: [HttpClientTestingModule, FormsModule],
       providers: [{ provide: LodgingService, useValue: lodgingServiceStub }],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

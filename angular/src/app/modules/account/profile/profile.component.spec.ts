@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Subject } from 'rxjs';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ProfileComponent', () => {
   const profiles = [
@@ -32,6 +33,7 @@ describe('ProfileComponent', () => {
           },
         },
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

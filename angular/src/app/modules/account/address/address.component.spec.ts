@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AddressComponent', () => {
   const address = {
@@ -18,6 +19,7 @@ describe('AddressComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent],
       providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

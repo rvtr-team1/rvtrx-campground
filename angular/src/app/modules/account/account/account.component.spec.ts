@@ -5,6 +5,7 @@ import { AccountComponent } from './account.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -47,6 +48,7 @@ describe('AccountComponent', () => {
         },
         { provide: AccountService, useValue: accountServiceStub },
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

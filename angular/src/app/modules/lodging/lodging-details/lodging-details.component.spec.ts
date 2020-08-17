@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LodgingDetailsComponent } from './lodging-details.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('LodgingComponent', () => {
   let component: LodgingDetailsComponent;
@@ -10,6 +11,7 @@ describe('LodgingComponent', () => {
     TestBed.configureTestingModule({
       declarations: [LodgingDetailsComponent],
       imports: [HttpClientTestingModule],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 
