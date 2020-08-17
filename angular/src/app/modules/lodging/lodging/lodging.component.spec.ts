@@ -37,7 +37,6 @@ describe('LodgingComponent', () => {
   lodgingService.get.and.returnValue(of(lodgings));
 
   beforeEach(async(() => {
-
     TestBed.configureTestingModule({
       declarations: [LodgingComponent],
       imports: [HttpClientTestingModule],

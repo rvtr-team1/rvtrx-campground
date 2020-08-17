@@ -127,7 +127,6 @@ describe('SearchBarComponent', () => {
     const isSearchedSpy = spyOn(component.isSearched, 'emit');
 
     component.onSubmit(testForm).then(() => {
-
       expect(lodgingService.getAvailable).toHaveBeenCalled();
       expect(bookingService.getByDateRange).toHaveBeenCalled();
 
@@ -141,7 +140,7 @@ describe('SearchBarComponent', () => {
 
     const nativeElement = fixture.nativeElement;
     const clearButton = nativeElement.querySelector('#clearButton');
-    
+
     clearButton.dispatchEvent(new Event('click'));
     fixture.detectChanges();
 

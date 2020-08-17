@@ -8,10 +8,7 @@ describe('LodgingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LodgingDetailsComponent,
-        RentalComponent
-      ],
+      declarations: [LodgingDetailsComponent, RentalComponent],
     }).compileComponents();
   }));
 

@@ -80,7 +80,7 @@ describe('BookingComponent', () => {
         SearchBarComponent,
         SearchResultsComponent,
         FeaturedLodgingComponent,
-        SpotlightComponent
+        SpotlightComponent,
       ],
       imports: [HttpClientTestingModule, FormsModule],
       providers: [{ provide: LodgingService, useValue: lodgingServiceStub }],
