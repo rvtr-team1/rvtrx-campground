@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
+import { Component, Input } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Subject } from 'rxjs';
 
@@ -17,18 +18,26 @@ describe('ProfileComponent', () => {
   let component: ProfileComponent;
   let fixture: ComponentFixture<ProfileComponent>;
 
+  @Component({ selector: 'uic-editable', template: '' })
+  class EditableStubComponent {
+    @Input()
+    data: string;
+    @Input()
+    editMode = false;
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfileComponent],
+      declarations: [ProfileComponent, EditableStubComponent],
       providers: [
         {
           provide: ACCOUNT_EDITING_SERVICE,
           useFactory: () => {
-            const subj = new Subject();
+            const payloadEmitter = new Subject();
             function update(e: any): void {
-              subj.next(e);
+              payloadEmitter.next(e);
             }
-            return { subj, update };
+            return { payloadEmitter, update };
           },
         },
       ],
@@ -47,10 +56,10 @@ describe('ProfileComponent', () => {
   });
 
   it('should call the editing service', () => {
-    const editingService = TestBed.get(ACCOUNT_EDITING_SERVICE);
+    const editingService = TestBed.inject(ACCOUNT_EDITING_SERVICE);
     component.profiles = profiles;
     fixture.detectChanges();
-    editingService.subj.subscribe((e: any) => {
+    editingService.payloadEmitter.subscribe((e: any) => {
       expect(e.profiles).toBeTruthy();
     });
     component.edited();

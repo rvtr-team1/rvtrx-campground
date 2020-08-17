@@ -113,9 +113,23 @@ describe('LodgingService', () => {
     tick();
 
     req = httpTestingController.expectOne('test');
-    reqOne = httpTestingController.expectOne('test?id=0');
+    reqOne = httpTestingController.expectOne('test?filter=0');
 
     req.flush(lodgingMock);
+    reqOne.flush(lodgingMock);
+  }));
+
+  it('should make httpGet request when calling getById', fakeAsync(() => {
+    let reqOne: TestRequest;
+
+    service.getById('0').subscribe((res) => {
+      expect(res).toBeTruthy();
+    });
+
+    tick();
+
+    reqOne = httpTestingController.expectOne('test/0');
+
     reqOne.flush(lodgingMock);
   }));
 
