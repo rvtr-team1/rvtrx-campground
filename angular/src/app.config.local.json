@@ -8,7 +8,7 @@
       }
     },
     "booking": {
-      "base": "https://localhost:8001/rest/booking/0/",
+      "base": "http://localhost:8001/rest/booking/0/",
       "uri": {
         "booking": "booking",
         "stay": "stay"
