@@ -3,8 +3,12 @@ import { By } from '@angular/platform-browser';
 import { FormControl, FormsModule } from '@angular/forms';
 import { NewAddressFormComponent } from './new-address-form.component';
 import { Address } from '../../../data/address.model';
+<<<<<<< HEAD
 
 describe('NewAddressformComponent', () => {
+=======
+describe('NewAddressFormComponent', () => {
+>>>>>>> 18ea43a21d9a105d1ad30010729805761c03c3c9
   let component: NewAddressFormComponent;
   let fixture: ComponentFixture<NewAddressFormComponent>;
 
