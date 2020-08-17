@@ -3,6 +3,7 @@ import { AddressComponent } from './address.component';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
 import { InjectionToken } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { EditableComponent } from '../editable/editable.component';
 
 describe('AddressComponent', () => {
   const address = {
@@ -18,7 +19,7 @@ describe('AddressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AddressComponent],
+      declarations: [AddressComponent, EditableComponent],
       providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
     }).compileComponents();
   }));

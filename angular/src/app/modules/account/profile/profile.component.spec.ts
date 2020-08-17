@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Subject } from 'rxjs';
+import { EditableComponent } from '../editable/editable.component';
 
 describe('ProfileComponent', () => {
   const profiles = [
@@ -19,7 +20,7 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProfileComponent],
+      declarations: [ProfileComponent, EditableComponent],
       providers: [
         {
           provide: ACCOUNT_EDITING_SERVICE,

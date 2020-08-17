@@ -11,6 +11,7 @@ import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { AccountModule } from '../account.module';
+import { EditableComponent } from '../editable/editable.component';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -51,6 +52,7 @@ describe('AccountComponent', () => {
         AddressComponent,
         PaymentComponent,
         ProfileComponent,
+        EditableComponent,
       ],
       imports: [HttpClientTestingModule],
       providers: [
