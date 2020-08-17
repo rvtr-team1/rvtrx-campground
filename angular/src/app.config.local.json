@@ -3,8 +3,9 @@
     "account": {
       "base": "http://localhost:8000/rest/account/0/",
       "uri": {
-        "account": "account",
-        "profile": "profile"
+        "account": "Account",
+        "profile": "Profile",
+        "payment": "Payment"
       }
     },
     "booking": {

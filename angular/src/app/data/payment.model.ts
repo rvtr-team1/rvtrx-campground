@@ -18,3 +18,7 @@ export interface Payment {
   /** three or four digit security code (CVV, CSC) */
   securityCode: string;
 }
+
+export interface PostPayment extends Payment {
+  accountId: string;
+}

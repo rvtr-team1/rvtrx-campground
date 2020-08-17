@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Payment } from '../../../data/payment.model';
+import { PostPayment } from '../../../data/payment.model';
 
 @Component({
   selector: 'uic-new-payment-form',
@@ -10,7 +10,7 @@ import { Payment } from '../../../data/payment.model';
 export class NewPaymentFormComponent implements OnInit {
   showModal = false;
 
-  @Output() newPayment: EventEmitter<Payment> = new EventEmitter<Payment>();
+  @Output() newPayment: EventEmitter<PostPayment> = new EventEmitter<PostPayment>();
 
   paymentForm = new FormGroup({
     ccNumber: new FormControl('', [
@@ -69,7 +69,7 @@ export class NewPaymentFormComponent implements OnInit {
       cardName: '',
       cardNumber: this.paymentForm.value.ccNumber,
       securityCode: '111',
-    } as Payment;
+    } as PostPayment;
     this.newPayment.emit(payload);
   }
 
