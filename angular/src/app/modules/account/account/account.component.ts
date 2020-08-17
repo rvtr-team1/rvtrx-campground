@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Account } from '../../../data/account.model';
@@ -8,6 +8,8 @@ import { Payment } from '../../../data/payment.model';
 import { Profile } from '../../../data/profile.model';
 import { Review } from '../../../data/review.model';
 import { AccountService } from '../../../services/account/account.service';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
+import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 
 @Component({
   selector: 'uic-account',
@@ -21,10 +23,16 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  constructor(private readonly accountService: AccountService) {}
+  private readonly id = '1';
+
+  constructor(
+    private readonly accountService: AccountService,
+    @Inject(ACCOUNT_EDITING_SERVICE)
+    private readonly editingService: GenericEditingService<Partial<Account>>
+  ) {}
 
   ngOnInit(): void {
-    this.account$ = this.accountService.get('1');
+    this.account$ = this.accountService.get(this.id);
     this.bookings$ = of([
       {
         id: '100',
@@ -68,5 +76,25 @@ export class AccountComponent implements OnInit {
     this.address$ = this.account$.pipe(map((account) => account.address));
     this.payments$ = this.account$.pipe(map((account) => account.payments));
     this.profiles$ = this.account$.pipe(map((account) => account.profiles));
+
+    /**
+     * Pass initial model to editingService which acts as model for overwriting data coming in
+     */
+    this.account$.subscribe((e) => this.editingService.update(e));
+    /**
+     * Register function for Payload release from editing service
+     */
+    this.editingService.payloadEmitter.subscribe((val: Account) => this.update(val));
+  }
+  /**
+   * Function registered to the editing service
+   *  @param: payload
+   *
+   */
+  private update(payload: Account): void {
+    this.accountService.put(payload).subscribe({
+      next: (e) => console.log(e),
+      error: (e) => console.error(e),
+    });
   }
 }

@@ -8,14 +8,14 @@
       }
     },
     "booking": {
-      "base": "https://localhost:8001/rest/booking/0/",
+      "base": "http://localhost:8001/rest/booking/0/",
       "uri": {
         "booking": "booking",
         "stay": "stay"
       }
     },
     "lodging": {
-      "base": "https://localhost:8002/rest/lodging/0/",
+      "base": "http://localhost:8002/rest/lodging/0/",
       "uri": {
         "lodging": "lodging",
         "rental": "rental",

@@ -4,7 +4,7 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { NewAddressFormComponent } from './new-address-form.component';
 import { Address } from '../../../data/address.model';
 
-describe('NewAddressformComponent', () => {
+describe('NewAddressFormComponent', () => {
   let component: NewAddressFormComponent;
   let fixture: ComponentFixture<NewAddressFormComponent>;
 

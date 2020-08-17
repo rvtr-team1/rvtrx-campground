@@ -3,13 +3,15 @@ import { PaymentComponent } from './payment.component';
 import { Payment } from 'src/app/data/payment.model';
 
 describe('PaymentComponent', () => {
-  const payments = {
-    cardName: '',
-    cardNumber: '',
-    cardExpirationDate: '2020-08-01',
-    id: '',
-    securityCode: '',
-  };
+  const payments = [
+    {
+      cardName: '',
+      cardNumber: '',
+      cardExpirationDate: '2020-08-01',
+      id: '',
+      securityCode: '',
+    },
+  ];
   let component: PaymentComponent;
   let fixture: ComponentFixture<PaymentComponent>;
 
@@ -22,7 +24,7 @@ describe('PaymentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PaymentComponent);
     component = fixture.componentInstance;
-    component.payment = payments;
+    component.payments = payments;
     fixture.detectChanges();
   });
 

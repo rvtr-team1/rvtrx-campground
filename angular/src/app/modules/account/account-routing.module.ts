@@ -7,9 +7,12 @@ import { AddressComponent } from './address/address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AccountReviewComponent } from './account-review/account-review.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NewAddressFormComponent } from './new-address-form/new-address-form.component';
 import { NewPaymentFormComponent } from './new-payment-form/new-payment-form.component';
+import { EditableComponent } from './editable/editable.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ACCOUNT_EDITING_SERVICE } from './account-editing.token';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
 
 const routes: Routes = [{ component: AccountComponent, path: '' }];
 
@@ -23,6 +26,13 @@ const routes: Routes = [{ component: AccountComponent, path: '' }];
     AccountReviewComponent,
     NewAddressFormComponent,
     NewPaymentFormComponent,
+    EditableComponent,
+  ],
+  providers: [
+    {
+      provide: ACCOUNT_EDITING_SERVICE,
+      useFactory: () => new GenericEditingService<Partial<Account>>(),
+    },
   ],
   exports: [RouterModule],
   imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule],

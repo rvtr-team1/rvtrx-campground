@@ -2,8 +2,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
+import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Account } from '../../../data/account.model';
-import { AccountService } from '../../../services/account/account.service';
 
 describe('AddressComponent', () => {
   const accountServiceStub = {
@@ -33,7 +33,6 @@ describe('AddressComponent', () => {
     stateProvince: '',
     street: '',
   };
-
   let component: AddressComponent;
   let fixture: ComponentFixture<AddressComponent>;
 
@@ -41,7 +40,7 @@ describe('AddressComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [AddressComponent],
-      providers: [{ provide: AccountService, useValue: accountServiceStub }],
+      providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
     }).compileComponents();
   }));
 
