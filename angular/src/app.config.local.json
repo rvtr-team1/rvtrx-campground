@@ -15,7 +15,7 @@
       }
     },
     "lodging": {
-      "base": "https://localhost:8002/rest/lodging/0/",
+      "base": "http://localhost:8002/rest/lodging/0/",
       "uri": {
         "lodging": "Lodging",
         "rental": "rental",
