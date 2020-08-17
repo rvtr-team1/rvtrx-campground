@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { BookingService } from 'src/app/services/booking/booking.service';

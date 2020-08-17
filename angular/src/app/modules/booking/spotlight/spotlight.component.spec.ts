@@ -6,6 +6,7 @@ import { Lodging } from 'src/app/data/lodging.model';
 describe('SpotlightComponent', () => {
   let component: SpotlightComponent;
   let fixture: ComponentFixture<SpotlightComponent>;
+
   const testLodgings: Lodging[] = [
     {
       id: '',
