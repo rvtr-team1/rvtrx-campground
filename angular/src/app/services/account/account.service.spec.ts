@@ -132,6 +132,32 @@ describe('AccountService', () => {
     req.flush(JSON.stringify(true));
   }));
 
+  it('should make httpPost request', fakeAsync(() => {
+    let req: TestRequest;
+
+    service.postAddress(accountMock.address).subscribe((res) => {
+      expect(JSON.parse(res.toString())).toBeTrue();
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test');
+    req.flush(JSON.stringify(true));
+  }));
+
+  it('should make httpPost request', fakeAsync(() => {
+    let req: TestRequest;
+
+    service.postPayment(accountMock.payments[0]).subscribe((res) => {
+      expect(JSON.parse(res.toString())).toBeTrue();
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test');
+    req.flush(JSON.stringify(true));
+  }));
+
   it('should make httpPut request', fakeAsync(() => {
     let req: TestRequest;
 
