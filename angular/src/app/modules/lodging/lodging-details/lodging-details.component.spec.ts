@@ -4,6 +4,7 @@ import { Lodging } from 'src/app/data/lodging.model';
 import { of } from 'rxjs';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { ActivatedRoute } from '@angular/router';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('LodgingDetailsComponent', () => {
   let component: LodgingDetailsComponent;
   let fixture: ComponentFixture<LodgingDetailsComponent>;
@@ -46,6 +47,7 @@ describe('LodgingDetailsComponent', () => {
           },
         },
       ],
+      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
     fixture = TestBed.createComponent(LodgingDetailsComponent);
     component = fixture.componentInstance;

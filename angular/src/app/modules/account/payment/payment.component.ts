@@ -10,7 +10,7 @@ import { AccountBookingComponent } from '../account-booking/account-booking.comp
 /**
  * Class representing a user's payment information
  */
-export class PaymentComponent implements OnInit {
+export class PaymentComponent {
   @Input() payments: Payment[];
   @Input() accountid: string;
   @Output() paymentsEdited = new EventEmitter();

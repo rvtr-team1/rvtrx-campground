@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Inject } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import { Profile } from '../../../data/profile.model';
 import { Account } from '../../../data/account.model';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
@@ -11,19 +11,12 @@ import { ACCOUNT_EDITING_SERVICE } from '../../account/account-editing.token';
 /**
  * Class representing a user's profile information
  */
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
   @Input() profiles: Profile[];
 
   editMode = false;
   titleEdit = 'Click To Edit Your Profile';
 
-  /**
-   * Updates the _Editing Service_ with the new profile information
-   */
-  edited() {
-    this.editingService.update({ profiles: this.profiles });
-  }
-  ngOnInit(): void {}
   /**
    * Represents the _Profile Component_ 'constructor' method
    * @param editingService AccountEditingService
@@ -32,4 +25,11 @@ export class ProfileComponent implements OnInit {
     @Inject(ACCOUNT_EDITING_SERVICE)
     private readonly editingService: GenericEditingService<Partial<Account>>
   ) {}
+
+  /**
+   * Updates the _Editing Service_ with the new profile information
+   */
+  edited() {
+    this.editingService.update({ profiles: this.profiles });
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { Address } from '../../../data/address.model';
 import { Account } from '../../../data/account.model';
 import { GenericEditingService } from '../../../services/editable/generic-editing.service';
@@ -11,17 +11,17 @@ import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 /**
  * Class representing a user's address
  */
-export class AddressComponent implements OnInit {
+export class AddressComponent {
+  @Input() address: Address;
+  @Output() addressEdited = new EventEmitter();
+
+  editMode = false;
+  titleEdit = 'Click To Edit Your Address';
+
   constructor(
     @Inject(ACCOUNT_EDITING_SERVICE)
     private readonly editingService: GenericEditingService<Partial<Account>>
   ) {}
-  @Input() address: Address;
-  @Output() addressEdited = new EventEmitter();
-  editMode = false;
-  titleEdit = 'Click To Edit Your Address';
-
-  ngOnInit(): void {}
 
   /**
    * Updates the _Editing Service_ with the new address information

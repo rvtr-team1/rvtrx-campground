@@ -1,4 +1,4 @@
-<form #searchForm="ngForm" (ngSubmit) = "onSubmit(searchForm)" >
+<form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)" >
     <div class="tile is-parent">
       <div class="tile is-child">
         <div class="field">
@@ -13,10 +13,10 @@
         <label for="check-in" class="label">check-in / check-out</label>
         <div class="field has-addons">
           <div class="control is-expanded">
-            <input class="input" id="check-in" name="check-in" placeholder="Add the traveling date" type="date" ngModel>
+            <input class="input" id="checkin" name="checkin" placeholder="Add the traveling date" type="date" ngModel>
           </div>
           <div class="control is-expanded">
-            <input class="input" id="check-out" name="check-out" placeholder="Add the returning date"
+            <input class="input" id="checkout" name="checkout" placeholder="Add the returning date"
               type="date" ngModel>
           </div>
         </div>
@@ -35,7 +35,7 @@
               <button class="button is-primary" type="submit" value="Send">Search</button>
           </div>
           <div class="control">
-            <button class="button is-danger fa fa-window-close" type="button" (click)="isSearched.emit(false)"></button>
+            <button id="clearButton" class="button is-danger fa fa-window-close" type="button" (click)="isSearched.emit(false)"></button>
           </div>
         </div>
       </div>
