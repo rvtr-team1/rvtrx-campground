@@ -39,9 +39,9 @@ describe('LodgingService', () => {
     get() {
       const config: Config = {
         api: {
-          account: '',
-          booking: '',
-          lodging: 'test',
+          account: { base: '', uri: { account: '', profile: '' } },
+          booking: { base: '', uri: { booking: '', stay: '' } },
+          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '' } },
           monitoring: '',
         },
         navigation: {

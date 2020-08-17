@@ -19,10 +19,8 @@
           "options": {
             "aot": true,
             "assets": [
-              "src/api.account.json",
-              "src/api.booking.json",
-              "src/api.lodging.json",
               "src/app.config.json",
+              "src/app.config.local.json",
               "src/favicon.ico",
               "src/netlify.toml"
             ],
@@ -100,7 +98,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/app.config.json", "src/favicon.ico", "src/netlify.toml"],
+            "assets": [
+              "src/app.config.json",
+              "src/app.config.local.json",
+              "src/favicon.ico",
+              "src/netlify.toml"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": ["src/assets/js/main.js"]
           }
