@@ -17,7 +17,7 @@
     "lodging": {
       "base": "https://api.rvtr.net/rest/lodging/0/",
       "uri": {
-        "lodging": "Lodging",
+        "lodging": "lodging",
         "rental": "rental",
         "review": "review"
       }

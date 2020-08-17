@@ -17,7 +17,7 @@
     "lodging": {
       "base": "http://localhost:8002/rest/lodging/0/",
       "uri": {
-        "lodging": "Lodging",
+        "lodging": "lodging",
         "rental": "rental",
         "review": "review"
       }
