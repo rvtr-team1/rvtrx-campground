@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Booking } from 'src/app/data/booking.model';
 import { BookingService } from 'src/app/services/booking/booking.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'uic-search-results',

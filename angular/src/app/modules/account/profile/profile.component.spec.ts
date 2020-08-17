@@ -27,10 +27,8 @@ describe('ProfileComponent', () => {
 
   @Component({ selector: 'uic-editable', template: '' })
   class EditableStubComponent {
-    @Input()
-    data: string;
-    @Input()
-    editMode = false;
+    @Input() data: string;
+    @Input() editMode = false;
   }
 
   beforeEach(async(() => {
