@@ -14,9 +14,9 @@ export class AddressComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addAddress(newAddress: Address) {
+  /* addAddress(newAddress: Address) {
     this.accountService.postAddress(newAddress).subscribe((e) => {
       console.log(e);
     });
-  }
+  } */
 }

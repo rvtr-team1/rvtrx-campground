@@ -132,7 +132,7 @@ describe('AccountService', () => {
     req.flush(JSON.stringify(true));
   }));
 
-  it('should make httpPost request', fakeAsync(() => {
+  /*  it('should make httpPost request', fakeAsync(() => {
     let req: TestRequest;
 
     service.postAddress(accountMock.address).subscribe((res) => {
@@ -156,7 +156,7 @@ describe('AccountService', () => {
 
     req = httpTestingController.expectOne('test');
     req.flush(JSON.stringify(true));
-  }));
+  })); */
 
   it('should make httpPut request', fakeAsync(() => {
     let req: TestRequest;

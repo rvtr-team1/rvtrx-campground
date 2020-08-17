@@ -57,18 +57,18 @@ export class AccountService {
    *
    * @param account Account
    */
-  postAddress(address: Address): Observable<boolean> {
+  /* postAddress(address: Address): Observable<boolean> {
     return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, address)));
-  }
+  } */
 
   /**
    * Represents the _Account Service_ `post` method
    *
    * @param account Account
    */
-  postPayment(payment: Payment): Observable<boolean> {
+  /*   postPayment(payment: Payment): Observable<boolean> {
     return this.apiUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, payment)));
-  }
+  } */
 
   /**
    * Represents the _Account Service_ `put` method
