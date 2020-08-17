@@ -3,6 +3,8 @@ import { SearchResultsComponent } from './search-results.component';
 import { Lodging } from 'src/app/data/lodging.model';
 import { HttpClient } from '@angular/common/http';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { BookingService } from 'src/app/services/booking/booking.service';
+import { of } from 'rxjs';
 
 describe('SearchResultsComponent', () => {
   const lodgings: Lodging[] = [
@@ -43,6 +45,10 @@ describe('SearchResultsComponent', () => {
       bathrooms: 1,
     },
   ];
+
+  const bookingService = jasmine.createSpyObj('BookingService', ['post']);
+  bookingService.post.and.returnValue(of(true));
+
   const rating: boolean[] = [false, false, false, false, false, false, false, false, false, true];
 
   let component: SearchResultsComponent;
@@ -52,6 +58,7 @@ describe('SearchResultsComponent', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [SearchResultsComponent],
+      providers: [{ provide: BookingService, useValue: bookingService }],
     }).compileComponents();
 
     TestBed.inject(HttpClient);
@@ -71,5 +78,10 @@ describe('SearchResultsComponent', () => {
 
   it('should have rating of', () => {
     expect(component.averageRating(lodgings[0])).toEqual(rating);
+  });
+
+  it('should make reservation', () => {
+    component.makeReservation(lodgings[0]);
+    expect(bookingService.post).toHaveBeenCalled();
   });
 });

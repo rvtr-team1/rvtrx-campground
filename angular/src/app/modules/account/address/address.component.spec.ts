@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
 import { Account } from '../../../data/account.model';
+
 import { Component, Input } from '@angular/core';
 
 describe('AddressComponent', () => {

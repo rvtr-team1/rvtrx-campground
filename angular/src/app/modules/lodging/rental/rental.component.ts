@@ -30,15 +30,10 @@ export class RentalComponent implements OnInit, OnChanges {
    */
   availabilityCount = new Map<string, number>();
 
-  /**
-   * @param lodgingService
-   * Constructor injects lodgingService
-   */
-  constructor() {}
-
   ngOnInit(): void {
     this.setRentalTypes(this.rentals);
   }
+
   ngOnChanges(): void {
     this.setRentalTypes(this.rentals);
   }
@@ -51,23 +46,16 @@ export class RentalComponent implements OnInit, OnChanges {
     // check to see if a rental has the same type as one that's already in the rentalTypes
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
-    rentals.forEach((rental) => {
-      if (!this.rentalTypes.find((item) => item.type === rental.type)) {
-        this.availabilityCount.set(rental.type, 0);
+    for (const rental of rentals) {
+      let count = this.availabilityCount.get(rental.type);
+      if (count === undefined) {
+        count = 0;
         this.rentalTypes.push(rental);
-        if (rental.status === 'available') {
-          this.availabilityCount.set(rental.type, 1);
-        }
       }
-      // The rental type already exists in the array so just check availability and add it to the count
-      else {
-        if (rental.status === 'available') {
-          const count = this.availabilityCount.get(rental.type);
-          if (count) {
-            this.availabilityCount.set(rental.type, count + 1);
-          }
-        }
+      if (rental.status === 'available') {
+        count += 1;
       }
-    });
+      this.availabilityCount.set(rental.type, count);
+    }
   }
 }
