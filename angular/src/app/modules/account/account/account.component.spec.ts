@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { AccountComponent } from './account.component';
 import { Account } from '../../../data/account.model';
@@ -37,9 +38,17 @@ describe('AccountComponent', () => {
   let component: AccountComponent;
   let fixture: ComponentFixture<AccountComponent>;
 
+  @Component({ selector: 'uic-editable', template: '' })
+  class EditableStubComponent {
+    @Input()
+    data: string;
+    @Input()
+    editMode = false;
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AccountComponent],
+      declarations: [AccountComponent, EditableStubComponent],
       imports: [HttpClientTestingModule],
       providers: [
         {

@@ -30,15 +30,10 @@ export class RentalComponent implements OnInit, OnChanges {
    */
   availabilityCount = new Map<string, number>();
 
-  /**
-   * @param lodgingService
-   * Constructor injects lodgingService
-   */
-  constructor() {}
-
   ngOnInit(): void {
     this.setRentalTypes(this.rentals);
   }
+
   ngOnChanges(): void {
     this.setRentalTypes(this.rentals);
   }
