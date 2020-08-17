@@ -10,6 +10,7 @@ import { ProfileComponent } from '../profile/profile.component';
 import { Account } from '../../../data/account.model';
 import { AccountService } from '../../../services/account/account.service';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { AccountModule } from '../account.module';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
@@ -27,8 +28,10 @@ describe('AccountComponent', () => {
         payments: [],
         profiles: [],
       };
-
       return of(account);
+    },
+    put(acct: Account) {
+      return of();
     },
   };
   const mockEditingService = {

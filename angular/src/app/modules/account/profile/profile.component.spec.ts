@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProfileComponent } from './profile.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
+import { Subject } from 'rxjs';
 
 describe('ProfileComponent', () => {
   const profiles = [
@@ -19,7 +20,18 @@ describe('ProfileComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ProfileComponent],
-      providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
+      providers: [
+        {
+          provide: ACCOUNT_EDITING_SERVICE,
+          useFactory: () => {
+            const subj = new Subject();
+            function update(e: any): void {
+              subj.next(e);
+            }
+            return { subj, update };
+          },
+        },
+      ],
     }).compileComponents();
   }));
 
@@ -32,5 +44,15 @@ describe('ProfileComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call the editing service', () => {
+    const editingService = TestBed.get(ACCOUNT_EDITING_SERVICE);
+    component.profiles = profiles;
+    fixture.detectChanges();
+    editingService.subj.subscribe((e: any) => {
+      expect(e.profiles).toBeTruthy();
+    });
+    component.edited();
   });
 });

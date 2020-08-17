@@ -93,7 +93,7 @@ export class AccountComponent implements OnInit {
    */
   private update(payload: Account): void {
     this.accountService.put(payload).subscribe({
-      next: (e) => {},
+      next: (e) => console.log(e),
       error: (e) => console.error(e),
     });
   }
