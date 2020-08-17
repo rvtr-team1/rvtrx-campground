@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Payment, PostPayment } from '../../../data/payment.model';
 import { AccountService } from 'src/app/services/account/account.service';
-import { AccountBookingComponent } from '../account-booking/account-booking.component';
 
 @Component({
   selector: 'uic-payment',
