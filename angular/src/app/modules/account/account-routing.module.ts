@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule, forwardRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './account/account.component';
 import { AccountBookingComponent } from './account-booking/account-booking.component';

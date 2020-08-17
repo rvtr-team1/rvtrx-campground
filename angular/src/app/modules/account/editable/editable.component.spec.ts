@@ -30,6 +30,19 @@ describe('EditableComponent', () => {
     expect(component.data).toBe('test', 'on focusout');
   });
 
+  it('on input, focusout should change value and trigger an event', () => {
+    component.dataChange.subscribe((e: string) => {
+      expect(component.data).toBe(e, 'on focusout');
+    });
+    component.editMode = true;
+    fixture.detectChanges();
+    const ele = fixture.debugElement.nativeElement;
+    const inp = ele.querySelector('input');
+    inp.value = 'test';
+    dispatchEvent(new Event('focusout'));
+    fixture.detectChanges();
+  });
+
   it('should adapt to the profile from setting Type', () => {
     const comp = fixture.debugElement.componentInstance;
     comp.setValidationType('name');
