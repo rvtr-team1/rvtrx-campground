@@ -1,10 +1,31 @@
+import { of } from 'rxjs';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Account } from '../../../data/account.model';
+
 import { Component, Input } from '@angular/core';
 
 describe('AddressComponent', () => {
+  const accountServiceStub = {
+    get() {
+      const account: Account = {
+        id: '',
+        address: {
+          id: '',
+          city: '',
+          country: '',
+          postalCode: '',
+          stateProvince: '',
+          street: '',
+        },
+        payments: [],
+        profiles: [],
+      };
+
+      return of(account);
+    },
+  };
   const address = {
     id: '',
     city: '',
@@ -28,7 +49,6 @@ describe('AddressComponent', () => {
     TestBed.configureTestingModule({
       declarations: [AddressComponent, EditableStubComponent],
       providers: [{ provide: ACCOUNT_EDITING_SERVICE, useValue: undefined }],
-      schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   }));
 

@@ -11,7 +11,7 @@ describe('MonitorService', () => {
     get() {
       const config: Config = {
         api: {
-          account: { base: '', uri: { account: '', profile: '' } },
+          account: { base: '', uri: { account: '', profile: '', payment: '' } },
           booking: { base: '', uri: { booking: '', stay: '' } },
           lodging: { base: '', uri: { lodging: '', rental: '', review: '' } },
           monitoring: '',

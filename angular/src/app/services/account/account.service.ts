@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Account } from '../../data/account.model';
+import { PostPayment } from '../../data/payment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ import { Account } from '../../data/account.model';
 export class AccountService {
   private readonly accountsUrl$: Observable<string>;
   private readonly profilesUrl$: Observable<string>;
+  private readonly paymentsUrl$: Observable<string>;
 
   /**
    * Represents the _Account Service_ `constructor` method
@@ -25,6 +27,9 @@ export class AccountService {
     );
     this.profilesUrl$ = config$.pipe(
       map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.profile}`)
+    );
+    this.paymentsUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.payment}`)
     );
   }
 
@@ -65,5 +70,14 @@ export class AccountService {
    */
   put(account: Account): Observable<Account> {
     return this.accountsUrl$.pipe(concatMap((url) => this.http.put<Account>(url, account)));
+  }
+
+  /**
+   *
+   * @param payment
+   * Represents the _Account Service_ 'post' method for payments
+   */
+  postPayment(payment: PostPayment): Observable<boolean> {
+    return this.paymentsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, payment)));
   }
 }

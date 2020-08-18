@@ -10,6 +10,7 @@ import { AccountService } from './account.service';
 import { ConfigService } from '../config/config.service';
 import { Account } from '../../data/account.model';
 import { Config } from '../../data/config.model';
+import { PostPayment } from 'src/app/data/payment.model';
 
 describe('AccountService', () => {
   const accountMock: Account = {
@@ -47,7 +48,7 @@ describe('AccountService', () => {
     get() {
       const config: Config = {
         api: {
-          account: { base: 'test', uri: { account: '', profile: '' } },
+          account: { base: 'test', uri: { account: '', profile: '', payment: '' } },
           booking: { base: '', uri: { booking: '', stay: '' } },
           lodging: { base: '', uri: { lodging: '', rental: '', review: '' } },
           monitoring: '',
@@ -143,5 +144,26 @@ describe('AccountService', () => {
 
     req = httpTestingController.expectOne('test');
     req.flush(accountMock);
+  }));
+
+  it('should make httpPost request for payments', fakeAsync(() => {
+    let req: TestRequest;
+    const mockPayment = {
+      accountId: 'string',
+      id: 'string',
+      cardExpirationDate: '2020-08-01',
+      cardName: 'string',
+      cardNumber: 'string',
+      securityCode: '111',
+    } as PostPayment;
+
+    service.postPayment(mockPayment).subscribe((res) => {
+      expect(JSON.parse(res.toString())).toBeTrue();
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test');
+    req.flush(JSON.stringify(true));
   }));
 });
