@@ -18,7 +18,7 @@
         </td>
         <td>{{ rental.occupancy }}</td>
         <td>{{ availabilityCount.get(rental.type) }}</td>
-        <td>{{ rental.price }}</td>
+        <td>{{ rental.price | currency }}</td>
       </tr>
     </tbody>
   </table>

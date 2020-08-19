@@ -1,7 +1,7 @@
 /**
  * importing the necessary modules, services and models.
  */
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Rental } from '../../../data/rental.model';
 
 /**
@@ -16,7 +16,7 @@ import { Rental } from '../../../data/rental.model';
 /**
  * This class represents the Rental component
  */
-export class RentalComponent implements OnInit, OnChanges {
+export class RentalComponent implements OnInit {
   /**
    * rentals taken from the lodging-details lodging.rentals
    */
@@ -31,10 +31,6 @@ export class RentalComponent implements OnInit, OnChanges {
   availabilityCount = new Map<string, number>();
 
   ngOnInit(): void {
-    this.setRentalTypes(this.rentals);
-  }
-
-  ngOnChanges(): void {
     this.setRentalTypes(this.rentals);
   }
 
