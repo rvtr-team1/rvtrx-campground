@@ -22,7 +22,7 @@
 
                       <div class="media-content">
                         <div class="title is-4">
-                          <span>{{ rental.name }}</span>
+                          <span>{{ lodging.name }} - {{ rental.name }}</span>
                           <span class="end-of-card stars">
                             <span *ngFor="let star of averageRating(lodging)" class="fa fa-star"
                               [class.checked]="star"></span>
