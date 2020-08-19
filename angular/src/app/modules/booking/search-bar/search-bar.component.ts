@@ -13,6 +13,7 @@ export class SearchBarComponent {
   @ViewChild('searchForm', { static: false }) searchForm: NgForm;
 
   @Output() searchResults = new EventEmitter<Lodging[]>();
+  @Output() searchQuery = new EventEmitter<string>();
   @Output() isSearched = new EventEmitter<boolean>();
 
   constructor(
@@ -21,7 +22,7 @@ export class SearchBarComponent {
   ) {}
 
   async onSubmit(form: NgForm) {
-    const occupancy: string = form.value.adults + form.value.children;
+    const occupancy = `${parseInt(form.value.adults, 10) + parseInt(form.value.children, 10)}`;
     const city: string = form.value.location;
 
     const checkIn: string = form.value.checkin;
@@ -37,6 +38,9 @@ export class SearchBarComponent {
       );
 
       this.searchResults.emit(availableLodgings);
+      this.searchQuery.emit(
+        `City: ${city}, Occupancy: ${occupancy}, Dates: ${checkIn} - ${checkOut}`
+      );
       this.isSearched.emit(true);
     });
   }

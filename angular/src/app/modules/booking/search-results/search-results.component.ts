@@ -10,22 +10,26 @@ import { BookingService } from 'src/app/services/booking/booking.service';
 })
 export class SearchResultsComponent {
   @Input() lodgings: Lodging[] | null;
+  @Input() query: string;
   reservation: Booking;
-  query = 'test query';
 
   constructor(private readonly bookingService: BookingService) {}
 
   averageRating(lodging: Lodging) {
     const maxRating = 10;
+    const stars = new Array<boolean>(maxRating);
+
+    stars.fill(false, 0, maxRating);
+
+    if (lodging.reviews === null) {
+      return stars;
+    }
 
     const ratings = lodging.reviews.map((review) => review.rating);
     const ratingSum = ratings.reduce((a, b) => a + b, 0);
 
-    const stars = new Array<boolean>(maxRating);
-
     const avgRating = Math.floor(ratingSum / ratings.length);
 
-    stars.fill(false, 0, maxRating - avgRating);
     stars.fill(true, maxRating - avgRating, maxRating);
 
     return stars;
