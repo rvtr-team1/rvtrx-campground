@@ -41,7 +41,7 @@ export class AccountService {
   delete(id: string): Observable<boolean> {
     return this.accountsUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
+      concatMap((url) => this.http.delete<boolean>(url))
     );
   }
 
