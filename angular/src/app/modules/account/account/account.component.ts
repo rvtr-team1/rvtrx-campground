@@ -23,7 +23,7 @@ export class AccountComponent implements OnInit {
   profiles$: Observable<Profile[]>;
   reviews$: Observable<Review[]>;
 
-  private readonly Id = '1';
+  private readonly Id = '-1';
   accountId = this.Id;
 
   constructor(
