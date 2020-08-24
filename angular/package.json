@@ -42,7 +42,7 @@
     "netlify-cli": "^2.59.1",
     "protractor": "~7.0.0",
     "puppeteer": "~2.1.1",
-    "sonarqube-scanner": "^2.6.0",
+    "sonarqube-scanner": "^2.7.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
