@@ -16,9 +16,9 @@
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@sentry/browser": "^5.21.3",
     "bulma": "^0.8.2",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.3"
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^10.0.0",
