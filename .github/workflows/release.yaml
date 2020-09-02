@@ -23,7 +23,7 @@ jobs:
       - name: npm_lint
         run: npm run lint
         working-directory: ${{ env.WORKING_DIRECTORY }}
-      - if: startsWith(github.ref, 'refs/heads/master')
+      - if: startsWith(github.ref, 'refs/heads/main')
         name: npm_build_head
         run: npm run build -- --configuration=DEV
         working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -125,7 +125,7 @@ jobs:
       - name: npm_install
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
-      - if: startsWith(github.ref, 'refs/heads/master')
+      - if: startsWith(github.ref, 'refs/heads/main')
         name: netlify_deploy_head
         run: npx netlify deploy --dir dist --message ${{ env.NETLIFY_MESSAGE }}
         working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -152,7 +152,7 @@ jobs:
       - name: npm_install
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
-      - if: startsWith(github.ref, 'refs/heads/master')
+      - if: startsWith(github.ref, 'refs/heads/main')
         name: sentry_deploy_head
         run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
         working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -166,6 +166,6 @@ name: release
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - '*'

@@ -102,4 +102,4 @@ name: build
 on:
   pull_request:
     branches-ignore:
-      - master
+      - main
