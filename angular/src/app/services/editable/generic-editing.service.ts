@@ -43,7 +43,7 @@ export class GenericEditingService<T> {
   /**
    * Call this to push updated state to payload
    */
-  update(e: T) {
+  update(e: T): void {
     this.subject.next(e);
   }
   constructor() {}

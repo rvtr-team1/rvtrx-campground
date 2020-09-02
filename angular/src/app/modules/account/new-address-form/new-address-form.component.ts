@@ -50,23 +50,23 @@ export class NewAddressFormComponent implements OnInit {
    * These getters retrieve the form controls to be used in the template and casts them as a Form control to prevent typechecking errors
    */
 
-  get City() {
+  get City(): FormControl {
     return this.AddressForm.get('City') as FormControl;
   }
 
-  get Country() {
+  get Country(): FormControl {
     return this.AddressForm.get('Country') as FormControl;
   }
 
-  get PostalCode() {
+  get PostalCode(): FormControl {
     return this.AddressForm.get('PostalCode') as FormControl;
   }
 
-  get StateProvince() {
+  get StateProvince(): FormControl {
     return this.AddressForm.get('StateProvince') as FormControl;
   }
 
-  get Street() {
+  get Street(): FormControl {
     return this.AddressForm.get('Street') as FormControl;
   }
 
@@ -78,7 +78,7 @@ export class NewAddressFormComponent implements OnInit {
    * @event NewAddressformComponent- Triggered by form submission
    *
    */
-  onSubmit() {
+  onSubmit(): void {
     this.showModal = !this.showModal;
     const payload = {
       city: this.AddressForm.value.City,

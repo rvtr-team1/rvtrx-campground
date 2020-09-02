@@ -23,7 +23,7 @@ export class PaymentComponent {
    * Adds a new set of payment information
    * @param newCard Payment
    */
-  addCard(newCard: PostPayment) {
+  addCard(newCard: PostPayment): void {
     newCard.accountId = this.accountid;
     this.accountService.postPayment(newCard).subscribe(
       (e) =>

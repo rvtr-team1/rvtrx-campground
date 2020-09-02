@@ -14,14 +14,18 @@ export class EditableComponent implements OnInit {
   constructor() {}
 
   @Input() data: string;
+  @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
+
   /**
    * Pattern that must be matched for each type of input validation
    */
   @Input() pattern: RegExp;
+
   /**
    * Custom messages for input validation
    */
   @Input() errorMessage: string;
+
   /**
    * Used to identify which validation message to render
    * Expandable in ./validation-config.ts
@@ -36,7 +40,6 @@ export class EditableComponent implements OnInit {
    * country
    */
   @Input() type: string;
-  @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
 
   @Input() editMode: boolean;
   @Output() editModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -49,7 +52,7 @@ export class EditableComponent implements OnInit {
   /**
    * Used to add custom validation messages based on user input
    */
-  ngOnInit() {
+  ngOnInit(): void {
     if (this.type) {
       this.setValidationType(this.type);
     }
@@ -64,11 +67,12 @@ export class EditableComponent implements OnInit {
     this.pattern = config.pattern;
     this.errorMessage = config.errorMessage;
   }
+
   /**
    * Emits a change event if user input is valid
    * @param e Event
    */
-  onFocusOut(e: Event) {
+  onFocusOut(e: Event): void {
     const reg = new RegExp(this.pattern);
     const target = e.target as HTMLInputElement;
     const valid = reg.test(target.value);

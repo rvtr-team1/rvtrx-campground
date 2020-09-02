@@ -1,4 +1,4 @@
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddressComponent } from './address.component';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 
 describe('AddressComponent', () => {
   const accountServiceStub = {
-    get() {
+    get(): Observable<Account> {
       const account: Account = {
         id: '',
         address: {

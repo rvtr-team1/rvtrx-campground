@@ -1,5 +1,5 @@
+import { Injectable } from '@angular/core';
 import * as Sentry from '@sentry/browser';
-import { Injectable } from "@angular/core";
 
 @Injectable()
 export class Monitoring {

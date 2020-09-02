@@ -26,7 +26,7 @@ export class AddressComponent {
   /**
    * Updates the _Editing Service_ with the new address information
    */
-  edited() {
+  edited(): void {
     this.editingService.update({ address: this.address });
   }
 }

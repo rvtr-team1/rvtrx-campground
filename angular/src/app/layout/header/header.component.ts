@@ -5,7 +5,7 @@ import { Config } from '../../data/config.model';
 import { Link } from '../../data/link.model';
 import { ConfigService } from '../../services/config/config.service';
 
-declare const bulmaOnInit: any;
+declare const bulmaOnInit: () => void;
 
 @Component({
   selector: 'uic-header',

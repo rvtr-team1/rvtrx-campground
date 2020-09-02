@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { scheduled, asyncScheduler } from 'rxjs';
+import { scheduled, asyncScheduler, Observable } from 'rxjs';
 import { MonitoringService } from './monitoring.service';
 import { ConfigService } from '../config/config.service';
 import { Config } from '../../data/config.model';
@@ -8,7 +8,7 @@ import { Monitoring } from '../../data/monitoring.model';
 
 describe('MonitorService', () => {
   const configServiceStub = {
-    get() {
+    get(): Observable<Config> {
       const config: Config = {
         api: {
           account: { base: '', uri: { account: '', profile: '', payment: '' } },

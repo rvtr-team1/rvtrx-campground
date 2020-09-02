@@ -40,28 +40,30 @@ export class NewPaymentFormComponent implements OnInit {
    * These getters retrieve the form controls to be used in the template and casts them as a Form control to prevent typechecking errors
    */
 
-  get Bank() {
+  get Bank(): string {
     return '1';
   }
 
-  get ccNumber() {
+  get ccNumber(): FormControl {
     return this.paymentForm.get('ccNumber') as FormControl;
   }
 
-  get expDate() {
+  get expDate(): FormControl {
     return this.paymentForm.get('expDate') as FormControl;
   }
 
-  get securityNumber() {
+  get securityNumber(): FormControl {
     return this.paymentForm.get('securityNumber') as FormControl;
   }
+
   constructor() {}
+
   /**
    * Submit event
    *
    * @fires onSubmit - Trigged by ngSubmit. Formats to payment, Triggers newPayment.
    */
-  onSubmit() {
+  onSubmit(): void {
     this.showModal = !this.showModal;
     const payload = {
       id: '',

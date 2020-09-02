@@ -21,7 +21,7 @@ export class SearchBarComponent {
     private readonly lodgingService: LodgingService
   ) {}
 
-  async onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm): Promise<void> {
     const occupancy = `${parseInt(form.value.adults, 10) + parseInt(form.value.children, 10)}`;
     const city: string = form.value.location;
 

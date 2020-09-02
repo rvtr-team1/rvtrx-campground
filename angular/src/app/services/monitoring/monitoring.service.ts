@@ -15,6 +15,7 @@ export class MonitoringService implements ErrorHandler {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.monitoring));
   }
 
+  // tslint:disable-next-line:no-any
   handleError(error: any): void {
     this.apiUrl$.subscribe((dsn) => {
       this.monitoring.sentry.init({

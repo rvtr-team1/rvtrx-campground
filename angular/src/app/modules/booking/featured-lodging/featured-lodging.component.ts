@@ -10,7 +10,7 @@ export class FeaturedLodgingComponent implements OnChanges {
   @Input() featuredLodgings: Lodging[] | null;
   displayLodgings: Lodging[] = [];
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     if (this.featuredLodgings) {
       this.displayLodgings = this.featuredLodgings.slice(0, 6);
     }

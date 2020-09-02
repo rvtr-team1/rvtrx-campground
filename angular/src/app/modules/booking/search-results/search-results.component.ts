@@ -15,7 +15,7 @@ export class SearchResultsComponent {
 
   constructor(private readonly bookingService: BookingService) {}
 
-  averageRating(lodging: Lodging) {
+  averageRating(lodging: Lodging): boolean[] {
     const maxRating = 10;
     const stars = new Array<boolean>(maxRating);
 
@@ -35,7 +35,7 @@ export class SearchResultsComponent {
     return stars;
   }
 
-  makeReservation(lodging: Lodging) {
+  makeReservation(lodging: Lodging): void {
     alert(`Reserved: ${lodging.name}`);
 
     this.reservation = {

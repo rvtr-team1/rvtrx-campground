@@ -29,7 +29,7 @@ export class ProfileComponent {
   /**
    * Updates the _Editing Service_ with the new profile information
    */
-  edited() {
+  edited(): void {
     this.editingService.update({ profiles: this.profiles });
   }
 }

@@ -10,7 +10,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('AccountComponent', () => {
   const accountServiceStub = {
-    get() {
+    get(): Observable<Account> {
       const account: Account = {
         id: '',
         address: {
@@ -26,13 +26,13 @@ describe('AccountComponent', () => {
       };
       return of(account);
     },
-    put(acct: Account) {
+    put(acct: Account): Observable<undefined> {
       return of();
     },
   };
   const mockEditingService = {
     payloadEmitter: new Observable<Partial<Account>>(),
-    update() {},
+    update(): void {},
   };
 
   let component: AccountComponent;
