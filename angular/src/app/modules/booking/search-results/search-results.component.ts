@@ -47,6 +47,6 @@ export class SearchResultsComponent {
       checkIn: new Date().toDateString(),
       checkOut: new Date().toDateString(),
     };
-    this.bookingService.post(this.reservation);
+    this.bookingService.post(this.reservation).subscribe();
   }
 }
