@@ -12,7 +12,7 @@ import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
  * Class representing a user's address
  */
 export class AddressComponent {
-  @Input() address: Address;
+  @Input() address!: Address;
   @Output() addressEdited = new EventEmitter();
 
   editMode = false;
@@ -26,7 +26,7 @@ export class AddressComponent {
   /**
    * Updates the _Editing Service_ with the new address information
    */
-  edited() {
+  edited(): void {
     this.editingService.update({ address: this.address });
   }
 }

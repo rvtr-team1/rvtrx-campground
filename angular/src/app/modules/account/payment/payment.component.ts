@@ -10,8 +10,8 @@ import { AccountService } from 'src/app/services/account/account.service';
  * Class representing a user's payment information
  */
 export class PaymentComponent {
-  @Input() payments: Payment[];
-  @Input() accountid: string;
+  @Input() payments!: Payment[];
+  @Input() accountId!: string;
   @Output() paymentsEdited = new EventEmitter();
 
   /**
@@ -23,8 +23,8 @@ export class PaymentComponent {
    * Adds a new set of payment information
    * @param newCard Payment
    */
-  addCard(newCard: PostPayment) {
-    newCard.accountId = this.accountid;
+  addCard(newCard: PostPayment): void {
+    newCard.accountId = this.accountId;
     this.accountService.postPayment(newCard).subscribe(
       (e) =>
         this.payments.push({

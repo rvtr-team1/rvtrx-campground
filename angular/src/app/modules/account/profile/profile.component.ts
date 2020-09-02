@@ -12,7 +12,7 @@ import { ACCOUNT_EDITING_SERVICE } from '../../account/account-editing.token';
  * Class representing a user's profile information
  */
 export class ProfileComponent {
-  @Input() profiles: Profile[];
+  @Input() profiles!: Profile[];
 
   editMode = false;
   titleEdit = 'Click To Edit Your Profile';
@@ -29,7 +29,7 @@ export class ProfileComponent {
   /**
    * Updates the _Editing Service_ with the new profile information
    */
-  edited() {
+  edited(): void {
     this.editingService.update({ profiles: this.profiles });
   }
 }

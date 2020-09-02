@@ -1,6 +1,6 @@
 // @ts-check
 process.env.CHROMIUM_BIN = require('puppeteer').executablePath();
-const { SpecReporter } = require('jasmine-spec-reporter');
+const { SpecReporter, StacktraceOption } = require('jasmine-spec-reporter');
 
 /**
  * @type { import("protractor").Config }
@@ -30,6 +30,12 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json'),
     });
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+    jasmine.getEnv().addReporter(
+      new SpecReporter({
+        spec: {
+          displayStacktrace: StacktraceOption.PRETTY,
+        },
+      })
+    );
   },
 };

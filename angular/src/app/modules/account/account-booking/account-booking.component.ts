@@ -6,5 +6,5 @@ import { Booking } from '../../../data/booking.model';
   templateUrl: './account-booking.component.html',
 })
 export class AccountBookingComponent {
-  @Input() booking: Booking;
+  @Input() booking!: Booking;
 }

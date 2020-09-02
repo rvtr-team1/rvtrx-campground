@@ -1,9 +1,9 @@
+import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { of, Observable } from 'rxjs';
+import { Account } from '../../../data/account.model';
 import { ProfileComponent } from './profile.component';
-import { Component, Input } from '@angular/core';
 import { ACCOUNT_EDITING_SERVICE } from '../account-editing.token';
-import { Subject, of } from 'rxjs';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -20,14 +20,14 @@ describe('ProfileComponent', () => {
   ];
 
   const editingService = {
-    update(e: any) {
+    update(e: Partial<Account>): Observable<Partial<Account>> {
       return of(e);
     },
   };
 
   @Component({ selector: 'uic-editable', template: '' })
   class EditableStubComponent {
-    @Input() data: string;
+    @Input() data!: string;
     @Input() editMode = false;
   }
 
@@ -53,7 +53,7 @@ describe('ProfileComponent', () => {
   it('should call the editing service', () => {
     component.profiles = profiles;
     fixture.detectChanges();
-    editingService.update({ profiles }).subscribe((e: any) => {
+    editingService.update({ profiles }).subscribe((e: Partial<Account>) => {
       expect(e.profiles).toBeTruthy();
     });
     component.edited();

@@ -9,13 +9,13 @@ import { BookingService } from 'src/app/services/booking/booking.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  @Input() lodgings: Lodging[] | null;
-  @Input() query: string;
-  reservation: Booking;
+  @Input() lodgings!: Lodging[] | null;
+  @Input() query!: string;
+  reservation: Booking | undefined;
 
   constructor(private readonly bookingService: BookingService) {}
 
-  averageRating(lodging: Lodging) {
+  averageRating(lodging: Lodging): boolean[] {
     const maxRating = 10;
     const stars = new Array<boolean>(maxRating);
 
@@ -35,7 +35,7 @@ export class SearchResultsComponent {
     return stars;
   }
 
-  makeReservation(lodging: Lodging) {
+  makeReservation(lodging: Lodging): void {
     alert(`Reserved: ${lodging.name}`);
 
     this.reservation = {
@@ -47,6 +47,6 @@ export class SearchResultsComponent {
       checkIn: new Date().toDateString(),
       checkOut: new Date().toDateString(),
     };
-    this.bookingService.post(this.reservation);
+    this.bookingService.post(this.reservation).subscribe();
   }
 }

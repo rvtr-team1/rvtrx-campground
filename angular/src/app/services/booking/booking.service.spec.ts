@@ -5,7 +5,7 @@ import {
   TestRequest,
 } from '@angular/common/http/testing';
 import { TestBed, tick, fakeAsync } from '@angular/core/testing';
-import { asyncScheduler, scheduled } from 'rxjs';
+import { asyncScheduler, scheduled, Observable } from 'rxjs';
 import { BookingService } from './booking.service';
 import { ConfigService } from '../config/config.service';
 import { Booking } from '../../data/booking.model';
@@ -25,7 +25,7 @@ describe('BookingService', () => {
   ];
 
   const configServiceStub = {
-    get() {
+    get(): Observable<Config> {
       const config: Config = {
         api: {
           account: { base: 'test', uri: { account: '', profile: '', payment: '' } },

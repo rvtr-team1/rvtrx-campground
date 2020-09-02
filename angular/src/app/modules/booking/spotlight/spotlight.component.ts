@@ -6,10 +6,10 @@ import { Lodging } from 'src/app/data/lodging.model';
   templateUrl: './spotlight.component.html',
 })
 export class SpotlightComponent implements OnChanges {
-  @Input() lodgings: Lodging[] | null;
+  @Input() lodgings!: Lodging[] | null;
   selectedLodging: Lodging | null = null;
 
-  ngOnChanges() {
+  ngOnChanges(): void {
     this.setSpotlight(this.lodgings);
   }
 

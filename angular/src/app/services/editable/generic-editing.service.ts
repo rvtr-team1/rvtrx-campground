@@ -27,7 +27,8 @@ export class GenericEditingService<T> {
    */
   editUpdates = this.subject.pipe(
     scan(
-      (acc, curr) => (typeof curr === 'object' ? Object.assign({} as T, acc, curr) : null),
+      (acc: T | null, curr: T | null) =>
+        typeof curr === 'object' ? Object.assign({} as T, acc, curr) : null,
       // This seed value could be updated to reflect an initial state
       {} as T
     )
@@ -43,7 +44,7 @@ export class GenericEditingService<T> {
   /**
    * Call this to push updated state to payload
    */
-  update(e: T) {
+  update(e: T): void {
     this.subject.next(e);
   }
   constructor() {}

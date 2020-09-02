@@ -5,7 +5,7 @@ import { Config } from '../../data/config.model';
 import { Link } from '../../data/link.model';
 import { ConfigService } from '../../services/config/config.service';
 
-declare const bulmaOnInit: any;
+declare const bulmaOnInit: () => void;
 
 @Component({
   selector: 'uic-header',
@@ -14,10 +14,11 @@ declare const bulmaOnInit: any;
 export class HeaderComponent implements OnInit {
   navbarLinks$: Observable<Link[]>;
 
-  constructor(private readonly config: ConfigService) {}
+  constructor(config: ConfigService) {
+    this.navbarLinks$ = config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.header));
+  }
 
   ngOnInit(): void {
     bulmaOnInit();
-    this.navbarLinks$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.header));
   }
 }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Config } from '../../data/config.model';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class ConfigService {
   /**
    * Represents the _Config Service_ `get` method
    */
-  get() {
+  get(): Observable<Config> {
     return this.http.get<Config>(this.config);
   }
 }
