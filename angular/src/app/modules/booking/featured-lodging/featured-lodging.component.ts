@@ -7,7 +7,7 @@ import { Lodging } from 'src/app/data/lodging.model';
   styleUrls: ['./featured-lodging.component.scss'],
 })
 export class FeaturedLodgingComponent implements OnChanges {
-  @Input() featuredLodgings: Lodging[] | null;
+  @Input() featuredLodgings!: Lodging[] | null;
   displayLodgings: Lodging[] = [];
 
   ngOnChanges(): void {

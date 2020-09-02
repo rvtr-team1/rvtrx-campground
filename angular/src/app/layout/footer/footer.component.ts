@@ -9,12 +9,10 @@ import { ConfigService } from '../../services/config/config.service';
   selector: 'uic-footer',
   templateUrl: './footer.component.html',
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
   navbarLinks$: Observable<Link[]>;
 
-  constructor(private readonly config: ConfigService) {}
-
-  ngOnInit(): void {
-    this.navbarLinks$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.footer));
+  constructor(config: ConfigService) {
+    this.navbarLinks$ = config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.footer));
   }
 }

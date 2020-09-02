@@ -20,7 +20,7 @@ export class RentalComponent implements OnInit {
   /**
    * rentals taken from the lodging-details lodging.rentals
    */
-  @Input() rentals: Rental[];
+  @Input() rentals!: Rental[];
   /**
    * represents the set of rentals with unique types
    */

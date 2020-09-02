@@ -13,18 +13,18 @@ import validationConfig from './validation-config';
 export class EditableComponent implements OnInit {
   constructor() {}
 
-  @Input() data: string;
+  @Input() data!: string;
   @Output() dataChange: EventEmitter<string> = new EventEmitter<string>();
 
   /**
    * Pattern that must be matched for each type of input validation
    */
-  @Input() pattern: RegExp;
+  @Input() pattern!: RegExp;
 
   /**
    * Custom messages for input validation
    */
-  @Input() errorMessage: string;
+  @Input() errorMessage!: string;
 
   /**
    * Used to identify which validation message to render
@@ -39,9 +39,9 @@ export class EditableComponent implements OnInit {
    * postal
    * country
    */
-  @Input() type: string;
+  @Input() type!: string;
 
-  @Input() editMode: boolean;
+  @Input() editMode!: boolean;
   @Output() editModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   error = false;

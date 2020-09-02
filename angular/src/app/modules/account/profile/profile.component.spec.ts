@@ -27,7 +27,7 @@ describe('ProfileComponent', () => {
 
   @Component({ selector: 'uic-editable', template: '' })
   class EditableStubComponent {
-    @Input() data: string;
+    @Input() data!: string;
     @Input() editMode = false;
   }
 

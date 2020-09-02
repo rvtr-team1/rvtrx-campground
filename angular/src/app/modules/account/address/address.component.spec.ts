@@ -40,7 +40,7 @@ describe('AddressComponent', () => {
   @Component({ selector: 'uic-editable', template: '' })
   class EditableStubComponent {
     @Input()
-    data: string;
+    data!: string;
     @Input()
     editMode = false;
   }

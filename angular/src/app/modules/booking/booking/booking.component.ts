@@ -8,15 +8,13 @@ import { LodgingService } from 'src/app/services/lodging/lodging.service';
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.scss'],
 })
-export class BookingComponent implements OnInit {
+export class BookingComponent {
   lodgings$: Observable<Lodging[]>;
   searchResults: Lodging[] = [];
-  searchQuery: string;
+  searchQuery!: string;
   isSearched = false;
 
-  constructor(private readonly lodgingService: LodgingService) {}
-
-  ngOnInit(): void {
-    this.lodgings$ = this.lodgingService.get();
+  constructor(lodgingService: LodgingService) {
+    this.lodgings$ = lodgingService.get();
   }
 }

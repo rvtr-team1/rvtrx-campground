@@ -14,10 +14,11 @@ declare const bulmaOnInit: () => void;
 export class HeaderComponent implements OnInit {
   navbarLinks$: Observable<Link[]>;
 
-  constructor(private readonly config: ConfigService) {}
+  constructor(config: ConfigService) {
+    this.navbarLinks$ = config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.header));
+  }
 
   ngOnInit(): void {
     bulmaOnInit();
-    this.navbarLinks$ = this.config.get().pipe(map<Config, Link[]>((cfg) => cfg.navigation.header));
   }
 }

@@ -10,7 +10,7 @@ import { LodgingService } from '../../../services/lodging/lodging.service';
   templateUrl: './search-bar.component.html',
 })
 export class SearchBarComponent {
-  @ViewChild('searchForm', { static: false }) searchForm: NgForm;
+  @ViewChild('searchForm', { static: false }) searchForm?: NgForm;
 
   @Output() searchResults = new EventEmitter<Lodging[]>();
   @Output() searchQuery = new EventEmitter<string>();

@@ -9,9 +9,9 @@ import { BookingService } from 'src/app/services/booking/booking.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  @Input() lodgings: Lodging[] | null;
-  @Input() query: string;
-  reservation: Booking;
+  @Input() lodgings!: Lodging[] | null;
+  @Input() query!: string;
+  reservation: Booking | undefined;
 
   constructor(private readonly bookingService: BookingService) {}
 

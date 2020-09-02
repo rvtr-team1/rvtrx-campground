@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 export class MonitoringService implements ErrorHandler {
   private readonly apiUrl$: Observable<string>;
 
-  constructor(private readonly config: ConfigService, private readonly monitoring: Monitoring) {
+  constructor(config: ConfigService, private readonly monitoring: Monitoring) {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.monitoring));
   }
 
