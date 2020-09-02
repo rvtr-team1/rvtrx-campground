@@ -13,7 +13,7 @@
     "@angular/platform-browser": "~10.0.14",
     "@angular/platform-browser-dynamic": "~10.0.14",
     "@angular/router": "~10.0.14",
-    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-free": "~5.14.0",
     "@sentry/browser": "^5.21.3",
     "bulma": "^0.8.2",
     "rxjs": "~6.5.5",
