@@ -42,10 +42,10 @@ export class AccountService {
    *
    * @param id string
    */
-  delete(id: string): Observable<boolean> {
-    return this.accountsUrl$.pipe(
+  delete(id: string): void {
+    this.accountsUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.delete<boolean>(url))
+      concatMap((url) => this.http.delete(url))
     );
   }
 
@@ -66,8 +66,8 @@ export class AccountService {
    *
    * @param account Account
    */
-  post(account: Account): Observable<boolean> {
-    return this.accountsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, account)));
+  post(account: Account): Observable<Account> {
+    return this.accountsUrl$.pipe(concatMap((url) => this.http.post<Account>(url, account)));
   }
 
   /**
