@@ -1,9 +1,10 @@
+import { RentalProperties } from './rentalProperties.model';
 /**
- * Represents the _Rental_ model
+ * Represents the _Rental_ modei
  *
  * ```yaml
  * id: string;
- * name: string;
+ * lotNumber: string;
  * occupancy: number;
  * type: string;
  * status: string;
@@ -13,9 +14,9 @@
  */
 export interface Rental {
   id: string;
-  name: string;
+  lotNumber: string;
   /** maximum number of people allowed */
-   occupancy: number;
+   maximumCapacity: number;
    
   /** type of site
    *  - plotSize
@@ -24,17 +25,17 @@ export interface Rental {
    *      width:number
    *      height:number
    *      ```
-   *  - Amenities
+   *  - amenities
    *    - an interface that talks about what the campsite offers the camper
    *      ```yaml
    *      maxiumumCapacity:number
    *      voltage:number
-   *      sewage:boolean
-   *      water:boolean
-   *      cabin :boolean
+   *      sewage:string
+   *      water:string
    *      ```
    */
-  type:Type;
+  properties:RentalProperties;
+  type: string;
   /** booking status, one of:
    *  - available (neither booked nor currently in use)
    *  - booked (booked by someone else, but not in use)

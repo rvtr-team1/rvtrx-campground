@@ -29,7 +29,7 @@ describe('FeaturedLodgingComponent', () => {
           id: '',
           name: '',
           price: 0,
-          occupancy: 0,
+          maximumCapacity: 0,
           type: '',
           status: '',
         },

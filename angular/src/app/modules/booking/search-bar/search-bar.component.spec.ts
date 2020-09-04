@@ -35,7 +35,7 @@ describe('SearchBarComponent', () => {
         {
           id: '1',
           name: 'Rental1',
-          occupancy: 2,
+          maximumCapacity: 2,
           type: 'tent',
           status: 'available',
           price: 100,
@@ -43,7 +43,7 @@ describe('SearchBarComponent', () => {
         {
           id: '2',
           name: 'Rental2',
-          occupancy: 2,
+          maximumCapacity: 2,
           type: 'tent',
           status: 'available',
           price: 100,
@@ -51,7 +51,7 @@ describe('SearchBarComponent', () => {
         {
           id: '3',
           name: 'Rental3',
-          occupancy: 2,
+          maximumCapacity: 2,
           type: 'cabin',
           status: '',
           price: 100,
@@ -59,7 +59,7 @@ describe('SearchBarComponent', () => {
         {
           id: '4',
           name: 'Rental4',
-          occupancy: 2,
+          maximumCapacity: 2,
           type: 'cabin',
           status: '',
           price: 100,
