@@ -1,7 +1,11 @@
 /**
  * importing the necessary modules, services and models.
  */
+<<<<<<< HEAD
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+=======
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+>>>>>>> installed puppeteer for testing, added OnChanges to rental component and interval to lodging component
 import { Rental } from '../../../data/rental.model';
 
 /**
