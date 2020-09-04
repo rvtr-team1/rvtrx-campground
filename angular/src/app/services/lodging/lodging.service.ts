@@ -81,8 +81,8 @@ export class LodgingService {
    *
    * @param lodging Lodging
    */
-  post(lodging: Lodging): Observable<boolean> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, lodging)));
+  post(lodging: Lodging): Observable<Lodging> {
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<Lodging>(url, lodging)));
   }
 
   /**
