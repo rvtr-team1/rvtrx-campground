@@ -46,6 +46,9 @@ describe('PaymentComponent', () => {
 
   it('should add card', () => {
     component.addCard(mockPayment);
+
+    fixture.detectChanges();
+
     expect(component.payments[1]).toEqual(mockPayment);
   });
 });
