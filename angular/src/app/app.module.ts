@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
+import { GlobalerrorhandlerService } from './services/globalerrorhandler/globalerrorhandler.service';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -16,7 +17,7 @@ import { LayoutModule } from './layout/layout.module';
     Monitoring,
     {
       provide: ErrorHandler,
-      useClass: environment.production ? MonitoringService : ErrorHandler,
+      useClass: environment.production ? MonitoringService : GlobalerrorhandlerService,
     },
     {
       provide: OKTA_CONFIG,
