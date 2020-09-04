@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { PaymentComponent } from './payment.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PostPayment } from 'src/app/data/payment.model';
@@ -36,7 +36,7 @@ describe('PaymentComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should add card', () => {
+  it('should add card', fakeAsync(() => {
     const mockPayment = {
       accountId: 'string',
       id: 'string',
@@ -48,6 +48,8 @@ describe('PaymentComponent', () => {
 
     component.addCard(mockPayment);
 
+    tick();
+
     expect(payments[1]).toEqual(mockPayment);
-  });
+  }));
 });
