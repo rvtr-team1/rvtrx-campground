@@ -15,9 +15,6 @@ import { RentalProperties } from './rentalProperties.model';
 export interface Rental {
   id: string;
   lotNumber: string;
-  /** maximum number of people allowed */
-   maximumCapacity: number;
-   
   /** type of site
    *  - plotSize
    *    - an interface that is used to find out the size of a plot
