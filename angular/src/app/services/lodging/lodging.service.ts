@@ -51,9 +51,9 @@ export class LodgingService {
    *
    * @param id string
    */
-  delete(id: string): Observable<Response> {
+  delete(id: string): Observable<void> {
     return this.lodgingsUrl$.pipe(
-      concatMap((url) => this.http.delete<Response>(url, { params: { id } }))
+      concatMap((url) => this.http.delete<void>(url, { params: { id } }))
     );
   }
 
