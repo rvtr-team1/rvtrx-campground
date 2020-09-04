@@ -28,7 +28,7 @@ describe('SearchResultsComponent', () => {
         {
           id: '',
           name: '',
-          occupancy: 1,
+          maximumCapacity: 1,
           type: '',
           status: 'available',
           price: 1.0,

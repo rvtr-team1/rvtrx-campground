@@ -26,7 +26,7 @@ describe('AccountBookingComponent', () => {
         price: 0.0,
         discountedPrice: 0.0,
         type: 'string',
-        occupancy: 1,
+        maximumCapacity: 1,
       },
     ],
   };

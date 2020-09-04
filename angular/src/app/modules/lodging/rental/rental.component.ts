@@ -43,7 +43,7 @@ export class RentalComponent implements OnInit {
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
     for (const rental of rentals) {
-      let count = this.availabilityCount.get(rental.type);
+      let count = this.availabilityCount.get(rental.type.amenities.maximumCapacity.toString());
       if (count === undefined) {
         count = 0;
         this.rentalTypes.push(rental);
@@ -51,7 +51,7 @@ export class RentalComponent implements OnInit {
       if (rental.status === 'available') {
         count += 1;
       }
-      this.availabilityCount.set(rental.type, count);
+      this.availabilityCount.set(rental.type.amenities.maximumCapacity.toString(), count);
     }
   }
 }
