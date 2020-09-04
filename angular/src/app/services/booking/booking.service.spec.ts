@@ -91,13 +91,13 @@ describe('BookingService', () => {
     let req: TestRequest;
 
     service.delete('0').subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res.status).toBe(204);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test?id=0');
-    req.flush(JSON.stringify(true));
+    req.flush(status);
   }));
 
   it('should make httpGet request', fakeAsync(() => {
