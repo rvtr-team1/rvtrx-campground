@@ -97,7 +97,7 @@ describe('BookingService', () => {
     tick();
 
     req = httpTestingController.expectOne('test?id=0');
-    req.flush(status);
+    req.flush(204);
   }));
 
   it('should make httpGet request', fakeAsync(() => {
