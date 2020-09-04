@@ -124,13 +124,13 @@ describe('AccountService', () => {
     let req: TestRequest;
 
     service.post(accountMock).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(accountMock);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(accountMock);
   }));
 
   it('should make httpPut request', fakeAsync(() => {
