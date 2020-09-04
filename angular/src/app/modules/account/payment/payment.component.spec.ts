@@ -13,6 +13,14 @@ describe('PaymentComponent', () => {
       securityCode: '',
     },
   ];
+  const mockPayment = {
+    accountId: 'string',
+    id: 'string',
+    cardExpirationDate: '2020-08-01',
+    cardName: 'string',
+    cardNumber: 'string',
+    securityCode: '111',
+  } as PostPayment;
   let component: PaymentComponent;
   let fixture: ComponentFixture<PaymentComponent>;
 
@@ -37,17 +45,7 @@ describe('PaymentComponent', () => {
   });
 
   it('should add card', () => {
-    const mockPayment = {
-      accountId: 'string',
-      id: 'string',
-      cardExpirationDate: '2020-08-01',
-      cardName: 'string',
-      cardNumber: 'string',
-      securityCode: '111',
-    } as PostPayment;
-
     component.addCard(mockPayment);
-
-    expect(component.payments.length).toEqual(2);
+    expect(component.payments[1]).toEqual(mockPayment);
   });
 });
