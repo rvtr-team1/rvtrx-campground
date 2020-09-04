@@ -64,8 +64,8 @@ export class BookingService {
    *
    * @param booking Booking
    */
-  post(booking: Booking): Observable<boolean> {
-    return this.bookingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, booking)));
+  post(booking: Booking): Observable<Booking> {
+    return this.bookingsUrl$.pipe(concatMap((url) => this.http.post<Booking>(url, booking)));
   }
 
   /**
