@@ -48,6 +48,6 @@ describe('PaymentComponent', () => {
 
     component.addCard(mockPayment);
 
-    expect(component.payments[1]).toEqual(mockPayment);
+    expect(component.payments.length).toEqual(2);
   });
 });
