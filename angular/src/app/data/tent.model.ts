@@ -5,9 +5,12 @@ import { Amenities } from './amenities.model';
 export class Tent implements RentalProperties {
     size: plotSize;
     amenities: Amenities;
+    maximumCapacity: number;
     constructor(Size:plotSize)
     {
         this.size = Size;
+        this.maximumCapacity = 4;
     }
+    
 
 }

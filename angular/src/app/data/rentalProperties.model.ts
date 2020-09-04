@@ -5,4 +5,5 @@ import { Amenities } from './amenities.model';
 export interface RentalProperties {
     size: plotSize;
     amenities: Amenities;
+    maximumCapacity: number;
   }
