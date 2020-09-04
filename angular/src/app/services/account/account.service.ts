@@ -42,10 +42,10 @@ export class AccountService {
    *
    * @param id string
    */
-  delete(id: string): void {
-    this.accountsUrl$.pipe(
+  delete(id: string): Observable<Response> {
+    return this.accountsUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.delete(url))
+      concatMap((url) => this.http.delete<Response>(url))
     );
   }
 
