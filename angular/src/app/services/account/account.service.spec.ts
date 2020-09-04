@@ -158,12 +158,12 @@ describe('AccountService', () => {
     } as PostPayment;
 
     service.postPayment(mockPayment).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(mockPayment);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(mockPayment);
   }));
 });
