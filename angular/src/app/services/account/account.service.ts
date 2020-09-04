@@ -84,7 +84,7 @@ export class AccountService {
    * @param payment
    * Represents the _Account Service_ 'post' method for payments
    */
-  postPayment(payment: PostPayment): Observable<boolean> {
-    return this.paymentsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, payment)));
+  postPayment(payment: PostPayment): Observable<PostPayment> {
+    return this.paymentsUrl$.pipe(concatMap((url) => this.http.post<PostPayment>(url, payment)));
   }
 }
