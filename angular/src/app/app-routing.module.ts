@@ -6,7 +6,7 @@ import { ErrorComponent } from 'modules/error/error.component';
 const routes: Routes = [
   {
     path: 'error',
-    component: ErrorComponent
+    component: ErrorComponent,
   },
   {
     component: OktaCallbackComponent,
