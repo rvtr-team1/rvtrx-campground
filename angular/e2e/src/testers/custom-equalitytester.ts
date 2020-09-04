@@ -1,6 +1,6 @@
 export function CustomEqualityTester(testStr: string, testStrArray: string[]): boolean {
-  for (const str in testStrArray) {
-    if (testStr === str) {
+  for (const d in testStrArray) {
+    if (testStr == testStrArray[d]) {
       return true;
     }
   }
