@@ -36,7 +36,7 @@ describe('PaymentComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should add card', fakeAsync(() => {
+  it('should add card', () => {
     const mockPayment = {
       accountId: 'string',
       id: 'string',
@@ -48,8 +48,6 @@ describe('PaymentComponent', () => {
 
     component.addCard(mockPayment);
 
-    tick();
-
-    expect(payments[1]).toEqual(mockPayment);
-  }));
+    expect(component.payments[1]).toEqual(mockPayment);
+  });
 });
