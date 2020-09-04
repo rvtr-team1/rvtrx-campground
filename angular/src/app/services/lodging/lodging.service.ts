@@ -53,7 +53,8 @@ export class LodgingService {
    */
   delete(id: string): Observable<void> {
     return this.lodgingsUrl$.pipe(
-      concatMap((url) => this.http.delete<void>(url, { params: { id } }))
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.delete<void>(url))
     );
   }
 
@@ -73,7 +74,10 @@ export class LodgingService {
    * @param id string
    */
   getById(id: string): Observable<Lodging> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging>(`${url}/${id}`)));
+    return this.lodgingsUrl$.pipe(
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.get<Lodging>(url))
+    );
   }
 
   /**
