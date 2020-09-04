@@ -151,13 +151,13 @@ describe('LodgingService', () => {
     let req: TestRequest;
 
     service.post(lodgingMock[0]).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(lodgingMock[0]);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(lodgingMock[0]);
   }));
 
   it('should make httpPut request', fakeAsync(() => {
