@@ -39,15 +39,7 @@
             "scripts": ["src/assets/js/main.js"]
           },
           "configurations": {
-            "DEV": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.dev.ts"
-                }
-              ]
-            },
-            "PROD": {
+            "production": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -74,6 +66,22 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "stable": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "next": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.stage.ts"
+                }
+              ]
             }
           }
         },
@@ -85,6 +93,12 @@
           "configurations": {
             "production": {
               "browserTarget": "rvtr-app-campsite:build:production"
+            },
+            "stable": {
+              "browserTarget": "rvtr-app-campsite:build:stable"
+            },
+            "next": {
+              "browserTarget": "rvtr-app-campsite:build:next"
             }
           }
         },
@@ -127,6 +141,12 @@
           "configurations": {
             "production": {
               "devServerTarget": "rvtr-app-campsite:serve:production"
+            },
+            "stable": {
+              "devServerTarget": "rvtr-app-campsite:serve:stable"
+            },
+            "next": {
+              "devServerTarget": "rvtr-app-campsite:serve:next"
             }
           }
         }

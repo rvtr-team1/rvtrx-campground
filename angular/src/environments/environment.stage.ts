@@ -3,8 +3,8 @@ import * as manifest from '../../package.json';
 import * as config from '../../angular.json';
 
 export const environment: Environment = {
-  config: 'app.config.local.json',
-  name: '',
-  production: false,
+  config: 'app.config.json',
+  name: 'DEV',
+  production: true,
   release: `${config.defaultProject}@${manifest.version}`,
 };
