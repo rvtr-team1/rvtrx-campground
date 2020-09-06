@@ -14,8 +14,13 @@
               <div class="media">
                 <div class="media-content">
                   <p id="card-title" class="title is-4">{{ lodging.name }}</p>
-                  <p id="card-subtitle" class="subtitle is-6">{{ lodging.location.address.street }},
-                    {{ lodging.location.address.city }}, {{ lodging.location.address.stateProvince }}</p>
+                  <p id="card-subtitle" class="street-addr subtitle is-6">
+                    {{ lodging.location.address.street }}
+                    <!-- {{ lodging.location.address.city }}, {{ lodging.location.address.stateProvince }} -->
+                  </p>
+                  <p id="card-subtitle" class="city-sp-addr subtitle is-6">
+                    {{ lodging.location.address.city }}, {{ lodging.location.address.stateProvince }}
+                  </p>
                 </div>
               </div>
   

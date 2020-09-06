@@ -3,7 +3,8 @@
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
   max-width: 33%;
   margin-top: 20px;
-  margin-right: 1em;
+  margin-right: 0.75em;
+  margin-left: 0.75em;
   transition: all 0.3s ease-in-out;
   z-index: 0;
 }
@@ -13,6 +14,7 @@
   background-color: #10d1b4;
   z-index: 1;
   margin-right: 1.3em;
+  margin-left: 1.3em;
 
   #card-title {
     color: white;
@@ -39,7 +41,12 @@
 }
 
 .card-container {
-  display: inline-flex;
+  display: flex;
+  // justify-content: space-around;
+}
+
+.street-addr {
+  margin-bottom: 0;
 }
 
 .column {
