@@ -3,7 +3,7 @@ import * as manifest from '../../package.json';
 import * as config from '../../angular.json';
 
 export const environment: Environment = {
-  config: 'app.config.local.json',
+  config: 'app.config.json',
   identity: {
     clientId: '0oa5empza950mqdtw357',
     issuer: 'https://identity.rvtr.net/oauth2/default',
@@ -11,7 +11,7 @@ export const environment: Environment = {
     redirectUri: `${location.protocol}//${location.host}/oauth2/authorize`,
     scopes: ['openid', 'profile', 'email'],
   },
-  name: '',
-  production: false,
+  name: 'DEV',
+  production: true,
   release: `${config.defaultProject}@${manifest.version}`,
 };
