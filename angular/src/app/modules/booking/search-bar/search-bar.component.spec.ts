@@ -39,8 +39,8 @@ describe('SearchBarComponent', () => {
         {
           id: '1',
           lotNumber: '1',
-          properties: Tent = {
-            size: plotSize = {
+          properties: Tent : {
+            size: plotSize : {
               width: 5,
               height: 5
             },
@@ -54,18 +54,18 @@ describe('SearchBarComponent', () => {
         {
           id: '2',
           lotNumber: '2',
-          properties: RV = {
-            size: plotSize = {
+          properties: RV : {
+            size: plotSize : {
               width: 5,
               height: 5,
             },
-            ameneties : Ameneties = {
+            ameneties : Ameneties : {
               voltage: 50,
               sewage: "yes",
               water: "yes",
             },
             maximumCapacity: 5,
-            name = "tent",
+            name : "tent",
           },
           status: 'available',
           price: 100,
@@ -73,14 +73,14 @@ describe('SearchBarComponent', () => {
         {
           id: '3',
           lotNumber: '3',
-          properties: Tent = {
-            size: plotSize = {
+          properties: Tent : {
+            size: plotSize : {
               width: 5,
               height: 5
             },
             ameneties : Ameneties,
             maximumCapacity: 2,
-            name = "tent",
+            name : "tent",
           },
           status: 'available',
           price: 100,
@@ -88,18 +88,18 @@ describe('SearchBarComponent', () => {
         {
           id: '4',
           lotNumber: '1',
-          properties: RV = {
-            size: plotSize = {
+          properties: RV : {
+            size: plotSize : {
               width: 5,
               height: 5,
             },
-            ameneties : Ameneties = {
+            ameneties : Ameneties : {
               voltage: 50,
               sewage: "yes",
               water: "yes",
             },
             maximumCapacity: 5,
-            name = "RV",
+            name : "RV",
           },
           status: 'available',
           price: 100,
