@@ -3,6 +3,10 @@ import { plotSize } from './plotSize.model';
 import { Amenities } from './amenities.model';
 
 export class RVPlot implements RentalProperties {
+    size: plotSize;
+    amenities: Amenities;
+    maximumCapacity: number;
+    name:string;
     constructor(S:plotSize,A:Amenities)
     {
         this.size = S;
