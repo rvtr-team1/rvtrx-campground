@@ -59,7 +59,7 @@ describe('SearchBarComponent', () => {
               voltage: 50,
               sewage: "yes",
               water: "yes",
-            }
+            },
             maximumCapacity: 5,
             name = "tent",
           },
@@ -93,7 +93,7 @@ describe('SearchBarComponent', () => {
               voltage: 50,
               sewage: "yes",
               water: "yes",
-            }
+            },
             maximumCapacity: 5,
             name = "RV",
           },
