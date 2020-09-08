@@ -1,6 +1,10 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RentalComponent } from './rental.component';
 import { Rental } from 'src/app/data/rental.model';
+import { Tent} from '../tent.model';
+import { RV} from '../rv.model';
+import { plotSize} from '../plotSize.model';
+import { Ameneties} from '../ameneties.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -9,34 +13,70 @@ describe('RentalComponent', () => {
   const rentals: Rental[] = [
     {
       id: '1',
-      name: 'Rental1',
-      maximumCapacity: 2,
-      type: 'tent',
+      lotNumber: '1',
+      properties: Tent = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties
+        maximumCapacity: 2,
+        name = "tent"
+      },
       status: 'available',
       price: 100,
     },
     {
       id: '2',
-      name: 'Rental2',
-      maximumCapacity: 2,
-      type: 'tent',
+      lotNumber: '2',
+      properties: RV = {
+        size: plotSize = {
+          width: 5,
+          height: 5,
+        },
+        ameneties : Ameneties = {
+          voltage: 50,
+          sewage: "yes",
+          water: "yes",
+        }
+        maximumCapacity: 5,
+        name = "tent",
+      },
       status: 'available',
       price: 100,
     },
     {
       id: '3',
-      name: 'Rental3',
-      maximumCapacity: 2,
-      type: 'cabin',
-      status: 'booked',
+      lotNumber: '3',
+      properties: Tent = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties
+        maximumCapacity: 2,
+        name = "tent"
+      },
+      status: 'available',
       price: 100,
     },
     {
       id: '4',
-      name: 'Rental4',
-      maximumCapacity: 2,
-      type: 'cabin',
-      status: 'booked',
+      lotNumber: '1',
+      properties: RV = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties = {
+          voltage: 50,
+          sewage: "yes",
+          water: "yes",
+        }
+        maximumCapacity: 5,
+        name = "RV"
+      },
+      status: 'available',
       price: 100,
     },
   ];
