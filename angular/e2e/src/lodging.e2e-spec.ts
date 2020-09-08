@@ -1,9 +1,4 @@
 import { browser, logging, WebDriver, by, element } from 'protractor';
-import { CustomEqualityTester } from './testers/custom-equalitytester';
-
-beforeEach(() => {
-  jasmine.addCustomEqualityTester(CustomEqualityTester);
-});
 
 describe('lodging', () => {
   it('Page title contains Campsite', () => {
@@ -30,17 +25,23 @@ describe('lodging', () => {
   it('Should have the current URL', () => {
     browser.get('http://localhost:4200/lodging');
     browser.driver.getCurrentUrl().then((currentUrl) => {
-      expect(currentUrl).toEqual(['http://localhost:4200/lodging', 'http://localhost:4200/error']);
+      expect(['http://localhost:4200/lodging', 'http://localhost:4200/error']).toContain(
+        currentUrl
+      );
+      // expect(currentUrl).toEqual(jasmine.arrayContaining(['http://localhost:4200/lodging', 'http://localhost:4200/error']));
     });
   });
 
   it('Should be on the current URL for Lodging Test details', () => {
     browser.get('http://localhost:4200/lodging/details/1');
     browser.driver.getCurrentUrl().then((currentUrl) => {
-      expect(currentUrl).toEqual([
-        'http://localhost:4200/lodging/details/1',
-        'http://localhost:4200/error',
-      ]);
+      expect(['http://localhost:4200/lodging/details/1', 'http://localhost:4200/error']).toContain(
+        currentUrl
+      );
+      // expect(currentUrl).toEqual([
+      //   'http://localhost:4200/lodging/details/1',
+      //   'http://localhost:4200/error',
+      // ]);
     });
   });
 

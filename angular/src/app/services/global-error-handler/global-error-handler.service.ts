@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class GlobalerrorhandlerService implements ErrorHandler {
+export class GlobalErrorHandlerService implements ErrorHandler {
   constructor(private injector: Injector) {}
 
   handleError(error: HttpErrorResponse): void {
