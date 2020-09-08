@@ -35,7 +35,7 @@ describe('SearchBarComponent', () => {
       },
       name: 'Test',
       bathrooms: 1,
-      rentals = {
+      rentals: Array<Rental> = [
         {
           id: '1',
           lotNumber: '1',
@@ -104,7 +104,7 @@ describe('SearchBarComponent', () => {
           status: 'available',
           price: 100,
         },
-    },
+      ];
   ];
 
   const bookings: Booking[] = [
