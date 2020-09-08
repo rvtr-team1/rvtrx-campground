@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { PaymentComponent } from './payment.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PostPayment } from 'src/app/data/payment.model';
 
 describe('PaymentComponent', () => {
   const payments = [
@@ -33,5 +34,22 @@ describe('PaymentComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should add card', () => {
+    const mockPayment = {
+      accountId: 'string',
+      id: 'string',
+      cardExpirationDate: '2020-08-01',
+      cardName: 'string',
+      cardNumber: 'string',
+      securityCode: '111',
+    } as PostPayment;
+
+    component.addCard(mockPayment);
+
+    tick();
+
+    expect(payments[1]).toEqual(mockPayment);
   });
 });
