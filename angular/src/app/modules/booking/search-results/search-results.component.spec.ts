@@ -5,7 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { of } from 'rxjs';
-
+import { Tent} from '../tent.model';
+import { RV} from '../rv.model';
+import { plotSize} from '../plotSize.model';
+import { Ameneties} from '../ameneties.model';
 describe('SearchResultsComponent', () => {
   const lodgings: Lodging[] = [
     {
@@ -26,12 +29,19 @@ describe('SearchResultsComponent', () => {
       name: '',
       rentals: [
         {
-          id: '',
-          name: '',
-          maximumCapacity: 1,
-          type: '',
-          status: 'available',
-          price: 1.0,
+          id: '1',
+      lotNumber: '1',
+      properties: Tent = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties
+        maximumCapacity: 2,
+        name = "tent"
+      },
+      status: 'available',
+      price: 100,
         },
       ],
       reviews: [

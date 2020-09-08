@@ -1,7 +1,10 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SpotlightComponent } from './spotlight.component';
 import { Lodging } from 'src/app/data/lodging.model';
-
+import { Tent} from '../tent.model';
+import { RV} from '../rv.model';
+import { plotSize} from '../plotSize.model';
+import { Ameneties} from '../ameneties.model';
 describe('SpotlightComponent', () => {
   let component: SpotlightComponent;
   let fixture: ComponentFixture<SpotlightComponent>;
@@ -26,12 +29,19 @@ describe('SpotlightComponent', () => {
       bathrooms: 1,
       rentals: [
         {
-          id: '',
-          name: '',
-          price: 0,
-          maximumCapacity: 0,
-          type: '',
-          status: '',
+          id: '1',
+      lotNumber: '1',
+      properties: Tent = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties
+        maximumCapacity: 2,
+        name = "tent"
+      },
+      status: 'available',
+      price: 100,
         },
       ],
       reviews: [],

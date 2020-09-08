@@ -6,7 +6,10 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
-
+import { Tent} from '../tent.model';
+import { RV} from '../rv.model';
+import { plotSize} from '../plotSize.model';
+import { Ameneties} from '../ameneties.model';
 describe('BookingComponent', () => {
   let component: BookingComponent;
   let fixture: ComponentFixture<BookingComponent>;
@@ -33,12 +36,19 @@ describe('BookingComponent', () => {
           name: '',
           rentals: [
             {
-              id: '',
-              name: '',
-              price: 0,
-              occupancy: 1,
-              type: '',
-              status: 'available',
+              id: '1',
+      lotNumber: '1',
+      properties: Tent = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties
+        maximumCapacity: 2,
+        name = "tent"
+      },
+      status: 'available',
+      price: 100,
             },
           ],
           reviews: [

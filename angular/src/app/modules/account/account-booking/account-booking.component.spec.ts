@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { AccountBookingComponent } from './account-booking.component';
 import { Booking } from 'src/app/data/booking.model';
+import { Tent} from '../tent.model';
+import { RV} from '../rv.model';
+import { plotSize} from '../plotSize.model';
+import { Ameneties} from '../ameneties.model';
 describe('AccountBookingComponent', () => {
   const booking: Booking = {
     id: 'string',
@@ -20,13 +24,19 @@ describe('AccountBookingComponent', () => {
     ],
     rentals: [
       {
-        id: 'string',
-        name: 'string',
-        status: 'string',
-        price: 0.0,
-        discountedPrice: 0.0,
-        type: 'string',
-        maximumCapacity: 1,
+        id: '1',
+      lotNumber: '1',
+      properties: Tent = {
+        size: plotSize = {
+          width: 5,
+          height: 5
+        },
+        ameneties : Ameneties
+        maximumCapacity: 2,
+        name = "tent"
+      },
+      status: 'available',
+      price: 100,
       },
     ],
   };
