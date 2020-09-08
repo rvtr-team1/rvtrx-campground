@@ -39,8 +39,8 @@ describe('SearchBarComponent', () => {
         {
           id: '1',
           lotNumber: '1',
-          properties: Tent : {
-            size: plotSize : {
+          properties: {
+            size: {
               width: 5,
               height: 5
             },
