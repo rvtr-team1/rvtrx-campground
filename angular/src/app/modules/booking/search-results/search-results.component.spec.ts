@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { of } from 'rxjs';
+import { Rental } from 'src/app/data/rental.model';
 import { Tent} from '../tent.model';
 import { RV} from '../rv.model';
 import { plotSize} from '../plotSize.model';
@@ -27,7 +28,7 @@ describe('SearchResultsComponent', () => {
         longitude: '',
       },
       name: '',
-      rentals: [
+      rentals: Rental[] = [
         {
           id: '1',
       lotNumber: '1',
