@@ -97,12 +97,11 @@ describe('AccountService', () => {
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.delete('0').subscribe((res) => {
-      expect(service.delete).toHaveBeenCalled();
-    });
+    service.delete('0').subscribe();
 
     tick();
 
+    expect(service.delete).toHaveBeenCalled();
     req = httpTestingController.expectOne('test/0');
     req.flush(JSON.stringify(true));
   }));
