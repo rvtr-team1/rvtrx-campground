@@ -5,7 +5,6 @@ import { ConfigService } from '../config/config.service';
 import { Monitoring } from '../../data/monitoring.model';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +24,7 @@ export class MonitoringService implements ErrorHandler {
   handleError(error: any): void {
     this.sendToLogging(error);
     const router = this.injector.get(Router);
-    router.navigate(['/error']);
+    router.navigate(['./error']);
   }
 
   // tslint:disable-next-line:no-any
