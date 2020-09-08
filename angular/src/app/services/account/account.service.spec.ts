@@ -101,7 +101,6 @@ describe('AccountService', () => {
 
     tick();
 
-    expect(service.delete).toHaveBeenCalled();
     req = httpTestingController.expectOne('test/0');
     req.flush(JSON.stringify(true));
   }));
