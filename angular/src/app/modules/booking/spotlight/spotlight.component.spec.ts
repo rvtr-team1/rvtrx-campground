@@ -1,10 +1,11 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SpotlightComponent } from './spotlight.component';
 import { Lodging } from 'src/app/data/lodging.model';
-import { Tent} from '../tent.model';
-import { RV} from '../rv.model';
-import { plotSize} from '../plotSize.model';
-import { Ameneties} from '../ameneties.model';
+import { Rental } from 'src/app/data/rental.model';
+import { TentPlot} from 'src/app/data/tent.model';
+import { RVPlot} from 'src/app/data/rv.model';
+import { plotSize} from 'src/app/data/plotSize.model';
+import { Ameneties} from 'src/app/data/ameneties.model';
 describe('SpotlightComponent', () => {
   let component: SpotlightComponent;
   let fixture: ComponentFixture<SpotlightComponent>;
