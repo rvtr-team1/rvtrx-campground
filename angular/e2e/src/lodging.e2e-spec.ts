@@ -38,10 +38,6 @@ describe('lodging', () => {
       expect(['http://localhost:4200/lodging/details/1', 'http://localhost:4200/error']).toContain(
         currentUrl
       );
-      // expect(currentUrl).toEqual([
-      //   'http://localhost:4200/lodging/details/1',
-      //   'http://localhost:4200/error',
-      // ]);
     });
   });
 
