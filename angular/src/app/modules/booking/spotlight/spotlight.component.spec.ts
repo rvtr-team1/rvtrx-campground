@@ -38,7 +38,7 @@ describe('SpotlightComponent', () => {
         },
         ameneties : Ameneties
         maximumCapacity: 2,
-        name = "tent"
+        name = "tent",
       },
       status: 'available',
       price: 100,
