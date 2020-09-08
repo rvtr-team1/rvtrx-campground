@@ -31,15 +31,15 @@ describe('FeaturedLodgingComponent', () => {
       rentals: [
         {
           id: '1',
-      lotNumber: '1',
-      properties: {
-        size: {
-          width: 5,
-          height: 5
-        },
-        amenities : undefined,
-        capacity: 2,
-        name : "tent"
+          lotNumber: '1',
+          properties: {
+          size: {
+            width: 5,
+            height: 5,
+          },
+          amenities : undefined,
+          capacity: 2,
+          name : "tent"
       },
       status: 'available',
       price: 100,

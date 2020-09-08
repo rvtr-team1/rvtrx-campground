@@ -105,6 +105,7 @@ describe('SearchBarComponent', () => {
           price: 100,
         },
       ],
+      reviews: [],
     }
   ];
 
