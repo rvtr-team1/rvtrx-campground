@@ -31,7 +31,7 @@ describe('SearchBarComponent', () => {
       },
       name: 'Test',
       bathrooms: 1,
-      rentals: [
+      rentals: Rental[] = [
         {
           id: '1',
           lotNumber: '1',
