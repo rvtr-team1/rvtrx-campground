@@ -28,7 +28,7 @@ describe('SearchResultsComponent', () => {
         longitude: '',
       },
       name: '',
-      rentals: Rental[] = [
+      rentals: [
         {
           id: '1',
       lotNumber: '1',
