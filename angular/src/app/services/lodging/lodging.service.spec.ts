@@ -103,7 +103,7 @@ describe('LodgingService', () => {
     let req: TestRequest;
 
     service.delete('0').subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(service.delete).toHaveBeenCalled();
     });
 
     tick();
