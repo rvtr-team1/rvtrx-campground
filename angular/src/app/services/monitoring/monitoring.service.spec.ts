@@ -56,6 +56,8 @@ describe('MonitorService', () => {
   it('should handle error', fakeAsync(() => {
     const logSpy = spyOn(service, 'sendToLogging');
 
+    service.handleError(new Error('error'));
+
     expect(logSpy).toHaveBeenCalled();
 
     tick();
