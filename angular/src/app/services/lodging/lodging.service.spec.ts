@@ -102,9 +102,7 @@ describe('LodgingService', () => {
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.delete('0').subscribe((res) => {
-      expect(service.delete).toHaveBeenCalled();
-    });
+    service.delete('0').subscribe();
 
     tick();
 
