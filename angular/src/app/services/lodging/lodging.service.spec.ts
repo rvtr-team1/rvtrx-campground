@@ -107,7 +107,7 @@ describe('LodgingService', () => {
     tick();
 
     req = httpTestingController.expectOne('test/0');
-    req.flush(JSON.stringify(true));
+    req.flush(null);
   }));
 
   it('should make httpGet request', fakeAsync(() => {
