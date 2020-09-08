@@ -146,14 +146,14 @@ describe('AccountService', () => {
 
   it('should make httpPost request for payments', fakeAsync(() => {
     let req: TestRequest;
-    const mockPayment = {
+    const mockPayment: PostPayment = {
       accountId: 'string',
       id: 'string',
       cardExpirationDate: '2020-08-01',
       cardName: 'string',
       cardNumber: 'string',
       securityCode: '111',
-    } as PostPayment;
+    };
 
     service.postPayment(mockPayment).subscribe((res) => {
       expect(res).toEqual(mockPayment);
