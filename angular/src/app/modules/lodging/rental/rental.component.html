@@ -13,6 +13,7 @@
       <tr *ngFor="let rental of rentals">
         <td>
           Rental Lot Number: {{ rental.lotNumber }}<br />
+          Rental type: {{ rental.properties.name }}
           <span class="fas fa-bed"></span>
         </td>
         <td>Rental Lot Size: {{ rental.type.size.width }} X {{rental.type.size.height}}</td>
