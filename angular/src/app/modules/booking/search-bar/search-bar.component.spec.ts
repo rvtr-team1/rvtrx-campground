@@ -40,7 +40,7 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5
             },
-            ameneties : Ameneties
+            ameneties : Ameneties,
             maximumCapacity: 2,
             name = "tent",
           },
@@ -74,7 +74,7 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5
             },
-            ameneties : Ameneties
+            ameneties : Ameneties,
             maximumCapacity: 2,
             name = "tent",
           },

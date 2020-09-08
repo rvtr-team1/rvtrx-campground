@@ -38,7 +38,7 @@ describe('RentalComponent', () => {
           voltage: 50,
           sewage: "yes",
           water: "yes",
-        }
+        },
         maximumCapacity: 5,
         name = "tent",
       },
@@ -72,7 +72,7 @@ describe('RentalComponent', () => {
           voltage: 50,
           sewage: "yes",
           water: "yes",
-        }
+        },
         maximumCapacity: 5,
         name = "RV"
       },
