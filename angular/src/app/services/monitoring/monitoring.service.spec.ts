@@ -6,6 +6,7 @@ import { ConfigService } from '../config/config.service';
 import { Config } from '../../data/config.model';
 import { Monitoring } from '../../data/monitoring.model';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 
 describe('MonitorService', () => {
   const configServiceStub = {
@@ -53,9 +54,9 @@ describe('MonitorService', () => {
   });
 
   it('should handle error', fakeAsync(() => {
-    expect(() => {
-      service.handleError(new Error('error'));
-    }).not.toThrow();
+    const logSpy = spyOn(service, 'sendToLogging');
+
+    expect(logSpy).toHaveBeenCalled;
 
     tick();
   }));

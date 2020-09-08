@@ -1,4 +1,4 @@
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
@@ -15,7 +15,7 @@ export class MonitoringService implements ErrorHandler {
   constructor(
     config: ConfigService,
     private readonly monitoring: Monitoring,
-    private injector: Injector
+    private router: Router
   ) {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.monitoring));
   }
@@ -23,8 +23,7 @@ export class MonitoringService implements ErrorHandler {
   // tslint:disable-next-line:no-any
   handleError(error: any): void {
     this.sendToLogging(error);
-    const router = this.injector.get(Router);
-    router.navigate(['./error']);
+    this.router.navigate(['/error']);
   }
 
   // tslint:disable-next-line:no-any
