@@ -32,7 +32,6 @@ export interface Rental {
    *      ```
    */
   properties:RentalProperties;
-  type: string;
   /** booking status, one of:
    *  - available (neither booked nor currently in use)
    *  - booked (booked by someone else, but not in use)
