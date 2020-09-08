@@ -19,7 +19,7 @@
         <td>Maximum Capacity: {{ rental.maximumCapacity }}</td>
         <td>Sewage: {{rental.type.amenities.sewage}} </td>
         <td>Water: {{rental.type.amenities.water}} </td>
-        <td>{{ availabilityCount.get(rental.type) }}</td>
+        <td>{{ availabilityCount.get(rental.properties.name) }}</td>
         <td>Price: {{ rental.price | currency }}</td>
       </tr>
     </tbody>
