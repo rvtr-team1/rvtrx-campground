@@ -4,7 +4,7 @@ import { Amenities } from './amenities.model';
 
 export class TentPlot implements RentalProperties {
     size: plotSize;
-    amenities?: null;
+    amenities?: Amenities;
     capacity: number;
     name:string;
     constructor(Size:plotSize)
