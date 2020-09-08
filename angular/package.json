@@ -41,6 +41,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "karma-sonarqube-unit-reporter": "0.0.21",
     "netlify-cli": "^2.61.0",
+    "prettier": "^2.1.1",
     "protractor": "~7.0.0",
     "puppeteer": "^5.2.1",
     "sonarqube-scanner": "^2.7.0",
@@ -49,9 +50,10 @@
     "typescript": "~3.9.7"
   },
   "scripts": {
+    "audit": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --check ./",
     "build": "ng build",
     "e2e": "ng e2e",
-    "format": "npx prettier --config ../.prettierrc.yaml --check ./ --ignore-path ../.prettierignore",
+    "format": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --write ./",
     "lint": "ng lint",
     "scan": "sonar-scanner",
     "start": "ng serve",
