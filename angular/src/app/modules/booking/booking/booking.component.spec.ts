@@ -10,7 +10,7 @@ import { Rental } from 'src/app/data/rental.model';
 import { TentPlot} from 'src/app/data/tent.model';
 import { RVPlot} from 'src/app/data/rv.model';
 import { plotSize} from 'src/app/data/plotSize.model';
-import { Ameneties} from 'src/app/data/ameneties.model';
+import { Amenities} from 'src/app/data/ameneties.model';
 describe('BookingComponent', () => {
   let component: BookingComponent;
   let fixture: ComponentFixture<BookingComponent>;
@@ -44,7 +44,7 @@ describe('BookingComponent', () => {
           width: 5,
           height: 5
         },
-        amenities : null,
+        amezaAAAAAAAAAAAAAAAAAAAAAAAAnities : null,
         maximumCapacity: 2,
         name : "tent"
       },
