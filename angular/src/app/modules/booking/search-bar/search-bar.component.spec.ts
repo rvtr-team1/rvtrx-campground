@@ -35,7 +35,7 @@ describe('SearchBarComponent', () => {
       },
       name: 'Test',
       bathrooms: 1,
-      rentals: Array<Rental> : [
+      rentals: [
         {
           id: '1',
           lotNumber: '1',
@@ -44,9 +44,9 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5
             },
-            ameneties : Ameneties,
+            ameneties : null,
             maximumCapacity: 2,
-            name = "tent",
+            name : "tent",
           },
           status: 'available',
           price: 100,
@@ -54,12 +54,12 @@ describe('SearchBarComponent', () => {
         {
           id: '2',
           lotNumber: '2',
-          properties: RV : {
-            size: plotSize : {
+          properties: {
+            size: {
               width: 5,
               height: 5,
             },
-            ameneties : Ameneties : {
+            ameneties: {
               voltage: 50,
               sewage: "yes",
               water: "yes",
@@ -73,12 +73,12 @@ describe('SearchBarComponent', () => {
         {
           id: '3',
           lotNumber: '3',
-          properties: Tent : {
-            size: plotSize : {
+          properties:{
+            size: {
               width: 5,
               height: 5
             },
-            ameneties : Ameneties,
+            ameneties : null,
             maximumCapacity: 2,
             name : "tent",
           },
@@ -88,12 +88,12 @@ describe('SearchBarComponent', () => {
         {
           id: '4',
           lotNumber: '1',
-          properties: RV : {
-            size: plotSize : {
+          properties: {
+            size: {
               width: 5,
               height: 5,
             },
-            ameneties : Ameneties : {
+            ameneties :{
               voltage: 50,
               sewage: "yes",
               water: "yes",
