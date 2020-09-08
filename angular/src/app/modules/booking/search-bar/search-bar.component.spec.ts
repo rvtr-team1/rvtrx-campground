@@ -104,7 +104,7 @@ describe('SearchBarComponent', () => {
           status: 'available',
           price: 100,
         },
-      ];
+      ],
     }
   ];
 
