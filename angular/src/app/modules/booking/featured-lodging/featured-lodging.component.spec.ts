@@ -37,8 +37,8 @@ describe('FeaturedLodgingComponent', () => {
           width: 5,
           height: 5
         },
-        ameneties : Ameneties,
-        maximumCapacity: 2,
+        amenities : amenities,
+        capacity: 2,
         name : "tent"
       },
       status: 'available',
@@ -73,6 +73,7 @@ describe('FeaturedLodgingComponent', () => {
     expect(component.displayLodgings).toBeTruthy();
     expect(component.displayLodgings.length).toBeLessThanOrEqual(6);
   });
+  width: 5,
 
   it('should not update', () => {
     component.featuredLodgings = null;

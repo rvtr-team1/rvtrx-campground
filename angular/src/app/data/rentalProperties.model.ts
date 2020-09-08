@@ -4,7 +4,7 @@ import { Amenities } from './amenities.model';
 
 export interface RentalProperties {
     size: plotSize;
-    amenities: Amenities?;
+    amenities?: Amenities;
     capacity: number;
     name:string;
   }

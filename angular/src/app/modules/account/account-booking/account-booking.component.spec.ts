@@ -33,7 +33,7 @@ describe('AccountBookingComponent', () => {
           height: 5
         },
         amenities : null,
-        maximumCapacity: 2,
+        capacity: 2,
         name : "tent",
       },
       status: 'available',

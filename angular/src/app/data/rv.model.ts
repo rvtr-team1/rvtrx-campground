@@ -4,7 +4,7 @@ import { Amenities } from './amenities.model';
 
 export class RVPlot implements RentalProperties {
     size: plotSize;
-    amenities: Amenities;
+    amenities?: Amenities;
     capacity: number;
     name:string;
     constructor(S:plotSize,A:Amenities)
