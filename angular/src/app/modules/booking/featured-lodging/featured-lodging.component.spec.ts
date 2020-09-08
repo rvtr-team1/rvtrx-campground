@@ -37,7 +37,7 @@ describe('FeaturedLodgingComponent', () => {
           width: 5,
           height: 5
         },
-        amenities : amenities,
+        amenities : undefined,
         capacity: 2,
         name : "tent"
       },

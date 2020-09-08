@@ -38,7 +38,7 @@ describe('SpotlightComponent', () => {
           height: 5
         },
         amenities : undefined,
-        maximumCapacity: 2,
+        capacity: 2,
         name : "tent",
       },
       status: 'available',
