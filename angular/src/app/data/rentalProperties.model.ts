@@ -6,4 +6,5 @@ export interface RentalProperties {
     size: plotSize;
     amenities: Amenities;
     maximumCapacity: number;
+    name:string;
   }
