@@ -28,7 +28,6 @@ describe('lodging', () => {
       expect(['http://localhost:4200/lodging', 'http://localhost:4200/error']).toContain(
         currentUrl
       );
-      // expect(currentUrl).toEqual(jasmine.arrayContaining(['http://localhost:4200/lodging', 'http://localhost:4200/error']));
     });
   });
 
@@ -40,18 +39,4 @@ describe('lodging', () => {
       );
     });
   });
-
-  /*   it('Should be on the current URL for Lodging Test2 details', () => {
-    browser.get('http://localhost:4200/lodging/details/2');
-    browser.driver.getCurrentUrl().then((currentUrl) => {
-      expect(currentUrl).toEqual('http://localhost:4200/lodging/details/2');
-    });
-  });
-
-  it('Should be on the current URL for Lodging Test3 details', () => {
-    browser.get('http://localhost:4200/lodging/details/3');
-    browser.driver.getCurrentUrl().then((currentUrl) => {
-      expect(currentUrl).toEqual('http://localhost:4200/lodging/details/3');
-    });
-  }); */
 });
