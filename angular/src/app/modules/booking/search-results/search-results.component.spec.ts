@@ -37,7 +37,7 @@ describe('SearchResultsComponent', () => {
           width: 5,
           height: 5,
         },
-        amenities : null,
+        amenities : undefined,
         capacity: 2,
         name : "tent",
       },

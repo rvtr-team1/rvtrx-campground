@@ -4,7 +4,7 @@ import { Rental } from 'src/app/data/rental.model';
 import { TentPlot} from 'src/app/data/tent.model';
 import { RVPlot} from 'src/app/data/rv.model';
 import { plotSize} from 'src/app/data/plotSize.model';
-import { amenities} from 'src/app/data/amenities.model';
+import { Amenities} from 'src/app/data/amenities.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -19,9 +19,9 @@ describe('RentalComponent', () => {
           width: 5,
           height: 5
         },
-        amenities : null,
+        amenities : undefined,
         capacity: 2,
-        name = "tent",
+        name : "tent",
       },
       status: 'available',
       price: 100,
@@ -53,7 +53,7 @@ describe('RentalComponent', () => {
           width: 5,
           height: 5
         },
-        amenities : amenities,
+        amenities : undefined,
         capacity: 2,
         name : "tent"
       },
