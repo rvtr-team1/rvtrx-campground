@@ -5,13 +5,13 @@ import { Amenities } from './amenities.model';
 export class RVPlot implements RentalProperties {
     size: plotSize;
     amenities: Amenities;
-    maximumCapacity: number;
+    capacity: number;
     name:string;
     constructor(S:plotSize,A:Amenities)
     {
         this.size = S;
         this.amenities = A;
-        this.maximumCapacity = 5;
+        this.capacity = 5;
         this.name = "RVPlot";
     }
     
