@@ -22,8 +22,8 @@ jobs:
           key: ${{ env.CACHE_KEY_PREFIX }}-${{ hashFiles('**/package-lock.json') }}
       - name: npm_install
         run: npm clean-install
-      - name: npm_format
-        run: npm run format
+      - name: npm_audit
+        run: npm run audit
       - name: npm_lint
         run: npm run lint
       - if: startsWith(github.ref, 'refs/heads/main')
