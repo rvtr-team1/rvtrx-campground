@@ -12,7 +12,7 @@ import { Rental } from 'src/app/data/rental.model';
 import { TentPlot} from 'src/app/data/tent.model';
 import { RVPlot} from 'src/app/data/rv.model';
 import { plotSize} from 'src/app/data/plotSize.model';
-import { Ameneties} from 'src/app/data/ameneties.model';
+import { Amenities} from 'src/app/data/amenities.model';
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
@@ -44,8 +44,8 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5
             },
-            ameneties : null,
-            maximumCapacity: 2,
+            amenities : null,
+            capacity: 2,
             name : "tent",
           },
           status: 'available',
@@ -59,12 +59,12 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5,
             },
-            ameneties: {
+            amenities: {
               voltage: 50,
               sewage: "yes",
               water: "yes",
             },
-            maximumCapacity: 5,
+            capacity: 5,
             name : "tent",
           },
           status: 'available',
@@ -78,8 +78,8 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5
             },
-            ameneties : null,
-            maximumCapacity: 2,
+            amenities : null,
+            capacity: 2,
             name : "tent",
           },
           status: 'available',
@@ -93,12 +93,12 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5,
             },
-            ameneties :{
+            amenities :{
               voltage: 50,
               sewage: "yes",
               water: "yes",
             },
-            maximumCapacity: 5,
+            capacity: 5,
             name : "RV",
           },
           status: 'available',

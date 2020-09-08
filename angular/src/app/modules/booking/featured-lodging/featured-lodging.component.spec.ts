@@ -1,10 +1,11 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FeaturedLodgingComponent } from './featured-lodging.component';
 import { Lodging } from 'src/app/data/lodging.model';
-import { Tent} from '../tent.model';
-import { RV} from '../rv.model';
-import { plotSize} from '../plotSize.model';
-import { Ameneties} from '../ameneties.model';
+import { Rental } from 'src/app/data/rental.model';
+import { TentPlot} from 'src/app/data/tent.model';
+import { RVPlot} from 'src/app/data/rv.model';
+import { plotSize} from 'src/app/data/plotSize.model';
+import { Amenities} from 'src/app/data/amenities.model';
 describe('FeaturedLodgingComponent', () => {
   let component: FeaturedLodgingComponent;
   let fixture: ComponentFixture<FeaturedLodgingComponent>;
@@ -31,14 +32,14 @@ describe('FeaturedLodgingComponent', () => {
         {
           id: '1',
       lotNumber: '1',
-      properties: Tent = {
-        size: plotSize = {
+      properties: {
+        size: {
           width: 5,
           height: 5
         },
         ameneties : Ameneties,
         maximumCapacity: 2,
-        name = "tent"
+        name : "tent"
       },
       status: 'available',
       price: 100,

@@ -4,7 +4,7 @@ import { Rental } from 'src/app/data/rental.model';
 import { TentPlot} from 'src/app/data/tent.model';
 import { RVPlot} from 'src/app/data/rv.model';
 import { plotSize} from 'src/app/data/plotSize.model';
-import { Ameneties} from 'src/app/data/ameneties.model';
+import { amenities} from 'src/app/data/amenities.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -14,13 +14,13 @@ describe('RentalComponent', () => {
     {
       id: '1',
       lotNumber: '1',
-      properties: Tent = {
-        size: plotSize = {
+      properties: {
+        size: {
           width: 5,
           height: 5
         },
-        ameneties : Ameneties,
-        maximumCapacity: 2,
+        amenities : null,
+        capacity: 2,
         name = "tent",
       },
       status: 'available',
@@ -29,18 +29,18 @@ describe('RentalComponent', () => {
     {
       id: '2',
       lotNumber: '2',
-      properties: RV = {
-        size: plotSize = {
+      properties: {
+        size: {
           width: 5,
           height: 5,
         },
-        ameneties : Ameneties = {
+        amenities : {
           voltage: 50,
           sewage: "yes",
           water: "yes",
         },
-        maximumCapacity: 5,
-        name = "tent",
+        capacity: 5,
+        name : "tent",
       },
       status: 'available',
       price: 100,
@@ -48,14 +48,14 @@ describe('RentalComponent', () => {
     {
       id: '3',
       lotNumber: '3',
-      properties: Tent = {
-        size: plotSize = {
+      properties: {
+        size: {
           width: 5,
           height: 5
         },
-        ameneties : Ameneties,
-        maximumCapacity: 2,
-        name = "tent"
+        amenities : amenities,
+        capacity: 2,
+        name : "tent"
       },
       status: 'available',
       price: 100,
@@ -63,18 +63,18 @@ describe('RentalComponent', () => {
     {
       id: '4',
       lotNumber: '1',
-      properties: RV = {
-        size: plotSize = {
+      properties:{
+        size: {
           width: 5,
           height: 5
         },
-        ameneties : Ameneties = {
+        amenities : {
           voltage: 50,
           sewage: "yes",
           water: "yes",
         },
-        maximumCapacity: 5,
-        name = "RV"
+        capacity: 5,
+        name : "RV"
       },
       status: 'available',
       price: 100,

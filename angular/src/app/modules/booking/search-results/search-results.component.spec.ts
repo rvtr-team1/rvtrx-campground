@@ -9,7 +9,7 @@ import { Rental } from 'src/app/data/rental.model';
 import { TentPlot} from 'src/app/data/tent.model';
 import { RVPlot} from 'src/app/data/rv.model';
 import { plotSize} from 'src/app/data/plotSize.model';
-import { Ameneties} from 'src/app/data/ameneties.model';
+import { Amenities} from 'src/app/data/amenities.model';
 describe('SearchResultsComponent', () => {
   const lodgings: Lodging[] = [
     {
@@ -32,14 +32,14 @@ describe('SearchResultsComponent', () => {
         {
           id: '1',
       lotNumber: '1',
-      properties: Tent = {
-        size: plotSize = {
+      properties:{
+        size: {
           width: 5,
           height: 5,
         },
-        ameneties : Ameneties,
-        maximumCapacity: 2,
-        name = "tent",
+        amenities : null,
+        capacity: 2,
+        name : "tent",
       },
       status: 'available',
       price: 100,
