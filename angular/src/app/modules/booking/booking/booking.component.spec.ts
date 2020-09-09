@@ -6,9 +6,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
-import { Rental } from 'src/app/data/rental.model';
-import { PlotSize } from 'src/app/data/plotSize.model';
-import { Amenities } from 'src/app/data/amenities.model';
 describe('BookingComponent', () => {
   let component: BookingComponent;
   let fixture: ComponentFixture<BookingComponent>;

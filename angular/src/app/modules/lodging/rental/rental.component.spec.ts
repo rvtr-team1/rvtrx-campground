@@ -1,8 +1,6 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RentalComponent } from './rental.component';
 import { Rental } from 'src/app/data/rental.model';
-import { PlotSize } from 'src/app/data/plotSize.model';
-import { Amenities } from 'src/app/data/amenities.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;

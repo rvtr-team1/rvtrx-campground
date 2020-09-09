@@ -1,4 +1,4 @@
-export interface Amenities {
+export interface RVAmenities {
   voltage: number;
   sewage: string;
   water: string;
