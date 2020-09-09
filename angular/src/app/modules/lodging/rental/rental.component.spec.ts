@@ -89,7 +89,7 @@ describe('RentalComponent', () => {
     expect(headerRow.cells[2].innerHTML).toContain('Sites Available');
   });
 
-  it('should add rental', () => {
+  it('should add and remove rental', () => {
     const rental = {
       id: '5',
       name: 'Rental5',
@@ -98,19 +98,16 @@ describe('RentalComponent', () => {
       status: 'available',
       price: 100,
     };
-    const newRentals = JSON.parse(JSON.stringify(rentals)) as Rental[];
-    newRentals.push(rental);
-    component.rentals = newRentals;
+
+    // Adds Rental
+    rentals.push(rental);
+    component.rentals = rentals;
     component.ngOnChanges();
     expect(component.availabilityCount.get('tent')).toEqual(3);
-  });
 
-  it('should remove rental', () => {
-    const newRentals = JSON.parse(JSON.stringify(rentals)) as Rental[];
-    newRentals.splice(0, 1);
-    component.rentals = newRentals;
+    // Removes Rental
+    component.rentals.splice(4, 1);
     component.ngOnChanges();
-    expect(component.availabilityCount.get('tent')).toEqual(1);
+    expect(component.availabilityCount.get('tent')).toEqual(2);
   });
-  
 });
