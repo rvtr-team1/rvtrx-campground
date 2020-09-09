@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Lodging } from '../../../data/lodging.model';
 import { ActivatedRoute } from '@angular/router';
 import { LodgingService } from '../../../services/lodging/lodging.service';
-import { Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'uic-lodging-details',
