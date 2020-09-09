@@ -23,8 +23,8 @@ export class SearchBarComponent {
   ) {}
 
   async onSubmit(form: NgForm): Promise<void> {
-    const adults = form.value.adults ? parseInt(form.value.adults, 10): 0;
-    const children = form.value.children ? parseInt(form.value.children, 10): 0;
+    const adults = form.value.adults ? parseInt(form.value.adults, 10) : 0;
+    const children = form.value.children ? parseInt(form.value.children, 10) : 0;
     const occupancy = `${adults + children}`;
     const city: string = form.value.location;
 
