@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Lodging } from '../../data/lodging.model';
+import { Filter } from '../../data/filter.model';
 
 @Injectable({
   providedIn: 'root',
@@ -33,20 +34,6 @@ export class LodgingService {
   }
 
   /**
-   * Gets all lodgings filtered by city and occupancy
-   * with at least one rental marked 'available'
-   *
-   * @param city string
-   * @param occupancy string
-   */
-  getAvailable(city: string, occupancy: string): Observable<Lodging[]> {
-    const params = new HttpParams().set('city', city).set('occupancy', occupancy);
-    return this.lodgingsUrl$.pipe(
-      concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))
-    );
-  }
-
-  /**
    * Represents the _Lodging Service_ `delete` method
    *
    * @param id string
@@ -60,11 +47,18 @@ export class LodgingService {
   /**
    * Represents the _Lodging Service_ `get` method
    *
-   * @param id string
+   * @param filter Filter
    */
-  get(filter?: string): Observable<Lodging[]> {
-    const options = filter ? { params: new HttpParams().set('filter', filter) } : {};
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url, options)));
+  get(filter?: Filter): Observable<Lodging[]> {
+    if(!filter){
+      return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url)));
+    }
+    else{
+      const params = new HttpParams().set('city', filter.city).set('occupancy', filter.occupancy);
+      return this.lodgingsUrl$.pipe(
+        concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))
+      );
+    }
   }
 
   /**

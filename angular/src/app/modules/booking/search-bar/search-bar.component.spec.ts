@@ -91,10 +91,10 @@ describe('SearchBarComponent', () => {
     },
   } as NgForm;
 
-  const lodgingService = jasmine.createSpyObj('LodgingService', ['getAvailable']);
+  const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   const bookingService = jasmine.createSpyObj('BookingService', ['getByDateRange']);
 
-  lodgingService.getAvailable.and.returnValue(of(lodgings));
+  lodgingService.get.and.returnValue(of(lodgings));
   bookingService.getByDateRange.and.returnValue(of(bookings));
 
   beforeEach(
@@ -128,7 +128,7 @@ describe('SearchBarComponent', () => {
     const isSearchedSpy = spyOn(component.isSearched, 'emit');
 
     component.onSubmit(testForm).then(() => {
-      expect(lodgingService.getAvailable).toHaveBeenCalled();
+      expect(lodgingService.get).toHaveBeenCalled();
       expect(bookingService.getByDateRange).toHaveBeenCalled();
 
       expect(searchResultsSpy).toHaveBeenCalled();
