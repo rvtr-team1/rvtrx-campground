@@ -22,18 +22,14 @@ export class MonitoringService implements ErrorHandler {
 
   // tslint:disable-next-line:no-any
   handleError(error: any): void {
-    this.sendToLogging(error);
-    this.sendToError(error);
-  }
-
-  // tslint:disable-next-line:no-any
-  sendToLogging(error: any): void {
+    console.log('monitoring');
     this.apiUrl$.subscribe((dsn) => {
       this.monitoring.sentry.init({
         dsn,
         environment: environment.name,
         release: environment.release,
       });
+
       this.monitoring.sentry.captureException(error.originalError || error);
     });
   }
