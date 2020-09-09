@@ -17,7 +17,7 @@ import { ErrorComponent } from './modules/error/error.component';
     Monitoring,
     {
       provide: ErrorHandler,
-      useClass: environment.production ? MonitoringService : ErrorHandler,
+      useClass: environment.name === '' ? MonitoringService : ErrorHandler,
     },
     {
       provide: OKTA_CONFIG,

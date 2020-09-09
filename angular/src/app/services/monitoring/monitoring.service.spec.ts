@@ -6,7 +6,6 @@ import { ConfigService } from '../config/config.service';
 import { Config } from '../../data/config.model';
 import { Monitoring } from '../../data/monitoring.model';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Router } from '@angular/router';
 
 describe('MonitorService', () => {
   const configServiceStub = {
