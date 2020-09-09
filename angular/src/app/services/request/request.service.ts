@@ -8,7 +8,7 @@ import { URLS } from 'src/app/data/url.model'
   providedIn: 'root'
 })
 export class RequestService {
-  url = "https://api.unsplash.com/photos/?client_id=-VgEWdyeo0G12nlohsHfoYQ6-MUbsc7KHziyCbvEY2g";
+  url = "https://api.unsplash.com/photos/random/?query=camping&client_id=-VgEWdyeo0G12nlohsHfoYQ6-MUbsc7KHziyCbvEY2g";
 
   constructor(private http: HttpClient) { }
 
