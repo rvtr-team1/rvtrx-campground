@@ -43,8 +43,3 @@ export interface Rental {
   /** discounted cost, if applicable */
   discountedPrice?: number;
 }
-
-/*
-change name to LotNumber
-   
-*/

@@ -1,8 +1,8 @@
-import { plotSize } from './plotSize.model';
+import { PlotSize } from './plotSize.model';
 import { Amenities } from './amenities.model';
 
 export interface RentalProperties {
-  size: plotSize;
+  size: PlotSize;
   amenities?: Amenities;
   capacity: number;
   name: string;
