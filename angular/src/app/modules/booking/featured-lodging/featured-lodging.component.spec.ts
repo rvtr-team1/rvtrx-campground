@@ -73,7 +73,6 @@ describe('FeaturedLodgingComponent', () => {
     expect(component.displayLodgings).toBeTruthy();
     expect(component.displayLodgings.length).toBeLessThanOrEqual(6);
   });
-  width: 5,
 
   it('should not update', () => {
     component.featuredLodgings = null;
