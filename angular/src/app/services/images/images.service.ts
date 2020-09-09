@@ -9,7 +9,7 @@ export class ImagesService {
 
   constructor(private req: RequestService) {}
 
-  getImageUrl(): Observable<any> {
-    return this.req.getImageData();
+  getImageUrl(): Observable<string> {
+    return this.req.getImageURL();
   }
 }

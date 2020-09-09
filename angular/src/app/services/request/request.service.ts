@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { URLS } from 'src/app/data/url.model'
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class RequestService {
 
   constructor(private http: HttpClient) { }
 
-  getImageData(): Observable<any> {
-    return this.http.get(this.url).pipe(map(function (res) { console.log(res) }));
+  getImageURL(): Observable<string> {
+    return this.http.get<URLS>(this.url).pipe(map(function (res) { res.urls.regular }));
   }
 }
