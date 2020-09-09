@@ -20,8 +20,7 @@ export class MonitoringService implements ErrorHandler {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.monitoring));
   }
 
-  // tslint:disable-next-line:no-any
-  handleError(error: any): void {
+  handleError(error: unknown): void {
     console.log('monitoring');
     this.apiUrl$.subscribe((dsn) => {
       this.monitoring.sentry.init({
@@ -30,7 +29,7 @@ export class MonitoringService implements ErrorHandler {
         release: environment.release,
       });
 
-      this.monitoring.sentry.captureException(error.originalError || error);
+      this.monitoring.sentry.captureException(error);
     });
   }
 
