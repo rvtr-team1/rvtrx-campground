@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 
 import { RequestService } from './request.service';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -10,6 +10,14 @@ describe('RequestService', () => {
   let httpclient: HttpClient;
   let service: RequestService;
   let httpTestCtrl = HttpTestingController;
+
+  const img: Image = {
+    regular: "http://placecorgi.com/250"
+  }
+
+  const imgObj: URLS = {
+    urls: img
+  }
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -28,16 +36,19 @@ describe('RequestService', () => {
     expect(service).toBeTruthy();
   });
   
-  it('should test RequestService.get', async () => {
-    // const img: Image = {
-    //   regular: ""
-    // }
-  
-    // const imgObj: URLS = {
-    //   urls: img
-    // }
-    
-    const result = await service.getImageURL().subscribe();
-    expect(result).toBe(String);
-  })
+  it('should test RequestService.getImageUrl', fakeAsync(() => {
+    let req: TestRequest;
+
+    // service.url ="http://placecorgi.com/250";
+
+    const result = service.getImageURL().subscribe();
+
+    expect(result).toBe(imgObj.urls.regular);
+
+    tick();
+
+    // req = httpTestCtrl.expectOne('test');
+
+    // req.flush('enter expectation');
+  }));
 });
