@@ -41,6 +41,7 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "karma-sonarqube-unit-reporter": "0.0.21",
     "netlify-cli": "^2.61.0",
+    "prettier": "2.1.1",
     "protractor": "~7.0.0",
     "puppeteer": "^5.2.1",
     "sonarqube-scanner": "^2.7.0",

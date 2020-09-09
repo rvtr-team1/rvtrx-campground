@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/te
 import { AccountBookingComponent } from './account-booking.component';
 import { Booking } from 'src/app/data/booking.model';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot} from 'src/app/data/tent.model';
-import { RVPlot} from 'src/app/data/rv.model';
-import { plotSize} from 'src/app/data/plotSize.model';
-import { Amenities} from 'src/app/data/amenities.model';
+import { TentPlot } from 'src/app/data/tent.model';
+import { RVPlot } from 'src/app/data/rv.model';
+import { plotSize } from 'src/app/data/plotSize.model';
+import { Amenities } from 'src/app/data/amenities.model';
 describe('AccountBookingComponent', () => {
   const booking: Booking = {
     id: 'string',
@@ -26,18 +26,18 @@ describe('AccountBookingComponent', () => {
     rentals: [
       {
         id: '1',
-      lotNumber: '1',
-      properties: {
-        size: {
-          width: 5,
-          height: 5
+        lotNumber: '1',
+        properties: {
+          size: {
+            width: 5,
+            height: 5,
+          },
+          amenities: undefined,
+          capacity: 2,
+          name: 'tent',
         },
-        amenities : undefined,
-        capacity: 2,
-        name : "tent",
-      },
-      status: 'available',
-      price: 100,
+        status: 'available',
+        price: 100,
       },
     ],
   };

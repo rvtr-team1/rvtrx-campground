@@ -18,7 +18,7 @@ export interface Rental {
   /** type of site
    *  - plotSize
    *    - an interface that is used to find out the size of a plot
-   *      ```yaml 
+   *      ```yaml
    *      width:number
    *      height:number
    *      ```
@@ -31,7 +31,7 @@ export interface Rental {
    *      water:string
    *      ```
    */
-  properties:RentalProperties;
+  properties: RentalProperties;
   /** booking status, one of:
    *  - available (neither booked nor currently in use)
    *  - booked (booked by someone else, but not in use)
@@ -43,8 +43,6 @@ export interface Rental {
   /** discounted cost, if applicable */
   discountedPrice?: number;
 }
-
-
 
 /*
 change name to LotNumber

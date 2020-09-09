@@ -1,5 +1,5 @@
 export interface Amenities {
-    voltage: number;
-    sewage: string;
-    water: string;
-  }
+  voltage: number;
+  sewage: string;
+  water: string;
+}

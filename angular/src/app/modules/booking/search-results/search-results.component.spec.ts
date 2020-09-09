@@ -6,10 +6,10 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { of } from 'rxjs';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot} from 'src/app/data/tent.model';
-import { RVPlot} from 'src/app/data/rv.model';
-import { plotSize} from 'src/app/data/plotSize.model';
-import { Amenities} from 'src/app/data/amenities.model';
+import { TentPlot } from 'src/app/data/tent.model';
+import { RVPlot } from 'src/app/data/rv.model';
+import { plotSize } from 'src/app/data/plotSize.model';
+import { Amenities } from 'src/app/data/amenities.model';
 describe('SearchResultsComponent', () => {
   const lodgings: Lodging[] = [
     {
@@ -31,18 +31,18 @@ describe('SearchResultsComponent', () => {
       rentals: [
         {
           id: '1',
-      lotNumber: '1',
-      properties:{
-        size: {
-          width: 5,
-          height: 5,
-        },
-        amenities : undefined,
-        capacity: 2,
-        name : "tent",
-      },
-      status: 'available',
-      price: 100,
+          lotNumber: '1',
+          properties: {
+            size: {
+              width: 5,
+              height: 5,
+            },
+            amenities: undefined,
+            capacity: 2,
+            name: 'tent',
+          },
+          status: 'available',
+          price: 100,
         },
       ],
       reviews: [

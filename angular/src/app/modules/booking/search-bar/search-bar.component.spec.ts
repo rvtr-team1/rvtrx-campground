@@ -9,10 +9,10 @@ import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Booking } from 'src/app/data/booking.model';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot} from 'src/app/data/tent.model';
-import { RVPlot} from 'src/app/data/rv.model';
-import { plotSize} from 'src/app/data/plotSize.model';
-import { Amenities} from 'src/app/data/amenities.model';
+import { TentPlot } from 'src/app/data/tent.model';
+import { RVPlot } from 'src/app/data/rv.model';
+import { plotSize } from 'src/app/data/plotSize.model';
+import { Amenities } from 'src/app/data/amenities.model';
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
   let fixture: ComponentFixture<SearchBarComponent>;
@@ -42,11 +42,11 @@ describe('SearchBarComponent', () => {
           properties: {
             size: {
               width: 5,
-              height: 5
+              height: 5,
             },
-            amenities : undefined,
+            amenities: undefined,
             capacity: 2,
-            name : "tent",
+            name: 'tent',
           },
           status: 'available',
           price: 100,
@@ -61,11 +61,11 @@ describe('SearchBarComponent', () => {
             },
             amenities: {
               voltage: 50,
-              sewage: "yes",
-              water: "yes",
+              sewage: 'yes',
+              water: 'yes',
             },
             capacity: 5,
-            name : "tent",
+            name: 'tent',
           },
           status: 'available',
           price: 100,
@@ -73,14 +73,14 @@ describe('SearchBarComponent', () => {
         {
           id: '3',
           lotNumber: '3',
-          properties:{
+          properties: {
             size: {
               width: 5,
-              height: 5
+              height: 5,
             },
-            amenities : undefined,
+            amenities: undefined,
             capacity: 2,
-            name : "tent",
+            name: 'tent',
           },
           status: 'available',
           price: 100,
@@ -93,20 +93,20 @@ describe('SearchBarComponent', () => {
               width: 5,
               height: 5,
             },
-            amenities :{
+            amenities: {
               voltage: 50,
-              sewage: "yes",
-              water: "yes",
+              sewage: 'yes',
+              water: 'yes',
             },
             capacity: 5,
-            name : "RV",
+            name: 'RV',
           },
           status: 'available',
           price: 100,
         },
       ],
       reviews: [],
-    }
+    },
   ];
 
   const bookings: Booking[] = [

@@ -1,4 +1,4 @@
-export interface plotSize{
-    width:number;
-    height:number;
-  }
+export interface plotSize {
+  width: number;
+  height: number;
+}

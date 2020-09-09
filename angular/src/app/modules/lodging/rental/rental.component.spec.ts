@@ -1,10 +1,10 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RentalComponent } from './rental.component';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot} from 'src/app/data/tent.model';
-import { RVPlot} from 'src/app/data/rv.model';
-import { plotSize} from 'src/app/data/plotSize.model';
-import { Amenities} from 'src/app/data/amenities.model';
+import { TentPlot } from 'src/app/data/tent.model';
+import { RVPlot } from 'src/app/data/rv.model';
+import { plotSize } from 'src/app/data/plotSize.model';
+import { Amenities } from 'src/app/data/amenities.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
@@ -17,11 +17,11 @@ describe('RentalComponent', () => {
       properties: {
         size: {
           width: 5,
-          height: 5
+          height: 5,
         },
-        amenities : undefined,
+        amenities: undefined,
         capacity: 2,
-        name : "tent",
+        name: 'tent',
       },
       status: 'available',
       price: 100,
@@ -34,13 +34,13 @@ describe('RentalComponent', () => {
           width: 5,
           height: 5,
         },
-        amenities : {
+        amenities: {
           voltage: 50,
-          sewage: "yes",
-          water: "yes",
+          sewage: 'yes',
+          water: 'yes',
         },
         capacity: 5,
-        name : "tent",
+        name: 'tent',
       },
       status: 'available',
       price: 100,
@@ -51,11 +51,11 @@ describe('RentalComponent', () => {
       properties: {
         size: {
           width: 5,
-          height: 5
+          height: 5,
         },
-        amenities : undefined,
+        amenities: undefined,
         capacity: 2,
-        name : "tent"
+        name: 'tent',
       },
       status: 'available',
       price: 100,
@@ -63,18 +63,18 @@ describe('RentalComponent', () => {
     {
       id: '4',
       lotNumber: '1',
-      properties:{
+      properties: {
         size: {
           width: 5,
-          height: 5
+          height: 5,
         },
-        amenities : {
+        amenities: {
           voltage: 50,
-          sewage: "yes",
-          water: "yes",
+          sewage: 'yes',
+          water: 'yes',
         },
         capacity: 5,
-        name : "RV"
+        name: 'RV',
       },
       status: 'available',
       price: 100,

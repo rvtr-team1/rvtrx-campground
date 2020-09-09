@@ -3,16 +3,13 @@ import { plotSize } from './plotSize.model';
 import { Amenities } from './amenities.model';
 
 export class TentPlot implements RentalProperties {
-    size: plotSize;
-    amenities?: Amenities;
-    capacity: number;
-    name:string;
-    constructor(Size:plotSize)
-    {
-        this.size = Size;
-        this.capacity = 4;
-        this.name = "TentPlot";
-    }
-    
-
+  size: plotSize;
+  amenities?: Amenities;
+  capacity: number;
+  name: string;
+  constructor(Size: plotSize) {
+    this.size = Size;
+    this.capacity = 4;
+    this.name = 'TentPlot';
+  }
 }
