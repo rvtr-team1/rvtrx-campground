@@ -6,5 +6,5 @@
  * ```
  */
 export interface Image {
-    regular: string;
+  regular: string;
 }

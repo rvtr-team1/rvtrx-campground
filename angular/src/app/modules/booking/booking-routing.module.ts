@@ -5,7 +5,7 @@ import { LodgingDetailsComponent } from '../lodging/lodging-details/lodging-deta
 
 const routes: Routes = [
   { component: BookingComponent, path: '' },
-  { component: LodgingDetailsComponent, path: 'featured-lodging/details/:id' }
+  { component: LodgingDetailsComponent, path: 'featured-lodging/details/:id' },
 ];
 
 @NgModule({

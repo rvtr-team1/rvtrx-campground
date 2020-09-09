@@ -3,10 +3,9 @@ import { RequestService } from '../request/request.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ImagesService {
-
   constructor(private req: RequestService) {}
 
   getImageUrl(): Observable<string> {
