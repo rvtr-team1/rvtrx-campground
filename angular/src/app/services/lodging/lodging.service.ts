@@ -12,7 +12,7 @@ export class LodgingService {
   private readonly lodgingsUrl$: Observable<string>;
   private readonly rentalsUrl$: Observable<string>;
   private readonly reviewsUrl$: Observable<string>;
-
+  private readonly imageUrl$: Observable<string>;
   /**
    * Represents the _Lodging Service_ `constructor` method
    *
@@ -29,6 +29,9 @@ export class LodgingService {
     );
     this.reviewsUrl$ = config$.pipe(
       map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.review}`)
+    );
+    this.imageUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.image}`)
     );
   }
 
