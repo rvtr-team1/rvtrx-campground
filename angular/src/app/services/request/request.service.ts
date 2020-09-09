@@ -13,6 +13,6 @@ export class RequestService {
   constructor(private http: HttpClient) { }
 
   getImageURL(): Observable<string> {
-    return this.http.get<URLS>(this.url).pipe(map(function (res) { res.urls.regular }));
+    return this.http.get<URLS>(this.url).pipe(map(function (res) { return res.urls.regular }));
   }
 }
