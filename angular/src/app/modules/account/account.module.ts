@@ -1,7 +1,4 @@
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
-import { AccountRoutingModule } from 'modules/account/account-routing.module';
-=======
 import { CommonModule } from '@angular/common';
 import { AccountRoutingModule } from './account-routing.module';
 import { AccountComponent } from './account/account.component';
@@ -14,7 +11,8 @@ import { NewAddressFormComponent } from './new-address-form/new-address-form.com
 import { NewPaymentFormComponent } from './new-payment-form/new-payment-form.component';
 import { EditableComponent } from './editable/editable.component';
 import { ReactiveFormsModule } from '@angular/forms';
->>>>>>> updated account module w/declarations dict, form and common modules
+import { ACCOUNT_EDITING_SERVICE } from './account-editing.token';
+import { GenericEditingService } from 'src/app/services/editable/generic-editing.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +25,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewAddressFormComponent,
     NewPaymentFormComponent,
     EditableComponent,
+  ],
+  providers: [
+    {
+      provide: ACCOUNT_EDITING_SERVICE,
+      useFactory: () => new GenericEditingService<Partial<Account>>(),
+    },
   ],
   imports: [CommonModule, AccountRoutingModule, ReactiveFormsModule],
 })
