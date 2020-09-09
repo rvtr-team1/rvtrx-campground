@@ -1,6 +1,6 @@
 import { Environment } from './types/environment.type';
 import * as manifest from '../../package.json';
-import * as config from '../../angular.json';
+import * as ngConfig from '../../angular.json';
 
 export const environment: Environment = {
   config: 'app.config.local.json',
@@ -13,5 +13,5 @@ export const environment: Environment = {
   },
   name: '',
   production: false,
-  release: `${config.defaultProject}@${manifest.version}`,
+  release: `${ngConfig.defaultProject}@${manifest.version}`,
 };
