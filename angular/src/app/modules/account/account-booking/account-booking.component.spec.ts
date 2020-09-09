@@ -2,8 +2,6 @@ import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/te
 import { AccountBookingComponent } from './account-booking.component';
 import { Booking } from 'src/app/data/booking.model';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot } from 'src/app/data/tent.model';
-import { RVPlot } from 'src/app/data/rv.model';
 import { PlotSize } from 'src/app/data/plotSize.model';
 import { Amenities } from 'src/app/data/amenities.model';
 describe('AccountBookingComponent', () => {

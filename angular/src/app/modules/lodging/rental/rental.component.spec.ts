@@ -1,21 +1,25 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RentalComponent } from './rental.component';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot } from 'src/app/data/tent.model';
-import { RVPlot } from 'src/app/data/rv.model';
 import { PlotSize } from 'src/app/data/plotSize.model';
 import { Amenities } from 'src/app/data/amenities.model';
 
 describe('RentalComponent', () => {
   let component: RentalComponent;
   let fixture: ComponentFixture<RentalComponent>;
-  let size = new PlotSize(6,6);
-  let tent = new TentPlot(size);
   const rentals: Rental[] = [
     {
       id: '1',
       lotNumber: '1',
-      properties: tent,
+      properties: {
+        size: {
+          width: 5,
+          height: 5,
+        },
+        amenities: undefined,
+        capacity: 2,
+        name: 'tent',
+      },
       status: 'available',
       price: 100,
     },
@@ -72,7 +76,6 @@ describe('RentalComponent', () => {
       status: 'available',
       price: 100,
     },
-    
   ];
 
   beforeEach(
@@ -87,23 +90,18 @@ describe('RentalComponent', () => {
       fixture.detectChanges();
     })
   );
-  it('should create plotsize', () => {
-    expect(size).toBeTruthy();
-  });
-  it('should create tentplot', () => {
-    expect(tent).toBeTruthy();
-  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   it('should set rentalTypes', () => {
     expect(component.rentalTypes).toBeTruthy();
-    expect(component.rentalTypes.length).toEqual(3);
+    expect(component.rentalTypes.length).toEqual(2);
   });
 
   it('should set availability count correctly', () => {
-    expect(component.availabilityCount.get('tent')).toEqual(2);
+    expect(component.availabilityCount.get('tent')).toEqual(3);
   });
 
   it('should have none available', () => {

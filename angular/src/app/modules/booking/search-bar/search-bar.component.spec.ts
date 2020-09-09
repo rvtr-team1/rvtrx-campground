@@ -9,8 +9,6 @@ import { of } from 'rxjs';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Booking } from 'src/app/data/booking.model';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot } from 'src/app/data/tent.model';
-import { RVPlot } from 'src/app/data/rv.model';
 import { PlotSize } from 'src/app/data/plotSize.model';
 import { Amenities } from 'src/app/data/amenities.model';
 describe('SearchBarComponent', () => {

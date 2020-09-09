@@ -7,8 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Lodging } from 'src/app/data/lodging.model';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot } from 'src/app/data/tent.model';
-import { RVPlot } from 'src/app/data/rv.model';
 import { PlotSize } from 'src/app/data/plotSize.model';
 import { Amenities } from 'src/app/data/amenities.model';
 describe('BookingComponent', () => {

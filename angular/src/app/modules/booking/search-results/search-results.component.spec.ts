@@ -6,8 +6,6 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { of } from 'rxjs';
 import { Rental } from 'src/app/data/rental.model';
-import { TentPlot } from 'src/app/data/tent.model';
-import { RVPlot } from 'src/app/data/rv.model';
 import { PlotSize } from 'src/app/data/plotSize.model';
 import { Amenities } from 'src/app/data/amenities.model';
 describe('SearchResultsComponent', () => {
