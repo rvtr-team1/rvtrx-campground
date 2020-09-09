@@ -16,10 +16,10 @@
           Rental type: {{ rental.properties.name }}
           <span class="fas fa-bed"></span>
         </td>
-        <td>Rental Lot Size: {{ rental.type.size.width }} X {{rental.type.size.height}}</td>
-        <td>Maximum Capacity: {{ rental.maximumCapacity }}</td>
-        <td *ngIf="rental.properties.name = RV">Sewage: {{rental.type.amenities.sewage}} </td>
-        <td *ngIf="rental.properties.name = RV"> Water: {{rental.type.amenities.water}} </td>
+        <td>Rental Lot Size: {{ rental.properties.size.width }} X {{rental.properties.size.height}}</td>
+        <td>Capacity: {{ rental.capacity }}</td>
+        <!-- <td *ngIf="rental.properties.name = RV">Sewage: {{rental.type.amenities.sewage}} </td>
+        <td *ngIf="rental.properties.name = RV"> Water: {{rental.type.amenities.water}} </td> -->
         <td>{{ availabilityCount.get(rental.properties.name) }}</td>
         <td>Price: {{ rental.price | currency }}</td>
       </tr>
