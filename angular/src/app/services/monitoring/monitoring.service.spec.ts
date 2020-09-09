@@ -55,11 +55,12 @@ describe('MonitorService', () => {
 
   it('should handle error', fakeAsync(() => {
     const logSpy = spyOn(service, 'sendToLogging');
+    const routerSpy = spyOn(service, 'sendToError');
 
-    service.sendToLogging(new Error('error'));
-
-    expect(logSpy).toHaveBeenCalled();
+    service.handleError(new Error('error'));
 
     tick();
+    expect(logSpy).toHaveBeenCalled();
+    expect(routerSpy).toHaveBeenCalled();
   }));
 });

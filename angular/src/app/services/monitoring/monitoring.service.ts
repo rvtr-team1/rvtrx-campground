@@ -15,7 +15,7 @@ export class MonitoringService implements ErrorHandler {
   constructor(
     config: ConfigService,
     private readonly monitoring: Monitoring,
-    private router: Router
+    private readonly router: Router
   ) {
     this.apiUrl$ = config.get().pipe(map((cfg) => cfg.api.monitoring));
   }
@@ -23,7 +23,7 @@ export class MonitoringService implements ErrorHandler {
   // tslint:disable-next-line:no-any
   handleError(error: any): void {
     this.sendToLogging(error);
-    this.router.navigate(['/error']);
+    this.sendToError(error);
   }
 
   // tslint:disable-next-line:no-any
@@ -36,5 +36,10 @@ export class MonitoringService implements ErrorHandler {
       });
       this.monitoring.sentry.captureException(error.originalError || error);
     });
+  }
+
+  // tslint:disable-next-line:no-any
+  sendToError(error: any): void {
+    this.router.navigate(['/error']);
   }
 }
