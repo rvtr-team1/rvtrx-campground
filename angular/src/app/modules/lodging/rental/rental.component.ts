@@ -47,6 +47,7 @@ export class RentalComponent implements OnInit, OnChanges {
     // check to see if a rental has the same type as one that's already in the rentalTypes
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
+    // clears rentaltypes and availability count every time it's called
     this.availabilityCount.clear();
     this.rentalTypes = [];
     for (const rental of rentals) {
