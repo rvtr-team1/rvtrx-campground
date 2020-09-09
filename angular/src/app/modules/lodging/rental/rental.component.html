@@ -10,15 +10,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let rental of rentalTypes">
+      <tr *ngFor="let rental of rentals">
         <td>
-          {{ rental.name }}<br />
-          {{ rental.type }}
+          Rental Lot Number: {{ rental.lotNumber }}<br />
+          Rental type: {{ rental.properties.name }}
           <span class="fas fa-bed"></span>
         </td>
-        <td>{{ rental.occupancy }}</td>
-        <td>{{ availabilityCount.get(rental.type) }}</td>
-        <td>{{ rental.price | currency }}</td>
+        <td>Rental Lot Size: {{ rental.properties.size.width }} X {{rental.properties.size.height}}</td>
+        <td>Capacity: {{ rental.properties.capacity }}</td>
+        <td *ngIf="rental.properties.amenities != undefined">Sewage: {{rental.properties.amenities.sewage}} </td>
+        <td *ngIf="rental.properties.amenities != undefined"> Water: {{rental.properties.amenities.water}} </td>
+        <td>{{ availabilityCount.get(rental.properties.name) }}</td>
+        <td>Price: {{ rental.price | currency }}</td>
       </tr>
     </tbody>
   </table>

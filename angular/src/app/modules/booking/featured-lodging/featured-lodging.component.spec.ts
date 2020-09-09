@@ -26,12 +26,19 @@ describe('FeaturedLodgingComponent', () => {
       bathrooms: 1,
       rentals: [
         {
-          id: '',
-          name: '',
-          price: 0,
-          occupancy: 0,
-          type: '',
-          status: '',
+          id: '1',
+          lotNumber: '1',
+          properties: {
+            size: {
+              width: 5,
+              height: 5,
+            },
+            amenities: undefined,
+            capacity: 2,
+            name: 'tent',
+          },
+          status: 'available',
+          price: 100,
         },
       ],
       reviews: [],
