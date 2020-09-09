@@ -104,11 +104,11 @@ describe('RentalComponent', () => {
   });
 
   it('should set availability count correctly', () => {
-    expect(component.availabilityCount.get('tent')).toEqual(2);
+    expect(component.availabilityCount.get('tent')).toEqual(3);
   });
 
   it('should have none available', () => {
-    expect(component.availabilityCount.get('cabin')).toEqual(0);
+    expect(component.availabilityCount.get('RV')).toEqual(1);
   });
 
   it('should call setRentals', () => {
@@ -119,7 +119,7 @@ describe('RentalComponent', () => {
 
   it('should test the length of the rows', () => {
     const tableRows = fixture.nativeElement.querySelectorAll('tr');
-    expect(tableRows.length).toBe(3);
+    expect(tableRows.length).toBe(5);
   });
 
   it('should test the table headers', () => {
