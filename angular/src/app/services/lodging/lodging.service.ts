@@ -50,10 +50,9 @@ export class LodgingService {
    * @param filter Filter
    */
   get(filter?: Filter): Observable<Lodging[]> {
-    if(!filter){
+    if (!filter) {
       return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url)));
-    }
-    else{
+    } else {
       const params = new HttpParams().set('city', filter.city).set('occupancy', filter.occupancy);
       return this.lodgingsUrl$.pipe(
         concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))

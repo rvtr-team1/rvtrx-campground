@@ -29,7 +29,7 @@ export class SearchBarComponent {
     const checkIn: string = form.value.checkin;
     const checkOut: string = form.value.checkout;
 
-    let filter: Filter = ({city: city, occupancy: occupancy});
+    let filter: Filter = { city: city, occupancy: occupancy };
 
     const lodgings$ = this.lodgingService.get(filter);
     const bookings$ = this.bookingService.getByDateRange(checkIn, checkOut);
