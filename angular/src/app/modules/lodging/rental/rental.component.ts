@@ -1,7 +1,7 @@
 /**
  * importing the necessary modules, services and models.
  */
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { Rental } from '../../../data/rental.model';
 
 /**
@@ -16,7 +16,7 @@ import { Rental } from '../../../data/rental.model';
 /**
  * This class represents the Rental component
  */
-export class RentalComponent implements OnInit {
+export class RentalComponent implements OnInit, OnChanges {
   /**
    * rentals taken from the lodging-details lodging.rentals
    */
@@ -34,6 +34,11 @@ export class RentalComponent implements OnInit {
     this.setRentalTypes(this.rentals);
   }
 
+  // Whenever changes are made in the @Input, rerun setRentalTypes again to update the information
+  ngOnChanges(changes?: SimpleChanges): void {
+    this.setRentalTypes(this.rentals);
+  }
+
   /**
    * populates rentalTypes and keeps track of the availability of each rental
    */
@@ -42,6 +47,9 @@ export class RentalComponent implements OnInit {
     // check to see if a rental has the same type as one that's already in the rentalTypes
     // only keep track of the rental types that are unique
     // increment the availability count for each rental in rentals if they are available
+    // clears rentaltypes and availability count every time it's called
+    this.availabilityCount.clear();
+    this.rentalTypes = [];
     for (const rental of rentals) {
       let count = this.availabilityCount.get(rental.type);
       if (count === undefined) {

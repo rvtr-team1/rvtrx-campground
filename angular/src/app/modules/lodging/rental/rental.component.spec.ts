@@ -88,4 +88,26 @@ describe('RentalComponent', () => {
     expect(headerRow.cells[0].innerHTML).toContain('Site');
     expect(headerRow.cells[2].innerHTML).toContain('Sites Available');
   });
+
+  it('should add and remove rental', () => {
+    const rental = {
+      id: '5',
+      name: 'Rental5',
+      occupancy: 2,
+      type: 'tent',
+      status: 'available',
+      price: 100,
+    };
+
+    // Adds Rental
+    rentals.push(rental);
+    component.rentals = rentals;
+    component.ngOnChanges();
+    expect(component.availabilityCount.get('tent')).toEqual(3);
+
+    // Removes Rental
+    component.rentals.splice(4, 1);
+    component.ngOnChanges();
+    expect(component.availabilityCount.get('tent')).toEqual(2);
+  });
 });
