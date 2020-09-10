@@ -42,10 +42,10 @@ export class AccountService {
    *
    * @param id string
    */
-  delete(id: string): Observable<boolean> {
+  delete(id: string): Observable<void> {
     return this.accountsUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.delete<boolean>(url))
+      concatMap((url) => this.http.delete<void>(url))
     );
   }
 
@@ -66,8 +66,8 @@ export class AccountService {
    *
    * @param account Account
    */
-  post(account: Account): Observable<boolean> {
-    return this.accountsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, account)));
+  post(account: Account): Observable<Account> {
+    return this.accountsUrl$.pipe(concatMap((url) => this.http.post<Account>(url, account)));
   }
 
   /**
@@ -84,7 +84,7 @@ export class AccountService {
    * @param payment
    * Represents the _Account Service_ 'post' method for payments
    */
-  postPayment(payment: PostPayment): Observable<boolean> {
-    return this.paymentsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, payment)));
+  postPayment(payment: PostPayment): Observable<PostPayment> {
+    return this.paymentsUrl$.pipe(concatMap((url) => this.http.post<PostPayment>(url, payment)));
   }
 }

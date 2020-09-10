@@ -51,9 +51,10 @@ export class LodgingService {
    *
    * @param id string
    */
-  delete(id: string): Observable<boolean> {
+  delete(id: string): Observable<void> {
     return this.lodgingsUrl$.pipe(
-      concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.delete<void>(url))
     );
   }
 
@@ -73,7 +74,10 @@ export class LodgingService {
    * @param id string
    */
   getById(id: string): Observable<Lodging> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging>(`${url}/${id}`)));
+    return this.lodgingsUrl$.pipe(
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.get<Lodging>(url))
+    );
   }
 
   /**
@@ -81,8 +85,8 @@ export class LodgingService {
    *
    * @param lodging Lodging
    */
-  post(lodging: Lodging): Observable<boolean> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, lodging)));
+  post(lodging: Lodging): Observable<Lodging> {
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<Lodging>(url, lodging)));
   }
 
   /**

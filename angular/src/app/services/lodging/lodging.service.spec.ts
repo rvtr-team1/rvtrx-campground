@@ -102,14 +102,12 @@ describe('LodgingService', () => {
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.delete('0').subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
-    });
+    service.delete('0').subscribe();
 
     tick();
 
-    req = httpTestingController.expectOne('test?id=0');
-    req.flush(JSON.stringify(true));
+    req = httpTestingController.expectOne('test/0');
+    req.flush(null);
   }));
 
   it('should make httpGet request', fakeAsync(() => {
@@ -151,13 +149,13 @@ describe('LodgingService', () => {
     let req: TestRequest;
 
     service.post(lodgingMock[0]).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(lodgingMock[0]);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(lodgingMock[0]);
   }));
 
   it('should make httpPut request', fakeAsync(() => {
