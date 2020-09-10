@@ -1,7 +1,7 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('project rvtr-app-campsite', () => {
+describe('project rvtrx-campground', () => {
   let page: AppPage;
 
   beforeEach(() => {
