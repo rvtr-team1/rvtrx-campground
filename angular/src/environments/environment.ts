@@ -11,6 +11,7 @@ export const environment: Environment = {
     redirectUri: `${location.protocol}//${location.host}/oauth2/authorize`,
     scopes: ['openid', 'profile', 'email'],
   },
+  monitoring: 'https://ec61288c429544a6ad850b94de25004a@o388320.ingest.sentry.io/5229046',
   name: '',
   production: false,
   release: `${ngConfig.defaultProject}@${manifest.version}`,
