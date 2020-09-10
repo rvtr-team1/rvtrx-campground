@@ -51,7 +51,7 @@ export class RentalComponent implements OnInit, OnChanges {
     this.availabilityCount.clear();
     this.rentalTypes = [];
     for (const rental of rentals) {
-      let count = this.availabilityCount.get(rental.type);
+      let count = this.availabilityCount.get(rental.properties.name);
       if (count === undefined) {
         count = 0;
         this.rentalTypes.push(rental);
@@ -59,7 +59,7 @@ export class RentalComponent implements OnInit, OnChanges {
       if (rental.status === 'available') {
         count += 1;
       }
-      this.availabilityCount.set(rental.type, count);
+      this.availabilityCount.set(rental.properties.name, count);
     }
   }
 }

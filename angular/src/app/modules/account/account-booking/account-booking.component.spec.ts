@@ -20,13 +20,19 @@ describe('AccountBookingComponent', () => {
     ],
     rentals: [
       {
-        id: 'string',
-        name: 'string',
-        status: 'string',
-        price: 0.0,
-        discountedPrice: 0.0,
-        type: 'string',
-        occupancy: 1,
+        id: '1',
+        lotNumber: '1',
+        properties: {
+          size: {
+            width: 5,
+            height: 5,
+          },
+          amenities: undefined,
+          capacity: 2,
+          name: 'tent',
+        },
+        status: 'available',
+        price: 100,
       },
     ],
   };

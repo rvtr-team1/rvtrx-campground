@@ -26,12 +26,19 @@ describe('SearchResultsComponent', () => {
       name: '',
       rentals: [
         {
-          id: '',
-          name: '',
-          occupancy: 1,
-          type: '',
+          id: '1',
+          lotNumber: '1',
+          properties: {
+            size: {
+              width: 5,
+              height: 5,
+            },
+            amenities: undefined,
+            capacity: 2,
+            name: 'tent',
+          },
           status: 'available',
-          price: 1.0,
+          price: 100,
         },
       ],
       reviews: [
