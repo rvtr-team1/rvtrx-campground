@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
+import { ErrorComponent } from 'modules/error/error.component';
 
 const routes: Routes = [
+  {
+    path: 'error',
+    component: ErrorComponent,
+  },
   {
     component: OktaCallbackComponent,
     path: 'oauth2/authorize',

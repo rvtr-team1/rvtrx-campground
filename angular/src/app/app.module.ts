@@ -7,10 +7,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
+import { ErrorComponent } from './modules/error/error.component';
 
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ErrorComponent],
   imports: [AppRoutingModule, BrowserModule, LayoutModule, OktaAuthModule],
   providers: [
     Monitoring,

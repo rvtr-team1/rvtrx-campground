@@ -5,6 +5,7 @@ import { MonitoringService } from './monitoring.service';
 import { ConfigService } from '../config/config.service';
 import { Config } from '../../data/config.model';
 import { Monitoring } from '../../data/monitoring.model';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MonitorService', () => {
   const configServiceStub = {
@@ -41,7 +42,7 @@ describe('MonitorService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [{ provide: ConfigService, useValue: configServiceStub }, Monitoring],
     });
     service = TestBed.inject(MonitoringService);
@@ -52,10 +53,13 @@ describe('MonitorService', () => {
   });
 
   it('should handle error', fakeAsync(() => {
-    expect(() => {
-      service.handleError(new Error('error'));
-    }).not.toThrow();
+    const logSpy = spyOn(service, 'sendToLogging');
+    const routerSpy = spyOn(service, 'sendToError');
+
+    service.handleError(new Error('error'));
 
     tick();
+    expect(logSpy).toHaveBeenCalled();
+    expect(routerSpy).toHaveBeenCalled();
   }));
 });
