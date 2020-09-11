@@ -5,7 +5,7 @@ import { MonitoringService } from './monitoring.service';
 
 describe('MonitorService', () => {
   const routerMock = {
-    navigate() {},
+    navigate(urls: string[]): void {},
   };
 
   let service: MonitoringService;
