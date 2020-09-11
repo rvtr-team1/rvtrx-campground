@@ -1,7 +1,6 @@
 import { Location } from './location.model';
 import { Review } from './review.model';
 import { Rental } from './rental.model';
-import { Image } from './image.model';
 
 /**
  * Represents the _Lodging_ model
@@ -13,7 +12,7 @@ import { Image } from './image.model';
  * bathrooms: number;
  * rentals: Rental[];
  * reviews: Review[];
- * images: Image[];
+ * imageUrls: string[]
  * ```
  */
 export interface Lodging {
@@ -28,5 +27,5 @@ export interface Lodging {
   /** reviews associated with any sites within the campground */
   reviews: Review[];
   /** various images of the campground */
-  images: Image[];
+  imageUrls: string[];
 }

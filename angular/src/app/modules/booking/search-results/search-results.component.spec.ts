@@ -46,6 +46,7 @@ describe('SearchResultsComponent', () => {
         },
       ],
       bathrooms: 1,
+      imageUrls: [],
     },
   ];
 

@@ -27,6 +27,7 @@ describe('LodgingDetailsComponent', () => {
     rentals: [],
     reviews: [],
     bathrooms: 1,
+    imageUrls: [],
   };
   beforeEach(
     waitForAsync(() => {

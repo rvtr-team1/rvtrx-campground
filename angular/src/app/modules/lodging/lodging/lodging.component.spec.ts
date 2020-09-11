@@ -30,6 +30,7 @@ describe('LodgingComponent', () => {
       rentals: [],
       reviews: [],
       bathrooms: 1,
+      imageUrls: [],
     },
   ];
 
