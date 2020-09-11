@@ -16,7 +16,7 @@
           Rental type: {{ rental.unit.name }}
           <span class="fas fa-bed"></span>
         </td>
-        <td>Rental Lot Size: {{ rental.unit.size.width }} X {{rental.unit.size.height}}</td>
+        <td>Rental Lot Size: {{ rental.unit.size }}</td>
         <td>Capacity: {{ rental.unit.capacity }}</td>
         <td>{{ availabilityCount.get(rental.unit.name) }}</td>
         <td>Price: {{ rental.price | currency }}</td>
