@@ -23,12 +23,14 @@ export class SearchBarComponent {
 
   async onSubmit(form: NgForm): Promise<void> {
     const occupancy = `${parseInt(form.value.adults, 10) + parseInt(form.value.children, 10)}`;
-    const city: string = form.value.location;
+    const city: string = form.value.city;
+    const state: string = form.value.state;
+    const country: string = form.value.country;
 
     const checkIn: string = form.value.checkin;
     const checkOut: string = form.value.checkout;
 
-    const lodgings$ = this.lodgingService.getAvailable(city, occupancy);
+    const lodgings$ = this.lodgingService.getAvailable(city, state, country, occupancy);
     const bookings$ = this.bookingService.getByDateRange(checkIn, checkOut);
 
     forkJoin([lodgings$, bookings$]).subscribe(([lodgings, bookings]) => {
@@ -36,10 +38,10 @@ export class SearchBarComponent {
       const availableLodgings: Lodging[] = lodgings.filter(
         (lodging) => !bookedLodgingIds.includes(lodging.id)
       );
-
+      this.searchResults = availableLodgings;
       this.searchResults.emit(availableLodgings);
       this.searchQuery.emit(
-        `City: ${city}, Occupancy: ${occupancy}, Dates: ${checkIn} - ${checkOut}`
+        `City: ${city}, State: ${state}, Country: ${country}, Occupancy: ${occupancy}, Dates: ${checkIn} - ${checkOut}`
       );
       this.isSearched.emit(true);
     });
