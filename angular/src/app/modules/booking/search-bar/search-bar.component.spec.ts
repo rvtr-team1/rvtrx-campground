@@ -35,12 +35,8 @@ describe('SearchBarComponent', () => {
         {
           id: '1',
           lotNumber: '1',
-          properties: {
-            size: {
-              width: 5,
-              height: 5,
-            },
-            amenities: undefined,
+          unit: {
+            size: '5x5',
             capacity: 2,
             name: 'tent',
           },
@@ -50,52 +46,10 @@ describe('SearchBarComponent', () => {
         {
           id: '2',
           lotNumber: '2',
-          properties: {
-            size: {
-              width: 5,
-              height: 5,
-            },
-            amenities: {
-              voltage: 50,
-              sewage: 'yes',
-              water: 'yes',
-            },
+          unit: {
+            size: '5x5',
             capacity: 5,
-            name: 'tent',
-          },
-          status: 'available',
-          price: 100,
-        },
-        {
-          id: '3',
-          lotNumber: '3',
-          properties: {
-            size: {
-              width: 5,
-              height: 5,
-            },
-            amenities: undefined,
-            capacity: 2,
-            name: 'tent',
-          },
-          status: 'available',
-          price: 100,
-        },
-        {
-          id: '4',
-          lotNumber: '1',
-          properties: {
-            size: {
-              width: 5,
-              height: 5,
-            },
-            amenities: {
-              voltage: 50,
-              sewage: 'yes',
-              water: 'yes',
-            },
-            capacity: 5,
-            name: 'RV',
+            name: 'rv',
           },
           status: 'available',
           price: 100,

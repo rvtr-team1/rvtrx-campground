@@ -1,6 +1,3 @@
-/**
- * importing the necessary modules, services and models.
- */
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { Rental } from '../../../data/rental.model';
 
@@ -51,7 +48,7 @@ export class RentalComponent implements OnInit, OnChanges {
     this.availabilityCount.clear();
     this.rentalTypes = [];
     for (const rental of rentals) {
-      let count = this.availabilityCount.get(rental.properties.name);
+      let count = this.availabilityCount.get(rental.unit.name);
       if (count === undefined) {
         count = 0;
         this.rentalTypes.push(rental);
@@ -59,7 +56,7 @@ export class RentalComponent implements OnInit, OnChanges {
       if (rental.status === 'available') {
         count += 1;
       }
-      this.availabilityCount.set(rental.properties.name, count);
+      this.availabilityCount.set(rental.unit.name, count);
     }
   }
 }

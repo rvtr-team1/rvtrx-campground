@@ -7,12 +7,8 @@ describe('RentalComponent', () => {
     {
       id: '1',
       lotNumber: '1',
-      properties: {
-        size: {
-          width: 5,
-          height: 5,
-        },
-        amenities: undefined,
+      unit: {
+        size: '5x5',
         capacity: 2,
         name: 'tent',
       },
@@ -22,18 +18,10 @@ describe('RentalComponent', () => {
     {
       id: '2',
       lotNumber: '2',
-      properties: {
-        size: {
-          width: 5,
-          height: 5,
-        },
-        amenities: {
-          voltage: 50,
-          sewage: 'yes',
-          water: 'yes',
-        },
+      unit: {
+        size: '5x5',
         capacity: 5,
-        name: 'RV',
+        name: 'rv',
       },
       status: 'available',
       price: 100,
@@ -70,7 +58,7 @@ describe('RentalComponent', () => {
   });
 
   it('should have none available', () => {
-    expect(component.availabilityCount.get('RV')).toEqual(1);
+    expect(component.availabilityCount.get('rv')).toEqual(1);
   });
 
   it('should call setRentals', () => {
@@ -92,15 +80,11 @@ describe('RentalComponent', () => {
   });
 
   it('should add and remove rental', () => {
-    const rental = {
+    const rental: Rental = {
       id: '3',
       lotNumber: '3',
-      properties: {
-        size: {
-          width: 5,
-          height: 5,
-        },
-        amenities: undefined,
+      unit: {
+        size: '5x5',
         capacity: 2,
         name: 'tent',
       },

@@ -1,12 +1,11 @@
-import { RentalProperties } from './rentalProperties.model';
+import { RentalUnit } from './rental-unit.model';
 /**
  * Represents the _Rental_ modei
  *
  * ```yaml
  * id: string;
  * lotNumber: string;
- * occupancy: number;
- * type: string;
+ * unit: RentalUnit;
  * status: string;
  * price: number;
  * discountedPrice?: number;
@@ -31,7 +30,7 @@ export interface Rental {
    *      water:string
    *      ```
    */
-  properties: RentalProperties;
+  unit: RentalUnit;
   /** booking status, one of:
    *  - available (neither booked nor currently in use)
    *  - booked (booked by someone else, but not in use)

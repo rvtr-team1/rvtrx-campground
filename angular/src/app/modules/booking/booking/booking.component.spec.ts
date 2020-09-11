@@ -34,12 +34,8 @@ describe('BookingComponent', () => {
             {
               id: '1',
               lotNumber: '1',
-              properties: {
-                size: {
-                  width: 5,
-                  height: 5,
-                },
-                amenities: undefined,
+              unit: {
+                size: '5x5',
                 capacity: 2,
                 name: 'tent',
               },
