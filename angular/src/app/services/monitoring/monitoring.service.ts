@@ -1,21 +1,21 @@
 import { ErrorHandler, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Sentry from '@sentry/angular';
+import { environment } from 'environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MonitoringService implements ErrorHandler {
+  constructor(private readonly router: Router) {}
+
   handleError(error: unknown): void {
     const errorHandler = Sentry.createErrorHandler({
-      logErrors: true,
+      logErrors: !environment.production,
       showDialog: false,
     });
 
     errorHandler.handleError(error);
-  }
-
-  // tslint:disable-next-line:no-any
-  sendToError(error: any): void {
     this.router.navigate(['/error']);
   }
 }
