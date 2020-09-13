@@ -4,7 +4,7 @@ describe('lodging', () => {
   it('Page title contains Campsite', () => {
     browser.get('http://localhost:4200/lodging');
     browser.driver.getTitle().then((pageTitle) => {
-      expect(pageTitle).toContain('Campsite');
+      expect(pageTitle).toContain('Campground');
     });
   });
 
@@ -18,7 +18,7 @@ describe('lodging', () => {
   it('Checking page title length', () => {
     browser.get('http://localhost:4200/lodging');
     browser.driver.getTitle().then((pageTitle) => {
-      expect(pageTitle.length).toBe(15);
+      expect(pageTitle.length).toBe(17);
     });
   });
 

@@ -15,7 +15,7 @@ describe('project rvtrx-campground', () => {
 
   it('should display page header', () => {
     page.navigateTo();
-    expect(page.getPageHeader()).toContain('Campsite');
+    expect(page.getPageHeader()).toContain('Campground');
   });
 
   afterEach(async () => {
