@@ -97,14 +97,12 @@ describe('AccountService', () => {
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.delete('0').subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
-    });
+    service.delete('0').subscribe();
 
     tick();
 
     req = httpTestingController.expectOne('test/0');
-    req.flush(JSON.stringify(true));
+    req.flush(null);
   }));
 
   it('should make httpGet request', fakeAsync(() => {
@@ -124,13 +122,13 @@ describe('AccountService', () => {
     let req: TestRequest;
 
     service.post(accountMock).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(accountMock);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(accountMock);
   }));
 
   it('should make httpPut request', fakeAsync(() => {
@@ -148,22 +146,22 @@ describe('AccountService', () => {
 
   it('should make httpPost request for payments', fakeAsync(() => {
     let req: TestRequest;
-    const mockPayment = {
+    const mockPayment: PostPayment = {
       accountId: 'string',
       id: 'string',
       cardExpirationDate: '2020-08-01',
       cardName: 'string',
       cardNumber: 'string',
       securityCode: '111',
-    } as PostPayment;
+    };
 
     service.postPayment(mockPayment).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(mockPayment);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(mockPayment);
   }));
 });

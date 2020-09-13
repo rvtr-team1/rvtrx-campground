@@ -43,9 +43,10 @@ export class BookingService {
    *
    * @param id string
    */
-  delete(id: string): Observable<boolean> {
+  delete(id: string): Observable<void> {
     return this.bookingsUrl$.pipe(
-      concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.delete<void>(url))
     );
   }
 
@@ -55,8 +56,10 @@ export class BookingService {
    * @param id string
    */
   get(id?: string): Observable<Booking[]> {
-    const options = id ? { params: new HttpParams().set('id', id) } : {};
-    return this.bookingsUrl$.pipe(concatMap((url) => this.http.get<Booking[]>(url, options)));
+    return this.bookingsUrl$.pipe(
+      map((url) => (id ? url.concat(`/${id}`) : url)),
+      concatMap((url) => this.http.get<Booking[]>(url))
+    );
   }
 
   /**
@@ -64,8 +67,8 @@ export class BookingService {
    *
    * @param booking Booking
    */
-  post(booking: Booking): Observable<boolean> {
-    return this.bookingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, booking)));
+  post(booking: Booking): Observable<Booking> {
+    return this.bookingsUrl$.pipe(concatMap((url) => this.http.post<Booking>(url, booking)));
   }
 
   /**

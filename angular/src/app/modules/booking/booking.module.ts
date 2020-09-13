@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BookingComponent } from './booking/booking.component';
 import { BookingRoutingModule } from './booking-routing.module';
+import { SpotlightComponent } from './spotlight/spotlight.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { FeaturedLodgingComponent } from './featured-lodging/featured-lodging.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
-  imports: [BookingRoutingModule],
+  declarations: [
+    BookingComponent,
+    SearchBarComponent,
+    SpotlightComponent,
+    SearchResultsComponent,
+    FeaturedLodgingComponent,
+  ],
+  imports: [BookingRoutingModule, CommonModule, FormsModule],
 })
 export class BookingModule {}

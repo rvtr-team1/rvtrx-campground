@@ -22,7 +22,7 @@
 
                       <div class="media-content">
                         <div class="title is-4">
-                          <span>{{ lodging.name }} - {{ rental.name }}</span>
+                          <span>{{ lodging.name }} - {{ rental.lotNumber }}</span>
                           <span class="end-of-card stars">
                             <span *ngFor="let star of averageRating(lodging)" class="fa fa-star"
                               [class.checked]="star"></span>
@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="content">
-                      {{ rental.type }} • Occupancy: {{ rental.occupancy }} Persons
+                      {{ rental.unit.name }} • Occupancy: {{ rental.unit.capacity }} Persons
                       <button class="button is-primary" (click)="makeReservation(lodging)">Reserve
                         Now!</button>
                       <br>

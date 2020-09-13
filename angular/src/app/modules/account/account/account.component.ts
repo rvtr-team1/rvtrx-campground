@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Account } from 'data/account.model';
 import { Address } from 'data/address.model';
 import { Booking } from 'data/booking.model';
@@ -39,8 +39,8 @@ export class AccountComponent {
         lodgingId: '100',
         guests: [],
         rentals: [],
-        checkIn: '2020-10-01',
-        checkOut: '2020-10-01',
+        checkIn: '2020-11-01',
+        checkOut: '2020-11-30',
       },
       {
         id: '200',
@@ -48,8 +48,8 @@ export class AccountComponent {
         lodgingId: '100',
         guests: [],
         rentals: [],
-        checkIn: '2020-11-01',
-        checkOut: '2020-10-01',
+        checkIn: '2020-12-01',
+        checkOut: '2020-12-31',
       },
     ]);
     this.reviews$ = of([

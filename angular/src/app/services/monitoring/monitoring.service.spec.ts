@@ -1,40 +1,11 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { scheduled, asyncScheduler, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { MonitoringService } from './monitoring.service';
-import { ConfigService } from '../config/config.service';
-import { Config } from '../../data/config.model';
-import { Monitoring } from '../../data/monitoring.model';
 
 describe('MonitorService', () => {
-  const configServiceStub = {
-    get(): Observable<Config> {
-      const config: Config = {
-        api: {
-          account: { base: '', uri: { account: '', address: '', profile: '', payment: '' } },
-          booking: { base: '', uri: { booking: '' } },
-          lodging: { base: '', uri: { lodging: '', rental: '', review: '' } },
-          monitoring: '',
-        },
-        navigation: {
-          footer: [
-            {
-              icon: 'string',
-              text: 'string',
-              url: 'string',
-            },
-          ],
-          header: [
-            {
-              icon: 'string',
-              text: 'string',
-              url: 'string',
-            },
-          ],
-        },
-      };
-      return scheduled([config], asyncScheduler);
-    },
+  const routerMock = {
+    navigate(urls: string[]): void {},
   };
 
   let service: MonitoringService;
@@ -42,7 +13,7 @@ describe('MonitorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [{ provide: ConfigService, useValue: configServiceStub }, Monitoring],
+      providers: [{ provide: Router, useValue: routerMock }],
     });
     service = TestBed.inject(MonitoringService);
   });
@@ -53,7 +24,7 @@ describe('MonitorService', () => {
 
   it('should handle error', fakeAsync(() => {
     expect(() => {
-      service.handleError(new Error('error'));
+      service.handleError(null);
     }).not.toThrow();
 
     tick();

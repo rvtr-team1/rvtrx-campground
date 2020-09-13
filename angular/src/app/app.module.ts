@@ -5,7 +5,6 @@ import { environment } from 'environment';
 import { MonitoringService } from 'services/monitoring/monitoring.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { Monitoring } from './data/monitoring.model';
 import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
@@ -13,10 +12,9 @@ import { LayoutModule } from './layout/layout.module';
   declarations: [AppComponent],
   imports: [AppRoutingModule, BrowserModule, LayoutModule, OktaAuthModule],
   providers: [
-    Monitoring,
     {
       provide: ErrorHandler,
-      useClass: environment.production ? MonitoringService : ErrorHandler,
+      useClass: MonitoringService,
     },
     {
       provide: OKTA_CONFIG,
