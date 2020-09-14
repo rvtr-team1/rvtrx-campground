@@ -16,7 +16,7 @@ describe('PaymentComponent', () => {
     },
   ];
   const mockPayment: Payment = {
-    id: '',
+    id: 'string',
     cardExpirationDate: '2020-08-01',
     cardName: 'string',
     cardNumber: 'string',
