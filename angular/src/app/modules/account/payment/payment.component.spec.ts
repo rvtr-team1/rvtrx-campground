@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { PaymentComponent } from './payment.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Observable, of } from 'rxjs';
-import { PostPayment } from '../../../data/payment.model';
+import { Payment, PostPayment } from '../../../data/payment.model';
 import { AccountService } from '../../../services/account/account.service';
 
 describe('PaymentComponent', () => {
@@ -15,7 +15,14 @@ describe('PaymentComponent', () => {
       securityCode: '',
     },
   ];
-  const mockCard: PostPayment = {
+  const mockPayment: Payment = {
+    id: '',
+    cardExpirationDate: '2020-08-01',
+    cardName: 'string',
+    cardNumber: 'string',
+    securityCode: '111',
+  };
+  const mockPostPayment: PostPayment = {
     accountId: 'string',
     id: 'string',
     cardExpirationDate: '2020-08-01',
@@ -24,8 +31,8 @@ describe('PaymentComponent', () => {
     securityCode: '111',
   };
   const accountServiceStub = {
-    postPayment(card: PostPayment): Observable<PostPayment> {
-      return of(card);
+    postPayment(payment: PostPayment): Observable<PostPayment> {
+      return of(payment);
     },
   };
   let component: PaymentComponent;
@@ -53,7 +60,8 @@ describe('PaymentComponent', () => {
   });
 
   it('should add new card', () => {
-    component.addCard(mockCard);
+    component.addCard(mockPostPayment);
     expect(component.payments.length).toEqual(2);
+    expect(component.payments[1]).toEqual(mockPayment);
   });
 });
