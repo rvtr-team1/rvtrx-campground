@@ -15,13 +15,6 @@ describe('PaymentComponent', () => {
       securityCode: '',
     },
   ];
-  const mockPayment: Payment = {
-    id: 'string',
-    cardExpirationDate: '2020-08-01',
-    cardName: 'string',
-    cardNumber: 'string',
-    securityCode: '111',
-  };
   const mockPostPayment: PostPayment = {
     accountId: 'string',
     id: 'string',
@@ -61,7 +54,16 @@ describe('PaymentComponent', () => {
 
   it('should add new card', () => {
     component.addCard(mockPostPayment);
+
+    const newPayment: Payment = {
+      id: mockPostPayment.id,
+      cardName: mockPostPayment.cardName,
+      cardNumber: mockPostPayment.cardNumber,
+      securityCode: mockPostPayment.securityCode,
+      cardExpirationDate: mockPostPayment.cardExpirationDate,
+    };
+
     expect(component.payments.length).toEqual(2);
-    expect(component.payments[1]).toEqual(mockPayment);
+    expect(component.payments[1]).toEqual(newPayment);
   });
 });
