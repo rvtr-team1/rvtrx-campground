@@ -100,10 +100,10 @@ export class LodgingService {
    *
    * @param id string
    */
-  getImage(id: string): Observable<string> {
+  getImage(id: string): Observable<string[]> {
     return this.imagesUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.get<string>(url))
+      concatMap((url) => this.http.get<string[]>(url))
     );
   }
 }

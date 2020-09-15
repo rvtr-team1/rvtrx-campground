@@ -177,15 +177,15 @@ describe('LodgingService', () => {
 
   it('should make httpGet request for image', fakeAsync(() => {
     let req: TestRequest;
-    const mockImageUrl = 'https://bulma.io/images/placeholders/1280x960.png';
+    const mockImageUrls = ['https://bulma.io/images/placeholders/1280x960.png'];
 
     service.getImage('0').subscribe((res) => {
-      expect(res).toEqual(mockImageUrl);
+      expect(res).toEqual(mockImageUrls);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test/0');
-    req.flush(mockImageUrl);
+    req.flush(mockImageUrls);
   }));
 });
