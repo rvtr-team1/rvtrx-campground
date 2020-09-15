@@ -20,13 +20,13 @@
       "uri": {
         "lodging": "lodging",
         "rental": "rental",
-        "review": "review"
+        "review": "review",
+        "image": "images"
       }
     }
   },
   "navigation": {
-    "footer": [
-      {
+    "footer": [{
         "icon": "fab fa-github",
         "text": "GitHub",
         "url": "https://github.com/RVTR/rvtrx-campground#readme"
@@ -37,10 +37,18 @@
         "url": "https://sonarcloud.io/dashboard?id=rvtr_app_campsite"
       }
     ],
-    "header": [
-      { "text": "account", "url": "account" },
-      { "text": "booking", "url": "booking" },
-      { "text": "lodging", "url": "lodging" }
+    "header": [{
+        "text": "account",
+        "url": "account"
+      },
+      {
+        "text": "booking",
+        "url": "booking"
+      },
+      {
+        "text": "lodging",
+        "url": "lodging"
+      }
     ]
   }
 }
