@@ -98,6 +98,7 @@ export class LodgingService {
   /**
    * Represents the _Lodging Service_ `get` method for imgaes
    *
+   * lodging id
    * @param id string
    */
   getImage(id: string): Observable<string[]> {
