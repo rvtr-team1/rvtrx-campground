@@ -94,4 +94,16 @@ export class LodgingService {
   put(lodging: Lodging): Observable<Lodging> {
     return this.lodgingsUrl$.pipe(concatMap((url) => this.http.put<Lodging>(url, lodging)));
   }
+
+  /**
+   * Represents the _Lodging Service_ `get` method for imgaes
+   *
+   * @param id string
+   */
+  getImage(id: string): Observable<string> {
+    return this.imagesUrl$.pipe(
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.get<string>(url))
+    );
+  }
 }
