@@ -54,11 +54,16 @@
     "build": "ng build",
     "e2e": "ng e2e",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "format": "npx prettier --config ../.prettierrc.yaml --check ./ --ignore-path ../.prettierignore",
     "prettier": "npx prettier --config ../.prettierrc.yaml --write ./ --ignore-path ../.prettierignore",
 =======
     "format": "prettier --config ../.prettierrc.yaml --ignore-path ../.prettierignore --write ./",
 >>>>>>> install prettier package [#174718804]
+=======
+    "format": "npx prettier --config ../.prettierrc.yaml --check ./ --ignore-path ../.prettierignore",
+    "prettier": "npx prettier --config ../.prettierrc.yaml --write ./ --ignore-path ../.prettierignore",
+>>>>>>> added prettier script
     "lint": "ng lint",
     "scan": "sonar-scanner",
     "start": "ng serve",
