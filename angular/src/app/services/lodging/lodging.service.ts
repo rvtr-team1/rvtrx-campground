@@ -1,10 +1,11 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { concatMap, map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Lodging } from '../../data/lodging.model';
 import { Filter } from '../../data/filter.model';
+import { MonitoringService } from 'services/monitoring/monitoring.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class LodgingService {
   private readonly lodgingsUrl$: Observable<string>;
   private readonly rentalsUrl$: Observable<string>;
   private readonly reviewsUrl$: Observable<string>;
+  private readonly monitoring$: MonitoringService;
 
   /**
    * Represents the _Lodging Service_ `constructor` method
@@ -20,8 +22,14 @@ export class LodgingService {
    * @param config ConfigService
    * @param http HttpClient
    */
-  constructor(config: ConfigService, private readonly http: HttpClient) {
+  constructor(
+    config: ConfigService,
+    private readonly http: HttpClient,
+    monitor: MonitoringService
+  ) {
     const config$ = config.get();
+    this.monitoring$ = monitor;
+
     this.lodgingsUrl$ = config$.pipe(
       map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.lodging}`)
     );
@@ -41,7 +49,14 @@ export class LodgingService {
   delete(id: string): Observable<void> {
     return this.lodgingsUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.delete<void>(url))
+      concatMap((url) =>
+        this.http.delete<void>(url).pipe(
+          catchError((error) => {
+            this.monitoring$.handleError(error);
+            return throwError('Lodging Service Error');
+          })
+        )
+      )
     );
   }
 
@@ -52,11 +67,29 @@ export class LodgingService {
    */
   get(filter?: Filter): Observable<Lodging[]> {
     if (!filter) {
-      return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url)));
+      return this.lodgingsUrl$.pipe(
+        concatMap((url) =>
+          this.http.get<Lodging[]>(url).pipe(
+            catchError((error) => {
+              this.monitoring$.handleError(error);
+              return throwError('Lodging Service Error');
+            })
+          )
+        )
+      );
     } else {
       const params = new HttpParams().set('city', filter.city).set('occupancy', filter.occupancy);
       return this.lodgingsUrl$.pipe(
-        concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))
+        concatMap((url) =>
+          this.http
+            .get<Lodging[]>(`${url}/available`, { params })
+            .pipe(
+              catchError((error) => {
+                this.monitoring$.handleError(error);
+                return throwError('Lodging Service Error');
+              })
+            )
+        )
       );
     }
   }
@@ -69,7 +102,14 @@ export class LodgingService {
   getById(id: string): Observable<Lodging> {
     return this.lodgingsUrl$.pipe(
       map((url) => url.concat(`/${id}`)),
-      concatMap((url) => this.http.get<Lodging>(url))
+      concatMap((url) =>
+        this.http.get<Lodging>(url).pipe(
+          catchError((error) => {
+            this.monitoring$.handleError(error);
+            return throwError('Lodging Service Error');
+          })
+        )
+      )
     );
   }
 
@@ -79,7 +119,16 @@ export class LodgingService {
    * @param lodging Lodging
    */
   post(lodging: Lodging): Observable<Lodging> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<Lodging>(url, lodging)));
+    return this.lodgingsUrl$.pipe(
+      concatMap((url) =>
+        this.http.post<Lodging>(url, lodging).pipe(
+          catchError((error) => {
+            this.monitoring$.handleError(error);
+            return throwError('Lodging Service Error');
+          })
+        )
+      )
+    );
   }
 
   /**
@@ -88,6 +137,15 @@ export class LodgingService {
    * @param lodging Lodging
    */
   put(lodging: Lodging): Observable<Lodging> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.put<Lodging>(url, lodging)));
+    return this.lodgingsUrl$.pipe(
+      concatMap((url) =>
+        this.http.put<Lodging>(url, lodging).pipe(
+          catchError((error) => {
+            this.monitoring$.handleError(error);
+            return throwError('Lodging Service Error');
+          })
+        )
+      )
+    );
   }
 }
