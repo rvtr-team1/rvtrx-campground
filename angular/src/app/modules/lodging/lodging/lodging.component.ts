@@ -25,7 +25,7 @@ export class LodgingComponent implements OnInit {
    */
   ngOnInit(): void {
     this.lodgingService.get().subscribe((data) => {
-      (this.lodgings = data);
+      this.lodgings = data;
 
       if (this.lodgings != null) {
         this.lodgings?.forEach((lodging) => {
