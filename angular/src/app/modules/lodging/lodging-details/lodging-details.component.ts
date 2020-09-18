@@ -39,6 +39,12 @@ export class LodgingDetailsComponent implements OnInit {
       if (idString) {
         this.lodgingService.getById(idString).subscribe((data) => {
           this.lodging = data;
+
+          this.lodgingService.getImages(idString).subscribe((urls) => {
+            if (this.lodging != null) {
+              this.lodging.imageUrls = urls;
+            }
+          });
         });
       }
     });

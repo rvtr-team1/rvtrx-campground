@@ -1,10 +1,11 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LodgingDetailsComponent } from './lodging-details.component';
 import { Lodging } from 'src/app/data/lodging.model';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { LodgingService } from 'src/app/services/lodging/lodging.service';
 import { ActivatedRoute } from '@angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+
 describe('LodgingDetailsComponent', () => {
   let component: LodgingDetailsComponent;
   let fixture: ComponentFixture<LodgingDetailsComponent>;
@@ -29,15 +30,25 @@ describe('LodgingDetailsComponent', () => {
     bathrooms: 1,
     imageUrls: [],
   };
+
+  const imageUrlsMock = ['https://bulma.io/images/placeholders/1280x960.png'];
+
   beforeEach(
     waitForAsync(() => {
-      const lodgingService = jasmine.createSpyObj('LodgingService', ['getById']);
-      lodgingService.getById.and.returnValue(of(lodging));
+      const lodgingServiceStub = {
+        getById(id: string): Observable<Lodging> {
+          return of(lodging);
+        },
+
+        getImages(id: string): Observable<string[]> {
+          return of(imageUrlsMock);
+        },
+      };
 
       TestBed.configureTestingModule({
         declarations: [LodgingDetailsComponent],
         providers: [
-          { provide: LodgingService, useValue: lodgingService },
+          { provide: LodgingService, useValue: lodgingServiceStub },
           {
             provide: ActivatedRoute,
             useValue: {
@@ -51,19 +62,26 @@ describe('LodgingDetailsComponent', () => {
         ],
         schemas: [NO_ERRORS_SCHEMA],
       }).compileComponents();
+
       fixture = TestBed.createComponent(LodgingDetailsComponent);
       component = fixture.componentInstance;
       fixture.detectChanges();
     })
   );
+
+  /**
+   * tests the whole lodging-details component
+   */
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   /**
    * tests if the lodge details are returned correctly
    */
   it('should get lodging details', () => {
     expect(component.lodging).toBeTruthy();
     expect(component.lodging).toEqual(lodging);
+    expect(component.lodging?.imageUrls).toEqual(imageUrlsMock);
   });
 });
