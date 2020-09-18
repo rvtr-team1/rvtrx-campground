@@ -179,7 +179,7 @@ describe('LodgingService', () => {
     let req: TestRequest;
     const mockImageUrls = ['https://bulma.io/images/placeholders/1280x960.png'];
 
-    service.getImage('0').subscribe((res) => {
+    service.getImages('0').subscribe((res) => {
       expect(res).toEqual(mockImageUrls);
     });
 
