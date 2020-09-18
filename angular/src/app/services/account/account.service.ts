@@ -5,7 +5,7 @@ import { catchError, concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Account } from '../../data/account.model';
 import { PostPayment } from '../../data/payment.model';
-import { MonitoringService } from 'services/monitoring/monitoring.service';
+import { MonitoringService } from '../monitoring/monitoring.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,6 @@ export class AccountService {
   private readonly addressesUrl$: Observable<string>;
   private readonly profilesUrl$: Observable<string>;
   private readonly paymentsUrl$: Observable<string>;
-  private readonly monitoring$: MonitoringService;
 
   /**
    * Represents the _Account Service_ `constructor` method
@@ -26,10 +25,9 @@ export class AccountService {
   constructor(
     config: ConfigService,
     private readonly http: HttpClient,
-    monitor: MonitoringService
+    private readonly monitoring: MonitoringService
   ) {
     const config$ = config.get();
-    this.monitoring$ = monitor;
 
     this.accountsUrl$ = config$.pipe(
       map((cfg) => `${cfg.api.account.base}${cfg.api.account.uri.account}`)
@@ -55,8 +53,8 @@ export class AccountService {
       map((url) => url.concat(`/${id}`)),
       concatMap((url) =>
         this.http.delete<void>(url).pipe(
-          catchError((error) => {
-            this.monitoring$.handleError(error);
+          catchError((err) => {
+            this.monitoring.handleError(err);
             return throwError('Account Service Error');
           })
         )
@@ -74,8 +72,8 @@ export class AccountService {
       map((url) => url.concat(`/${id}`)),
       concatMap((url) =>
         this.http.get<Account>(url).pipe(
-          catchError((error) => {
-            this.monitoring$.handleError(error);
+          catchError((err) => {
+            this.monitoring.handleError(err);
             return throwError('Account Service Error');
           })
         )
@@ -92,8 +90,8 @@ export class AccountService {
     return this.accountsUrl$.pipe(
       concatMap((url) =>
         this.http.post<Account>(url, account).pipe(
-          catchError((error) => {
-            this.monitoring$.handleError(error);
+          catchError((err) => {
+            this.monitoring.handleError(err);
             return throwError('Account Service Error');
           })
         )
@@ -110,8 +108,8 @@ export class AccountService {
     return this.accountsUrl$.pipe(
       concatMap((url) =>
         this.http.put<Account>(url, account).pipe(
-          catchError((error) => {
-            this.monitoring$.handleError(error);
+          catchError((err) => {
+            this.monitoring.handleError(err);
             return throwError('Account Service Error');
           })
         )
@@ -128,8 +126,8 @@ export class AccountService {
     return this.paymentsUrl$.pipe(
       concatMap((url) =>
         this.http.post<PostPayment>(url, payment).pipe(
-          catchError((error) => {
-            this.monitoring$.handleError(error);
+          catchError((err) => {
+            this.monitoring.handleError(err);
             return throwError('Account Service Error');
           })
         )
