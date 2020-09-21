@@ -3,43 +3,33 @@ import { RentalComponent } from './rental.component';
 import { Rental } from 'src/app/data/rental.model';
 
 describe('RentalComponent', () => {
-  let component: RentalComponent;
-  let fixture: ComponentFixture<RentalComponent>;
-
   const rentals: Rental[] = [
     {
       id: '1',
-      name: 'Rental1',
-      occupancy: 2,
-      type: 'tent',
+      lotNumber: '1',
+      unit: {
+        size: '5x5',
+        capacity: 2,
+        name: 'tent',
+      },
       status: 'available',
       price: 100,
     },
     {
       id: '2',
-      name: 'Rental2',
-      occupancy: 2,
-      type: 'tent',
+      lotNumber: '2',
+      unit: {
+        size: '5x5',
+        capacity: 5,
+        name: 'rv',
+      },
       status: 'available',
       price: 100,
     },
-    {
-      id: '3',
-      name: 'Rental3',
-      occupancy: 2,
-      type: 'cabin',
-      status: 'booked',
-      price: 100,
-    },
-    {
-      id: '4',
-      name: 'Rental4',
-      occupancy: 2,
-      type: 'cabin',
-      status: 'booked',
-      price: 100,
-    },
   ];
+
+  let component: RentalComponent;
+  let fixture: ComponentFixture<RentalComponent>;
 
   beforeEach(
     waitForAsync(() => {
@@ -64,11 +54,11 @@ describe('RentalComponent', () => {
   });
 
   it('should set availability count correctly', () => {
-    expect(component.availabilityCount.get('tent')).toEqual(2);
+    expect(component.availabilityCount.get('tent')).toEqual(1);
   });
 
   it('should have none available', () => {
-    expect(component.availabilityCount.get('cabin')).toEqual(0);
+    expect(component.availabilityCount.get('rv')).toEqual(1);
   });
 
   it('should call setRentals', () => {
@@ -87,5 +77,30 @@ describe('RentalComponent', () => {
     const headerRow = tableRows[0];
     expect(headerRow.cells[0].innerHTML).toContain('Site');
     expect(headerRow.cells[2].innerHTML).toContain('Sites Available');
+  });
+
+  it('should add and remove rental', () => {
+    const rental: Rental = {
+      id: '3',
+      lotNumber: '3',
+      unit: {
+        size: '5x5',
+        capacity: 2,
+        name: 'tent',
+      },
+      status: 'available',
+      price: 100,
+    };
+
+    // Adds Rental
+    rentals.push(rental);
+    component.rentals = rentals;
+    component.ngOnChanges();
+    expect(component.availabilityCount.get('tent')).toEqual(2);
+
+    // Removes Rental
+    component.rentals.pop();
+    component.ngOnChanges();
+    expect(component.availabilityCount.get('tent')).toEqual(1);
   });
 });

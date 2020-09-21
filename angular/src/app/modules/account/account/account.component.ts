@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Account } from 'data/account.model';
 import { Address } from 'data/address.model';
 import { Booking } from 'data/booking.model';
@@ -34,7 +34,9 @@ export class AccountComponent {
     editingService: GenericEditingService<Partial<Account>>
   ) {
     this.account$ = this.accountService.get(this.id);
+
     this.bookings$ = this.bookingService.get(this.id);
+
     this.reviews$ = of([
       // Not yet implemented
     ]);

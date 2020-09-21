@@ -32,6 +32,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('uic-header').textContent).toContain('Campsite');
+    expect(compiled.querySelector('uic-header').textContent).toContain('Campground');
   });
 });

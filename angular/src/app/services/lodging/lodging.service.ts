@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { ConfigService } from '../config/config.service';
 import { Lodging } from '../../data/lodging.model';
+import { Filter } from '../../data/filter.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ export class LodgingService {
   private readonly lodgingsUrl$: Observable<string>;
   private readonly rentalsUrl$: Observable<string>;
   private readonly reviewsUrl$: Observable<string>;
+  private readonly imagesUrl$: Observable<string>;
 
   /**
    * Represents the _Lodging Service_ `constructor` method
@@ -30,19 +32,8 @@ export class LodgingService {
     this.reviewsUrl$ = config$.pipe(
       map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.review}`)
     );
-  }
-
-  /**
-   * Gets all lodgings filtered by city and occupancy
-   * with at least one rental marked 'available'
-   *
-   * @param city string
-   * @param occupancy string
-   */
-  getAvailable(city: string, occupancy: string): Observable<Lodging[]> {
-    const params = new HttpParams().set('city', city).set('occupancy', occupancy);
-    return this.lodgingsUrl$.pipe(
-      concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))
+    this.imagesUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.image}`)
     );
   }
 
@@ -51,20 +42,27 @@ export class LodgingService {
    *
    * @param id string
    */
-  delete(id: string): Observable<boolean> {
+  delete(id: string): Observable<void> {
     return this.lodgingsUrl$.pipe(
-      concatMap((url) => this.http.delete<boolean>(url, { params: { id } }))
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.delete<void>(url))
     );
   }
 
   /**
    * Represents the _Lodging Service_ `get` method
    *
-   * @param id string
+   * @param filter Filter
    */
-  get(filter?: string): Observable<Lodging[]> {
-    const options = filter ? { params: new HttpParams().set('filter', filter) } : {};
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url, options)));
+  get(filter?: Filter): Observable<Lodging[]> {
+    if (!filter) {
+      return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging[]>(url)));
+    } else {
+      const params = new HttpParams().set('city', filter.city).set('occupancy', filter.occupancy);
+      return this.lodgingsUrl$.pipe(
+        concatMap((url) => this.http.get<Lodging[]>(`${url}/available`, { params }))
+      );
+    }
   }
 
   /**
@@ -73,7 +71,10 @@ export class LodgingService {
    * @param id string
    */
   getById(id: string): Observable<Lodging> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.get<Lodging>(`${url}/${id}`)));
+    return this.lodgingsUrl$.pipe(
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.get<Lodging>(url))
+    );
   }
 
   /**
@@ -81,8 +82,8 @@ export class LodgingService {
    *
    * @param lodging Lodging
    */
-  post(lodging: Lodging): Observable<boolean> {
-    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<boolean>(url, lodging)));
+  post(lodging: Lodging): Observable<Lodging> {
+    return this.lodgingsUrl$.pipe(concatMap((url) => this.http.post<Lodging>(url, lodging)));
   }
 
   /**
@@ -92,5 +93,18 @@ export class LodgingService {
    */
   put(lodging: Lodging): Observable<Lodging> {
     return this.lodgingsUrl$.pipe(concatMap((url) => this.http.put<Lodging>(url, lodging)));
+  }
+
+  /**
+   * Represents the _Lodging Service_ `get` method for imgaes
+   *
+   * lodging id
+   * @param id string
+   */
+  getImages(id: string): Observable<string[]> {
+    return this.imagesUrl$.pipe(
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.get<string[]>(url))
+    );
   }
 }

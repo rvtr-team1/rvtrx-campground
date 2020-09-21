@@ -31,37 +31,28 @@ describe('SearchBarComponent', () => {
       },
       name: 'Test',
       bathrooms: 1,
+      imageUrls: [],
       rentals: [
         {
           id: '1',
-          name: 'Rental1',
-          occupancy: 2,
-          type: 'tent',
+          lotNumber: '1',
+          unit: {
+            size: '5x5',
+            capacity: 2,
+            name: 'tent',
+          },
           status: 'available',
           price: 100,
         },
         {
           id: '2',
-          name: 'Rental2',
-          occupancy: 2,
-          type: 'tent',
+          lotNumber: '2',
+          unit: {
+            size: '5x5',
+            capacity: 5,
+            name: 'rv',
+          },
           status: 'available',
-          price: 100,
-        },
-        {
-          id: '3',
-          name: 'Rental3',
-          occupancy: 2,
-          type: 'cabin',
-          status: '',
-          price: 100,
-        },
-        {
-          id: '4',
-          name: 'Rental4',
-          occupancy: 2,
-          type: 'cabin',
-          status: '',
           price: 100,
         },
       ],
@@ -91,10 +82,10 @@ describe('SearchBarComponent', () => {
     },
   } as NgForm;
 
-  const lodgingService = jasmine.createSpyObj('LodgingService', ['getAvailable']);
+  const lodgingService = jasmine.createSpyObj('LodgingService', ['get']);
   const bookingService = jasmine.createSpyObj('BookingService', ['getByDateRange']);
 
-  lodgingService.getAvailable.and.returnValue(of(lodgings));
+  lodgingService.get.and.returnValue(of(lodgings));
   bookingService.getByDateRange.and.returnValue(of(bookings));
 
   beforeEach(
@@ -128,7 +119,7 @@ describe('SearchBarComponent', () => {
     const isSearchedSpy = spyOn(component.isSearched, 'emit');
 
     component.onSubmit(testForm).then(() => {
-      expect(lodgingService.getAvailable).toHaveBeenCalled();
+      expect(lodgingService.get).toHaveBeenCalled();
       expect(bookingService.getByDateRange).toHaveBeenCalled();
 
       expect(searchResultsSpy).toHaveBeenCalled();

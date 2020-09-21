@@ -14,7 +14,7 @@ describe('ConfigService', () => {
     api: {
       account: { base: 'test', uri: { account: '', address: '', profile: '', payment: '' } },
       booking: { base: '', uri: { booking: '' } },
-      lodging: { base: '', uri: { lodging: '', rental: '', review: '' } },
+      lodging: { base: '', uri: { lodging: '', rental: '', review: '', image: '' } },
       monitoring: '',
     },
     navigation: {

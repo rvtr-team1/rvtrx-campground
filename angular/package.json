@@ -15,7 +15,7 @@
     "@angular/router": "~10.1.0",
     "@fortawesome/fontawesome-free": "~5.14.0",
     "@okta/okta-angular": "^2.2.0",
-    "@sentry/browser": "^5.22.3",
+    "@sentry/angular": "^5.23.0",
     "bulma": "^0.9.0",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.0",

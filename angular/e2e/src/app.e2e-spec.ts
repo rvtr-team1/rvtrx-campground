@@ -1,7 +1,7 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('project rvtr-app-campsite', () => {
+describe('project rvtrx-campground', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('project rvtr-app-campsite', () => {
 
   it('should display page header', () => {
     page.navigateTo();
-    expect(page.getPageHeader()).toContain('Campsite');
+    expect(page.getPageHeader()).toContain('Campground');
   });
 
   afterEach(async () => {

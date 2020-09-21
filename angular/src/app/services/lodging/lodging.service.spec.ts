@@ -10,6 +10,7 @@ import { LodgingService } from './lodging.service';
 import { ConfigService } from '../config/config.service';
 import { Config } from '../../data/config.model';
 import { Lodging } from '../../data/lodging.model';
+import { Filter } from 'src/app/data/filter.model';
 
 describe('LodgingService', () => {
   const lodgingMock: Lodging[] = [
@@ -32,6 +33,7 @@ describe('LodgingService', () => {
       bathrooms: 1,
       rentals: [],
       reviews: [],
+      imageUrls: [],
     },
   ];
 
@@ -41,7 +43,7 @@ describe('LodgingService', () => {
         api: {
           account: { base: '', uri: { account: '', address: '', profile: '', payment: '' } },
           booking: { base: '', uri: { booking: '' } },
-          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '' } },
+          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '', image: '' } },
           monitoring: '',
         },
         navigation: {
@@ -87,8 +89,9 @@ describe('LodgingService', () => {
 
   it('should make httpGet request for available', fakeAsync(() => {
     let req: TestRequest;
+    const filter: Filter = { city: 'string', occupancy: 'string' };
 
-    service.getAvailable('string', 'string').subscribe((res) => {
+    service.get(filter).subscribe((res) => {
       const lodgings: Lodging[] = JSON.parse(res.toString());
       expect(lodgings.length).toEqual(1);
     });
@@ -102,32 +105,31 @@ describe('LodgingService', () => {
   it('should make httpDelete request', fakeAsync(() => {
     let req: TestRequest;
 
-    service.delete('0').subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
-    });
+    service.delete('0').subscribe();
 
     tick();
 
-    req = httpTestingController.expectOne('test?id=0');
-    req.flush(JSON.stringify(true));
+    req = httpTestingController.expectOne('test/0');
+    req.flush(null);
   }));
 
   it('should make httpGet request', fakeAsync(() => {
     let req: TestRequest;
     let reqOne: TestRequest;
+    const filter: Filter = { city: 'string', occupancy: 'string' };
 
     service.get().subscribe((res) => {
       expect(res.length).toEqual(lodgingMock.length);
     });
 
-    service.get('0').subscribe((res) => {
+    service.get(filter).subscribe((res) => {
       expect(res[0]).toEqual(lodgingMock[0]);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    reqOne = httpTestingController.expectOne('test?filter=0');
+    reqOne = httpTestingController.expectOne('test/available?city=string&occupancy=string');
 
     req.flush(lodgingMock);
     reqOne.flush(lodgingMock);
@@ -151,13 +153,13 @@ describe('LodgingService', () => {
     let req: TestRequest;
 
     service.post(lodgingMock[0]).subscribe((res) => {
-      expect(JSON.parse(res.toString())).toBeTrue();
+      expect(res).toEqual(lodgingMock[0]);
     });
 
     tick();
 
     req = httpTestingController.expectOne('test');
-    req.flush(JSON.stringify(true));
+    req.flush(lodgingMock[0]);
   }));
 
   it('should make httpPut request', fakeAsync(() => {
@@ -171,5 +173,19 @@ describe('LodgingService', () => {
 
     req = httpTestingController.expectOne('test');
     req.flush(lodgingMock[0]);
+  }));
+
+  it('should make httpGet request for image', fakeAsync(() => {
+    let req: TestRequest;
+    const mockImageUrls = ['https://bulma.io/images/placeholders/1280x960.png'];
+
+    service.getImages('0').subscribe((res) => {
+      expect(res).toEqual(mockImageUrls);
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test/0');
+    req.flush(mockImageUrls);
   }));
 });

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Lodging } from 'src/app/data/lodging.model';
-import { Booking } from 'src/app/data/booking.model';
-import { BookingService } from 'src/app/services/booking/booking.service';
+import { Lodging } from '../../../data/lodging.model';
+import { Booking } from '../../../data/booking.model';
+import { BookingService } from 'services/booking/booking.service';
 
 @Component({
   selector: 'uic-search-results',

@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning][semver].
 ### added
 
 - configure the project definition to support identity management
+
+### fixed
+
 - fix the project formatting configuration
+- fix the project monitoring configuration
 
 ## [0.5.0] :: 2020-06-24
 

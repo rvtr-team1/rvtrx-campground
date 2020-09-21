@@ -4,6 +4,7 @@ import { forkJoin } from 'rxjs';
 import { BookingService } from 'src/app/services/booking/booking.service';
 import { Lodging } from '../../../data/lodging.model';
 import { LodgingService } from '../../../services/lodging/lodging.service';
+import { Filter } from 'src/app/data/filter.model';
 
 @Component({
   selector: 'uic-search-bar',
@@ -22,13 +23,17 @@ export class SearchBarComponent {
   ) {}
 
   async onSubmit(form: NgForm): Promise<void> {
-    const occupancy = `${parseInt(form.value.adults, 10) + parseInt(form.value.children, 10)}`;
+    const adults = form.value.adults ? parseInt(form.value.adults, 10) : 0;
+    const children = form.value.children ? parseInt(form.value.children, 10) : 0;
+    const occupancy = `${adults + children}`;
     const city: string = form.value.location;
 
     const checkIn: string = form.value.checkin;
     const checkOut: string = form.value.checkout;
 
-    const lodgings$ = this.lodgingService.getAvailable(city, occupancy);
+    const filter: Filter = { city, occupancy };
+
+    const lodgings$ = this.lodgingService.get(filter);
     const bookings$ = this.bookingService.getByDateRange(checkIn, checkOut);
 
     forkJoin([lodgings$, bookings$]).subscribe(([lodgings, bookings]) => {
