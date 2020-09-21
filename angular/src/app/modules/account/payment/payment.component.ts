@@ -28,7 +28,7 @@ export class PaymentComponent {
     this.accountService.postPayment(card).subscribe(
       (newCard) =>
         this.payments.push({
-          id: '',
+          id: newCard.id,
           cardName: newCard.cardName,
           cardNumber: newCard.cardNumber,
           securityCode: newCard.securityCode,
