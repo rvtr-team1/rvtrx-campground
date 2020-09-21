@@ -24,6 +24,14 @@ export class LodgingComponent implements OnInit {
    * get() in lodging service component
    */
   ngOnInit(): void {
-    this.lodgingService.get().subscribe((data) => (this.lodgings = data));
+    this.lodgingService.get().subscribe((data) => {
+      this.lodgings = data;
+
+      if (this.lodgings != null) {
+        this.lodgings?.forEach((lodging) => {
+          this.lodgingService.getImages(lodging.id).subscribe((urls) => (lodging.imageUrls = urls));
+        });
+      }
+    });
   }
 }

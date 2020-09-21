@@ -13,6 +13,7 @@ export class LodgingService {
   private readonly lodgingsUrl$: Observable<string>;
   private readonly rentalsUrl$: Observable<string>;
   private readonly reviewsUrl$: Observable<string>;
+  private readonly imagesUrl$: Observable<string>;
 
   /**
    * Represents the _Lodging Service_ `constructor` method
@@ -30,6 +31,9 @@ export class LodgingService {
     );
     this.reviewsUrl$ = config$.pipe(
       map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.review}`)
+    );
+    this.imagesUrl$ = config$.pipe(
+      map((cfg) => `${cfg.api.lodging.base}${cfg.api.lodging.uri.image}`)
     );
   }
 
@@ -89,5 +93,18 @@ export class LodgingService {
    */
   put(lodging: Lodging): Observable<Lodging> {
     return this.lodgingsUrl$.pipe(concatMap((url) => this.http.put<Lodging>(url, lodging)));
+  }
+
+  /**
+   * Represents the _Lodging Service_ `get` method for imgaes
+   *
+   * lodging id
+   * @param id string
+   */
+  getImages(id: string): Observable<string[]> {
+    return this.imagesUrl$.pipe(
+      map((url) => url.concat(`/${id}`)),
+      concatMap((url) => this.http.get<string[]>(url))
+    );
   }
 }

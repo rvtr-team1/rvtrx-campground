@@ -31,6 +31,7 @@ describe('SearchBarComponent', () => {
       },
       name: 'Test',
       bathrooms: 1,
+      imageUrls: [],
       rentals: [
         {
           id: '1',

@@ -38,6 +38,7 @@ describe('FeaturedLodgingComponent', () => {
         },
       ],
       reviews: [],
+      imageUrls: [],
     },
   ];
 

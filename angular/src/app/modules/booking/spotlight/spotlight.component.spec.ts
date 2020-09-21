@@ -38,6 +38,7 @@ describe('SpotlightComponent', () => {
         },
       ],
       reviews: [],
+      imageUrls: [],
     },
     {
       id: '',
@@ -58,6 +59,7 @@ describe('SpotlightComponent', () => {
       bathrooms: 1,
       rentals: [],
       reviews: [],
+      imageUrls: [],
     },
   ];
 

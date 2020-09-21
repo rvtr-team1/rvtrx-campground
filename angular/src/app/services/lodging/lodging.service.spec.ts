@@ -33,6 +33,7 @@ describe('LodgingService', () => {
       bathrooms: 1,
       rentals: [],
       reviews: [],
+      imageUrls: [],
     },
   ];
 
@@ -42,7 +43,7 @@ describe('LodgingService', () => {
         api: {
           account: { base: '', uri: { account: '', address: '', profile: '', payment: '' } },
           booking: { base: '', uri: { booking: '' } },
-          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '' } },
+          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '', image: '' } },
           monitoring: '',
         },
         navigation: {
@@ -172,5 +173,19 @@ describe('LodgingService', () => {
 
     req = httpTestingController.expectOne('test');
     req.flush(lodgingMock[0]);
+  }));
+
+  it('should make httpGet request for image', fakeAsync(() => {
+    let req: TestRequest;
+    const mockImageUrls = ['https://bulma.io/images/placeholders/1280x960.png'];
+
+    service.getImages('0').subscribe((res) => {
+      expect(res).toEqual(mockImageUrls);
+    });
+
+    tick();
+
+    req = httpTestingController.expectOne('test/0');
+    req.flush(mockImageUrls);
   }));
 });

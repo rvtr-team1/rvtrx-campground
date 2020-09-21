@@ -12,6 +12,7 @@ import { Rental } from './rental.model';
  * bathrooms: number;
  * rentals: Rental[];
  * reviews: Review[];
+ * imageUrls: string[]
  * ```
  */
 export interface Lodging {
@@ -25,4 +26,6 @@ export interface Lodging {
   rentals: Rental[];
   /** reviews associated with any sites within the campground */
   reviews: Review[];
+  /** various images of the campground */
+  imageUrls: string[];
 }

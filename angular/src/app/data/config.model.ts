@@ -31,6 +31,7 @@ export interface Config {
         lodging: string;
         rental: string;
         review: string;
+        image: string;
       };
     };
     monitoring: string;

@@ -30,7 +30,7 @@ describe('BookingService', () => {
         api: {
           account: { base: 'test', uri: { account: '', address: '', profile: '', payment: '' } },
           booking: { base: 'test', uri: { booking: '' } },
-          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '' } },
+          lodging: { base: 'test', uri: { lodging: '', rental: '', review: '', image: '' } },
           monitoring: 'test',
         },
         navigation: {
